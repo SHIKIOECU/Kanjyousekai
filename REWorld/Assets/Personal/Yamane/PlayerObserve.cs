@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerObserve : MonoBehaviour
 {
@@ -15,9 +16,12 @@ public class PlayerObserve : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //左クリックを受け付ける
-        if (Input.GetMouseButtonDown(0))
-            if(observe.activeInHierarchy)
+        Mouse mouse = Mouse.current;
+
+        // 左クリックをしている
+        if (mouse.leftButton.wasPressedThisFrame)
+        {
+            if (observe.activeInHierarchy)
             {
                 observe.SetActive(false);
             }
@@ -25,5 +29,6 @@ public class PlayerObserve : MonoBehaviour
             {
                 observe.SetActive(true);
             }
+        }
     }
 }
