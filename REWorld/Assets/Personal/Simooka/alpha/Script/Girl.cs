@@ -33,9 +33,15 @@ public class Girl : MonoBehaviour, INPC,IItem
     [SerializeField]
     private FlagData _ice;
 
+    [SerializeField]
+    private GameObject _gimmick;
+
+    [SerializeField]
+    private List<GameObject> _gimmickList;
+
     private void Start()
     {
-
+        EmotionalWorld.SetActive(false);
     }
 
     //フラグを全てfalseにする
@@ -73,7 +79,7 @@ public class Girl : MonoBehaviour, INPC,IItem
             if (FlagDatas[i].IsOn)
             {
                 EmotionalWorld.GetComponent<SpriteRenderer>().sprite = EmotionalWorldSprite[i];
-                Debug.Log("ChangeWorld");
+                if(_gimmick!=null) _gimmick.SetActive(true);
                 break;
             }
         }
@@ -87,6 +93,8 @@ public class Girl : MonoBehaviour, INPC,IItem
             _ice.InitFlag();
             FlagReset();
             FlagDatas[1].SetFlagStatus();
+
+            _gimmick = _gimmickList[0];
             ChangeWorld();
         }
 
