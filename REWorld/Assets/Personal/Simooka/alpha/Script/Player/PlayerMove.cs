@@ -40,21 +40,24 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Plane")
-        {
             jumpState = false;
-        }
     }
+
+    //private void Move()
+    //{
+    //    //入力した方向へ移動（現在X軸のみ反応）
+    //    rb2D.AddForce(move * speed, ForceMode2D.Impulse);
+    //}
 
     private void Move()
     {
         //入力した方向へ移動（現在X軸のみ反応）
-        rb2D.AddForce(move * speed, ForceMode2D.Impulse);
+        rb2D.velocity = new Vector2(move.x * speed, rb2D.velocity.y);
     }
 
     public void Jump()
     {
         //Y軸方向へ移動
-        rb2D.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
+        rb2D.velocity = transform.up * jumpPower;
     }
 }

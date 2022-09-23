@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Girl : MonoBehaviour, INPC,IItem
+public class IceClerk : MonoBehaviour,INPC,IItem
 {
     //感情世界
     [SerializeField]
@@ -29,12 +29,19 @@ public class Girl : MonoBehaviour, INPC,IItem
     [SerializeField]
     private List<FlagData> _flag;
 
-    //アイテム（アイス）フラグ
+    [SerializeField]
+    private Ice ice;
+
+    //アイテムフラグ
     [SerializeField]
     private FlagData _ice;
 
     [SerializeField]
-    private Detective _detective;
+    private float slowSpeed;
+
+    //アイテムフラグ
+    [SerializeField]
+    private FlagData _coin;
 
     [SerializeField]
     private GameObject _gimmick;
@@ -44,13 +51,12 @@ public class Girl : MonoBehaviour, INPC,IItem
 
     private void Start()
     {
-        EmotionalWorld.SetActive(false);
-    }
 
+    }
     //フラグを全てfalseにする
     void FlagReset()
     {
-        for(int i = 0; i < _flag.Count; i++)
+        for (int i = 0; i < _flag.Count; i++)
         {
             _flag[i].InitFlag();
         }
@@ -72,19 +78,11 @@ public class Girl : MonoBehaviour, INPC,IItem
     public void SetActiveWorld()
     {
         EmotionalWorld.SetActive(true);
-
-        if (FlagDatas[0].IsOn)
+        if (_flag[1].IsOn)
         {
-            _detective.FlagDatas[0].InitFlag();
-            _detective.FlagDatas[1].SetFlagStatus();
+            ice.transform.position = this.transform.position;
+            ice.Rb2D.velocity = new Vector2(slowSpeed, 0);
         }
-        else
-        {
-            _detective.FlagDatas[1].InitFlag();
-            _detective.FlagDatas[0].SetFlagStatus();
-        }
-
-        _detective.moved = false;
     }
 
     //感情世界の画像を変更
@@ -95,7 +93,6 @@ public class Girl : MonoBehaviour, INPC,IItem
             if (FlagDatas[i].IsOn)
             {
                 EmotionalWorld.GetComponent<SpriteRenderer>().sprite = EmotionalWorldSprite[i];
-                if(_gimmick!=null) _gimmick.SetActive(true);
                 break;
             }
         }
@@ -104,17 +101,16 @@ public class Girl : MonoBehaviour, INPC,IItem
     //ItemListを参照してフラグを切り替える
     public void ItemAction()
     {
-        if (_ice.IsOn)
+        if (_coin.IsOn)
         {
-            _ice.InitFlag();
+            _coin.InitFlag();
+            _ice.SetFlagStatus();
+
             FlagReset();
             FlagDatas[1].SetFlagStatus();
 
-            _gimmick = _gimmickList[0];
             ChangeWorld();
         }
 
     }
-
-    
 }

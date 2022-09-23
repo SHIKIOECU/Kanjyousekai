@@ -45,7 +45,7 @@ public class Input : MonoBehaviour
     public void OnGet(InputAction.CallbackContext context)
     {
         //ボタンを押した時
-        if(context.phase == InputActionPhase.Started)
+        if (context.phase == InputActionPhase.Started)
         {
             interact.OnGet = true;
         }
@@ -57,6 +57,21 @@ public class Input : MonoBehaviour
 
             //取得していない状態にする
             interact.isGet = false;
+        }
+    }
+
+    public void OnKansoku(InputAction.CallbackContext context)
+    {
+        //ボタンを押した時
+        if (context.phase == InputActionPhase.Started)
+        {
+            interact.OnKansoku = true;
+        }
+
+        //ボタンを離した時
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            interact.OnKansoku = false;
         }
     }
 }

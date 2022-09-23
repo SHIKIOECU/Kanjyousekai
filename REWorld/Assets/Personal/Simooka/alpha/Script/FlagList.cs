@@ -9,6 +9,11 @@ public sealed class FlagList : ScriptableObject
     List<FlagData> flags = new List<FlagData>();
     public List<FlagData> Flags { get { return flags; } }
 
+    //private void Awake()
+    //{
+    //    InitFlags();
+    //}
+
     public void InitFlags()
     {
         foreach (FlagData f in flags)

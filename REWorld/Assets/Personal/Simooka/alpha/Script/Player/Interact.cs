@@ -17,6 +17,8 @@ public class Interact : MonoBehaviour
     //
     public bool isGet;
 
+    public bool OnKansoku;
+
     public bool isWorld;
 
     //ボタンが押されているか
@@ -51,7 +53,7 @@ public class Interact : MonoBehaviour
         }
 
         //観測
-        if (_NPC != null && OnGet && !isWorld)
+        if (_NPC != null && OnKansoku && !isWorld)
         {
             _NPC.SetActiveWorld();
             isWorld = true;
