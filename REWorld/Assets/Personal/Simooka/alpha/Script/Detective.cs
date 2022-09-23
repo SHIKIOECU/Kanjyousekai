@@ -51,9 +51,8 @@ public class Detective : MonoBehaviour,INPC
     private Vector3 toPos;
     private Vector3 coinPos;
 
-    private bool isSetPos = false;
-    [SerializeField]
-    private bool moved = false;
+    public bool isSetPos = false;
+    public bool moved = false;
     private float _currentTime;
 
     private void Start()
