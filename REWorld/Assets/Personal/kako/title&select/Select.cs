@@ -9,6 +9,7 @@ public class Select : MonoBehaviour
 
     public void OnClick()
     {
+        SoundManager.instance.stopBGM(SoundManager.NowBGM);
         SceneManager.LoadScene(StageSelect);
     }
 }
