@@ -13,7 +13,6 @@ public class PlayerObserve : MonoBehaviour
     //    observe = this.transform.Find("Observe").gameObject;
     //}
 
-<<<<<<< HEAD
     //// Update is called once per frame
     //void Update()
     //{
@@ -28,24 +27,4 @@ public class PlayerObserve : MonoBehaviour
     //            observe.SetActive(true);
     //        }
     //}
-=======
-    // Update is called once per frame
-    void Update()
-    {
-        Mouse mouse = Mouse.current;
-
-        // 左クリックをしている
-        if (mouse.leftButton.wasPressedThisFrame)
-        {
-            if (observe.activeInHierarchy)
-            {
-                observe.SetActive(false);
-            }
-            else
-            {
-                observe.SetActive(true);
-            }
-        }
-    }
->>>>>>> feature/NPC/YamaneKuta
 }
