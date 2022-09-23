@@ -9,7 +9,21 @@ public class goal : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("select");
+            StartCoroutine(Clearmove());
         }
+    }
+
+    private IEnumerator Clearmove()
+    {
+        yield return new WaitForSeconds(1);
+
+        SoundManager.instance.stageBGMstop();
+
+        SoundManager.instance.PlaySE(0);
+
+        yield return new WaitForSeconds(4);
+
+        StartTitle.StartSignal = false;
+        SceneManager.LoadScene("select");
     }
 }
