@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ins_Sound : MonoBehaviour
+public class Ins_SoundBGM : MonoBehaviour
 {
-    public AudioClip[] Clips = new AudioClip[2];
 
-    AudioSource[] sounds;
+    public int BGMnumber = 0;
 
     private void Start()
     {
-        sounds = GetComponents<AudioSource>();
-        PlaySound();
+        StartCoroutine(StartBGM());
     }
 
-    public void PlaySound()
+    private IEnumerator StartBGM()
     {
-        sounds[0].Play();
+        yield return new WaitForSeconds(1);
+
+        SoundManager.instance.PlayBGM(BGMnumber);
     }
 }
