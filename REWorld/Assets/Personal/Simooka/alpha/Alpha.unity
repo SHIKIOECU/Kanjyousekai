@@ -1818,7 +1818,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d992d2026a949430fa0a014c05fad229, type: 2}
   - {fileID: 11400000, guid: 79d1c44ad61e54bd89ef4d2d9cb0440e, type: 2}
   _ice: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
-  _detective: {fileID: 2027062358}
+  _detective: {fileID: 11400000, guid: bc33cf42e9a1a4f35960900ae7032444, type: 2}
+  detective: {fileID: 2027062358}
   _gimmick: {fileID: 0}
   _gimmickList:
   - {fileID: 1452683753}
@@ -3649,7 +3650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925452719}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4311,7 +4312,9 @@ MonoBehaviour:
   pointA: {fileID: 1005687615}
   pointB: {fileID: 1678445080}
   Speed: 0.1
+  isSetPos: 0
   moved: 0
+  _currentTime: 0
 --- !u!1 &2034372022
 GameObject:
   m_ObjectHideFlags: 0

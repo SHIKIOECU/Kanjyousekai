@@ -34,7 +34,10 @@ public class Girl : MonoBehaviour, INPC,IItem
     private FlagData _ice;
 
     [SerializeField]
-    private Detective _detective;
+    private FlagData _detective;
+
+    [SerializeField]
+    private Detective detective;
 
     [SerializeField]
     private GameObject _gimmick;
@@ -45,6 +48,17 @@ public class Girl : MonoBehaviour, INPC,IItem
     private void Start()
     {
         EmotionalWorld.SetActive(false);
+        FlagReset();
+        FlagDatas[0].SetFlagStatus();
+    }
+
+    private void Update()
+    {
+        if (!EmotionalWorld.active)
+        {
+            _detective.SetFlagStatus(false);
+            detective.isSetPos = false;
+        }
     }
 
     //フラグを全てfalseにする
@@ -75,16 +89,12 @@ public class Girl : MonoBehaviour, INPC,IItem
 
         if (FlagDatas[0].IsOn)
         {
-            _detective.FlagDatas[0].InitFlag();
-            _detective.FlagDatas[1].SetFlagStatus();
+            _detective.SetFlagStatus();
+            detective.isSetPos = false;
         }
-        else
-        {
-            _detective.FlagDatas[1].InitFlag();
-            _detective.FlagDatas[0].SetFlagStatus();
-        }
+       
 
-        _detective.moved = false;
+        detective.moved = false;
     }
 
     //感情世界の画像を変更

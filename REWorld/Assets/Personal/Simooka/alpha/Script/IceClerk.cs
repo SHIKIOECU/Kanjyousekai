@@ -51,8 +51,19 @@ public class IceClerk : MonoBehaviour,INPC,IItem
 
     private void Start()
     {
-
+        EmotionalWorld.SetActive(false);
+        FlagReset();
+        FlagDatas[0].SetFlagStatus();
     }
+
+    private void Update()
+    {
+        if (!EmotionalWorld.active)
+        {
+            PlayerMove.instance.jumpPower = PlayerMove.instance.jumpPower;
+        }
+    }
+
     //フラグを全てfalseにする
     void FlagReset()
     {
@@ -80,8 +91,8 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         EmotionalWorld.SetActive(true);
         if (_flag[1].IsOn)
         {
-            ice.transform.position = this.transform.position;
-            ice.Rb2D.velocity = new Vector2(slowSpeed, 0);
+            Destroy(ice);
+            PlayerMove.instance.jumpPower = PlayerMove.instance.jumpPower * 1.5f;
         }
     }
 

@@ -12,12 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
   m_Name: New NPC Data
   m_EditorClassIdentifier: 
-  _emotionalWorld: {fileID: 0}
-  _emotionalWorldSprites: []
-  _NPC: {fileID: 0}
-  _words: {fileID: 0}
-  _wordsText: []
-  _flag: []
-  _ice: {fileID: 0}
-  _gimmick: {fileID: 0}
-  _gimmickList: []
+  NPCStates:
+  - Name: Girl
+    EmotionalWorldSprite: {fileID: 0}
+    Words: {fileID: 0}
+  state: 0
