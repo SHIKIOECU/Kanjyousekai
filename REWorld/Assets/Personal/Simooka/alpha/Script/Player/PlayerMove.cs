@@ -18,13 +18,15 @@ public class PlayerMove : MonoBehaviour
     private float speed;
 
     [Header("ジャンプの大きさ")]
-    [SerializeField]
-    private float jumpPower;
+    public float jumpPower;
 
     //ジャンプ状態
     public bool jumpState;
 
-    
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {

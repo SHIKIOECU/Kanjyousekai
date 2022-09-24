@@ -53,38 +53,52 @@ public class Detective : MonoBehaviour,INPC
 
     public bool isSetPos = false;
     public bool moved = false;
-    private float _currentTime;
+    public float _currentTime;
 
     private void Start()
     {
         coinPos = _coinItem.gameObject.transform.position;
+        EmotionalWorld.SetActive(false);
+        FlagReset();
+        FlagDatas[0].SetFlagStatus();
     }
 
     private void Update()
     {
         if (!moved) Movement();
+        if (FlagDatas[0].IsOn&&_currentTime!=0&&!_coinItem.isGet)
+        {
+            _coinItem.gameObject.SetActive(true);
+        }
+        else
+        {
+            _coinItem.gameObject.SetActive(false);
+        }
     }
 
     //フラグを全てfalseにする
     void FlagReset()
     {
-        for (int i = 0; i < _flag.Count; i++)
+        for (int i = 0; i < FlagDatas.Count; i++)
         {
-            _flag[i].InitFlag();
+            FlagDatas[i].InitFlag();
         }
     }
 
+   
+
     void Movement()
     {
-        if (_flag[1].IsOn && !isSetPos)
+        if (FlagDatas[1].IsOn && !isSetPos)
         {
             nowPos = transform.position;
             toPos = pointA.transform.position;
             isSetPos = true;
         }
 
-        if (_flag[0].IsOn && !isSetPos)
+        if (!FlagDatas[1].IsOn && !isSetPos)
         {
+            _currentTime = 0;
             nowPos = transform.position;
             toPos = pointB.transform.position;
             isSetPos = true;
@@ -96,7 +110,6 @@ public class Detective : MonoBehaviour,INPC
             transform.position = Vector3.Lerp(nowPos, toPos, _currentTime);
             if (_currentTime >= 1)
             {
-                moved = true;
                 isSetPos = false;
                 _currentTime = 0;
             }
@@ -130,16 +143,6 @@ public class Detective : MonoBehaviour,INPC
             _coinItem.gameObject.GetComponent<Collider2D>().enabled = false;
         }
 
-        for (int i = 0; i < _flag.Count; i++)
-        {
-            if (FlagDatas[i].IsOn)
-            {
-                EmotionalWorld.GetComponent<SpriteRenderer>().sprite = EmotionalWorldSprite[i];
-                moved = false;
-                Debug.Log("ChangeWorld");
-                break;
-            }
-        }
     }
 
     public void SetActiveWorld()
