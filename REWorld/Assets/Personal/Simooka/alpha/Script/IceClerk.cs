@@ -60,7 +60,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     {
         if (!EmotionalWorld.active)
         {
-            PlayerMove.instance.jumpPower = PlayerMove.instance.jumpPower;
+            PlayerMove.instance.jumpPower = 5;
         }
     }
 
@@ -92,7 +92,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         if (_flag[1].IsOn)
         {
             Destroy(ice);
-            PlayerMove.instance.jumpPower = PlayerMove.instance.jumpPower * 1.5f;
+            PlayerMove.instance.jumpPower = 10;
         }
     }
 
