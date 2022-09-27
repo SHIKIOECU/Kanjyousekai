@@ -6,6 +6,7 @@ using System;
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator anim = null;
+    public Animator girl = null;
 
     private Rigidbody2D rb = null;
 
@@ -26,6 +27,7 @@ public class PlayerAnimation : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        //girl = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -143,6 +145,20 @@ public class PlayerAnimation : MonoBehaviour
                 //xSpeed = 0.0f;
             }
         }
+
+        //if (UnityEngine.Input.GetKey(KeyCode.E))
+        //{
+        //    girl.SetBool("isHappy", true);
+        //}
+
+        //if (UnityEngine.Input.GetKey(KeyCode.R))
+        //{
+        //    anim.SetBool("kanjo", true);
+        //}
+        //else
+        //{
+        //    anim.SetBool("kanjo", false);
+        //}
 
         //rb.velocity = new Vector2(xSpeed, ySpeed);
     }
