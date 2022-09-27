@@ -2262,7 +2262,7 @@ GameObject:
   - component: {fileID: 1309816851}
   - component: {fileID: 1309816852}
   m_Layer: 0
-  m_Name: R_stand
+  m_Name: Player_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2368,6 +2368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d6f8709b9c4bbf8bb2de63b22878a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  girl: {fileID: 1900815079}
   ground: {fileID: 755621788}
   speed: 3
   gravity: 4
