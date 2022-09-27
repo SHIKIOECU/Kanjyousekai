@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db297e869c9d48a1a8af13e034dc75d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageSelect: 
+  StageSelect: alpha
 --- !u!1 &632376877
 GameObject:
   m_ObjectHideFlags: 0
