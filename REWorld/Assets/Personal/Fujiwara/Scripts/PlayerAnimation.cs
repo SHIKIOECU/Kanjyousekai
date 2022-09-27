@@ -34,8 +34,8 @@ public class PlayerAnimation : MonoBehaviour
     {
         isGround = ground.IsGround();
 
-        float xSpeed = 0.0f;
-        float ySpeed = -gravity;
+        //float xSpeed = 0.0f;
+        //float ySpeed = -gravity;
 
         if (isGround)
         {
@@ -43,9 +43,10 @@ public class PlayerAnimation : MonoBehaviour
             {
                 Debug.Log("ジャンプ中です");
 
-                ySpeed = jumpSpeed;
+                //ySpeed = jumpSpeed;
                 jumpPos = transform.position.y;
                 isJump = true;
+                isGround = false;
 
                 if (r_run)
                 {
@@ -63,6 +64,8 @@ public class PlayerAnimation : MonoBehaviour
             {
                 Debug.Log("地面と接しています");
 
+                anim.SetBool("isGround", true);
+
                 isJump = false;
 
                 if (r_run) {
@@ -79,7 +82,9 @@ public class PlayerAnimation : MonoBehaviour
         {
             if (UnityEngine.Input.GetKey(KeyCode.Space) && jumpPos + jumpHeight > transform.position.y)
             {
-                ySpeed = jumpSpeed;
+                //ySpeed = jumpSpeed;
+
+                anim.SetBool("isGround", false);
 
                 if (UnityEngine.Input.GetKey(KeyCode.RightArrow) && l_run)
                 {
@@ -100,6 +105,7 @@ public class PlayerAnimation : MonoBehaviour
             else
             {
                 isJump = false;
+                anim.SetBool("isGround", true);
 
                 //if (r_run) anim.SetBool("r_jump", false);
                 //else if (l_run) anim.SetBool("l_jump", false);
@@ -112,7 +118,7 @@ public class PlayerAnimation : MonoBehaviour
             anim.SetBool("l_run", false);
             r_run = true;
             l_run = false;
-            xSpeed = speed;
+            //xSpeed = speed;
         }
         else if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
         {
@@ -120,7 +126,7 @@ public class PlayerAnimation : MonoBehaviour
             anim.SetBool("r_run", false);
             l_run = true;
             r_run = false;
-            xSpeed = -speed;
+            //xSpeed = -speed;
         }
         else
         {
@@ -128,16 +134,16 @@ public class PlayerAnimation : MonoBehaviour
             {
                 anim.SetBool("r_run", false);
                 //r_run = false;
-                xSpeed = 0.0f;
+                //xSpeed = 0.0f;
             }
             else if (l_run)
             {
                 anim.SetBool("l_run", false);
                 //l_run = false;
-                xSpeed = 0.0f;
+                //xSpeed = 0.0f;
             }
         }
 
-        rb.velocity = new Vector2(xSpeed, ySpeed);
+        //rb.velocity = new Vector2(xSpeed, ySpeed);
     }
 }
