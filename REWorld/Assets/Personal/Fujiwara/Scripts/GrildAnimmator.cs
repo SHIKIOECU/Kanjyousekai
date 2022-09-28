@@ -6,9 +6,8 @@ public class GrildAnimmator : MonoBehaviour
 {
     private Animator crying = null;
 
-    //public GameObject girl;
-
-    bool getIce = false;
+    [SerializeField]
+    private Girl _girl;
 
     // Start is called before the first frame update
     void Start()
@@ -19,18 +18,13 @@ public class GrildAnimmator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (getIce == true)
+        if (_girl.getIce == true)
         {
             crying.SetBool("isHappy", true);
         }
         else
         {
             crying.SetBool("isHappy", false);
-        }
-
-        if (UnityEngine.Input.GetKey(KeyCode.E))
-        {
-            getIce = true;
         }
     }
 }

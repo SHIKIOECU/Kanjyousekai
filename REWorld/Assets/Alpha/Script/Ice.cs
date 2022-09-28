@@ -9,7 +9,8 @@ public class Ice : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Stage"))
+        Debug.Log("ICE");
+        if (collision.CompareTag("Ground"))
         {
             Rb2D.velocity = new Vector2(0, 0);
             Rb2D.constraints = RigidbodyConstraints2D.FreezeAll;

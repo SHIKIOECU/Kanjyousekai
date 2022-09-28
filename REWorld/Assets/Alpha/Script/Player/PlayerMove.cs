@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     private float speed;
 
     [Header("ジャンプの大きさ")]
+    public float basicJumpPower;
     public float jumpPower;
 
     //ジャンプ状態

@@ -55,6 +55,9 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     //ジャンプできるようになったかどうか
     public bool jumping = false;
 
+    [SerializeField]
+    private float jumpPowerUp;
+
     private void Start()
     {
         EmotionalWorld.SetActive(false);
@@ -67,7 +70,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     {
         if (!EmotionalWorld.active)
         {
-            PlayerMove.instance.jumpPower = 5;
+            PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
         }
     }
 
@@ -108,8 +111,8 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         if (_flag[1].IsOn)
         {
             jumping = true;
-            Destroy(ice.gameObject);
-            PlayerMove.instance.jumpPower = 10;
+            ice.gameObject.SetActive(false);
+            PlayerMove.instance.jumpPower = jumpPowerUp;
         }
     }
 
@@ -138,6 +141,14 @@ public class IceClerk : MonoBehaviour,INPC,IItem
             FlagDatas[1].SetFlagStatus();
 
             ChangeWorld();
+
+            //仮
+            if (_flag[1].IsOn)
+            {
+                jumping = true;
+                ice.gameObject.SetActive(false);
+                PlayerMove.instance.jumpPower = jumpPowerUp;
+            }
         }
 
     }
