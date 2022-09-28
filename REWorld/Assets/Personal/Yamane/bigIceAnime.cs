@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class bigIceAnime : MonoBehaviour
 {
+    [SerializeField]
+    SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    Sprite bigIce2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +20,13 @@ public class bigIceAnime : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Stage"))
+        {
+            spriteRenderer.sprite = bigIce2;
+        }
     }
 }
