@@ -49,11 +49,15 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     [SerializeField]
     private List<GameObject> _gimmickList;
 
+    //アニメーター
+    private Animator animator;
+
     private void Start()
     {
         EmotionalWorld.SetActive(false);
         FlagReset();
         FlagDatas[0].SetFlagStatus();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -89,9 +93,18 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     public void SetActiveWorld()
     {
         EmotionalWorld.SetActive(true);
+
+        if (_flag[0].IsOn)
+        {
+            ice.gameObject.SetActive(true);
+            ice.Rb2D.velocity = new Vector2(slowSpeed, 0);
+            //アニメーターの設定
+            animator.SetBool("throwTrigger", true);
+        }
+
         if (_flag[1].IsOn)
         {
-            Destroy(ice);
+            Destroy(ice.gameObject);
             PlayerMove.instance.jumpPower = 10;
         }
     }
