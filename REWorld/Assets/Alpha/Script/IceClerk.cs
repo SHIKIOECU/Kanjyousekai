@@ -111,7 +111,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         if (_flag[1].IsOn)
         {
             jumping = true;
-            Destroy(ice.gameObject);
+            ice.gameObject.SetActive(false);
             PlayerMove.instance.jumpPower = jumpPowerUp;
         }
     }
@@ -146,7 +146,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
             if (_flag[1].IsOn)
             {
                 jumping = true;
-                Destroy(ice.gameObject);
+                ice.gameObject.SetActive(false);
                 PlayerMove.instance.jumpPower = jumpPowerUp;
             }
         }

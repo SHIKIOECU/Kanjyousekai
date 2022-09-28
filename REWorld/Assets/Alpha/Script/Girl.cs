@@ -45,6 +45,8 @@ public class Girl : MonoBehaviour, INPC,IItem
     [SerializeField]
     private List<GameObject> _gimmickList;
 
+    public bool getIce;
+
     private void Start()
     {
         EmotionalWorld.SetActive(false);
@@ -86,6 +88,10 @@ public class Girl : MonoBehaviour, INPC,IItem
     public void SetActiveWorld()
     {
         EmotionalWorld.SetActive(true);
+        if (_gimmick != null)
+        {
+            _gimmick.SetActive(true);
+        }
 
         if (FlagDatas[0].IsOn)
         {
@@ -105,7 +111,6 @@ public class Girl : MonoBehaviour, INPC,IItem
             if (FlagDatas[i].IsOn)
             {
                 EmotionalWorld.GetComponent<SpriteRenderer>().sprite = EmotionalWorldSprite[i];
-                if(_gimmick!=null) _gimmick.SetActive(true);
                 break;
             }
         }
@@ -116,6 +121,7 @@ public class Girl : MonoBehaviour, INPC,IItem
     {
         if (_ice.IsOn)
         {
+            getIce = true;
             _ice.InitFlag();
             FlagReset();
             FlagDatas[1].SetFlagStatus();
