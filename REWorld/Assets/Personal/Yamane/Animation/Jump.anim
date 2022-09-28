@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IceThrow
+  m_Name: Jump
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 9845090cddc564804a2133202f42f62f, type: 3}
-    - time: 0.1
-      value: {fileID: 21300000, guid: d88dac7d1905b48c5ade3a0d3b9719db, type: 3}
-    - time: 0.3
-      value: {fileID: 21300000, guid: f3f190681f4fb4e2c8a2c1b65e07918c, type: 3}
-    - time: 0.4
-      value: {fileID: 21300000, guid: 046e56401b31c46799b3b31fbce9aa29, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: 0ebf0854a5e164574a4c901f68a2de23, type: 3}
+      value: {fileID: 21300000, guid: 77534bc334fe94b33b325e1b38d02b67, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +40,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 9845090cddc564804a2133202f42f62f, type: 3}
-    - {fileID: 21300000, guid: d88dac7d1905b48c5ade3a0d3b9719db, type: 3}
-    - {fileID: 21300000, guid: f3f190681f4fb4e2c8a2c1b65e07918c, type: 3}
-    - {fileID: 21300000, guid: 046e56401b31c46799b3b31fbce9aa29, type: 3}
-    - {fileID: 21300000, guid: 0ebf0854a5e164574a4c901f68a2de23, type: 3}
+    - {fileID: 21300000, guid: 77534bc334fe94b33b325e1b38d02b67, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

@@ -9,7 +9,10 @@ public class IceAnime : MonoBehaviour
     [SerializeField]
     GameObject iceclethrow;
 
-    private bool kansoku;
+    [SerializeField]
+    IceClerk icecle;
+
+    private bool jump;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +23,30 @@ public class IceAnime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (iceclethrow.activeSelf == true)
+        jump = icecle.jumping;
+
+        if (jump == false)
         {
-            animator.SetBool("kansokuTrigger", true);
+            if (iceclethrow.activeSelf == true)
+            {
+                animator.SetBool("kansokuTrigger", true);
+            }
+            if (iceclethrow.activeSelf == false)
+            {
+                animator.SetBool("kansokuTrigger", false);
+            }
         }
-        if (iceclethrow.activeSelf == false)
+        else if (jump == true)
         {
-            animator.SetBool("kansokuTrigger", false);
+            if (iceclethrow.activeSelf == true)
+            {
+                animator.SetBool("jumpTrigger", true);
+            }
+            if (iceclethrow.activeSelf == false)
+            {
+                animator.SetBool("jumpTrigger", false);
+            }
         }
+
     }
 }

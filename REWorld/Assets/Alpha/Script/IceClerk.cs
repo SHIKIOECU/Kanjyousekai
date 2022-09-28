@@ -52,6 +52,9 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     //アニメーター
     private Animator animator;
 
+    //ジャンプできるようになったかどうか
+    public bool jumping = false;
+
     private void Start()
     {
         EmotionalWorld.SetActive(false);
@@ -104,6 +107,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
 
         if (_flag[1].IsOn)
         {
+            jumping = true;
             Destroy(ice.gameObject);
             PlayerMove.instance.jumpPower = 10;
         }
