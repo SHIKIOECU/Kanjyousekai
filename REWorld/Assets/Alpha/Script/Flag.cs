@@ -9,11 +9,6 @@ public class Flag : MonoBehaviour
 
     public bool _flag = false;
 
-    private void Reset()
-    {
-        FlagManager.instance.AddFlag(gameObject.name, gameObject, _flag);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
