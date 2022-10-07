@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
-  m_Name: GirlData
+  m_Script: {fileID: 11500000, guid: 75c007ff63eb0488896ccc7af7207c54, type: 3}
+  m_Name: Happy
   m_EditorClassIdentifier: 
+  isOn: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Girl : MonoBehaviour, INPC,IItem
+public class Girl : MonoBehaviour,IItem
 {
     //感情世界
     [SerializeField]

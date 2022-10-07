@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Detective : MonoBehaviour,INPC
+public class Detective : MonoBehaviour
 {
+    //NPCData
+    [SerializeField]
+    private NPCData NData;
+
     //感情世界
     [SerializeField]
     private GameObject _emotionalWorld;
