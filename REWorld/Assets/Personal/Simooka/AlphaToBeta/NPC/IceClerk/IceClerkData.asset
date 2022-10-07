@@ -19,9 +19,6 @@ MonoBehaviour:
   npcStates:
   - Name: basic
     EmotionalWorldSprite: {fileID: -912434825, guid: f62c9f18c96f845099dd3530e9c0a40b, type: 3}
-    NPCFlag: {fileID: 11400000, guid: ca641f88e766548ca81338e274b1c482, type: 2}
-  - Name: slow
-    EmotionalWorldSprite: {fileID: -912434825, guid: f62c9f18c96f845099dd3530e9c0a40b, type: 3}
     NPCFlag: {fileID: 11400000, guid: 6d30b547a82df415ea1cf8e350564128, type: 2}
   - Name: happy
     EmotionalWorldSprite: {fileID: -912434825, guid: f62c9f18c96f845099dd3530e9c0a40b, type: 3}
