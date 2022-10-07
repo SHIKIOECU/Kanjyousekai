@@ -2916,7 +2916,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780517, y: 1}
+    m_SensorSize: {x: 1.7765957, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3496,13 +3496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d6f8709b9c4bbf8bb2de63b22878a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  girl: {fileID: 1348427689}
   ground: {fileID: 962062196}
-  speed: 3
-  gravity: 4
-  jumpSpeed: 10
-  jumpHeight: 2
-  jumpPos: 0
 --- !u!95 &1146789755
 Animator:
   serializedVersion: 4
@@ -3658,22 +3652,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b01f42bf1124b579ff3445436adf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NData: {fileID: 11400000, guid: 50e06fe7ff10c474888f8517ec73361f, type: 2}
   _emotionalWorld: {fileID: 833933772}
-  _emotionalWorldSprites:
-  - {fileID: 7482667652216324306, guid: b2dc2eb70c85c41b29ba71566ca0bed6, type: 3}
-  - {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   _NPC: {fileID: 1161859703}
   _words: {fileID: 0}
   _wordsText: []
-  _flag:
-  - {fileID: 11400000, guid: 134d3951492dd4e728418264a610ce4d, type: 2}
-  - {fileID: 11400000, guid: 6c376d487d5c143609cfa3cac45970b2, type: 2}
   ice: {fileID: 1484957318}
   _ice: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
   slowSpeed: 10
   _coin: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
-  _gimmick: {fileID: 0}
-  _gimmickList: []
   jumping: 0
   jumpPowerUp: 12
 --- !u!114 &1161859701
@@ -6977,7 +6964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010885407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1994464, y: -0.5211401, z: -10}
+  m_LocalPosition: {x: -2.2067297, y: -0.52111006, z: -10}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7192,6 +7179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7751ef1491a341e2a0828346fa023c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NData: {fileID: 0}
   _emotionalWorld: {fileID: 1025477944}
   _emotionalWorldSprites:
   - {fileID: 7482667652216324306, guid: b2dc2eb70c85c41b29ba71566ca0bed6, type: 3}
@@ -7396,13 +7384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d6f8709b9c4bbf8bb2de63b22878a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  girl: {fileID: 1348427689}
   ground: {fileID: 962062196}
-  speed: 0
-  gravity: 0
-  jumpSpeed: 0
-  jumpHeight: 0
-  jumpPos: 0
 --- !u!95 &2068852558
 Animator:
   serializedVersion: 4

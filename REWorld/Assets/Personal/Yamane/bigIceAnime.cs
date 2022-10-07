@@ -24,7 +24,7 @@ public class bigIceAnime : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Stage"))
+        if (collision.CompareTag("Ground"))
         {
             spriteRenderer.sprite = bigIce2;
         }
