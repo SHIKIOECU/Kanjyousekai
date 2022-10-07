@@ -25,28 +25,33 @@ public class IceAnime : MonoBehaviour
     {
         jump = icecle.jumping;
 
-        if (jump == false)
+        switch(jump)
         {
-            if (iceclethrow.activeSelf == true)
-            {
-                animator.SetBool("kansokuTrigger", true);
-            }
-            if (iceclethrow.activeSelf == false)
-            {
-                animator.SetBool("kansokuTrigger", false);
-            }
-        }
-        else if (jump == true)
-        {
-            if (iceclethrow.activeSelf == true)
-            {
-                animator.SetBool("jumpTrigger", true);
-            }
-            if (iceclethrow.activeSelf == false)
-            {
-                animator.SetBool("jumpTrigger", false);
-            }
-        }
+            case true:
+                switch(iceclethrow.activeSelf)
+                {
+                    case true:
+                        animator.SetBool("jumpTrigger", true);
+                        break;
 
+                    case false:
+                        animator.SetBool("jumpTrigger", false);
+                        break;
+                }
+                break;
+
+            case false:
+                switch (iceclethrow.activeSelf)
+                {
+                    case true:
+                        animator.SetBool("kansokuTrigger", true);
+                        break;
+
+                    case false:
+                        animator.SetBool("kansokuTrigger", false);
+                        break;
+                }
+                break;
+        }
     }
 }
