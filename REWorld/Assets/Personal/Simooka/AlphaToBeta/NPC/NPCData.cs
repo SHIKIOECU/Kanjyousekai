@@ -14,12 +14,12 @@ public class NPCData : ScriptableObject
     private List<NPCState> npcStates = new List<NPCState>();
     public List<NPCState> NPCStates { get { return npcStates; } }
 
-    private void Awake()
-    {
-        Data = npcStates[0];
-        InitNPCFlag();
-        Debug.Log("!!");
-    }
+    //private void Awake()
+    //{
+    //    Data = npcStates[0];
+    //    InitNPCFlag();
+    //    Debug.Log("!!");
+    //}
 
 
     //NPCのフラグを初期化
