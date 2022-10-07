@@ -44,11 +44,11 @@ public class IceAnime : MonoBehaviour
                 switch (iceclethrow.activeSelf)
                 {
                     case true:
-                        animator.SetBool("kansokuTrigger", true);
+                        animator.SetBool("throwTrigger", true);
                         break;
 
                     case false:
-                        animator.SetBool("kansokuTrigger", false);
+                        animator.SetBool("throwTrigger", false);
                         break;
                 }
                 break;
