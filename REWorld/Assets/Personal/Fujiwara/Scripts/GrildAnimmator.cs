@@ -9,6 +9,8 @@ public class GrildAnimmator : MonoBehaviour
     [SerializeField]
     private Girl _girl;
 
+    string trigger = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +28,11 @@ public class GrildAnimmator : MonoBehaviour
         {
             crying.SetBool("isHappy", false);
         }
+
+        //if (UnityEngine.Input.GetKey(KeyCode.E))
+        //{
+        //    trigger = "isHappy";
+        //    crying.SetBool(trigger, true);
+        //}
     }
 }

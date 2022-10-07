@@ -8,6 +8,8 @@ TagManager:
   - Item
   - World
   - Stage
+  - Ground
+  - WoodBox
   layers:
   - Default
   - TransparentFX
