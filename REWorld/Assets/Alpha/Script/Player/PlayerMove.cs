@@ -24,6 +24,8 @@ public class PlayerMove : MonoBehaviour
     //ジャンプ状態
     public bool jumpState;
 
+    public Animator playerAnimator;
+
     private void Awake()
     {
         instance = this;
@@ -32,6 +34,8 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
+        playerAnimator.SetBool("isGround", true);
         jumpState = false;
     }
 
@@ -44,23 +48,51 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
             jumpState = false;
+        playerAnimator.SetBool("isGround", true);
+        playerAnimator.SetBool("r_jump", false);
+        playerAnimator.SetBool("l_jump", false);
     }
-
-    //private void Move()
-    //{
-    //    //入力した方向へ移動（現在X軸のみ反応）
-    //    rb2D.AddForce(move * speed, ForceMode2D.Impulse);
-    //}
 
     private void Move()
     {
         //入力した方向へ移動（現在X軸のみ反応）
         rb2D.velocity = new Vector2(move.x * speed, rb2D.velocity.y);
+        if (move.x > 0)
+        {
+            playerAnimator.SetBool("l_run", false);
+            playerAnimator.SetBool("r_run", true);
+        }
+        else if (move.x < 0)
+        {
+            playerAnimator.SetBool("r_run", false);
+            playerAnimator.SetBool("l_run", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("l_run", false);
+            playerAnimator.SetBool("r_run", false);
+        }
     }
 
     public void Jump()
     {
         //Y軸方向へ移動
         rb2D.velocity = transform.up * jumpPower;
+        playerAnimator.SetBool("isGround", false);
+        if (move.x > 0)
+        {
+            playerAnimator.SetBool("l_jump", false);
+            playerAnimator.SetBool("r_jump", true);
+        }
+        else if (move.x < 0)
+        {
+            playerAnimator.SetBool("r_jump", false);
+            playerAnimator.SetBool("l_jump", true);
+        }
+    }
+
+    private void Animation()
+    {
+
     }
 }

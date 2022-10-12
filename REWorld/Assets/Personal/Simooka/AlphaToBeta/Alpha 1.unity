@@ -1261,16 +1261,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b9f80aecab54977911512996d5fc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NData: {fileID: 11400000, guid: 041aed49a17d648d588ab55ff7972322, type: 2}
   _emotionalWorld: {fileID: 2139742116}
-  _emotionalWorldSprites:
-  - {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   _NPC: {fileID: 519937719}
   _words: {fileID: 0}
   _wordsText: []
-  _flag:
-  - {fileID: 11400000, guid: d992d2026a949430fa0a014c05fad229, type: 2}
-  - {fileID: 11400000, guid: 79d1c44ad61e54bd89ef4d2d9cb0440e, type: 2}
   _ice: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
   _detective: {fileID: 11400000, guid: bc33cf42e9a1a4f35960900ae7032444, type: 2}
   detective: {fileID: 2027062358}
@@ -2437,8 +2432,6 @@ MonoBehaviour:
   _ice: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
   slowSpeed: 10
   _coin: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
-  _gimmick: {fileID: 0}
-  _gimmickList: []
   jumping: 0
   jumpPowerUp: 12
 --- !u!114 &1161859701
@@ -5056,6 +5049,7 @@ MonoBehaviour:
   basicJumpPower: 8
   jumpPower: 8
   jumpState: 0
+  playerAnimator: {fileID: 0}
 --- !u!50 &2068852554
 Rigidbody2D:
   serializedVersion: 4
@@ -5127,18 +5121,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068852550}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe5d6f8709b9c4bbf8bb2de63b22878a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  girl: {fileID: 0}
   ground: {fileID: 962062196}
-  speed: 0
-  gravity: 0
-  jumpSpeed: 0
-  jumpHeight: 0
-  jumpPos: 0
 --- !u!95 &2068852558
 Animator:
   serializedVersion: 4
