@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Girl : MonoBehaviour,IItem
 {
+    //NPCData
+    [SerializeField]
+    private NPCData NData;
+
     //感情世界
     [SerializeField]
     private GameObject _emotionalWorld;
-
-    //感情世界のグラフィック
-    [SerializeField]
-    private List<Sprite> _emotionalWorldSprites;
 
     //グラフィック
     [SerializeField]
@@ -24,10 +24,6 @@ public class Girl : MonoBehaviour,IItem
     //セリフテキスト
     [SerializeField]
     private List<string> _wordsText;
-
-    //NPC状態フラグ
-    [SerializeField]
-    private List<FlagData> _flag;
 
     //アイテム（アイス）フラグ
     [SerializeField]
@@ -47,11 +43,14 @@ public class Girl : MonoBehaviour,IItem
 
     public bool getIce;
 
+    //アニメーター
+    private Animator animator;
+
     private void Start()
     {
         EmotionalWorld.SetActive(false);
-        FlagReset();
-        FlagDatas[0].SetFlagStatus();
+        NData.InitNPCFlag();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -63,19 +62,10 @@ public class Girl : MonoBehaviour,IItem
         }
     }
 
-    //フラグを全てfalseにする
-    void FlagReset()
-    {
-        for(int i = 0; i < _flag.Count; i++)
-        {
-            _flag[i].InitFlag();
-        }
-    }
-
     //インターフェースの定義
     public GameObject EmotionalWorld => _emotionalWorld;
 
-    public List<Sprite> EmotionalWorldSprite => _emotionalWorldSprites;
+    public Sprite EmotionalWorldSprite => NData.Data.EmotionalWorldSprite;
 
     public SpriteRenderer NPCSprite => _NPC;
 
@@ -83,21 +73,31 @@ public class Girl : MonoBehaviour,IItem
 
     public List<string> WordsText => _wordsText;
 
-    public List<FlagData> FlagDatas => _flag;
-
     public void SetActiveWorld()
     {
         EmotionalWorld.SetActive(true);
-        if (_gimmick != null)
-        {
-            _gimmick.SetActive(true);
-        }
 
-        if (FlagDatas[0].IsOn)
+        switch (NData.Data.Name)
         {
-            _detective.SetFlagStatus();
-            detective.isSetPos = false;
+            case "basic":
+                _detective.SetFlagStatus();
+                detective.isSetPos = false;
+                break;
+            case "happy":
+                _gimmick.SetActive(true);
+                break;
+
         }
+        //if (_gimmick != null)
+        //{
+        //    _gimmick.SetActive(true);
+        //}
+
+        //if (FlagDatas[0].IsOn)
+        //{
+        //    _detective.SetFlagStatus();
+        //    detective.isSetPos = false;
+        //}
        
 
         detective.moved = false;
@@ -106,14 +106,8 @@ public class Girl : MonoBehaviour,IItem
     //感情世界の画像を変更
     public void ChangeWorld()
     {
-        for (int i = 0; i < _flag.Count; i++)
-        {
-            if (FlagDatas[i].IsOn)
-            {
-                EmotionalWorld.GetComponent<SpriteRenderer>().sprite = EmotionalWorldSprite[i];
-                break;
-            }
-        }
+        EmotionalWorld.GetComponent<SpriteRenderer>().sprite
+            = EmotionalWorldSprite;
     }
 
     //ItemListを参照してフラグを切り替える
@@ -123,8 +117,7 @@ public class Girl : MonoBehaviour,IItem
         {
             getIce = true;
             _ice.InitFlag();
-            FlagReset();
-            FlagDatas[1].SetFlagStatus();
+            NData.SetFlag("happy");
 
             _gimmick = _gimmickList[0];
             ChangeWorld();
