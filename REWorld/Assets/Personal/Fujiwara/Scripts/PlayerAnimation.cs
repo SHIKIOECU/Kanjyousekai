@@ -33,104 +33,141 @@ public class PlayerAnimation : MonoBehaviour
         if (isGround)
         {
             // Spaceが押されたら
-            if (UnityEngine.Input.GetKey(KeyCode.Space))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log("ジャンプ中です");
 
                 isJump = true;
                 isGround = false;
-                anim.SetBool("isGround", false);
+                //anim.SetBool("isGround", false);
+
+                /* test */
+                anim.SetBool("isJumping", true);
 
                 // 右向きなら
-                if (r_run)
-                {
-                    Debug.Log("r_jump");
-                    anim.SetBool("r_jump", true);
-                    anim.SetBool("l_jump", false);
-                }
-                // 左向きなら
-                else if (l_run) {
-                    Debug.Log("l_jump");
-                    anim.SetBool("l_jump", true);
-                    anim.SetBool("r_jump", false);
-                }
+                //if (r_run)
+                //{
+                //    //Debug.Log("r_jump");
+                //    //anim.SetBool("r_jump", true);
+                //    //anim.SetBool("l_jump", false);
+
+                //    anim.SetBool("right", true);
+                //    anim.SetBool("left", false);
+                //}
+                //// 左向きなら
+                //else if (l_run) {
+                //    //Debug.Log("l_jump");
+                //    //anim.SetBool("l_jump", true);
+                //    //anim.SetBool("r_jump", false);
+
+                //    anim.SetBool("left", true);
+                //    anim.SetBool("right", false);
+                //}
             }
             // 何も押されていないとき
             else
             {
                 //Debug.Log("地面と接しています");
 
-                anim.SetBool("isGround", true);
+                //anim.SetBool("isGround", true);
 
-                isJump = false;
+                /* test */
+                anim.SetBool("isJumping", false);
 
-                if (r_run) {
-                    anim.SetBool("r_jump", false);
-                    anim.SetBool("r_run", true);
-                }
-                else if (l_run) {
-                    anim.SetBool("l_jump", false);
-                    anim.SetBool("l_run", true);
-                }
+                //isJump = false;
+
+                //if (r_run) {
+                //    anim.SetBool("r_jump", false);
+                //    anim.SetBool("r_run", true);
+                //}
+                //else if (l_run) {
+                //    anim.SetBool("l_jump", false);
+                //    anim.SetBool("l_run", true);
+                //}
             }
         }
         // ジャンプ中なら
         else if (isJump)
         {
-            anim.SetBool("isGround", false);
+            //anim.SetBool("isGround", false);
+            anim.SetBool("isJumping", true);
 
             if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
             {
-                anim.SetBool("r_jump", true);
-                anim.SetBool("l_jump", false);
-                anim.SetBool("r_run", true);
-                anim.SetBool("l_run", false);
+                //anim.SetBool("r_jump", true);
+                //anim.SetBool("l_jump", false);
+                //anim.SetBool("r_run", true);
+                //anim.SetBool("l_run", false);
+
+                /* test */
+                //anim.SetBool("isJumping", true);
+                anim.SetBool("right", true);
+                anim.SetBool("left", false);
             }
             else if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
             {
-                anim.SetBool("r_jump", false);
-                anim.SetBool("l_jump", true);
-                anim.SetBool("r_run", false);
-                anim.SetBool("l_run", true);
+                //anim.SetBool("r_jump", false);
+                //anim.SetBool("l_jump", true);
+                //anim.SetBool("r_run", false);
+                //anim.SetBool("l_run", true);
+
+                /* test */
+                anim.SetBool("left", true);
+                anim.SetBool("right", false);
             }
         }
 
         // 右に歩くモーション
         if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
         {
-            anim.SetBool("r_run", true);
-            anim.SetBool("l_run", false);
+            //anim.SetBool("r_run", true);
+            //anim.SetBool("l_run", false);
+
+            /* test */
+            anim.SetBool("isMoving", true);
+            anim.SetBool("right", true);
+            anim.SetBool("left", false);
+
             r_run = true;
             l_run = false;
         }
         // 左に歩くモーション
         else if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
         {
-            anim.SetBool("l_run", true);
-            anim.SetBool("r_run", false);
+            //anim.SetBool("l_run", true);
+            //anim.SetBool("r_run", false);
+
+            /* test */
+            anim.SetBool("isMoving", true);
+            anim.SetBool("right", false);
+            anim.SetBool("left", true);
+
             l_run = true;
             r_run = false;
         }
         // 止まってる時のモーション
         else
         {
-            if (r_run)
-            {
-                anim.SetBool("r_run", false);
-            }
-            else if (l_run)
-            {
-                anim.SetBool("l_run", false);
-            }
+            //if (r_run)
+            //{
+            //    anim.SetBool("r_run", false);
+            //}
+            //else if (l_run)
+            //{
+            //    anim.SetBool("l_run", false);
+            //}
+
+            /* test */
+            anim.SetBool("isMoving", false);
         }
 
-        //if (UnityEngine.Input.GetKey(KeyCode.R))
-        //{
-        //    anim.SetBool("kanjo", true);
-        //}
-        //else
-        //{
-        //    anim.SetBool("kanjo", false);
-        //}
+        if (UnityEngine.Input.GetKey(KeyCode.R))
+        {
+            anim.SetBool("kanjo", true);
+        }
+        else if (UnityEngine.Input.GetKey(KeyCode.T))
+        {
+            anim.SetBool("kanjo", false);
+        }
     }
 }
