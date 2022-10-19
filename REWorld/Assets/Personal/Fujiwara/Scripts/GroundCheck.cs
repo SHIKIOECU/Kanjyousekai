@@ -36,14 +36,14 @@ public class GroundCheck : MonoBehaviour
             isGroundEnter = true;
         }
 
-        if (collision.tag == groundTag)
-        {
-            Debug.Log("Groundに触れています");
-        }
-        else if (collision.tag == woodboxTag)
-        {
-            Debug.Log("WoodBoxに触れています");
-        }
+        //if (collision.tag == groundTag)
+        //{
+        //    Debug.Log("Groundに触れています");
+        //}
+        //else if (collision.tag == woodboxTag)
+        //{
+        //    Debug.Log("WoodBoxに触れています");
+        //}
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -53,14 +53,14 @@ public class GroundCheck : MonoBehaviour
             isGroundStay = true;
         }
 
-        if (collision.tag == groundTag)
-        {
-            Debug.Log("Groundに触れています");
-        }
-        else if (collision.tag == woodboxTag)
-        {
-            Debug.Log("WoodBoxに触れています");
-        }
+        //if (collision.tag == groundTag)
+        //{
+        //    Debug.Log("Groundに触れています");
+        //}
+        //else if (collision.tag == woodboxTag)
+        //{
+        //    Debug.Log("WoodBoxに触れています");
+        //}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -70,13 +70,13 @@ public class GroundCheck : MonoBehaviour
             isGroundExit = true;
         }
 
-        if (collision.tag == groundTag)
-        {
-            Debug.Log("Groundに触れています");
-        }
-        else if (collision.tag == woodboxTag)
-        {
-            Debug.Log("WoodBoxに触れています");
-        }
+        //if (collision.tag == groundTag)
+        //{
+        //    Debug.Log("Groundに触れています");
+        //}
+        //else if (collision.tag == woodboxTag)
+        //{
+        //    Debug.Log("WoodBoxに触れています");
+        //}
     }
 }

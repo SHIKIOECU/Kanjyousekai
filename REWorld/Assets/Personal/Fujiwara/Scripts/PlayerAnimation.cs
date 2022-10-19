@@ -35,7 +35,7 @@ public class PlayerAnimation : MonoBehaviour
             // Spaceが押されたら
             if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("ジャンプ中です");
+                //Debug.Log("ジャンプ中です");
 
                 isJump = true;
                 isGround = false;
@@ -161,13 +161,13 @@ public class PlayerAnimation : MonoBehaviour
             anim.SetBool("isMoving", false);
         }
 
-        if (UnityEngine.Input.GetKey(KeyCode.R))
-        {
-            anim.SetBool("kanjo", true);
-        }
-        else if (UnityEngine.Input.GetKey(KeyCode.T))
-        {
-            anim.SetBool("kanjo", false);
-        }
+        //if (UnityEngine.Input.GetKey(KeyCode.R))
+        //{
+        //    anim.SetBool("kanjo", true);
+        //}
+        //else if (UnityEngine.Input.GetKey(KeyCode.T))
+        //{
+        //    anim.SetBool("kanjo", false);
+        //}
     }
 }
