@@ -79,9 +79,8 @@ public class IceClerk : MonoBehaviour,INPC,IItem
 
     public List<string> WordsText => _wordsText;
 
-    public void SetActiveWorld()
+    public void AppearanceWorld()
     {
-        //感情世界を出現させる
         EmotionalWorld.SetActive(true);
 
         switch (INPCData.Data.Name)
@@ -109,6 +108,11 @@ public class IceClerk : MonoBehaviour,INPC,IItem
             = EmotionalWorldSprite;
     }
 
+    public void DisappearanceWorld()
+    {
+        EmotionalWorld.SetActive(false);
+    }
+
     public void ItemAction()
     {
         //Coinを参照してフラグを切り替える
@@ -131,4 +135,6 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         }
 
     }
+
+    
 }

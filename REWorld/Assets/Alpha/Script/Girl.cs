@@ -71,7 +71,7 @@ public class Girl : MonoBehaviour,INPC,IItem
 
     public List<string> WordsText => _wordsText;
 
-    public void SetActiveWorld()
+    public void AppearanceWorld()
     {
         //感情世界を出現させる
         EmotionalWorld.SetActive(true);
@@ -101,7 +101,11 @@ public class Girl : MonoBehaviour,INPC,IItem
             = EmotionalWorldSprite;
     }
 
-    
+    public void DisappearanceWorld()
+    {
+        EmotionalWorld.SetActive(false);
+    }
+
     public void ItemAction()
     {
         //iceFlagを参照してフラグを切り替える

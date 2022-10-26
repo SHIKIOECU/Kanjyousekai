@@ -25,9 +25,12 @@ public interface INPC
 
     //List<FlagData> FlagDatas { get; }
 
-    //観測した時
-    void SetActiveWorld();
+    //世界を出現させる
+    void AppearanceWorld();
 
     //感情世界を変更
     void ChangeWorld();
+
+    //世界を消失させる
+    void DisappearanceWorld();
 }

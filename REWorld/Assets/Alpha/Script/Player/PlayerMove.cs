@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
 
     [Header("移動速度")]
     [SerializeField]
-    private float speed;
+    private float _speed;
 
     [Header("ジャンプの大きさ")]
     public float basicJumpPower;
@@ -56,7 +56,7 @@ public class PlayerMove : MonoBehaviour
     private void Move()
     {
         //入力した方向へ移動（現在X軸のみ反応）
-        rb2D.velocity = new Vector2(move.x * speed, rb2D.velocity.y);
+        rb2D.velocity = new Vector2(move.x * _speed, rb2D.velocity.y);
         if (move.x > 0)
         {
             playerAnimator.SetBool("l_run", false);

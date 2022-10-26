@@ -135,14 +135,19 @@ public class Detective : MonoBehaviour,INPC
 
     public List<string> WordsText => _wordsText;
 
+    public void AppearanceWorld()
+    {
+        //感情世界を出現させる
+        EmotionalWorld.SetActive(true);
+    }
+
     public void ChangeWorld()
     {
         
     }
 
-    public void SetActiveWorld()
+    public void DisappearanceWorld()
     {
-        //感情世界を出現させる
-        EmotionalWorld.SetActive(true);
+        EmotionalWorld.SetActive(false);
     }
 }
