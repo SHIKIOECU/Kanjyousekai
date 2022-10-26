@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public interface INPC 
 {
+    //NPCのデータ
+    NPCData INPCData { get; }
+
     //感情世界
     GameObject EmotionalWorld { get; }
 

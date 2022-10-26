@@ -20,7 +20,7 @@ public class GrildAnimmator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_girl.getIce == true)
+        if (_girl._getIce == true)
         {
             crying.SetBool("isHappy", true);
         }

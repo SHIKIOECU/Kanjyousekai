@@ -58,6 +58,7 @@ public class Interact : MonoBehaviour
             _NPC.SetActiveWorld();
             isWorld = true;
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -71,7 +72,6 @@ public class Interact : MonoBehaviour
         _item = null;
         _NPC = null;
 
-        
     }
 
 }

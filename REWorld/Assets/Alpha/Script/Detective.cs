@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Detective : MonoBehaviour
+public class Detective : MonoBehaviour,INPC
 {
     //NPCData
     [SerializeField]
@@ -12,10 +12,6 @@ public class Detective : MonoBehaviour
     //感情世界
     [SerializeField]
     private GameObject _emotionalWorld;
-
-    //感情世界のグラフィック
-    [SerializeField]
-    private List<Sprite> _emotionalWorldSprites;
 
     //グラフィック
     [SerializeField]
@@ -29,103 +25,109 @@ public class Detective : MonoBehaviour
     [SerializeField]
     private List<string> _wordsText;
 
-    //NPC状態フラグ
+    //コイン
     [SerializeField]
-    private List<FlagData> _flag;
+    private Coin coin;
 
     //アイテム（コイン）フラグ
     [SerializeField]
-    private FlagData _coin;
+    private FlagData coinFlag;
 
+    //雨フラグ
     [SerializeField]
-    private Coin _coinItem;
+    private FlagData rain;
 
+    //アニメーター
+    private Animator _animator;
+
+    //移動地点
     [SerializeField]
-    private FlagData _girl;
-
+    private GameObject _pointA;
     [SerializeField]
-    private GameObject pointA;
+    private GameObject _pointB;
+
+    //NPCの移動速度
     [SerializeField]
-    private GameObject pointB;
+    private float _speed=0.1f;
 
-    [SerializeField]
-    private float Speed;
-
-    private Vector3 nowPos;
-    private Vector3 toPos;
-    private Vector3 coinPos;
-
+    //移動に必要な情報
+    //位置、情報、位置情報のセットしたかどうか、動き終わったかどうか、移動時間
+    private Vector3 _nowPos;
+    private Vector3 _toPos;
+    private Vector3 _coinPos;
     public bool isSetPos = false;
     public bool moved = false;
     public float _currentTime;
 
     private void Start()
     {
-        coinPos = _coinItem.gameObject.transform.position;
+        _coinPos = coin.gameObject.transform.position;
         EmotionalWorld.SetActive(false);
-        FlagReset();
-        FlagDatas[0].SetFlagStatus();
+        INPCData.InitNPCFlag();
+        //_animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        //動き終わっていない時
         if (!moved) Movement();
-        if (FlagDatas[0].IsOn&&_currentTime!=0&&!_coinItem.isGet)
+
+        //自販機に戻るときにコインを持っていない時
+        if (INPCData.Data.Name!="move"&&_currentTime!=0&&!coin.isGet)
         {
-            _coinItem.gameObject.SetActive(true);
+            coin.gameObject.SetActive(true);
         }
         else
         {
-            _coinItem.gameObject.SetActive(false);
+            coin.gameObject.SetActive(false);
         }
     }
 
-    //フラグを全てfalseにする
-    void FlagReset()
-    {
-        for (int i = 0; i < FlagDatas.Count; i++)
-        {
-            FlagDatas[i].InitFlag();
-        }
-    }
-
-   
-
+    //移動
     void Movement()
     {
-        if (FlagDatas[1].IsOn && !isSetPos)
-        {
-            nowPos = transform.position;
-            toPos = pointA.transform.position;
-            isSetPos = true;
-        }
+        Debug.LogFormat("{0}で{1}",isSetPos,INPCData.Data.Name);
 
-        if (!FlagDatas[1].IsOn && !isSetPos)
+        //位置情報の更新
+        if (INPCData.Data.Name=="move" && !isSetPos)
         {
             _currentTime = 0;
-            nowPos = transform.position;
-            toPos = pointB.transform.position;
+            _nowPos = transform.position;
+            _toPos = _pointA.transform.position;
             isSetPos = true;
+            Debug.Log("MOVE");
+        }
+        if (INPCData.Data.Name!="move" && !isSetPos)
+        {
+            _currentTime = 0;
+            _nowPos = transform.position;
+            _toPos = _pointB.transform.position;
+            isSetPos = true;
+            Debug.Log("STOP");
         }
 
-        if (nowPos != toPos)
+        //位置情報を使い動かせる
+        if (_nowPos != _toPos)
         {
-            _currentTime += Time.deltaTime * Speed;
-            transform.position = Vector3.Lerp(nowPos, toPos, _currentTime);
+            _currentTime += Time.deltaTime * _speed;
+            transform.position = Vector3.Lerp(_nowPos, _toPos, _currentTime);
             if (_currentTime >= 1)
             {
                 isSetPos = false;
-                _currentTime = 0;
             }
+            Debug.Log("FIN");
         }
 
-        _coinItem.gameObject.transform.position = coinPos;
+        //コインを元の場所に固定する
+        coin.gameObject.transform.position = _coinPos;
     }
 
     //インターフェースを実装
+    public NPCData INPCData => NData;
+
     public GameObject EmotionalWorld => _emotionalWorld;
 
-    public List<Sprite> EmotionalWorldSprite => _emotionalWorldSprites;
+    public Sprite EmotionalWorldSprite => NData.Data.EmotionalWorldSprite;
 
     public SpriteRenderer NPCSprite => _NPC;
 
@@ -133,25 +135,14 @@ public class Detective : MonoBehaviour
 
     public List<string> WordsText => _wordsText;
 
-    public List<FlagData> FlagDatas => _flag;
-
-    //感情世界の画像を変更
     public void ChangeWorld()
     {
-        if (FlagDatas[1])
-        {
-            _coinItem.gameObject.GetComponent<Collider2D>().enabled = true;
-        }
-        else
-        {
-            _coinItem.gameObject.GetComponent<Collider2D>().enabled = false;
-        }
-
+        
     }
 
     public void SetActiveWorld()
     {
+        //感情世界を出現させる
         EmotionalWorld.SetActive(true);
-        if (!_coinItem.isGet) _coinItem.gameObject.SetActive(true);
     }
 }

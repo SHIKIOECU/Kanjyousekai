@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Girl : MonoBehaviour,IItem
+public class Girl : MonoBehaviour,INPC,IItem
 {
     //NPCData
     [SerializeField]
@@ -27,42 +27,40 @@ public class Girl : MonoBehaviour,IItem
 
     //アイテム（アイス）フラグ
     [SerializeField]
-    private FlagData _ice;
+    private FlagData iceFlag;
 
-    [SerializeField]
-    private FlagData _detective;
-
+    //探偵
     [SerializeField]
     private Detective detective;
 
+    //虹
     [SerializeField]
-    private GameObject _gimmick;
+    private GameObject _rainbow;
 
-    [SerializeField]
-    private List<GameObject> _gimmickList;
-
-    public bool getIce;
+    public bool _getIce;
 
     //アニメーター
-    private Animator animator;
+    private Animator _animator;
 
     private void Start()
     {
         EmotionalWorld.SetActive(false);
-        NData.InitNPCFlag();
-        animator = GetComponent<Animator>();
+        INPCData.InitNPCFlag();
+        //_animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (!EmotionalWorld.active)
         {
-            _detective.SetFlagStatus(false);
+            detective.INPCData.SetFlag("basic");
             detective.isSetPos = false;
         }
     }
 
     //インターフェースの定義
+    public NPCData INPCData => NData;
+
     public GameObject EmotionalWorld => _emotionalWorld;
 
     public Sprite EmotionalWorldSprite => NData.Data.EmotionalWorldSprite;
@@ -75,51 +73,44 @@ public class Girl : MonoBehaviour,IItem
 
     public void SetActiveWorld()
     {
+        //感情世界を出現させる
         EmotionalWorld.SetActive(true);
 
-        switch (NData.Data.Name)
+        switch (INPCData.Data.Name)
         {
+            //泣いている場合（基本）
             case "basic":
-                _detective.SetFlagStatus();
+                detective.INPCData.SetFlag("move");
                 detective.isSetPos = false;
+                detective.moved = false;
                 break;
+            //喜んでいる場合
             case "happy":
-                _gimmick.SetActive(true);
+                _rainbow.SetActive(true);
                 break;
 
         }
-        //if (_gimmick != null)
-        //{
-        //    _gimmick.SetActive(true);
-        //}
-
-        //if (FlagDatas[0].IsOn)
-        //{
-        //    _detective.SetFlagStatus();
-        //    detective.isSetPos = false;
-        //}
-       
 
         detective.moved = false;
     }
-
-    //感情世界の画像を変更
+  
     public void ChangeWorld()
     {
+        //感情世界の画像を変更
         EmotionalWorld.GetComponent<SpriteRenderer>().sprite
             = EmotionalWorldSprite;
     }
 
-    //ItemListを参照してフラグを切り替える
+    
     public void ItemAction()
     {
-        if (_ice.IsOn)
+        //iceFlagを参照してフラグを切り替える
+        if (iceFlag.IsOn)
         {
-            getIce = true;
-            _ice.InitFlag();
-            NData.SetFlag("happy");
+            _getIce = true;
+            iceFlag.SetFlagStatus(false);
+            INPCData.SetFlag("happy");
 
-            _gimmick = _gimmickList[0];
             ChangeWorld();
         }
 
