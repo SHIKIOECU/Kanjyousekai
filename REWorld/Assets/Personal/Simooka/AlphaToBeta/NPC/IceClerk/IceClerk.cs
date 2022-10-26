@@ -28,25 +28,24 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     //アイス
     [SerializeField]
     private Ice ice;
-
     //アイテムフラグ（アイス）
     [SerializeField]
-    private FlagData _ice;
+    private FlagData iceFlag;
 
     //投げる速度
     [SerializeField]
-    private float slowSpeed;
+    private float _slowSpeed;
 
     //アイテムフラグ（コイン）
     [SerializeField]
-    private FlagData _coin;
+    private FlagData coin;
 
 
     //アニメーター
-    private Animator animator;
+    private Animator _animator;
 
     //ジャンプできるようになったかどうか
-    public bool jumping = false;
+    public bool _jumping = false;
 
     //上昇したジャンプ力
     [SerializeField]
@@ -55,8 +54,8 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     private void Start()
     {
         EmotionalWorld.SetActive(false);
-        NData.InitNPCFlag();
-        animator = GetComponent<Animator>();
+        INPCData.InitNPCFlag();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -68,6 +67,8 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     }
 
     //インターフェースの定義
+    public NPCData INPCData => NData;
+
     public GameObject EmotionalWorld => _emotionalWorld;
 
     public Sprite EmotionalWorldSprite => NData.Data.EmotionalWorldSprite;
@@ -78,21 +79,21 @@ public class IceClerk : MonoBehaviour,INPC,IItem
 
     public List<string> WordsText => _wordsText;
 
-
-    public void SetActiveWorld()
+    public void AppearanceWorld()
     {
         EmotionalWorld.SetActive(true);
 
-        switch (NData.Data.Name)
+        switch (INPCData.Data.Name)
         {
+            //アイスが売れていない場合（基本）
             case "basic":
                 ice.gameObject.SetActive(true);
-                ice.Rb2D.velocity = new Vector2(slowSpeed, 0);
-                //アニメーターの設定
-                animator.SetBool("throwTrigger", true);
+                ice.Rb2D.velocity = new Vector2(_slowSpeed, 0);
+                _animator.SetBool("throwTrigger", true);
                 break;
+            //喜んでいる場合
             case "happy":
-                jumping = true;
+                _jumping = true;
                 ice.gameObject.SetActive(false);
                 PlayerMove.instance.jumpPower = jumpPowerUp;
                 break;
@@ -100,33 +101,40 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         }
     }
 
-    //感情世界の画像を変更
     public void ChangeWorld()
     {
+        //感情世界の画像を変更
         EmotionalWorld.GetComponent<SpriteRenderer>().sprite
             = EmotionalWorldSprite;
     }
 
-    //ItemListを参照してフラグを切り替える
+    public void DisappearanceWorld()
+    {
+        EmotionalWorld.SetActive(false);
+    }
+
     public void ItemAction()
     {
-        if (_coin.IsOn)
+        //Coinを参照してフラグを切り替える
+        if (coin.IsOn)
         {
-            _coin.InitFlag();
-            _ice.SetFlagStatus();
+            coin.InitFlag();
+            iceFlag.SetFlagStatus();
 
-            NData.SetFlag("happy");
+            INPCData.SetFlag("happy");
 
             ChangeWorld();
 
             //仮
             //if (_flag[1].IsOn)
             //{
-            //    jumping = true;
+            //    _jumping = true;
             //    ice.gameObject.SetActive(false);
             //    PlayerMove.instance.jumpPower = jumpPowerUp;
             //}
         }
 
     }
+
+    
 }

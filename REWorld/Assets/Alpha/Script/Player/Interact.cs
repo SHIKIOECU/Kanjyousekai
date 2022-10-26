@@ -10,9 +10,10 @@ public class Interact : MonoBehaviour
     [SerializeField]
     private FlagList _itemFlagList;
 
-    public IItem _item;
+    private IItem _item;
 
-    public INPC _NPC;
+    private INPC _NPC;
+    private INPC _nowKansoku;
 
     //
     public bool isGet;
@@ -53,25 +54,22 @@ public class Interact : MonoBehaviour
         }
 
         //観測
-        if (_NPC != null && OnKansoku && !isWorld)
+        if (_NPC != null && OnKansoku)
         {
-            _NPC.SetActiveWorld();
-            isWorld = true;
+            _NPC.AppearanceWorld();
+            if(_NPC==_nowKansoku)
+            if (_nowKansoku != null) _nowKansoku.DisappearanceWorld();
+            _nowKansoku = _NPC;
+            Debug.LogFormat(collision.gameObject.name);
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("World"))
-        {
-            isWorld = false;
-            collision.gameObject.SetActive(false);
-        }
-
         _item = null;
         _NPC = null;
 
-        
     }
 
 }
