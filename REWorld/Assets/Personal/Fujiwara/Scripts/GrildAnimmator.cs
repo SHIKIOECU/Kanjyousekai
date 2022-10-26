@@ -9,7 +9,7 @@ public class GrildAnimmator : MonoBehaviour
     [SerializeField]
     private Girl _girl;
 
-    string trigger = "";
+    //string trigger = "";
 
     // Start is called before the first frame update
     void Start()
