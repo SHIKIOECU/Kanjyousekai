@@ -51,11 +51,7 @@ public class Girl : MonoBehaviour,INPC,IItem
 
     private void Update()
     {
-        if (!EmotionalWorld.active)
-        {
-            detective.INPCData.SetFlag("basic");
-            detective.isSetPos = false;
-        }
+
     }
 
     //インターフェースの定義
@@ -90,8 +86,6 @@ public class Girl : MonoBehaviour,INPC,IItem
                 break;
 
         }
-
-        detective.moved = false;
     }
   
     public void ChangeWorld()
@@ -104,6 +98,8 @@ public class Girl : MonoBehaviour,INPC,IItem
     public void DisappearanceWorld()
     {
         EmotionalWorld.SetActive(false);
+        detective.INPCData.SetFlag("basic");
+        detective.moved = false;
     }
 
     public void ItemAction()

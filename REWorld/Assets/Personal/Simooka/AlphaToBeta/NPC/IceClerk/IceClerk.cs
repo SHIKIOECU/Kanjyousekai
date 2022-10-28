@@ -45,7 +45,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     private Animator _animator;
 
     //ジャンプできるようになったかどうか
-    public bool _jumping = false;
+    public bool jumping = false;
 
     //上昇したジャンプ力
     [SerializeField]
@@ -93,7 +93,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
                 break;
             //喜んでいる場合
             case "happy":
-                _jumping = true;
+                jumping = true;
                 ice.gameObject.SetActive(false);
                 PlayerMove.instance.jumpPower = jumpPowerUp;
                 break;
@@ -128,7 +128,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
             //仮
             //if (_flag[1].IsOn)
             //{
-            //    _jumping = true;
+            //    jumping = true;
             //    ice.gameObject.SetActive(false);
             //    PlayerMove.instance.jumpPower = jumpPowerUp;
             //}
