@@ -6,9 +6,9 @@ public class PlayerCollison : MonoBehaviour
 {
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("World"))
+        if (collision.CompareTag("World")&& Interact.instance.nowKansoku!=null)
         {
-            collision.gameObject.SetActive(false);
+            Interact.instance.nowKansoku.DisappearanceWorld();
         }
 
     }

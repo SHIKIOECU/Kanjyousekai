@@ -72,6 +72,7 @@ public class Input : MonoBehaviour
         if (context.phase == InputActionPhase.Canceled)
         {
             interact.OnKansoku = false;
+            interact.isKansoku = false;
         }
     }
 }
