@@ -60,10 +60,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
 
     private void Update()
     {
-        if (!EmotionalWorld.active)
-        {
-            PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
-        }
+
     }
 
     //インターフェースの定義
@@ -106,11 +103,15 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         //感情世界の画像を変更
         EmotionalWorld.GetComponent<SpriteRenderer>().sprite
             = EmotionalWorldSprite;
+
+        if (EmotionalWorld.active) AppearanceWorld();
     }
 
     public void DisappearanceWorld()
     {
         EmotionalWorld.SetActive(false);
+
+        PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
     }
 
     public void ItemAction()
