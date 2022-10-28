@@ -23,7 +23,7 @@ public class IceAnime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jump = icecle._jumping;
+        jump = icecle.jumping;
 
         switch(jump)
         {

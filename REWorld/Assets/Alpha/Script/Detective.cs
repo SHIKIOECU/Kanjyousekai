@@ -86,7 +86,8 @@ public class Detective : MonoBehaviour,INPC
     //移動
     void Movement()
     {
-        Debug.LogFormat("{0}で{1}",isSetPos,INPCData.Data.Name);
+        //Debug.LogFormat("isSetPos:{0},NAME:{1}", isSetPos,INPCData.Data.Name);
+
 
         //位置情報の更新
         if (INPCData.Data.Name=="move" && !isSetPos)
@@ -97,7 +98,7 @@ public class Detective : MonoBehaviour,INPC
             isSetPos = true;
             Debug.Log("MOVE");
         }
-        if (INPCData.Data.Name!="move" && !isSetPos)
+        if (INPCData.Data.Name != "move" && !isSetPos)
         {
             _currentTime = 0;
             _nowPos = transform.position;
@@ -111,11 +112,13 @@ public class Detective : MonoBehaviour,INPC
         {
             _currentTime += Time.deltaTime * _speed;
             transform.position = Vector3.Lerp(_nowPos, _toPos, _currentTime);
+            //Debug.LogFormat("nowPos:{0},topos:{1}", transform.position, _toPos);
             if (_currentTime >= 1)
             {
                 isSetPos = false;
+                moved = true;
             }
-            Debug.Log("FIN");
+            //Debug.Log("FIN");
         }
 
         //コインを元の場所に固定する
