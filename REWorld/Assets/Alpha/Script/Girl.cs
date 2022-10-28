@@ -93,13 +93,28 @@ public class Girl : MonoBehaviour,INPC,IItem
         //感情世界の画像を変更
         EmotionalWorld.GetComponent<SpriteRenderer>().sprite
             = EmotionalWorldSprite;
+
+        if (EmotionalWorld.active) AppearanceWorld();
     }
 
     public void DisappearanceWorld()
     {
         EmotionalWorld.SetActive(false);
-        detective.INPCData.SetFlag("basic");
-        detective.moved = false;
+
+        switch (INPCData.Data.Name)
+        {
+            //泣いている場合（基本）
+            case "basic":
+                detective.INPCData.SetFlag("basic");
+                detective.isSetPos = false;
+                detective.moved = false;
+                break;
+            //喜んでいる場合
+            case "happy":
+                _rainbow.SetActive(false);
+                break;
+
+        }
     }
 
     public void ItemAction()

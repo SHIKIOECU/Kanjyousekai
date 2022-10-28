@@ -96,7 +96,7 @@ public class Detective : MonoBehaviour,INPC
             _nowPos = transform.position;
             _toPos = _pointA.transform.position;
             isSetPos = true;
-            Debug.Log("MOVE");
+            //Debug.Log("MOVE");
         }
         if (INPCData.Data.Name != "move" && !isSetPos)
         {
@@ -104,7 +104,7 @@ public class Detective : MonoBehaviour,INPC
             _nowPos = transform.position;
             _toPos = _pointB.transform.position;
             isSetPos = true;
-            Debug.Log("STOP");
+            //Debug.Log("STOP");
         }
 
         //位置情報を使い動かせる
