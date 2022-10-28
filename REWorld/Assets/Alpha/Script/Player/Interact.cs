@@ -13,12 +13,14 @@ public class Interact : MonoBehaviour
     private IItem _item;
 
     private INPC _NPC;
-    private INPC _nowKansoku;
+    public INPC nowKansoku;
 
     //
     public bool isGet;
 
     public bool OnKansoku;
+
+    public bool isKansoku=false;
 
     public bool isWorld;
 
@@ -54,12 +56,21 @@ public class Interact : MonoBehaviour
         }
 
         //観測
-        if (_NPC != null && OnKansoku)
+        if (_NPC != null && OnKansoku && !isKansoku)
         {
+            isKansoku = true;
             _NPC.AppearanceWorld();
-            if(_NPC==_nowKansoku)
-            if (_nowKansoku != null) _nowKansoku.DisappearanceWorld();
-            _nowKansoku = _NPC;
+            if (nowKansoku != null) nowKansoku.DisappearanceWorld();
+            if (_NPC == nowKansoku)
+            {
+                nowKansoku = null;
+            }
+            else
+            {
+                nowKansoku = _NPC;
+            }
+
+            
             Debug.LogFormat(collision.gameObject.name);
         }
 
