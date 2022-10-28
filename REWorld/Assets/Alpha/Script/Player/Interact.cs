@@ -60,8 +60,12 @@ public class Interact : MonoBehaviour
         {
             isKansoku = true;
             _NPC.AppearanceWorld();
-            if (nowKansoku != null) nowKansoku.DisappearanceWorld();
-            if (_NPC == nowKansoku)
+            if (nowKansoku != null)
+            {
+                nowKansoku.DisappearanceWorld();
+            }
+            Debug.Log(_NPC+" : "+nowKansoku);
+            if (nowKansoku == _NPC)
             {
                 nowKansoku = null;
             }
@@ -69,9 +73,11 @@ public class Interact : MonoBehaviour
             {
                 nowKansoku = _NPC;
             }
+            Debug.Log(nowKansoku);
 
-            
-            Debug.LogFormat(collision.gameObject.name);
+
+
+
         }
 
     }
@@ -79,7 +85,6 @@ public class Interact : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         _item = null;
-        _NPC = null;
 
     }
 
