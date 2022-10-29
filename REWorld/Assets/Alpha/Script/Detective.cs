@@ -40,11 +40,11 @@ public class Detective : MonoBehaviour,INPC
     //アニメーター
     private Animator _animator;
 
+    //最初の地点
+    private Vector3 _startPoint;
     //移動地点
     [SerializeField]
-    private GameObject _pointA;
-    [SerializeField]
-    private GameObject _pointB;
+    private GameObject _toObject;
 
     //NPCの移動速度
     [SerializeField]
@@ -61,6 +61,7 @@ public class Detective : MonoBehaviour,INPC
 
     private void Start()
     {
+        _startPoint = transform.position;
         _coinPos = coin.gameObject.transform.position;
         EmotionalWorld.SetActive(false);
         INPCData.InitNPCFlag();
@@ -72,15 +73,7 @@ public class Detective : MonoBehaviour,INPC
         //動き終わっていない時
         if (!moved) Movement();
 
-        //自販機に戻るときにコインを持っていない時
-        if (INPCData.Data.Name!="move"&&_currentTime!=0&&!coin.isGet)
-        {
-            coin.gameObject.SetActive(true);
-        }
-        else
-        {
-            coin.gameObject.SetActive(false);
-        }
+        if(transform.position==_startPoint) coin.gameObject.SetActive(false);
     }
 
     //移動
@@ -94,7 +87,7 @@ public class Detective : MonoBehaviour,INPC
         {
             _currentTime = 0;
             _nowPos = transform.position;
-            _toPos = _pointA.transform.position;
+            _toPos = _toObject.transform.position;
             isSetPos = true;
             //Debug.Log("MOVE");
         }
@@ -102,7 +95,7 @@ public class Detective : MonoBehaviour,INPC
         {
             _currentTime = 0;
             _nowPos = transform.position;
-            _toPos = _pointB.transform.position;
+            _toPos = _startPoint;
             isSetPos = true;
             //Debug.Log("STOP");
         }
@@ -142,6 +135,16 @@ public class Detective : MonoBehaviour,INPC
     {
         //感情世界を出現させる
         EmotionalWorld.SetActive(true);
+
+        //コインを持っていない時
+        if (!coin.isGet)
+        {
+            coin.gameObject.SetActive(true);
+        }
+        else
+        {
+            coin.gameObject.SetActive(false);
+        }
     }
 
     public void ChangeWorld()
@@ -152,5 +155,6 @@ public class Detective : MonoBehaviour,INPC
     public void DisappearanceWorld()
     {
         EmotionalWorld.SetActive(false);
+        coin.gameObject.SetActive(false);
     }
 }
