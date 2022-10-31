@@ -47,3 +47,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: EmotionalWorld
+    uniqueID: 3522420117
+    locked: 0
+  - name: NPC
+    uniqueID: 863692019
+    locked: 0
+  - name: Item
+    uniqueID: 2895468195
+    locked: 0
+  - name: Player
+    uniqueID: 3537497527
+    locked: 0
