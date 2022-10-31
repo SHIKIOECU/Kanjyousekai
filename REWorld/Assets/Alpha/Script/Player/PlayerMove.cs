@@ -24,6 +24,10 @@ public class PlayerMove : MonoBehaviour
     //ジャンプ状態
     public bool jumpState;
 
+    ////接地判定
+    //[SerializeField]
+    //private GameObject _checkGround;
+
     public Animator playerAnimator;
 
     private void Awake()
@@ -47,7 +51,8 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-            jumpState = false;
+        //Debug.Log(CheckGround());
+        //jumpState = CheckGround();
         playerAnimator.SetBool("isGround", true);
         playerAnimator.SetBool("r_jump", false);
         playerAnimator.SetBool("l_jump", false);
@@ -76,6 +81,7 @@ public class PlayerMove : MonoBehaviour
 
     public void Jump()
     {
+        //Debug.Log(hit.collider.gameObject.name);
         //Y軸方向へ移動
         rb2D.velocity = transform.up * jumpPower;
         playerAnimator.SetBool("isGround", false);
@@ -91,8 +97,10 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private void Animation()
-    {
-
-    }
+    //bool CheckGround()
+    //{
+    //    RaycastHit2D hit = Physics2D.Raycast(_checkGround.transform.position, Vector2.down, 1f);
+    //    if (hit.collider.gameObject.name == "floor") return true;
+    //    else return false;
+    //}
 }
