@@ -27,6 +27,7 @@ public class CamelController : MonoBehaviour, INPC, IItem
 
     // 追従するターゲット
     [SerializeField] private HawkerController followTarget;
+    [SerializeField] private DesertGirlController desertGirl;
 
     // サボテン
     [SerializeField] private GameObject cactus;
@@ -38,9 +39,9 @@ public class CamelController : MonoBehaviour, INPC, IItem
     private float moveTime = 0;
 
     public bool isFollowing;
-    [SerializeField] private bool isEating;
+    public bool isEating;
 
-    private Vector3 nowPos;
+    public Vector3 nowPos;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +97,7 @@ public class CamelController : MonoBehaviour, INPC, IItem
         _emotionalWorld.SetActive(false);
 
         isEating = false;
+        isFollowing = true;
     }
 
     public void ItemAction()
@@ -136,27 +138,34 @@ public class CamelController : MonoBehaviour, INPC, IItem
                 else
                 {
                     isEating = false;
-                    isFollowing = true;
+                    followTarget.onCactus = false;
+                    //isFollowing = true;
 
+                    // 少女を怯え状態にする
+                    desertGirl.desert_girl_anim.SetBool("isFrightening", true);
+                    desertGirl.INPCData.SetFlag("frightening");
+
+                    // 移動速度のリセット
                     moveTime = 0;
 
                     // cactusの削除
                     cactus.SetActive(false);
                 }
             }
-            // big_cactusを観測したとき
-            else if (followTarget.onBigCactus)
+            // big_cactusを観測したとき & 少女を観測していたら
+            else if (followTarget.onBigCactus && desertGirl.moved && desertGirl.isDesertGirl)
             {
-                if (transform.position != new Vector3(big_cactus.transform.position.x - 2, transform.position.y, 0))
+                if (transform.position != new Vector3(big_cactus.transform.position.x - 4, transform.position.y, 0))
                 {
-                    //Debug.Log("big_cactusを食べに行きます");
-                    transform.position = Vector3.Lerp(nowPos, new Vector3(big_cactus.transform.position.x - 2, transform.position.y, 0), moveTime);
+                    transform.position = Vector3.Lerp(nowPos, new Vector3(big_cactus.transform.position.x - 4, transform.position.y, 0), moveTime);
                 }
                 else
                 {
                     isEating = false;
-                    isFollowing = true;
+                    followTarget.onBigCactus = false;
+                    //isFollowing = true;
 
+                    // 移動速度のリセット
                     moveTime = 0;
 
                     big_cactus.SetActive(false);

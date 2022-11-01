@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HawkerController : MonoBehaviour, INPC, IItem
+public class HawkerController : MonoBehaviour
 {
     //NPCData
     [SerializeField]
@@ -60,37 +60,37 @@ public class HawkerController : MonoBehaviour, INPC, IItem
         if (moved) Move();
     }
 
-    public NPCData INPCData => NData;
+    //public NPCData INPCData => NData;
 
-    public GameObject EmotionalWorld => throw new System.NotImplementedException();
+    //public GameObject EmotionalWorld => throw new System.NotImplementedException();
 
-    public Sprite EmotionalWorldSprite => throw new System.NotImplementedException();
+    //public Sprite EmotionalWorldSprite => throw new System.NotImplementedException();
 
-    public SpriteRenderer NPCSprite => _NPC;
+    //public SpriteRenderer NPCSprite => _NPC;
 
-    public Text Words => throw new System.NotImplementedException();
+    //public Text Words => throw new System.NotImplementedException();
 
-    public List<string> WordsText => throw new System.NotImplementedException();
+    //public List<string> WordsText => throw new System.NotImplementedException();
 
-    public void AppearanceWorld()
-    {
+    //public void AppearanceWorld()
+    //{
         
-    }
+    //}
 
-    public void ChangeWorld()
-    {
-        throw new System.NotImplementedException();
-    }
+    //public void ChangeWorld()
+    //{
+    //    throw new System.NotImplementedException();
+    //}
 
-    public void DisappearanceWorld()
-    {
-        throw new System.NotImplementedException();
-    }
+    //public void DisappearanceWorld()
+    //{
+    //    throw new System.NotImplementedException();
+    //}
 
-    public void ItemAction()
-    {
-        throw new System.NotImplementedException();
-    }
+    //public void ItemAction()
+    //{
+    //    throw new System.NotImplementedException();
+    //}
 
     // 動かす処理
     private void Move()
@@ -112,9 +112,9 @@ public class HawkerController : MonoBehaviour, INPC, IItem
     public void MoveToPlace(GameObject target_place)
     {
         Movetime += speed * Time.deltaTime;
-        if (transform.position != new Vector3(target_place.transform.position.x - 2.5f, transform.position.y))
+        if (transform.position != new Vector3(target_place.transform.position.x - 3.5f, transform.position.y))
         {
-            transform.position = Vector3.Lerp(nowPos, new Vector3(target_place.transform.position.x - 2.5f, transform.position.y), Movetime);
+            transform.position = Vector3.Lerp(nowPos, new Vector3(target_place.transform.position.x - 3.5f, transform.position.y), Movetime);
         }
         else
         {
@@ -143,12 +143,11 @@ public class HawkerController : MonoBehaviour, INPC, IItem
             switch (cactus.GetComponent<CactusController>().isCactusKansoku)
             {
                 case true:
-                    //Debug.Log("isDancingをtrueにしました");
                     hawker_anim.SetBool("isDancing", true);
                     break;
                 case false:
-                    //Debug.Log("isDancingをfalseにしました");
                     hawker_anim.SetBool("isDancing", false);
+                    Movetime = 0;
                     break;
             }
         }
@@ -158,12 +157,11 @@ public class HawkerController : MonoBehaviour, INPC, IItem
             switch (big_cactus.GetComponent<BigCactusController>().isBigCactusKansoku)
             {
                 case true:
-                    //Debug.Log("isSuperDancingをtrueにしました");
                     hawker_anim.SetBool("isSuperDancing", true);
                     break;
                 case false:
-                    //Debug.Log("isSuperDancingをfalseにしました");
                     hawker_anim.SetBool("isSuperDancing", false);
+                    Movetime = 0;
                     break;
             }
         }
