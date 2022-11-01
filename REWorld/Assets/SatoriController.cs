@@ -42,16 +42,16 @@ public class SatoriController : MonoBehaviour
         // キャラクターと一定以上離れたら移動する
         if (distance_x > 2)
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(target.transform.position.x - dis_x, target.transform.position.y + dis_y), speed * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(target.transform.position.x - dis_x, target.transform.position.y + dis_y, -1), speed * Time.deltaTime);
         }
         else if (distance_x < -2)
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(target.transform.position.x + dis_x, target.transform.position.y + dis_y), speed * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(target.transform.position.x + dis_x, target.transform.position.y + dis_y, -1), speed * Time.deltaTime);
         }
         else
         {
             //Move2();
-            this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(this.transform.position.x, target.transform.position.y + dis_y), speed * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(this.transform.position.x, target.transform.position.y + dis_y, -1), speed * Time.deltaTime);
         }
     }
 
@@ -61,11 +61,11 @@ public class SatoriController : MonoBehaviour
         //キャラクターの向きを変更したらすぐに移動する
         if (DirectCheck(right_sp, isRight))
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(target.transform.position.x - dis_x, target.transform.position.y + dis_y), speed * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(target.transform.position.x - dis_x, target.transform.position.y + dis_y, -1), speed * Time.deltaTime);
         }
         else if (DirectCheck(left_sp, isRight))
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(target.transform.position.x + dis_x, target.transform.position.y + dis_y), speed * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(target.transform.position.x + dis_x, target.transform.position.y + dis_y, -1), speed * Time.deltaTime);
         }
     }
 

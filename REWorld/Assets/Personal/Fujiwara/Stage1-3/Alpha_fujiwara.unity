@@ -390,13 +390,10 @@ MonoBehaviour:
   _NPC: {fileID: 151345440}
   _words: {fileID: 0}
   _wordsText: []
-  _ice: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
-  _detective: {fileID: 11400000, guid: bc33cf42e9a1a4f35960900ae7032444, type: 2}
+  iceFlag: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
   detective: {fileID: 750756748}
-  _gimmick: {fileID: 0}
-  _gimmickList:
-  - {fileID: 804628020}
-  getIce: 0
+  _rainbow: {fileID: 804628020}
+  _getIce: 0
 --- !u!114 &151345438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2147,7 +2144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &681048878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2274,23 +2271,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7751ef1491a341e2a0828346fa023c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NData: {fileID: 11400000, guid: 7e62e8097b3fc4c3f8c30026d5e6874e, type: 2}
+  NData: {fileID: 11400000, guid: d109c9516cc8b46baa36971dbcfc3623, type: 2}
   _emotionalWorld: {fileID: 516353672}
-  _emotionalWorldSprites:
-  - {fileID: 7482667652216324306, guid: b2dc2eb70c85c41b29ba71566ca0bed6, type: 3}
-  - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   _NPC: {fileID: 750756749}
   _words: {fileID: 0}
   _wordsText: []
-  _flag:
-  - {fileID: 11400000, guid: 1f8b641b5f2f04cb99c662d6d6d82a3d, type: 2}
-  - {fileID: 11400000, guid: bc33cf42e9a1a4f35960900ae7032444, type: 2}
-  _coin: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
-  _coinItem: {fileID: 219767041}
-  _girl: {fileID: 11400000, guid: 79d1c44ad61e54bd89ef4d2d9cb0440e, type: 2}
-  pointA: {fileID: 1963272205}
-  pointB: {fileID: 2009326751}
-  Speed: 0.3
+  coin: {fileID: 219767041}
+  coinFlag: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
+  rain: {fileID: 11400000, guid: 236abf01742194a76adce90ad66a002c, type: 2}
+  _toObject: {fileID: 2009326751}
+  _speed: 0.1
   isSetPos: 0
   moved: 0
   _currentTime: 0
@@ -4061,8 +4051,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 7.3506794, y: -5.5002236}
-      - {x: 25.893822, y: -5.6713533}
-      - {x: 47.21103, y: -5.6240196}
+      - {x: 25.893822, y: -5.539407}
+      - {x: 47.21103, y: -5.492072}
       - {x: 47.068295, y: 4.786327}
       - {x: -10.60985, y: 4.5128326}
       - {x: -10.577187, y: -5.4395204}
@@ -5563,6 +5553,7 @@ MonoBehaviour:
   _itemFlagList: {fileID: 11400000, guid: 5712f628c2bf1457286c7674174e9aff, type: 2}
   isGet: 0
   OnKansoku: 0
+  isKansoku: 0
   isWorld: 0
   OnGet: 0
 --- !u!114 &1162691511
@@ -5579,7 +5570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2D: {fileID: 0}
   move: {x: 0, y: 0}
-  speed: 5
+  _speed: 4
   basicJumpPower: 8
   jumpPower: 8
   jumpState: 0
@@ -10120,9 +10111,9 @@ MonoBehaviour:
   _words: {fileID: 0}
   _wordsText: []
   ice: {fileID: 829409918}
-  _ice: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
-  slowSpeed: 10
-  _coin: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
+  iceFlag: {fileID: 11400000, guid: 6c376d487d5c143609cfa3cac45970b2, type: 2}
+  _slowSpeed: 0
+  coin: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
   jumping: 0
   jumpPowerUp: 12
 --- !u!114 &1875273392
@@ -10330,13 +10321,10 @@ MonoBehaviour:
   _NPC: {fileID: 1943183806}
   _words: {fileID: 0}
   _wordsText: []
-  _ice: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
-  _detective: {fileID: 11400000, guid: bc33cf42e9a1a4f35960900ae7032444, type: 2}
+  iceFlag: {fileID: 0}
   detective: {fileID: 750756748}
-  _gimmick: {fileID: 0}
-  _gimmickList:
-  - {fileID: 152702004}
-  getIce: 0
+  _rainbow: {fileID: 0}
+  _getIce: 0
 --- !u!114 &1943183804
 MonoBehaviour:
   m_ObjectHideFlags: 0
