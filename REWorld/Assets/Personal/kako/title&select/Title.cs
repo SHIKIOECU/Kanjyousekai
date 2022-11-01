@@ -9,6 +9,7 @@ public class Title : MonoBehaviour
 
     public void OnClick()
     {
+
         CanvasobjT.SetActive(true);
         CanvasobjF.SetActive(false);
     }
