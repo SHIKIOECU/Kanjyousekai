@@ -85,6 +85,8 @@ crashlytics-build.properties
 /Assets/FMODStudioCache.asset.meta
 fmod.log
 fmod_editor.log
+/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudio.bundle/Contents/MacOS/fmodstudio
+REWorld/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudioL.bundle/Contents/MacOS/fmodstudioL
 
 # FMOD studio (In folder FMOD)
 /FMOD/**.user
