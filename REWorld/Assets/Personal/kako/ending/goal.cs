@@ -20,7 +20,7 @@ public class goal : MonoBehaviour
 
         //SoundManager.instance.stageBGMstop();
 
-        SoundManager.instance.PlaySE(0);
+        //SoundManager.instance.PlaySE(0);
 
         yield return new WaitForSeconds(4);
 
