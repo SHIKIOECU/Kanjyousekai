@@ -38,7 +38,7 @@ public class Detective : MonoBehaviour,INPC
     private FlagData rain;
 
     //アニメーター
-    private Animator _animator;
+    public Animator animator;
 
     //最初の地点
     private Vector3 _startPoint;
@@ -65,7 +65,7 @@ public class Detective : MonoBehaviour,INPC
         _coinPos = coin.gameObject.transform.position;
         EmotionalWorld.SetActive(false);
         INPCData.InitNPCFlag();
-        //_animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -89,6 +89,7 @@ public class Detective : MonoBehaviour,INPC
             _nowPos = transform.position;
             _toPos = _toObject.transform.position;
             isSetPos = true;
+            animator.SetBool("isMoving", true);
             //Debug.Log("MOVE");
         }
         if (INPCData.Data.Name != "move" && !isSetPos)
@@ -97,6 +98,7 @@ public class Detective : MonoBehaviour,INPC
             _nowPos = transform.position;
             _toPos = _startPoint;
             isSetPos = true;
+            animator.SetBool("isMoving", true);
             //Debug.Log("STOP");
         }
 
@@ -110,6 +112,7 @@ public class Detective : MonoBehaviour,INPC
             {
                 isSetPos = false;
                 moved = true;
+                animator.SetBool("isMoving", false);
             }
             //Debug.Log("FIN");
         }
