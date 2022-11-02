@@ -84,12 +84,15 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         {
             //アイスが売れていない場合（基本）
             case "basic":
+                //アイスを投げる
                 ice.gameObject.SetActive(true);
                 ice.Rb2D.velocity = new Vector2(_slowSpeed, 0);
                 _animator.SetBool("throwTrigger", true);
+                //Todo:アイスを投げるSEを追加
                 break;
             //喜んでいる場合
             case "happy":
+                //ジャンプする（プレイヤーのジャンプ力も上げる）
                 jumping = true;
                 ice.gameObject.SetActive(false);
                 PlayerMove.instance.jumpPower = jumpPowerUp;
@@ -125,14 +128,6 @@ public class IceClerk : MonoBehaviour,INPC,IItem
             INPCData.SetFlag("happy");
 
             ChangeWorld();
-
-            //仮
-            //if (_flag[1].IsOn)
-            //{
-            //    jumping = true;
-            //    ice.gameObject.SetActive(false);
-            //    PlayerMove.instance.jumpPower = jumpPowerUp;
-            //}
         }
 
     }
