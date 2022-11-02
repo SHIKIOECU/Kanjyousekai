@@ -22,9 +22,9 @@ public class bigIceAnime : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("WoodBox"))
+        if (collision.gameObject.tag == "Ground")
         {
             spriteRenderer.sprite = bigIce2;
         }
