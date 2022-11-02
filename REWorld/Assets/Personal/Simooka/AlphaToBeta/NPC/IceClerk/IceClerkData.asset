@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: IceClerkData
   m_EditorClassIdentifier: 
   Data:
-    Name: basic
-    EmotionalWorldSprite: {fileID: -912434825, guid: f62c9f18c96f845099dd3530e9c0a40b, type: 3}
-    NPCFlag: {fileID: 11400000, guid: ca641f88e766548ca81338e274b1c482, type: 2}
+    Name: happy
+    EmotionalWorldSprite: {fileID: 21300000, guid: d84b5bb1e220d4f3187bc8a98a52b885, type: 3}
+    NPCFlag: {fileID: 11400000, guid: 5ecff0a7c262b45d18a8135b86589be5, type: 2}
   npcStates:
   - Name: basic
-    EmotionalWorldSprite: {fileID: -912434825, guid: f62c9f18c96f845099dd3530e9c0a40b, type: 3}
+    EmotionalWorldSprite: {fileID: 21300000, guid: 1257e5af92d3d4000969aad2ecf35479, type: 3}
     NPCFlag: {fileID: 11400000, guid: 6d30b547a82df415ea1cf8e350564128, type: 2}
   - Name: happy
-    EmotionalWorldSprite: {fileID: -912434825, guid: f62c9f18c96f845099dd3530e9c0a40b, type: 3}
+    EmotionalWorldSprite: {fileID: 21300000, guid: d84b5bb1e220d4f3187bc8a98a52b885, type: 3}
     NPCFlag: {fileID: 11400000, guid: 5ecff0a7c262b45d18a8135b86589be5, type: 2}
