@@ -48,6 +48,7 @@ public class Interact : MonoBehaviour
     {
         _item = collision.gameObject.GetComponent<IItem>();
         _NPC = collision.gameObject.GetComponent<INPC>();
+        Debug.Log(_NPC);
 
         if (_item != null && OnGet && !isGet)
         {
@@ -60,9 +61,11 @@ public class Interact : MonoBehaviour
         {
             isKansoku = true;
             _NPC.AppearanceWorld();
+            PlayerAnimator.instance.SetKanjyo();
             if (nowKansoku != null)
             {
                 nowKansoku.DisappearanceWorld();
+                PlayerAnimator.instance.SetKanjyo(false);
             }
             Debug.Log(_NPC+" : "+nowKansoku);
             if (nowKansoku == _NPC)

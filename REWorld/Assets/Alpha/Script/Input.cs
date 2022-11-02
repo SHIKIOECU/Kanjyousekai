@@ -11,23 +11,37 @@ public class Input : MonoBehaviour
     //Playerの動作のスクリプト
     private PlayerMove PM;
 
-    private Interact interact;
-
     private void Start()
     {
         PM = Player.GetComponent<PlayerMove>();
-        interact = Player.GetComponent<Interact>();
     }
 
     //Playerの移動
     public void OnMove(InputAction.CallbackContext context)
     {
         PM.move = context.ReadValue<Vector2>();
+
+        if (PM.move.x > 0)
+        {
+            PlayerAnimator.instance.SetDirection();
+        }
+        else if (PM.move.x < 0)
+        {
+            PlayerAnimator.instance.SetDirection(false);
+        }
+
+        //ボタンを押した時
+        if (context.phase == InputActionPhase.Started)
+        {
+            PlayerAnimator.instance.SetMove();
+        }
+
         //ボタンを離した時
         if (context.phase == InputActionPhase.Canceled)
         {
             //X軸の速度を０にする
             PM.rb2D.velocity = new Vector2(0, PM.rb2D.velocity.y);
+            PlayerAnimator.instance.SetMove(false);
         }
     }
 
@@ -38,6 +52,7 @@ public class Input : MonoBehaviour
         if (context.phase == InputActionPhase.Performed && PM.jumpState == false)
         {
             PM.Jump();
+            PlayerAnimator.instance.SetJump();
             PM.jumpState = true;
         }
     }
@@ -47,16 +62,17 @@ public class Input : MonoBehaviour
         //ボタンを押した時
         if (context.phase == InputActionPhase.Started)
         {
-            interact.OnGet = true;
+            PlayerMove.instance.rb2D.WakeUp();
+            Interact.instance.OnGet = true;
         }
 
         //ボタンを離した時
         if (context.phase == InputActionPhase.Canceled)
         {
-            interact.OnGet = false;
+            Interact.instance.OnGet = false;
 
             //取得していない状態にする
-            interact.isGet = false;
+            Interact.instance.isGet = false;
         }
     }
 
@@ -65,14 +81,15 @@ public class Input : MonoBehaviour
         //ボタンを押した時
         if (context.phase == InputActionPhase.Started)
         {
-            interact.OnKansoku = true;
+            PlayerMove.instance.rb2D.WakeUp();
+            Interact.instance.OnKansoku = true;
         }
 
         //ボタンを離した時
         if (context.phase == InputActionPhase.Canceled)
         {
-            interact.OnKansoku = false;
-            interact.isKansoku = false;
+            Interact.instance.OnKansoku = false;
+            Interact.instance.isKansoku = false;
         }
     }
 }
