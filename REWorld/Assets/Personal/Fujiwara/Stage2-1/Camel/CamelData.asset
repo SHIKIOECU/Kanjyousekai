@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CamelData
   m_EditorClassIdentifier: 
   Data:
-    Name: stand
+    Name: basic
     EmotionalWorldSprite: {fileID: 0}
     NPCFlag: {fileID: 0}
   npcStates:
-  - Name: stand
+  - Name: basic
     EmotionalWorldSprite: {fileID: 0}
     NPCFlag: {fileID: 0}
   - Name: walk

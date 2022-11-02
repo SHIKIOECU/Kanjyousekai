@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Ins_SoundSE : MonoBehaviour
 {
-    public int SEnumber = 0;
+    //public SoundManager.SE_List SEnumber;
 
     private void Start()
     {
-        SoundManager.instance.PlaySE(SEnumber);
+        //SoundManager.instance.PlaySE(SEnumber);
     }
 }

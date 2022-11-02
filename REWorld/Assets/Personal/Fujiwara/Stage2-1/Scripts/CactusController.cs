@@ -85,6 +85,7 @@ public class CactusController : MonoBehaviour, INPC
         //hawker.onCactus = false;
         camel.isFollowing = false;
         isCactusKansoku = false;
+        hawker.moved = false;
         //Debug.Log("cactusの感情世界を消しました");
     }
 

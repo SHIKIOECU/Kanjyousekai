@@ -16,6 +16,6 @@ public class Ins_SoundBGM : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        SoundManager.instance.PlayBGM(BGMnumber);
+        //SoundManager.instance.PlayBGM(BGMnumber);
     }
 }

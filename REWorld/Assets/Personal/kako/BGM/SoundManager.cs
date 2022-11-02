@@ -4,68 +4,57 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-
-    public static SoundManager instance;
-
-    public static int NowBGM = 1;
-
-    public AudioClip[] SEClips = new AudioClip[6];
-    public AudioClip[] BGMClips = new AudioClip[4];
-        
-    AudioSource[] sounds;
-
-    private int[] stageBGM = new int[2];
+    public static SoundManager Instance;
+    private FMOD.Studio.EventInstance instance_Pri;
 
     private void Awake()
     {
-        if(instance == null)
+        if(Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
     }
 
-    private void Start()
+    public void change_SE(string ParamaterName ,string para_label)
     {
-        sounds = GetComponents<AudioSource>();
-        //PlaySound();
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel(ParamaterName, para_label);
     }
 
-    public void PlaySE(int SEnumber)
+    public void PlaySE(FMODUnity.EventReference m_EventRef)
     {
-        sounds[0].PlayOneShot(SEClips[SEnumber]);
+        FMODUnity.RuntimeManager.PlayOneShot(m_EventRef);
     }
 
+    public void PlaySE(string m_EventRef)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(m_EventRef);
+    }
+
+    //ここは後々
     public void PlayBGM(int BGMnumber)
     {
-        sounds[BGMnumber].Play();
+        //sounds[BGMnumber].Play();
     }
 
     public void PlayStageBGM(int FrontBGM, int BackBGM)
     {
-        stageBGM[0] = FrontBGM;
-        stageBGM[1] = BackBGM;
-
-        sounds[stageBGM[0]].Play();
-        sounds[stageBGM[1]].Play();
-
-        sounds[stageBGM[1]].mute = true;
+        
     }
 
     //trueの方が音消える
     public void ChangeBGM(bool FrontBGMTF)
     {
-        sounds[stageBGM[0]].mute = FrontBGMTF;
-        sounds[stageBGM[1]].mute = !(FrontBGMTF);
+
     }
 
     public void stopBGM(int BGMnumber)
     {
-        sounds[BGMnumber].Stop();
+        //sounds[BGMnumber].Stop();
     }
 
     public void stageBGMstop()
     {
-        sounds[stageBGM[0]].Stop();
-        sounds[stageBGM[1]].Stop();
+        //sounds[stageBGM[0]].Stop();
+        //sounds[stageBGM[1]].Stop();
     }
 }
