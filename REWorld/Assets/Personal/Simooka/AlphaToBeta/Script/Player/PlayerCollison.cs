@@ -19,6 +19,7 @@ public class PlayerCollison : MonoBehaviour
         {
             Interact.instance.nowKansoku.DisappearanceWorld();
             _isWorld = false;
+            PlayerAnimator.instance.SetKanjyo(false);
         }
 
     }

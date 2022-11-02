@@ -30,6 +30,7 @@ public class PlayerMove : MonoBehaviour
 
     public Animator playerAnimator;
 
+
     private void Awake()
     {
         instance = this;
@@ -62,21 +63,6 @@ public class PlayerMove : MonoBehaviour
     {
         //入力した方向へ移動（現在X軸のみ反応）
         rb2D.velocity = new Vector2(move.x * _speed, rb2D.velocity.y);
-        if (move.x > 0)
-        {
-            playerAnimator.SetBool("l_run", false);
-            playerAnimator.SetBool("r_run", true);
-        }
-        else if (move.x < 0)
-        {
-            playerAnimator.SetBool("r_run", false);
-            playerAnimator.SetBool("l_run", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("l_run", false);
-            playerAnimator.SetBool("r_run", false);
-        }
     }
 
     public void Jump()

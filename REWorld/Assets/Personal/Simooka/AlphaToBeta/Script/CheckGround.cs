@@ -22,6 +22,7 @@ public class CheckGround : MonoBehaviour
         if (collision.gameObject.tag=="Ground")
         {
             PlayerMove.instance.jumpState = false;
+            PlayerAnimator.instance.SetJump(false);
         }
     }
 
@@ -30,6 +31,7 @@ public class CheckGround : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             PlayerMove.instance.jumpState = true;
+            PlayerAnimator.instance.SetJump();
         }
     }
 }
