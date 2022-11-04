@@ -89,6 +89,9 @@ public class IceClerk : MonoBehaviour,INPC,IItem
                 ice.Rb2D.velocity = new Vector2(_slowSpeed, 0);
                 _animator.SetBool("throwTrigger", true);
                 //Todo:アイスを投げるSEを追加
+                SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Throw);
+                SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Wall);
+                SoundManagerA.Instance.ChangeBGM(true);
                 break;
             //喜んでいる場合
             case "happy":
@@ -115,6 +118,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         EmotionalWorld.SetActive(false);
 
         PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
+        SoundManagerA.Instance.ChangeBGM(false);
     }
 
     public void ItemAction()

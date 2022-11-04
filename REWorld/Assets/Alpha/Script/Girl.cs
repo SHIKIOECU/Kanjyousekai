@@ -77,7 +77,8 @@ public class Girl : MonoBehaviour,INPC,IItem
             //泣いている場合（基本）
             case "basic":
                 //Todo:雨のBGMを追加
-
+                SoundManagerA.Instance.PlayBGM(2);
+                SoundManagerA.Instance.ChangeBGM(true);
                 //探偵を雨宿りさせる
                 detective.INPCData.SetFlag("move");
                 detective.isSetPos = false;
@@ -89,6 +90,7 @@ public class Girl : MonoBehaviour,INPC,IItem
                 //虹を出現させる
                 _rainbow.SetActive(true);
                 //Todo:虹を出現させるSEを追加
+                SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Rainbow);
                 break;
 
         }
@@ -115,6 +117,8 @@ public class Girl : MonoBehaviour,INPC,IItem
                 detective.animator.SetBool("isRaining", false);
                 detective.isSetPos = false;
                 detective.moved = false;
+                SoundManagerA.Instance.ChangeBGM(false);
+                SoundManagerA.Instance.stopBGM(2);
                 break;
             //喜んでいる場合
             case "happy":
