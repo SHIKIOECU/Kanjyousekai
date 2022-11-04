@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-    private FMOD.Studio.EventInstance instance_Pri;
+    private static FMOD.Studio.EventInstance Music;
 
     private void Awake()
     {
@@ -31,9 +31,12 @@ public class SoundManager : MonoBehaviour
     }
 
     //ここは後々
-    public void PlayBGM(int BGMnumber)
+    public void PlayBGM(string m_EventRef)
     {
-        //sounds[BGMnumber].Play();
+        Music = FMODUnity.RuntimeManager.CreateInstance(m_EventRef);
+        Music.start();
+        Music.release();
+        //return Music;
     }
 
     public void PlayStageBGM(int FrontBGM, int BackBGM)
@@ -42,9 +45,9 @@ public class SoundManager : MonoBehaviour
     }
 
     //trueの方が音消える
-    public void ChangeBGM(bool FrontBGMTF)
+    public void DeleteBGM(FMOD.Studio.EventInstance music_ins)
     {
-
+        music_ins.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     public void stopBGM(int BGMnumber)

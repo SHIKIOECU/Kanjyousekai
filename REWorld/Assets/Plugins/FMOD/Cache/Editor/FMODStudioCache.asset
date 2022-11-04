@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8572755271663081499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Nature/Whether_Rainbow
+  m_EditorClassIdentifier: 
+  Path: event:/Nature/Whether_Rainbow
+  Guid:
+    Data1: -1753047973
+    Data2: 1251958239
+    Data3: 1368458649
+    Data4: -563243322
+  Banks:
+  - {fileID: 9020132439861074477}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8385
 --- !u!114 &-8370316871270704268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +109,33 @@ MonoBehaviour:
   - Grass
   - Rain
   Exists: 1
+--- !u!114 &-1667774729432761236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Nature/Wether_Rain
+  m_EditorClassIdentifier: 
+  Path: event:/Nature/Wether_Rain
+  Guid:
+    Data1: 1734554601
+    Data2: 1219028872
+    Data3: 1438689969
+    Data4: -1712063771
+  Banks:
+  - {fileID: 9020132439861074477}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14500
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,13 +157,15 @@ MonoBehaviour:
   - {fileID: 3023750277992469464}
   - {fileID: -8370316871270704268}
   - {fileID: -3828362055606166046}
+  - {fileID: -1667774729432761236}
+  - {fileID: -8572755271663081499}
   EditorParameters:
   - {fileID: 4133012644883762050}
   MasterBanks:
   - {fileID: 9020132439861074477}
   StringsBanks:
   - {fileID: 4807505395012963167}
-  cacheTime: 638029094260242310
+  cacheTime: 638029960740948831
   cacheVersion: 131593
 --- !u!114 &1707759642022475079
 MonoBehaviour:
@@ -234,10 +290,10 @@ MonoBehaviour:
   Path: ../test_Re/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638029094260242310
+  lastModified: 638029960740948831
   FileSizes:
   - Name: Desktop
-    Value: 1026
+    Value: 1132
   Exists: 1
 --- !u!114 &9020132439861074477
 MonoBehaviour:
@@ -254,8 +310,8 @@ MonoBehaviour:
   Path: ../test_Re/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638029094260222491
+  lastModified: 638029960740926416
   FileSizes:
   - Name: Desktop
-    Value: 1755680
+    Value: 2030528
   Exists: 1
