@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    public static GameState instance;
     public enum State
     {
         Play,
@@ -12,6 +13,11 @@ public class GameState : MonoBehaviour
         Over
     }
     public State state;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
