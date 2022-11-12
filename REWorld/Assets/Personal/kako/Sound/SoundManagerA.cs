@@ -50,7 +50,17 @@ public class SoundManagerA : MonoBehaviour
 
     public void PlaySE(SE_List SEnumber)
     {
-        sounds[0].PlayOneShot(SEClips[(int)SEnumber]);
+        if (SEClips[(int)SEnumber] != null)
+        {
+            try
+            {
+                sounds[0].PlayOneShot(SEClips[(int)SEnumber]);
+            }
+            catch (System.NullReferenceException NE)
+            {
+                Debug.Log("音を入れろ");
+            }
+        }
     }
 
     public void PlaySE_A(AudioClip SEnumber)
@@ -60,7 +70,13 @@ public class SoundManagerA : MonoBehaviour
 
     public void PlayBGM(int BGMnumber)
     {
-        sounds[BGMnumber].Play();
+        try
+        {
+            sounds[BGMnumber].Play();
+        }catch (System.IndexOutOfRangeException IE)
+        {
+            Debug.Log("曲がないよ");
+        }
     }
 
     public void PlayStageBGM(int FrontBGM, int BackBGM)
@@ -77,18 +93,36 @@ public class SoundManagerA : MonoBehaviour
     //trueの方が音消える
     public void ChangeBGM(bool FrontBGMTF)
     {
-        sounds[0].mute = FrontBGMTF;
-        sounds[1].mute = !(FrontBGMTF);
+        try
+        {
+            sounds[0].mute = FrontBGMTF;
+            sounds[1].mute = !(FrontBGMTF);
+        }catch (System.IndexOutOfRangeException IE)
+        {
+            Debug.Log("曲がないよ");
+        }
     }
 
     public void stopBGM(int BGMnumber)
     {
-        sounds[BGMnumber].Stop();
+        try
+        {
+            sounds[BGMnumber].Stop();
+        }catch(System.IndexOutOfRangeException IE)
+        {
+            Debug.Log("曲がないよ");
+        }
     }
 
     public void stageBGMstop()
     {
-        sounds[stageBGM[0]].Stop();
-        sounds[stageBGM[1]].Stop();
+        try { 
+            sounds[stageBGM[0]].Stop();
+            sounds[stageBGM[1]].Stop();
+        }
+        catch (System.IndexOutOfRangeException IE)
+        {
+            Debug.Log("曲がないよ");
+        }
     }
 }
