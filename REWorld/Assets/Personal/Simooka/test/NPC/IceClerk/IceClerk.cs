@@ -1,30 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using NPC;
 
-public class IceClerk : MonoBehaviour,INPC,IItem
+public class IceClerk : NPCBase,IItem
 {
-    //NPCData
-    [SerializeField]
-    private NPCData NData;
-
-    //感情世界
-    [SerializeField]
-    private GameObject _emotionalWorld;
-
-    //グラフィック
-    [SerializeField]
-    private SpriteRenderer _NPC;
-
-    //セリフ
-    [SerializeField]
-    private Text _words;
-
-    //セリフテキスト
-    [SerializeField]
-    private List<string> _wordsText;
-
     //アイス
     [SerializeField]
     private Ice ice;
@@ -40,10 +20,6 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     [SerializeField]
     private FlagData coin;
 
-
-    //アニメーター
-    private Animator _animator;
-
     //ジャンプできるようになったかどうか
     public bool jumping = false;
 
@@ -51,34 +27,9 @@ public class IceClerk : MonoBehaviour,INPC,IItem
     [SerializeField]
     private float jumpPowerUp;
 
-    private void Start()
+    public override void AppearanceWorld()
     {
-        EmotionalWorld.SetActive(false);
-        INPCData.InitNPCFlag();
-        _animator = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-
-    }
-
-    //インターフェースの定義
-    public NPCData INPCData => NData;
-
-    public GameObject EmotionalWorld => _emotionalWorld;
-
-    public Sprite EmotionalWorldSprite => NData.Data.EmotionalWorldSprite;
-
-    public SpriteRenderer NPCSprite => _NPC;
-
-    public Text Words => _words;
-
-    public List<string> WordsText => _wordsText;
-
-    public void AppearanceWorld()
-    {
-        EmotionalWorld.SetActive(true);
+        base.AppearanceWorld();
 
         switch (INPCData.Data.Name)
         {
@@ -87,7 +38,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
                 //アイスを投げる
                 ice.gameObject.SetActive(true);
                 ice.Rb2D.velocity = new Vector2(_slowSpeed, 0);
-                _animator.SetBool("throwTrigger", true);
+                animator.SetBool("throwTrigger", true);
                 //Todo:アイスを投げるSEを追加
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Throw);
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Wall);
@@ -104,18 +55,9 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         }
     }
 
-    public void ChangeWorld()
-    {
-        //感情世界の画像を変更
-        EmotionalWorld.GetComponent<SpriteRenderer>().sprite
-            = EmotionalWorldSprite;
-
-        if (EmotionalWorld.active) AppearanceWorld();
-    }
-
     public void DisappearanceWorld()
     {
-        EmotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
 
         PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
         SoundManagerA.Instance.ChangeBGM(false);
@@ -126,7 +68,7 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         //Coinを参照してフラグを切り替える
         if (coin.IsOn)
         {
-            coin.InitFlag();
+            coin.SetFlagStatus(false);
             iceFlag.SetFlagStatus();
 
             INPCData.SetFlag("happy");
@@ -135,6 +77,5 @@ public class IceClerk : MonoBehaviour,INPC,IItem
         }
 
     }
-
-    
 }
+    

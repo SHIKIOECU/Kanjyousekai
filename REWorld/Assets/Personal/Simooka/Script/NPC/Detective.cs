@@ -1,30 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using NPC;
 
-public class Detective : MonoBehaviour,INPC
+public class Detective : NPCBase
 {
-    //NPCData
-    [SerializeField]
-    private NPCData NData;
-
-    //感情世界
-    [SerializeField]
-    private GameObject _emotionalWorld;
-
-    //グラフィック
-    [SerializeField]
-    private SpriteRenderer _NPC;
-
-    //セリフ
-    [SerializeField]
-    private Text _words;
-
-    //セリフテキスト
-    [SerializeField]
-    private List<string> _wordsText;
-
     //コイン
     [SerializeField]
     private Coin coin;
@@ -37,9 +17,6 @@ public class Detective : MonoBehaviour,INPC
     [SerializeField]
     private FlagData rain;
 
-    //アニメーター
-    public Animator animator;
-
     //最初の地点
     private Vector3 _startPoint;
     //移動地点
@@ -48,7 +25,7 @@ public class Detective : MonoBehaviour,INPC
 
     //NPCの移動速度
     [SerializeField]
-    private float _speed=0.1f;
+    private float _speed = 0.1f;
 
     //移動に必要な情報
     //位置、情報、位置情報のセットしたかどうか、動き終わったかどうか、移動時間
@@ -59,13 +36,11 @@ public class Detective : MonoBehaviour,INPC
     public bool moved = false;
     public float _currentTime;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         _startPoint = transform.position;
         _coinPos = coin.gameObject.transform.position;
-        EmotionalWorld.SetActive(false);
-        INPCData.InitNPCFlag();
-        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -73,7 +48,7 @@ public class Detective : MonoBehaviour,INPC
         //動き終わっていない時
         if (!moved) Movement();
 
-        if(transform.position==_startPoint) coin.gameObject.SetActive(false);
+        if (transform.position == _startPoint) coin.gameObject.SetActive(false);
     }
 
     //移動
@@ -83,7 +58,7 @@ public class Detective : MonoBehaviour,INPC
 
 
         //位置情報の更新
-        if (INPCData.Data.Name=="move" && !isSetPos)
+        if (INPCData.Data.Name == "move" && !isSetPos)
         {
             _currentTime = 0;
             _nowPos = transform.position;
@@ -121,23 +96,11 @@ public class Detective : MonoBehaviour,INPC
         coin.gameObject.transform.position = _coinPos;
     }
 
-    //インターフェースを実装
-    public NPCData INPCData => NData;
 
-    public GameObject EmotionalWorld => _emotionalWorld;
 
-    public Sprite EmotionalWorldSprite => NData.Data.EmotionalWorldSprite;
-
-    public SpriteRenderer NPCSprite => _NPC;
-
-    public Text Words => _words;
-
-    public List<string> WordsText => _wordsText;
-
-    public void AppearanceWorld()
+    public override void AppearanceWorld()
     {
-        //感情世界を出現させる
-        EmotionalWorld.SetActive(true);
+        base.AppearanceWorld();
 
         //コインを持っていない時
         if (!coin.isGet)
@@ -150,14 +113,10 @@ public class Detective : MonoBehaviour,INPC
         }
     }
 
-    public void ChangeWorld()
+    public override void DisappearanceWorld()
     {
-        
-    }
+        base.DisappearanceWorld();
 
-    public void DisappearanceWorld()
-    {
-        EmotionalWorld.SetActive(false);
         coin.gameObject.SetActive(false);
     }
 }

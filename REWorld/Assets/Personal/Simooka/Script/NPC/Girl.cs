@@ -1,30 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using NPC;
 
-public class Girl : MonoBehaviour,INPC,IItem
+public class Girl : NPCBase,IItem
 {
-    //NPCData
-    [SerializeField]
-    private NPCData NData;
-
-    //感情世界
-    [SerializeField]
-    private GameObject _emotionalWorld;
-
-    //グラフィック
-    [SerializeField]
-    private SpriteRenderer _NPC;
-
-    //セリフ
-    [SerializeField]
-    private Text _words;
-
-    //セリフテキスト
-    [SerializeField]
-    private List<string> _wordsText;
-
     //アイテム（アイス）フラグ
     [SerializeField]
     private FlagData iceFlag;
@@ -39,38 +19,10 @@ public class Girl : MonoBehaviour,INPC,IItem
 
     public bool _getIce;
 
-    //アニメーター
-    private Animator _animator;
 
-    private void Start()
+    public override void AppearanceWorld()
     {
-        EmotionalWorld.SetActive(false);
-        INPCData.InitNPCFlag();
-        //_animator = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-
-    }
-
-    //インターフェースの定義
-    public NPCData INPCData => NData;
-
-    public GameObject EmotionalWorld => _emotionalWorld;
-
-    public Sprite EmotionalWorldSprite => NData.Data.EmotionalWorldSprite;
-
-    public SpriteRenderer NPCSprite => _NPC;
-
-    public Text Words => _words;
-
-    public List<string> WordsText => _wordsText;
-
-    public void AppearanceWorld()
-    {
-        //感情世界を出現させる
-        EmotionalWorld.SetActive(true);
+        base.AppearanceWorld();
 
         switch (INPCData.Data.Name)
         {
@@ -95,19 +47,10 @@ public class Girl : MonoBehaviour,INPC,IItem
 
         }
     }
-  
-    public void ChangeWorld()
-    {
-        //感情世界の画像を変更
-        EmotionalWorld.GetComponent<SpriteRenderer>().sprite
-            = EmotionalWorldSprite;
 
-        if (EmotionalWorld.active) AppearanceWorld();
-    }
-
-    public void DisappearanceWorld()
+    public override void DisappearanceWorld()
     {
-        EmotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
 
         switch (INPCData.Data.Name)
         {
@@ -142,5 +85,5 @@ public class Girl : MonoBehaviour,INPC,IItem
 
     }
 
-    
+
 }
