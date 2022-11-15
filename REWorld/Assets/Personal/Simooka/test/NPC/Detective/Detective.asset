@@ -15,11 +15,14 @@ MonoBehaviour:
   Data:
     Name: basic
     EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
+    Word: 
     NPCFlag: {fileID: 11400000, guid: 19a1c24f85c334898a3c9e46cd4909f9, type: 2}
   npcStates:
   - Name: basic
     EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
+    Word: 
     NPCFlag: {fileID: 11400000, guid: 19a1c24f85c334898a3c9e46cd4909f9, type: 2}
   - Name: move
     EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
+    Word: 
     NPCFlag: {fileID: 11400000, guid: 1b9eb52ec0c9b4b40b08c84406937c32, type: 2}

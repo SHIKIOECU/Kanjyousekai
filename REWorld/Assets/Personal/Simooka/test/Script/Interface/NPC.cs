@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public interface INPC 
 {
@@ -18,10 +19,10 @@ public interface INPC
     SpriteRenderer NPCSprite { get; }
 
     //セリフ
-    Text Words { get; }
+    //TextMeshPro Words { get; }
 
-    //セリフ内容
-    List<string> WordsText { get; }
+    ////セリフ内容
+    //List<string> WordsText { get; }
 
     //List<FlagData> FlagDatas { get; }
 
