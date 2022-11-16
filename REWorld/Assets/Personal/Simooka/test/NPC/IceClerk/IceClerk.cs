@@ -55,7 +55,7 @@ public class IceClerk : NPCBase,IItem
         }
     }
 
-    public void DisappearanceWorld()
+    public override void DisappearanceWorld()
     {
         base.DisappearanceWorld();
 
