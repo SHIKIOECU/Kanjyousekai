@@ -19,10 +19,14 @@ public class EffectChange : MonoBehaviour
     IceClerk iceClerk;
     private bool IsJumping;
 
+    private bool kanjou;
+
     // Start is called before the first frame update
     void Start()
     {
         iceClerk = GetComponent<IceClerk>();
+
+        kanjou = Interact.instance.isKansoku;
     }
 
     // Update is called once per frame
@@ -30,14 +34,22 @@ public class EffectChange : MonoBehaviour
     {
         IsJumping = iceClerk.jumping;
 
-        if(IsJumping == true)
+        if (kanjou == true)
+        {
+            if (IsJumping == true)
+            {
+                Before_IceClerk.SetActive(false);
+                After_IceClerk.SetActive(true);
+            }
+            else if (IsJumping == false)
+            {
+                Before_IceClerk.SetActive(true);
+                After_IceClerk.SetActive(false);
+            }
+        }
+        else
         {
             Before_IceClerk.SetActive(false);
-            After_IceClerk.SetActive(true);
-        }
-        else if (IsJumping == false)
-        {
-            Before_IceClerk.SetActive(true);
             After_IceClerk.SetActive(false);
         }
     }
