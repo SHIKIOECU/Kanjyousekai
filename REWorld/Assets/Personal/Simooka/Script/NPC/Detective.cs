@@ -48,7 +48,7 @@ public class Detective : NPCBase
         //動き終わっていない時
         if (!moved) Movement();
 
-        if (transform.position == _startPoint) coin.gameObject.SetActive(false);
+        if (transform.position == _startPoint) coin.gameObject.GetComponent<BoxCollider2D>().enabled=false;
     }
 
     //移動
@@ -106,6 +106,7 @@ public class Detective : NPCBase
         if (!coin.isGet)
         {
             coin.gameObject.SetActive(true);
+            coin.gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
         else
         {

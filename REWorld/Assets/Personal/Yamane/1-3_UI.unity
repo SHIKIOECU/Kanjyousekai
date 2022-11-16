@@ -7020,6 +7020,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Girl
       objectReference: {fileID: 0}
+    - target: {fileID: 6587853219883275070, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
+      propertyPath: _rainbow
+      value: 
+      objectReference: {fileID: 356669532}
+    - target: {fileID: 6587853219883275070, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
+      propertyPath: detective
+      value: 
+      objectReference: {fileID: 1626834087}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
 --- !u!1 &356669532
@@ -13131,6 +13139,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1739663374789197768, guid: 79e3711a4d0fe456fb3397885e5dca00, type: 3}
+      propertyPath: _toObject
+      value: 
+      objectReference: {fileID: 1252009282}
     - target: {fileID: 1739663374789197769, guid: 79e3711a4d0fe456fb3397885e5dca00, type: 3}
       propertyPath: m_Name
       value: Detective (1)
@@ -16217,7 +16229,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7779156, y: 1}
+    m_SensorSize: {x: 1.0725, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -28115,6 +28127,17 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1626834087 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1739663374789197768, guid: 79e3711a4d0fe456fb3397885e5dca00, type: 3}
+  m_PrefabInstance: {fileID: 553482268}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7751ef1491a341e2a0828346fa023c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1637349913
 GameObject:
   m_ObjectHideFlags: 3
@@ -34963,7 +34986,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010885407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.200137, y: -0.52112997, z: -10}
+  m_LocalPosition: {x: -4.9922504, y: -0.51172996, z: -10}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35186,7 +35209,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.22, y: 15.46}
+    oldSize: {x: 16.293333, y: 20.613333}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -35512,9 +35535,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2121852633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40a52fca7936a4cfaa9005eb0904bec1, type: 3}
+  m_Script: {fileID: 11500000, guid: e83c2b13bf38b46a1868669a789e4a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SEClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1249382924978246529
 GameObject:
   m_ObjectHideFlags: 0
