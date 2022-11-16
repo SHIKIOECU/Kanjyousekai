@@ -389,7 +389,7 @@ MonoBehaviour:
   _emotionalWorld: {fileID: 1535733556}
   _NPC: {fileID: 151345440}
   _words: {fileID: 0}
-  _wordsText: []
+  animator: {fileID: 0}
   iceFlag: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
   detective: {fileID: 750756748}
   _rainbow: {fileID: 804628020}
@@ -2275,11 +2275,10 @@ MonoBehaviour:
   _emotionalWorld: {fileID: 516353672}
   _NPC: {fileID: 750756749}
   _words: {fileID: 0}
-  _wordsText: []
+  animator: {fileID: 0}
   coin: {fileID: 219767041}
   coinFlag: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
   rain: {fileID: 11400000, guid: 236abf01742194a76adce90ad66a002c, type: 2}
-  animator: {fileID: 0}
   _toObject: {fileID: 2009326751}
   _speed: 0.1
   isSetPos: 0
@@ -10110,7 +10109,7 @@ MonoBehaviour:
   _emotionalWorld: {fileID: 1279895624}
   _NPC: {fileID: 1875273394}
   _words: {fileID: 0}
-  _wordsText: []
+  animator: {fileID: 0}
   ice: {fileID: 829409918}
   iceFlag: {fileID: 11400000, guid: 6c376d487d5c143609cfa3cac45970b2, type: 2}
   _slowSpeed: 0
@@ -10321,7 +10320,7 @@ MonoBehaviour:
   _emotionalWorld: {fileID: 986312411}
   _NPC: {fileID: 1943183806}
   _words: {fileID: 0}
-  _wordsText: []
+  animator: {fileID: 0}
   iceFlag: {fileID: 0}
   detective: {fileID: 750756748}
   _rainbow: {fileID: 0}
