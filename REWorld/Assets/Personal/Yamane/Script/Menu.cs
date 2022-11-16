@@ -41,18 +41,22 @@ public class Menu : MonoBehaviour
         _menuScreen.SetActive(false);
         _menuScreenButton.SetActive(true);
 
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MenuStageSelect()
     {
         _menuScreen.SetActive(false);
         _menuScreenButton.SetActive(true);
+
+        SceneManager.LoadScene("select_test");
     }
 
     public void MenuTitle()
     {
         _menuScreen.SetActive(false);
         _menuScreenButton.SetActive(true);
+
+        SceneManager.LoadScene("Title");
     }
 }

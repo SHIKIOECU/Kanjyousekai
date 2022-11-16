@@ -4,21 +4,13 @@ using UnityEngine;
 
 public class Detective_EffectChange : MonoBehaviour
 {
-    [Header("変化前のエフェクト")]
+    [Header("変化前")]
     [SerializeField]
-    GameObject BeforeEffect;
+    GameObject Before_Detective;
 
-    [Header("変化前の背景")]
+    [Header("変化後")]
     [SerializeField]
-    GameObject BeforeSprite;
-
-    [Header("変化後のエフェクト")]
-    [SerializeField]
-    GameObject AfterEffect;
-
-    [Header("変化後の背景")]
-    [SerializeField]
-    GameObject AfterSprite;
+    GameObject After_Detective;
 
     Detective detective;
     private bool IsMove;
@@ -36,17 +28,13 @@ public class Detective_EffectChange : MonoBehaviour
 
         if (IsMove == true)
         {
-            BeforeEffect.SetActive(false);
-            BeforeSprite.SetActive(false);
-            AfterEffect.SetActive(true);
-            AfterSprite.SetActive(true);
+            Before_Detective.SetActive(false);
+            After_Detective.SetActive(true);
         }
         else if (IsMove == false)
         {
-            BeforeEffect.SetActive(true);
-            BeforeSprite.SetActive(true);
-            AfterEffect.SetActive(false);
-            AfterSprite.SetActive(false);
+            Before_Detective.SetActive(true);
+            After_Detective.SetActive(false);
         }
     }
 }
