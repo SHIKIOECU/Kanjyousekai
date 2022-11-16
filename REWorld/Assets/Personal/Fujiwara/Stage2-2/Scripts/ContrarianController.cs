@@ -52,6 +52,8 @@ public class ContrarianController : MonoBehaviour, INPC
 
     public List<string> WordsText => throw new System.NotImplementedException();
 
+    public GameObject MaskSprite => throw new System.NotImplementedException();
+
     public void AppearanceWorld()
     {
         // 感情世界の表示

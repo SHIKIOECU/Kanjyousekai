@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NData: {fileID: 11400000, guid: 50e06fe7ff10c474888f8517ec73361f, type: 2}
+  _maskSprite: {fileID: 3357659723867805743}
   _emotionalWorld: {fileID: 3357659724623026951}
   _NPC: {fileID: 3357659723289649120}
   _words: {fileID: 3357659723479731514}

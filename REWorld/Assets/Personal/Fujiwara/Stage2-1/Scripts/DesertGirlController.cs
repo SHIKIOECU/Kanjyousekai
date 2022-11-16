@@ -79,6 +79,8 @@ public class DesertGirlController : MonoBehaviour, INPC
 
     public List<string> WordsText => throw new System.NotImplementedException();
 
+    public GameObject MaskSprite => throw new System.NotImplementedException();
+
     public void AppearanceWorld()
     {
         _emotionalWorld.SetActive(true);

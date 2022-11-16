@@ -4977,7 +4977,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &1739663374789197772
 BoxCollider2D:
@@ -5032,6 +5032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NData: {fileID: 11400000, guid: d109c9516cc8b46baa36971dbcfc3623, type: 2}
+  _maskSprite: {fileID: 8408897954477661279}
   _emotionalWorld: {fileID: 1739663375039015700}
   _NPC: {fileID: 1739663374789197775}
   _words: {fileID: 1739663374963930099}
