@@ -4,21 +4,13 @@ using UnityEngine;
 
 public class Girl_EffectChange : MonoBehaviour
 {
-    [Header("変化前のエフェクト")]
+    [Header("変化前")]
     [SerializeField]
-    GameObject BeforeEffect;
+    GameObject Before_Girl;
 
-    [Header("変化前の背景")]
+    [Header("変化後")]
     [SerializeField]
-    GameObject BeforeSprite;
-
-    [Header("変化後のエフェクト")]
-    [SerializeField]
-    GameObject AfterEffect;
-
-    [Header("変化後の背景")]
-    [SerializeField]
-    GameObject AfterSprite;
+    GameObject After_Girl;
 
     Girl girl;
     private bool IsIce;
@@ -36,17 +28,13 @@ public class Girl_EffectChange : MonoBehaviour
 
         if (IsIce == true)
         {
-            BeforeEffect.SetActive(false);
-            BeforeSprite.SetActive(false);
-            AfterEffect.SetActive(true);
-            AfterSprite.SetActive(true);
+            Before_Girl.SetActive(false);
+            After_Girl.SetActive(true);
         }
         else if (IsIce == false)
         {
-            BeforeEffect.SetActive(true);
-            BeforeSprite.SetActive(true);
-            AfterEffect.SetActive(false);
-            AfterSprite.SetActive(false);
+            Before_Girl.SetActive(true);
+            After_Girl.SetActive(false);
         }
     }
 }

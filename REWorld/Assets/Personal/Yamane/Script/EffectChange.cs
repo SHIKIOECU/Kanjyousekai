@@ -8,21 +8,13 @@ public class EffectChange : MonoBehaviour
     [SerializeField]
     ParticleSystem NormalEffect;*/
 
-    [Header("変化前のエフェクト")]
+    [Header("変化前")]
     [SerializeField]
-    GameObject BeforeEffect;
+    GameObject Before_IceClerk;
 
-    [Header("変化前の背景")]
+    [Header("変化後")]
     [SerializeField]
-    GameObject BeforeSprite;
-
-    [Header("変化後のエフェクト")]
-    [SerializeField]
-    GameObject AfterEffect;
-
-    [Header("変化後の背景")]
-    [SerializeField]
-    GameObject AfterSprite;
+    GameObject After_IceClerk;
 
     IceClerk iceClerk;
     private bool IsJumping;
@@ -40,17 +32,13 @@ public class EffectChange : MonoBehaviour
 
         if(IsJumping == true)
         {
-            BeforeEffect.SetActive(false);
-            BeforeSprite.SetActive(false);
-            AfterEffect.SetActive(true);
-            AfterSprite.SetActive(true);
+            Before_IceClerk.SetActive(false);
+            After_IceClerk.SetActive(true);
         }
         else if (IsJumping == false)
         {
-            BeforeEffect.SetActive(true);
-            BeforeSprite.SetActive(true);
-            AfterEffect.SetActive(false);
-            AfterSprite.SetActive(false);
+            Before_IceClerk.SetActive(true);
+            After_IceClerk.SetActive(false);
         }
     }
 }
