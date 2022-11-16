@@ -15,10 +15,14 @@ public class Girl_EffectChange : MonoBehaviour
     Girl girl;
     private bool IsIce;
 
+    private bool kanjou;
+
     // Start is called before the first frame update
     void Start()
     {
         girl = GetComponent<Girl>();
+
+        kanjou = Interact.instance.isKansoku;
     }
 
     // Update is called once per frame
@@ -26,14 +30,22 @@ public class Girl_EffectChange : MonoBehaviour
     {
         IsIce = girl._getIce;
 
-        if (IsIce == true)
+        if (kanjou == true)
+        {
+            if (IsIce == true)
+            {
+                Before_Girl.SetActive(false);
+                After_Girl.SetActive(true);
+            }
+            else if (IsIce == false)
+            {
+                Before_Girl.SetActive(true);
+                After_Girl.SetActive(false);
+            }
+        }
+        else
         {
             Before_Girl.SetActive(false);
-            After_Girl.SetActive(true);
-        }
-        else if (IsIce == false)
-        {
-            Before_Girl.SetActive(true);
             After_Girl.SetActive(false);
         }
     }

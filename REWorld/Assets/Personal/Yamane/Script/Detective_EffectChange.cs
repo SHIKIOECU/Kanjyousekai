@@ -15,10 +15,14 @@ public class Detective_EffectChange : MonoBehaviour
     Detective detective;
     private bool IsMove;
 
+    private bool kanjou;
+
     // Start is called before the first frame update
     void Start()
     {
         detective = GetComponent<Detective>();
+
+        kanjou = Interact.instance.isKansoku;
     }
 
     // Update is called once per frame
@@ -26,14 +30,22 @@ public class Detective_EffectChange : MonoBehaviour
     {
         IsMove = detective.isSetPos;
 
-        if (IsMove == true)
+        if (kanjou == true)
+        {
+            if (IsMove == true)
+            {
+                Before_Detective.SetActive(false);
+                After_Detective.SetActive(true);
+            }
+            else if (IsMove == false)
+            {
+                Before_Detective.SetActive(true);
+                After_Detective.SetActive(false);
+            }
+        }
+        else
         {
             Before_Detective.SetActive(false);
-            After_Detective.SetActive(true);
-        }
-        else if (IsMove == false)
-        {
-            Before_Detective.SetActive(true);
             After_Detective.SetActive(false);
         }
     }
