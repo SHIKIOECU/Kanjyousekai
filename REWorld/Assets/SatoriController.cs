@@ -9,8 +9,8 @@ public class SatoriController : MonoBehaviour
 
     //[SerializeField] Sprite right_sp, left_sp;
 
-    [SerializeField] Sprite[] right_sp = new Sprite[10];    // 右向きのスプライト
-    [SerializeField] Sprite[] left_sp = new Sprite[10];     // 左向きのスプライト
+    [SerializeField] Sprite[] right_sp = new Sprite[15];    // 右向きのスプライト
+    [SerializeField] Sprite[] left_sp = new Sprite[15];     // 左向きのスプライト
 
     [SerializeField] float speed;           // 移動スピード
     [SerializeField] float dis_x, dis_y;    // キャラクターとの距離

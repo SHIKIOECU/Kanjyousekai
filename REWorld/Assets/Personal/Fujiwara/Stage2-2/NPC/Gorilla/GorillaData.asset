@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
+  m_Name: GorillaData
+  m_EditorClassIdentifier: 
+  Data:
+    Name: basic
+    EmotionalWorldSprite: {fileID: 0}
+    NPCFlag: {fileID: 11400000, guid: 3e037de12a21a4ed7862364033d94dff, type: 2}
+  npcStates:
+  - Name: basic
+    EmotionalWorldSprite: {fileID: 0}
+    NPCFlag: {fileID: 11400000, guid: 3e037de12a21a4ed7862364033d94dff, type: 2}
+  - Name: sleep
+    EmotionalWorldSprite: {fileID: 0}
+    NPCFlag: {fileID: 11400000, guid: 28ef4522f80d548bcaa9c78edcbe6fbb, type: 2}
+  - Name: hungry
+    EmotionalWorldSprite: {fileID: 0}
+    NPCFlag: {fileID: 11400000, guid: 3526a6dee43f1436c8b2aa7e5e4c391d, type: 2}
