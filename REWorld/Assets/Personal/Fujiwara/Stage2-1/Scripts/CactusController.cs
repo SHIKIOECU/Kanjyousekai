@@ -56,6 +56,8 @@ public class CactusController : MonoBehaviour, INPC
 
     public List<string> WordsText => throw new System.NotImplementedException();
 
+    public GameObject MaskSprite => throw new System.NotImplementedException();
+
     public void AppearanceWorld()
     {
         //Debug.Log("cactusが観測されました");

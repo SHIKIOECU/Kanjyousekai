@@ -12,6 +12,10 @@ namespace NPC
         [SerializeField]
         private NPCData NData;
 
+        //マスクスプライト
+        [SerializeField]
+        private GameObject _maskSprite;
+
         //感情世界
         [SerializeField]
         private GameObject _emotionalWorld;
@@ -30,6 +34,7 @@ namespace NPC
         public virtual void Start()
         {
             EmotionalWorld.SetActive(false);
+            MaskSprite.SetActive(false);
             INPCData.InitNPCFlag();
             animator = GetComponent<Animator>();
             ChangeWorld();
@@ -37,6 +42,8 @@ namespace NPC
 
         //インターフェースの定義
         public NPCData INPCData => NData;
+
+        public GameObject MaskSprite => _maskSprite;
 
         public GameObject EmotionalWorld => _emotionalWorld;
 
@@ -46,9 +53,11 @@ namespace NPC
 
         public TextMeshProUGUI Words => _words;
 
+
         public virtual void AppearanceWorld()
         {
             EmotionalWorld.SetActive(true);
+            MaskSprite.SetActive(true);
         }
 
         public virtual void ChangeWorld()
@@ -65,6 +74,7 @@ namespace NPC
         public virtual void DisappearanceWorld()
         {
             EmotionalWorld.SetActive(false);
+            MaskSprite.SetActive(false);
         }
     }
 }

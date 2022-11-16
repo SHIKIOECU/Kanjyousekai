@@ -9,6 +9,9 @@ public interface INPC
     //NPCのデータ
     NPCData INPCData { get; }
 
+    //マスクスプライト
+    GameObject MaskSprite { get; }
+
     //感情世界
     GameObject EmotionalWorld { get; }
 
