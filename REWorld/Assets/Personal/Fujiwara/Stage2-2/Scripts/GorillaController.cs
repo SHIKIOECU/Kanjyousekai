@@ -1,33 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using NPC;
 
-public class GorillaController : MonoBehaviour, INPC
+public class GorillaController : NPCBase
 {
-    //NPCData
-    [SerializeField]
-    private NPCData NData;
-
-    //感情世界
-    [SerializeField]
-    private GameObject _emotionalWorld;
-
-    //グラフィック
-    [SerializeField]
-    private SpriteRenderer _NPC;
-
-    //セリフ
-    [SerializeField]
-    private Text _words;
-
-    //セリフテキスト
-    [SerializeField]
-    private List<string> _wordsText;
-
     void Start()
     {
-        _emotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
     }
 
     void Update()
@@ -35,36 +15,24 @@ public class GorillaController : MonoBehaviour, INPC
 
     }
 
-    public NPCData INPCData => NData;
-
-    public GameObject EmotionalWorld => _emotionalWorld;
-
-    public Sprite EmotionalWorldSprite => INPCData.Data.EmotionalWorldSprite;
-
-    public SpriteRenderer NPCSprite => _NPC;
-
-    public Text Words => throw new System.NotImplementedException();
-
-    public List<string> WordsText => throw new System.NotImplementedException();
-
-    public void AppearanceWorld()
+    public override void AppearanceWorld()
     {
         // 感情世界の表示
-        _emotionalWorld.SetActive(true);
+        base.AppearanceWorld();
 
         // ゴリラのステータスを変更
         INPCData.SetFlag("hungry");
     }
 
-    public void ChangeWorld()
+    public override void ChangeWorld()
     {
         throw new System.NotImplementedException();
     }
 
-    public void DisappearanceWorld()
+    public override void DisappearanceWorld()
     {
         // 感情世界の削除
-        _emotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
 
         // ゴリラのステータスを変更
         INPCData.SetFlag("basic");

@@ -1,30 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using NPC;
 
-public class HawkerController : MonoBehaviour
+public class HawkerController : NPCBase
 {
-    //NPCData
-    [SerializeField]
-    private NPCData NData;
-
-    //感情世界
-    [SerializeField]
-    private GameObject _emotionalWorld;
-
-    //グラフィック
-    [SerializeField]
-    private SpriteRenderer _NPC;
-
-    //セリフ
-    [SerializeField]
-    private Text _words;
-
-    //セリフテキスト
-    [SerializeField]
-    private List<string> _wordsText;
-
     // ラクダ
     [SerializeField] private CamelController camel;
 
@@ -60,34 +40,17 @@ public class HawkerController : MonoBehaviour
         if (moved) Move();
     }
 
-    //public NPCData INPCData => NData;
-
-    //public GameObject EmotionalWorld => throw new System.NotImplementedException();
-
-    //public Sprite EmotionalWorldSprite => throw new System.NotImplementedException();
-
-    //public SpriteRenderer NPCSprite => _NPC;
-
-    //public Text Words => throw new System.NotImplementedException();
-
-    //public List<string> WordsText => throw new System.NotImplementedException();
-
-    //public void AppearanceWorld()
+    //public orverride void AppearanceWorld()
     //{
         
     //}
 
-    //public void ChangeWorld()
+    //public override void ChangeWorld()
     //{
     //    throw new System.NotImplementedException();
     //}
 
-    //public void DisappearanceWorld()
-    //{
-    //    throw new System.NotImplementedException();
-    //}
-
-    //public void ItemAction()
+    //public override void DisappearanceWorld()
     //{
     //    throw new System.NotImplementedException();
     //}

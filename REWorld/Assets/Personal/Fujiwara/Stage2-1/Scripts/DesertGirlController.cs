@@ -1,30 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using NPC;
 
-public class DesertGirlController : MonoBehaviour, INPC
+public class DesertGirlController : NPCBase
 {
-    //NPCData
-    [SerializeField]
-    private NPCData NData;
-
-    //感情世界
-    [SerializeField]
-    private GameObject _emotionalWorld;
-
-    //グラフィック
-    [SerializeField]
-    private SpriteRenderer _NPC;
-
-    //セリフ
-    [SerializeField]
-    private Text _words;
-
-    //セリフテキスト
-    [SerializeField]
-    private List<string> _wordsText;
-
     // Animatorの取得
     public Animator desert_girl_anim;
 
@@ -51,7 +31,7 @@ public class DesertGirlController : MonoBehaviour, INPC
         nowPos = transform.position;
         nowScale = camel.transform.localScale;
 
-        _emotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
 
         FlagInit();
     }
@@ -67,24 +47,12 @@ public class DesertGirlController : MonoBehaviour, INPC
         }
     }
 
-    public NPCData INPCData => NData;
-
-    public GameObject EmotionalWorld => _emotionalWorld;
-
-    public Sprite EmotionalWorldSprite => NData.Data.EmotionalWorldSprite;
-
-    public SpriteRenderer NPCSprite => _NPC;
-
-    public Text Words => throw new System.NotImplementedException();
-
-    public List<string> WordsText => throw new System.NotImplementedException();
-
-    public void AppearanceWorld()
+    public override void AppearanceWorld()
     {
-        _emotionalWorld.SetActive(true);
+        base.AppearanceWorld();
         isDesertGirl = true;
 
-        switch (NData.Data.Name)
+        switch (INPCData.Data.Name)
         {
             case "frightening":
                 desert_girl_anim.SetBool("isBigFrightening", true);
@@ -103,14 +71,14 @@ public class DesertGirlController : MonoBehaviour, INPC
         throw new System.NotImplementedException();
     }
 
-    public void DisappearanceWorld()
+    public override void DisappearanceWorld()
     {
-        _emotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
         isDesertGirl = false;
         moveTime = 0;
         camel.isFollowing = true;
 
-        switch (NData.Data.Name)
+        switch (INPCData.Data.Name)
         {
             case "frightening":
                 desert_girl_anim.SetBool("isBigFrightening", false);

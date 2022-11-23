@@ -1,30 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using NPC;
 
-public class CamelController : MonoBehaviour, INPC, IItem
+public class CamelController : NPCBase
 {
-    //NPCData
-    [SerializeField]
-    private NPCData NData;
-
-    //感情世界
-    [SerializeField]
-    private GameObject _emotionalWorld;
-
-    //グラフィック
-    [SerializeField]
-    private SpriteRenderer _NPC;
-
-    //セリフ
-    [SerializeField]
-    private Text _words;
-
-    //セリフテキスト
-    [SerializeField]
-    private List<string> _wordsText;
-
     // 追従するターゲット
     [SerializeField] private HawkerController followTarget;
     [SerializeField] private DesertGirlController desertGirl;
@@ -47,6 +27,7 @@ public class CamelController : MonoBehaviour, INPC, IItem
     void Start()
     {
         Flag_Init();
+        base.DisappearanceWorld();
     }
 
     // Update is called once per frame
@@ -56,22 +37,10 @@ public class CamelController : MonoBehaviour, INPC, IItem
         if (isEating) EatTarget();
     }
 
-    public NPCData INPCData => NData;
-
-    public GameObject EmotionalWorld => _emotionalWorld;
-
-    public Sprite EmotionalWorldSprite => NData.Data.EmotionalWorldSprite;
-
-    public SpriteRenderer NPCSprite => _NPC;
-
-    public Text Words => throw new System.NotImplementedException();
-
-    public List<string> WordsText => throw new System.NotImplementedException();
-
-    public void AppearanceWorld()
+    public override void AppearanceWorld()
     {
         // 感情世界の表示
-        _emotionalWorld.SetActive(true);
+        base.AppearanceWorld();
 
         // 現在位置の確保
         nowPos = transform.position;
@@ -81,28 +50,15 @@ public class CamelController : MonoBehaviour, INPC, IItem
         isEating = true;
 
         isFollowing = false;
-
-        // 移動後にスピードをゼロにする
-        //if (!isEating && !isFollowing) moveTime = 0;
     }
 
-    public void ChangeWorld()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void DisappearanceWorld()
+    public override void DisappearanceWorld()
     {
         // 感情世界の削除
-        _emotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
 
         isEating = false;
         isFollowing = true;
-    }
-
-    public void ItemAction()
-    {
-        throw new System.NotImplementedException();
     }
 
     // フラグの初期化
