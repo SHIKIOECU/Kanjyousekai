@@ -15,25 +15,7 @@ public class GorillaController : NPCBase
 
     }
 
-<<<<<<< HEAD
-    public NPCData INPCData => NData;
-
-    public GameObject EmotionalWorld => _emotionalWorld;
-
-    public Sprite EmotionalWorldSprite => INPCData.Data.EmotionalWorldSprite;
-
-    public SpriteRenderer NPCSprite => _NPC;
-
-    public Text Words => throw new System.NotImplementedException();
-
-    public List<string> WordsText => throw new System.NotImplementedException();
-
-    public GameObject MaskSprite => throw new System.NotImplementedException();
-
-    public void AppearanceWorld()
-=======
     public override void AppearanceWorld()
->>>>>>> feature/NPC/Fujiwara
     {
         // 感情世界の表示
         base.AppearanceWorld();
