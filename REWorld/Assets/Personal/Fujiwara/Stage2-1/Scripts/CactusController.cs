@@ -1,30 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using NPC;
 
-public class CactusController : MonoBehaviour, INPC
+public class CactusController : NPCBase
 {
-    //NPCData
-    [SerializeField]
-    private NPCData NData;
-
-    //感情世界
-    [SerializeField]
-    private GameObject _emotionalWorld;
-
-    //グラフィック
-    [SerializeField]
-    private SpriteRenderer _NPC;
-
-    //セリフ
-    [SerializeField]
-    private Text _words;
-
-    //セリフテキスト
-    [SerializeField]
-    private List<string> _wordsText;
-
     [SerializeField] HawkerController hawker;
     [SerializeField] CamelController camel;
 
@@ -35,7 +15,7 @@ public class CactusController : MonoBehaviour, INPC
     // Start is called before the first frame update
     void Start()
     {
-        _emotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
     }
 
     // Update is called once per frame
@@ -44,6 +24,7 @@ public class CactusController : MonoBehaviour, INPC
         
     }
 
+<<<<<<< HEAD
     public NPCData INPCData => NData;
 
     public GameObject EmotionalWorld => _emotionalWorld;
@@ -59,9 +40,12 @@ public class CactusController : MonoBehaviour, INPC
     public GameObject MaskSprite => throw new System.NotImplementedException();
 
     public void AppearanceWorld()
+=======
+    public override void AppearanceWorld()
+>>>>>>> feature/NPC/Fujiwara
     {
         //Debug.Log("cactusが観測されました");
-        _emotionalWorld.SetActive(true);
+        base.AppearanceWorld();
 
         cactus_anim.SetBool("isDancing", true);
 
@@ -78,9 +62,9 @@ public class CactusController : MonoBehaviour, INPC
         throw new System.NotImplementedException();
     }
 
-    public void DisappearanceWorld()
+    public override void DisappearanceWorld()
     {
-        _emotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
 
         cactus_anim.SetBool("isDancing", false);
 

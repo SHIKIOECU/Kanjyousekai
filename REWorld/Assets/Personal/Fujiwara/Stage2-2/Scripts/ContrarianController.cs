@@ -1,37 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using NPC;
 
-public class ContrarianController : MonoBehaviour, INPC
+public class ContrarianController : NPCBase
 {
-    //NPCData
-    [SerializeField]
-    private NPCData NData;
-
-    //感情世界
-    [SerializeField]
-    private GameObject _emotionalWorld;
-
-    //グラフィック
-    [SerializeField]
-    private SpriteRenderer _NPC;
-
-    //セリフ
-    [SerializeField]
-    private Text _words;
-
-    //セリフテキスト
-    [SerializeField]
-    private List<string> _wordsText;
-
     // NPCの取得
     [SerializeField] HawkerController2 hawker;
     [SerializeField] GorillaController gorilla;
 
     void Start()
     {
-        _emotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
         gorilla.GetComponent<BoxCollider2D>().isTrigger = false;
     }
 
@@ -40,6 +20,7 @@ public class ContrarianController : MonoBehaviour, INPC
 
     }
 
+<<<<<<< HEAD
     public NPCData INPCData => NData;
 
     public GameObject EmotionalWorld => _emotionalWorld;
@@ -55,9 +36,12 @@ public class ContrarianController : MonoBehaviour, INPC
     public GameObject MaskSprite => throw new System.NotImplementedException();
 
     public void AppearanceWorld()
+=======
+    public override void AppearanceWorld()
+>>>>>>> feature/NPC/Fujiwara
     {
         // 感情世界の表示
-        _emotionalWorld.SetActive(true);
+        base.AppearanceWorld();
 
         // ゴリラのisTriggerをtrueにする
         //gorillaCollider.isTrigger = true;
@@ -68,15 +52,15 @@ public class ContrarianController : MonoBehaviour, INPC
         gorilla.INPCData.SetFlag("sleep");
     }
 
-    public void ChangeWorld()
+    public override void ChangeWorld()
     {
         throw new System.NotImplementedException();
     }
 
-    public void DisappearanceWorld()
+    public override void DisappearanceWorld()
     {
         // 感情世界の削除
-        _emotionalWorld.SetActive(false);
+        base.DisappearanceWorld();
 
         // ゴリラのisTriggerをfalseにする
         //gorillaCollider.isTrigger = false;
