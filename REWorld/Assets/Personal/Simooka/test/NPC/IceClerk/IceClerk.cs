@@ -8,6 +8,13 @@ public class IceClerk : NPCBase,IItem
     //アイス
     [SerializeField]
     private Ice ice;
+
+    // アイスのオブジェクト
+    [SerializeField] GameObject ice_ojb;
+
+    // BigIceAnimeの取得
+    [SerializeField] bigIceAnime ice_scr;
+
     //アイテムフラグ（アイス）
     [SerializeField]
     private FlagData iceFlag;
@@ -26,6 +33,9 @@ public class IceClerk : NPCBase,IItem
     //上昇したジャンプ力
     [SerializeField]
     private float jumpPowerUp;
+
+    // アイスの初期位置
+    Vector3 basicIcePosition = new Vector3(2.2f, -2.5f, 0.1f);
 
     public override void AppearanceWorld()
     {
@@ -57,6 +67,11 @@ public class IceClerk : NPCBase,IItem
 
     public override void DisappearanceWorld()
     {
+        ice_ojb.transform.position = basicIcePosition;
+        ice_scr.fallSpeed = 0.0f;
+        ice_scr.isMelt = false;
+        ice_scr.countDown = ice_scr.timeToMelt;
+
         base.DisappearanceWorld();
 
         PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
