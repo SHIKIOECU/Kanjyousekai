@@ -35,7 +35,7 @@ public class LostBoyController : NPCBase
         boat.transform.position = moveToPos;
 
         // LostGirlの状態を変化させる
-        INPCData.SetFlag("cry");
+        SetNPCData("cry");
     }
 
     public override void ChangeWorld()
@@ -52,6 +52,6 @@ public class LostBoyController : NPCBase
         boat.transform.position = defaultPos;
 
         // LostGirlの状態を変化させる
-        INPCData.SetFlag("basic");
+        SetNPCData("basic");
     }
 }

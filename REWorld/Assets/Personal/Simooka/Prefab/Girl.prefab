@@ -10301,12 +10301,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b9f80aecab54977911512996d5fc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NData: {fileID: 11400000, guid: 041aed49a17d648d588ab55ff7972322, type: 2}
+  _nPCData: {fileID: 11400000, guid: 041aed49a17d648d588ab55ff7972322, type: 2}
   _maskSprite: {fileID: 6587853218906148308}
   _emotionalWorld: {fileID: 6587853219241010639}
-  _NPC: {fileID: 6587853219883275067}
+  _nPC: {fileID: 0}
   _words: {fileID: 6587853217950060238}
-  animator: {fileID: 0}
+  Animator: {fileID: 0}
   iceFlag: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
   detective: {fileID: 0}
   _rainbow: {fileID: 0}

@@ -24,7 +24,7 @@ public class Girl : NPCBase,IItem
     {
         base.AppearanceWorld();
 
-        switch (INPCData.Data.Name)
+        switch (INPCData.Name)
         {
             //泣いている場合（基本）
             case "basic":
@@ -32,10 +32,10 @@ public class Girl : NPCBase,IItem
                 SoundManagerA.Instance.PlayBGM(2);
                 SoundManagerA.Instance.ChangeBGM(true);
                 //探偵を雨宿りさせる
-                detective.INPCData.SetFlag("move");
+                detective.SetNPCData("move");
                 detective.isSetPos = false;
                 detective.moved = false;
-                detective.animator.SetBool("isRaining", true);
+                detective.Animator.SetBool("isRaining", true);
                 break;
             //喜んでいる場合
             case "happy":
@@ -52,12 +52,12 @@ public class Girl : NPCBase,IItem
     {
         base.DisappearanceWorld();
 
-        switch (INPCData.Data.Name)
+        switch (INPCData.Name)
         {
             //泣いている場合（基本）
             case "basic":
-                detective.INPCData.SetFlag("basic");
-                detective.animator.SetBool("isRaining", false);
+                detective.SetNPCData("basic");
+                detective.Animator.SetBool("isRaining", false);
                 detective.isSetPos = false;
                 detective.moved = false;
                 SoundManagerA.Instance.ChangeBGM(false);
@@ -78,7 +78,7 @@ public class Girl : NPCBase,IItem
         {
             _getIce = true;
             iceFlag.SetFlagStatus(false);
-            INPCData.SetFlag("happy");
+            SetNPCData("happy");
 
             ChangeWorld();
         }

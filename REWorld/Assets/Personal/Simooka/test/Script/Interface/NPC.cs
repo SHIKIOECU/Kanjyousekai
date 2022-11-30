@@ -7,7 +7,7 @@ using TMPro;
 public interface INPC 
 {
     //NPCのデータ
-    NPCData INPCData { get; }
+    NPCState INPCData { get; }
 
     //マスクスプライト
     GameObject MaskSprite { get; }

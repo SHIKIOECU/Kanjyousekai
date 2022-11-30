@@ -12,17 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
   m_Name: IceClerkData
   m_EditorClassIdentifier: 
-  Data:
-    Name: basic
-    EmotionalWorldSprite: {fileID: 21300000, guid: 1257e5af92d3d4000969aad2ecf35479, type: 3}
-    Word: "\uFF01"
-    NPCFlag: {fileID: 11400000, guid: 6d30b547a82df415ea1cf8e350564128, type: 2}
-  npcStates:
+  _npcStates:
   - Name: basic
-    EmotionalWorldSprite: {fileID: 21300000, guid: 1257e5af92d3d4000969aad2ecf35479, type: 3}
-    Word: ICE!!
+    EmotionalWorldSprite: {fileID: 21300000, guid: 7ba2e183508fc4071ac910eb58226025, type: 3}
+    Word: Ice
     NPCFlag: {fileID: 11400000, guid: 6d30b547a82df415ea1cf8e350564128, type: 2}
-  - Name: happy
-    EmotionalWorldSprite: {fileID: 21300000, guid: d84b5bb1e220d4f3187bc8a98a52b885, type: 3}
-    Word: YEAH!!!
-    NPCFlag: {fileID: 11400000, guid: 5ecff0a7c262b45d18a8135b86589be5, type: 2}

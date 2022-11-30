@@ -58,22 +58,22 @@ public class Detective : NPCBase
 
 
         //位置情報の更新
-        if (INPCData.Data.Name == "move" && !isSetPos)
+        if (INPCData.Name == "move" && !isSetPos)
         {
             _currentTime = 0;
             _nowPos = transform.position;
             _toPos = _toObject.transform.position;
             isSetPos = true;
-            animator.SetBool("isMoving", true);
+            Animator.SetBool("isMoving", true);
             //Debug.Log("MOVE");
         }
-        if (INPCData.Data.Name != "move" && !isSetPos)
+        if (INPCData.Name != "move" && !isSetPos)
         {
             _currentTime = 0;
             _nowPos = transform.position;
             _toPos = _startPoint;
             isSetPos = true;
-            animator.SetBool("isMoving", true);
+            Animator.SetBool("isMoving", true);
             //Debug.Log("STOP");
         }
 
@@ -87,7 +87,7 @@ public class Detective : NPCBase
             {
                 isSetPos = false;
                 moved = true;
-                animator.SetBool("isMoving", false);
+                Animator.SetBool("isMoving", false);
             }
             //Debug.Log("FIN");
         }
