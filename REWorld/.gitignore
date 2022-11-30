@@ -102,7 +102,9 @@ fmod_editor.log
 /Assets/FMODAssets/
 /Assets/FMODStudioCache.meta
 
-
+# KiwiMaruFont
+/[Aa]ssets/TextMesh Pro/Resources/Fonts & Materials/*.asset
+/[Aa]ssets/TextMesh Pro/Resources/Fonts & Materials/*.asset.meta
 
 
 
