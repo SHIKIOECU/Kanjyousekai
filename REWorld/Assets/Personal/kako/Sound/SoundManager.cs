@@ -41,7 +41,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayStageBGM(int FrontBGM, int BackBGM)
     {
-        
+        //特になし（もしかしたら必要になるかも）
     }
 
     //trueの方が音消える
