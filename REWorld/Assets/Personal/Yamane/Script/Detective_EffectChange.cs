@@ -23,12 +23,14 @@ public class Detective_EffectChange : MonoBehaviour
         detective = GetComponent<Detective>();
 
         kanjou = Interact.instance.isKansoku;
+
+        IsMove = detective.moved;
     }
 
     // Update is called once per frame
     void Update()
     {
-        IsMove = detective.isSetPos;
+        //IsMove = detective.moved;
 
         if (kanjou == true)
         {
