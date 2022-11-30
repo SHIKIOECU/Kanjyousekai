@@ -7,7 +7,9 @@ public class SoundManagerA : MonoBehaviour
 
     public static SoundManagerA Instance;
 
-    public static int NowBGM = 1;
+    public int BGMLength = 1;
+
+
 
     public enum SE_List
     {
@@ -63,9 +65,9 @@ public class SoundManagerA : MonoBehaviour
         }
     }
 
-    public void PlaySE_A(AudioClip SEnumber)
+    public void PlaySE(AudioClip SEnumber)
     {
-        sounds[2].PlayOneShot(SEnumber);
+        sounds[0].PlayOneShot(SEnumber);
     }
 
     public void PlayBGM(int BGMnumber)
@@ -98,6 +100,22 @@ public class SoundManagerA : MonoBehaviour
             sounds[0].mute = FrontBGMTF;
             sounds[1].mute = !(FrontBGMTF);
         }catch (System.IndexOutOfRangeException IE)
+        {
+            Debug.Log("曲がないよ");
+        }
+    }
+
+    public void ChangeBGM(int FrontBGMN)
+    {
+        try
+        {
+            sounds[FrontBGMN].mute = false;
+            for (int i = 0; i < BGMLength; i++)
+            {
+                sounds[FrontBGMN].mute = true;
+            }
+        }
+        catch (System.IndexOutOfRangeException IE)
         {
             Debug.Log("曲がないよ");
         }
