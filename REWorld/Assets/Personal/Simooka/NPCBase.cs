@@ -8,9 +8,12 @@ namespace NPC
 
     public class NPCBase : MonoBehaviour, INPC
     {
+        //NPCの情報
+        public NPCState _data = new NPCState();
+
         //NPCData
         [SerializeField]
-        private NPCData NData;
+        private NPCData _nPCData;
 
         //マスクスプライト
         [SerializeField]
@@ -22,41 +25,74 @@ namespace NPC
 
         //グラフィック
         [SerializeField]
-        private SpriteRenderer _NPC;
+        private SpriteRenderer _nPC;
 
         //セリフ
         [SerializeField]
         private TextMeshProUGUI _words;
 
         //アニメーター
-        public Animator animator;
+        public Animator Animator;
 
         public virtual void Start()
         {
-            EmotionalWorld.SetActive(false);
+            //基本のNPCデータに変更
+            InitNPCData();
+
+            //感情世界を見えなくする
+            EmotionalWorld.SetActive(true);
             MaskSprite.SetActive(false);
-            INPCData.InitNPCFlag();
-            animator = GetComponent<Animator>();
+
+            Animator = GetComponent<Animator>();
             ChangeWorld();
         }
 
+        //NPCのフラグを初期化
+        public void InitNPCData()
+        {
+            foreach (NPCState npc in _nPCData.NPCStates)
+            {
+                npc.NPCFlag.InitFlag();
+            }
+            SetNPCData("basic");
+        }
+
+        //NPCの状態を変更する
+        public void SetNPCData(string name, bool value = true)
+        {
+            foreach (NPCState npc in _nPCData.NPCStates)
+            {
+                if (npc.Name == name)
+                {
+                    //フラグをOnにした時Dataを更新
+                    if (value)
+                    {
+                        //_data.NPCFlag.SetFlagStatus(false);
+                        _data = npc;
+                    }
+                    npc.NPCFlag.SetFlagStatus(value);
+                    return;
+                }
+            }
+        }
+
         //インターフェースの定義
-        public NPCData INPCData => NData;
+        public NPCState INPCData => _data;
 
         public GameObject MaskSprite => _maskSprite;
 
         public GameObject EmotionalWorld => _emotionalWorld;
 
-        public Sprite EmotionalWorldSprite => NData.Data.EmotionalWorldSprite;
+        public Sprite EmotionalWorldSprite => _data.EmotionalWorldSprite;
 
-        public SpriteRenderer NPCSprite => _NPC;
+        public SpriteRenderer NPCSprite => _nPC;
 
         public TextMeshProUGUI Words => _words;
 
 
         public virtual void AppearanceWorld()
         {
-            EmotionalWorld.SetActive(true);
+            //EmotionalWorld.SetActive(true);
             MaskSprite.SetActive(true);
         }
 
@@ -66,15 +102,17 @@ namespace NPC
             EmotionalWorld.GetComponent<SpriteRenderer>().sprite
                 = EmotionalWorldSprite;
 
-            Words.text = NData.Data.Word;
+            Words.text = _data.Word;
 
-            if (EmotionalWorld.active) AppearanceWorld();
+            if (EmotionalWorld.activeInHierarchy) AppearanceWorld();
         }
 
         public virtual void DisappearanceWorld()
         {
-            EmotionalWorld.SetActive(false);
+            //EmotionalWorld.SetActive(false);
             MaskSprite.SetActive(false);
         }
+
+        
     }
 }

@@ -7,47 +7,46 @@ using UnityEngine.UI;
 public class NPCData : ScriptableObject
 {
     //NPCデータ
-    public NPCState Data = new NPCState();
+    //public NPCState Data = new NPCState();
 
     //NPCの共通データリスト
     [SerializeField]
-    private List<NPCState> npcStates = new List<NPCState>();
-    public List<NPCState> NPCStates { get { return npcStates; } }
+    private List<NPCState> _npcStates = new List<NPCState>();
+    public List<NPCState> NPCStates { get { return _npcStates; } }
 
 
     //NPCのフラグを初期化
-    public void InitNPCFlag()
-    {
-        foreach(NPCState npc in npcStates)
-        {
-            npc.NPCFlag.InitFlag();
-        }
-        SetFlag("basic");
-    }
+    //public void InitNPCFlag()
+    //{
+    //    foreach(NPCState npc in _npcStates)
+    //    {
+    //        npc.NPCFlag.InitFlag();
+    //    }
+    //}
 
     //NPCのフラグを変更する
-    public void SetFlag(string name, bool value = true)
-    {
-        foreach (NPCState npc in npcStates)
-        {
-            if (npc.Name == name)
-            {
-                //フラグをOnにした時Dataを更新
-                if (value)
-                {
-                    Data.NPCFlag.SetFlagStatus(false);
-                    Data = npc;
-                }
-                npc.NPCFlag.SetFlagStatus(value);
-                return;
-            }
-        }
-    }
+    //public void SetFlag(string name, bool value = true)
+    //{
+    //    foreach (NPCState npc in _npcStates)
+    //    {
+    //        if (npc.Name == name)
+    //        {
+    //            //フラグをOnにした時Dataを更新
+    //            if (value)
+    //            {
+    //                Data.NPCFlag.SetFlagStatus(false);
+    //                Data = npc;
+    //            }
+    //            npc.NPCFlag.SetFlagStatus(value);
+    //            return;
+    //        }
+    //    }
+    //}
 
     //NPCのフラグを参照する
     public bool GetFlagStatus(FlagData flag)
     {
-        foreach (NPCState npc in npcStates)
+        foreach (NPCState npc in _npcStates)
         {
             if (npc.NPCFlag == flag)
             {

@@ -5031,12 +5031,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7751ef1491a341e2a0828346fa023c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NData: {fileID: 11400000, guid: d109c9516cc8b46baa36971dbcfc3623, type: 2}
+  _nPCData: {fileID: 11400000, guid: d109c9516cc8b46baa36971dbcfc3623, type: 2}
   _maskSprite: {fileID: 8408897954477661279}
   _emotionalWorld: {fileID: 1739663375039015700}
-  _NPC: {fileID: 1739663374789197775}
+  _nPC: {fileID: 0}
   _words: {fileID: 1739663374963930099}
-  animator: {fileID: 0}
+  Animator: {fileID: 0}
   coin: {fileID: 1739663375478359651}
   coinFlag: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
   rain: {fileID: 11400000, guid: 236abf01742194a76adce90ad66a002c, type: 2}

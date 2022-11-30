@@ -7,17 +7,17 @@ public class IceClerk : NPCBase,IItem
 {
     //アイス
     [SerializeField]
-    private Ice ice;
+    private Ice _ice;
 
     // アイスのオブジェクト
-    [SerializeField] GameObject ice_ojb;
+    [SerializeField] private GameObject _iceObj;
 
     // BigIceAnimeの取得
-    [SerializeField] bigIceAnime ice_scr;
+    [SerializeField] bigIceAnime _iceScr;
 
     //アイテムフラグ（アイス）
     [SerializeField]
-    private FlagData iceFlag;
+    private FlagData _iceFlag;
 
     //投げる速度
     [SerializeField]
@@ -41,14 +41,14 @@ public class IceClerk : NPCBase,IItem
     {
         base.AppearanceWorld();
 
-        switch (INPCData.Data.Name)
+        switch (INPCData.Name)
         {
             //アイスが売れていない場合（基本）
             case "basic":
                 //アイスを投げる
-                ice.gameObject.SetActive(true);
-                ice.Rb2D.velocity = new Vector2(_slowSpeed, 0);
-                animator.SetBool("throwTrigger", true);
+                _ice.gameObject.SetActive(true);
+                _ice.Rb2D.velocity = new Vector2(_slowSpeed, 0);
+                Animator.SetBool("throwTrigger", true);
                 //Todo:アイスを投げるSEを追加
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Throw);
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Wall);
@@ -58,7 +58,7 @@ public class IceClerk : NPCBase,IItem
             case "happy":
                 //ジャンプする（プレイヤーのジャンプ力も上げる）
                 jumping = true;
-                ice.gameObject.SetActive(false);
+                _ice.gameObject.SetActive(false);
                 PlayerMove.instance.jumpPower = jumpPowerUp;
                 break;
 
@@ -67,10 +67,11 @@ public class IceClerk : NPCBase,IItem
 
     public override void DisappearanceWorld()
     {
-        ice_ojb.transform.position = basicIcePosition;
-        ice_scr.fallSpeed = 0.0f;
-        ice_scr.isMelt = false;
-        ice_scr.countDown = ice_scr.timeToMelt;
+        //アイスの動作
+        _iceObj.transform.position = basicIcePosition;
+        _iceScr.fallSpeed = 0.0f;
+        _iceScr.isMelt = false;
+        _iceScr.countDown = _iceScr.timeToMelt;
 
         base.DisappearanceWorld();
 
@@ -84,9 +85,9 @@ public class IceClerk : NPCBase,IItem
         if (coin.IsOn)
         {
             coin.SetFlagStatus(false);
-            iceFlag.SetFlagStatus();
+            _iceFlag.SetFlagStatus();
 
-            INPCData.SetFlag("happy");
+            SetNPCData("happy");
 
             ChangeWorld();
         }
