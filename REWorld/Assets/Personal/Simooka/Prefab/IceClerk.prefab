@@ -279,16 +279,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b01f42bf1124b579ff3445436adf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nPCData: {fileID: 11400000, guid: 50e06fe7ff10c474888f8517ec73361f, type: 2}
+  _data:
+    Name: 
+    EmotionalWorldSprite: {fileID: 0}
+    Word: 
+    NPCFlag: {fileID: 0}
+  _nPCData: {fileID: 11400000, guid: 85d796fc3207145d6a1d7491f0aea4fa, type: 2}
   _maskSprite: {fileID: 3357659723867805743}
   _emotionalWorld: {fileID: 3357659724623026951}
   _nPC: {fileID: 0}
   _words: {fileID: 3357659723479731514}
   Animator: {fileID: 0}
-  ice: {fileID: 3357659724031626394}
-  ice_ojb: {fileID: 3357659724031626398}
-  ice_scr: {fileID: 0}
-  iceFlag: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
+  _ice: {fileID: 3357659724031626394}
+  _iceObj: {fileID: 3357659724031626398}
+  _iceScr: {fileID: 3357659724031626395}
+  _iceFlag: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
   _slowSpeed: 10
   coin: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
   jumping: 0
