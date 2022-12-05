@@ -35,7 +35,7 @@ public class BigCactusController : NPCBase
 
         // 少女を踊り状態にする
         desertGirl.desert_girl_anim.SetBool("isHappy", true);
-        desertGirl.INPCData.SetFlag("happy");
+        desertGirl.SetNPCData("happy");
 
         hawker.nowPos = hawker.transform.position;
         
@@ -60,7 +60,7 @@ public class BigCactusController : NPCBase
         big_cactus_anim.SetBool("isDancing", false);
 
         // 少女を怯え状態に戻す
-        desertGirl.INPCData.SetFlag("frightening");
+        desertGirl.SetNPCData("frightening");
         desertGirl.desert_girl_anim.SetBool("isHappy", false);
 
         //hawker.onBigCactus = false;

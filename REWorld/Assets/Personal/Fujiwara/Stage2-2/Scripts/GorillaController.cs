@@ -21,7 +21,7 @@ public class GorillaController : NPCBase
         base.AppearanceWorld();
 
         // ゴリラのステータスを変更
-        INPCData.SetFlag("hungry");
+        SetNPCData("hungry");
     }
 
     public override void ChangeWorld()
@@ -35,6 +35,6 @@ public class GorillaController : NPCBase
         base.DisappearanceWorld();
 
         // ゴリラのステータスを変更
-        INPCData.SetFlag("basic");
+        SetNPCData("basic");
     }
 }

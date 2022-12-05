@@ -30,8 +30,8 @@ public class ContrarianController : NPCBase
         gorilla.GetComponent<BoxCollider2D>().isTrigger = true;
 
         // NPCのステータスを変更する
-        hawker.INPCData.SetFlag("cold");
-        gorilla.INPCData.SetFlag("sleep");
+        hawker.SetNPCData("cold");
+        gorilla.SetNPCData("sleep");
     }
 
     public override void ChangeWorld()
@@ -49,7 +49,7 @@ public class ContrarianController : NPCBase
         gorilla.GetComponent<BoxCollider2D>().isTrigger = false;
 
         // NPCのステータスを変更する
-        hawker.INPCData.SetFlag("basic");
-        gorilla.INPCData.SetFlag("basic");
+        hawker.SetNPCData("basic");
+        gorilla.SetNPCData("basic");
     }
 }

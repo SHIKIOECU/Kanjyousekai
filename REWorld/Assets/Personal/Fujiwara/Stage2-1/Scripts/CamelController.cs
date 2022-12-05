@@ -99,7 +99,7 @@ public class CamelController : NPCBase
 
                     // 少女を怯え状態にする
                     desertGirl.desert_girl_anim.SetBool("isFrightening", true);
-                    desertGirl.INPCData.SetFlag("frightening");
+                    desertGirl.SetNPCData("frightening");
 
                     // 移動速度のリセット
                     moveTime = 0;

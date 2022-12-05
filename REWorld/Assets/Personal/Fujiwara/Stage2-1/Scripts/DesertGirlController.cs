@@ -52,7 +52,7 @@ public class DesertGirlController : NPCBase
         base.AppearanceWorld();
         isDesertGirl = true;
 
-        switch (INPCData.Data.Name)
+        switch (INPCData.Name)
         {
             case "frightening":
                 desert_girl_anim.SetBool("isBigFrightening", true);
@@ -78,7 +78,7 @@ public class DesertGirlController : NPCBase
         moveTime = 0;
         camel.isFollowing = true;
 
-        switch (INPCData.Data.Name)
+        switch (INPCData.Name)
         {
             case "frightening":
                 desert_girl_anim.SetBool("isBigFrightening", false);
