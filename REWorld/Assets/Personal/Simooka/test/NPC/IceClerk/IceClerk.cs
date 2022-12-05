@@ -57,6 +57,7 @@ public class IceClerk : NPCBase,IItem
             //喜んでいる場合
             case "happy":
                 //ジャンプする（プレイヤーのジャンプ力も上げる）
+                Animator.SetBool("jumpTrigger", true);
                 jumping = true;
                 _ice.gameObject.SetActive(false);
                 PlayerMove.instance.jumpPower = jumpPowerUp;
@@ -67,6 +68,8 @@ public class IceClerk : NPCBase,IItem
 
     public override void DisappearanceWorld()
     {
+        Animator.SetBool("throwTrigger", false);
+        Animator.SetBool("jumpTrigger", false);
         //アイスの動作
         _iceObj.transform.position = basicIcePosition;
         _iceScr.fallSpeed = 0.0f;
