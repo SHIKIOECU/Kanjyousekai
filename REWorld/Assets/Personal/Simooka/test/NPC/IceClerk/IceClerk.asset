@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
+  m_Name: IceClerk
+  m_EditorClassIdentifier: 
+  _npcStates:
+  - Name: basic
+    EmotionalWorldSprite: {fileID: 0}
+    Word: 
+    NPCFlag: {fileID: 11400000, guid: 6d30b547a82df415ea1cf8e350564128, type: 2}
+  - Name: happy
+    EmotionalWorldSprite: {fileID: 0}
+    Word: 
+    NPCFlag: {fileID: 11400000, guid: 5ecff0a7c262b45d18a8135b86589be5, type: 2}
