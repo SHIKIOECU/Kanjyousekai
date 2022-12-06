@@ -15,14 +15,17 @@ public class Girl_EffectChange : MonoBehaviour
     Girl girl;
     private bool IsIce;
 
-    private bool kanjou;
+    //private bool kanjou;
+
+    [SerializeField]
+    GameObject EmotionalWorld;
 
     // Start is called before the first frame update
     void Start()
     {
         girl = GetComponent<Girl>();
 
-        kanjou = Interact.instance.isKansoku;
+        //kanjou = Interact.instance.isKansoku;
     }
 
     // Update is called once per frame
@@ -30,7 +33,7 @@ public class Girl_EffectChange : MonoBehaviour
     {
         IsIce = girl._getIce;
 
-        if (kanjou == true)
+        if (EmotionalWorld.activeSelf == true)
         {
             if (IsIce == true)
             {

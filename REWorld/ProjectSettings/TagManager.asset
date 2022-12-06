@@ -10,6 +10,7 @@ TagManager:
   - Stage
   - Ground
   - WoodBox
+  - Target
   layers:
   - Default
   - TransparentFX

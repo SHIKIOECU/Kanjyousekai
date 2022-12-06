@@ -15,14 +15,17 @@ public class Detective_EffectChange : MonoBehaviour
     Detective detective;
     private bool IsMove;
 
-    private bool kanjou;
+    //private bool kanjou;
+
+    [SerializeField]
+    GameObject EmotionalWorld;
 
     // Start is called before the first frame update
     void Start()
     {
         detective = GetComponent<Detective>();
 
-        kanjou = Interact.instance.isKansoku;
+        //kanjou = Interact.instance.isKansoku;
 
         IsMove = detective.moved;
     }
@@ -30,9 +33,9 @@ public class Detective_EffectChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //IsMove = detective.moved;
+        IsMove = detective.moved;
 
-        if (kanjou == true)
+        if (EmotionalWorld.activeSelf == true)
         {
             if (IsMove == true)
             {

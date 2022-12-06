@@ -63,6 +63,11 @@ public class bigIceAnime : MonoBehaviour
 
             //isMelt = true;
         }
+
+        if(collision.gameObject.tag == "Target")
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

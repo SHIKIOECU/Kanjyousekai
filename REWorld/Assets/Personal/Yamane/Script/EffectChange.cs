@@ -19,14 +19,17 @@ public class EffectChange : MonoBehaviour
     IceClerk iceClerk;
     private bool IsJumping;
 
-    private bool kanjou;
+    //private bool kanjou;
+
+    [SerializeField]
+    GameObject EmotionalWorld;
 
     // Start is called before the first frame update
     void Start()
     {
         iceClerk = GetComponent<IceClerk>();
 
-        kanjou = Interact.instance.isKansoku;
+        //kanjou = Interact.instance.isKansoku;
     }
 
     // Update is called once per frame
@@ -34,7 +37,7 @@ public class EffectChange : MonoBehaviour
     {
         IsJumping = iceClerk.jumping;
 
-        if (kanjou == true)
+        if (EmotionalWorld.activeSelf == true)
         {
             if (IsJumping == true)
             {
