@@ -7,10 +7,13 @@ public class Goal : MonoBehaviour
 {
     [Header("遷移先のシーン名"), SerializeField] private string _toSceneName;
 
+    [SerializeField]
+    GameObject StageClearImage;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        StageClearImage.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,11 +22,19 @@ public class Goal : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (CompareTag("Player"))
+        if (collider.CompareTag("Player"))
         {
-            SceneManager.LoadScene(_toSceneName);
+            Debug.Log("ゴールに触れた");
+            StageClearImage.SetActive(true);
+            StartCoroutine(Wait());
         }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(_toSceneName);
     }
 }

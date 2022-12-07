@@ -26,8 +26,6 @@ public class Detective_EffectChange : MonoBehaviour
         detective = GetComponent<Detective>();
 
         //kanjou = Interact.instance.isKansoku;
-
-        IsMove = detective.moved;
     }
 
     // Update is called once per frame
@@ -37,15 +35,15 @@ public class Detective_EffectChange : MonoBehaviour
 
         if (EmotionalWorld.activeSelf == true)
         {
-            if (IsMove == true)
-            {
-                Before_Detective.SetActive(false);
-                After_Detective.SetActive(true);
-            }
-            else if (IsMove == false)
+            if (detective.INPCData.Name == "basic" && IsMove == true)
             {
                 Before_Detective.SetActive(true);
                 After_Detective.SetActive(false);
+            }
+            else
+            {
+                Before_Detective.SetActive(false);
+                After_Detective.SetActive(true);
             }
         }
         else
