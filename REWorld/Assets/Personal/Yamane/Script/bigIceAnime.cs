@@ -9,6 +9,11 @@ public class bigIceAnime : MonoBehaviour
     [SerializeField]
     SpriteRenderer spriteRenderer;
 
+    [Header("壁につく前のアイス")]
+    [SerializeField]
+    Sprite bigIce1;
+
+    [Header("壁についた後のアイス")]
     [SerializeField]
     Sprite bigIce2;
 
@@ -66,6 +71,7 @@ public class bigIceAnime : MonoBehaviour
 
         if(collision.gameObject.tag == "Target")
         {
+            spriteRenderer.sprite = bigIce1;
             this.gameObject.SetActive(false);
         }
     }
@@ -81,6 +87,14 @@ public class bigIceAnime : MonoBehaviour
                 isMelt = true;
                 countDown = 0;
             }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            spriteRenderer.sprite = bigIce1;
         }
     }
 }

@@ -13517,7 +13517,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 77289894, guid: 9b4d54f833efc4e78854bf8b6730199a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b8f602285d0a44b2b76e78329488b3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14179,6 +14179,10 @@ PrefabInstance:
       propertyPath: speed
       value: 0.0005
       objectReference: {fileID: 0}
+    - target: {fileID: 3357659724031626395, guid: 5662dcf23979747649f820af56c79be9, type: 3}
+      propertyPath: bigIce1
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b4935bc94f4b47688b4c5fb48e7278b, type: 3}
     - target: {fileID: 3357659724031626395, guid: 5662dcf23979747649f820af56c79be9, type: 3}
       propertyPath: countDown
       value: 0
@@ -17004,7 +17008,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7765667, y: 1}
+    m_SensorSize: {x: 1.7793595, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -18930,6 +18934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1389780863}
+  bigIce1: {fileID: 0}
   bigIce2: {fileID: 21300000, guid: f7379e0a003ac406498f4bcc14487f70, type: 3}
   timeToMelt: 0
   speed: 0
@@ -35775,7 +35780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010885407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.206883, y: -0.52111006, z: -10}
+  m_LocalPosition: {x: -2.1929133, y: -0.52116, z: -10}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
