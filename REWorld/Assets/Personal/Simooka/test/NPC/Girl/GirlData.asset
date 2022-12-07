@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
   m_Name: GirlData
   m_EditorClassIdentifier: 
-  Data:
-    Name: happy
-    EmotionalWorldSprite: {fileID: 0}
-    NPCFlag: {fileID: 11400000, guid: ddae3e7400c934c8aa17f978bc2f5587, type: 2}
-  npcStates:
+  _npcStates:
   - Name: basic
-    EmotionalWorldSprite: {fileID: 21300000, guid: 1257e5af92d3d4000969aad2ecf35479, type: 3}
+    EmotionalWorldSprite: {fileID: 0}
+    Word: SAD!!
     NPCFlag: {fileID: 11400000, guid: 236abf01742194a76adce90ad66a002c, type: 2}
-  - Name: happy
-    EmotionalWorldSprite: {fileID: 21300000, guid: d84b5bb1e220d4f3187bc8a98a52b885, type: 3}
-    NPCFlag: {fileID: 11400000, guid: ddae3e7400c934c8aa17f978bc2f5587, type: 2}
+  Words:
+  - Faze: 
+    Word: sad
+    Terms: []

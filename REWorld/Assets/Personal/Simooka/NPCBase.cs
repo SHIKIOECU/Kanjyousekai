@@ -5,7 +5,6 @@ using TMPro;
 
 namespace NPC
 {
-
     public class NPCBase : MonoBehaviour, INPC
     {
         //NPCの情報
@@ -76,6 +75,28 @@ namespace NPC
             }
         }
 
+        public string Word()
+        {
+            var word = "null";
+            foreach (NPCWord nPCWord in _nPCData.Words)
+            {
+                foreach (Term flag in nPCWord.Terms)
+                {
+                    if (flag.IsCheck==flag.FlagData.IsOn&&nPCWord.Terms.Count>=0) word = nPCWord.Word;
+                }
+            }
+
+            if (word == "null") return _nPCData.Words[0].Word;
+            return word;
+        }
+
+        public void ChangeWord()
+        {
+
+            if (EmotionalWorld.activeInHierarchy) Words.text = _data.Word;
+            else Words.text = Word();
+        }
+
         //インターフェースの定義
         public NPCState INPCData => _data;
 
@@ -94,6 +115,7 @@ namespace NPC
         {
             //EmotionalWorld.SetActive(true);
             MaskSprite.SetActive(true);
+            ChangeWord();
         }
 
         public virtual void ChangeWorld()
@@ -102,7 +124,7 @@ namespace NPC
             EmotionalWorld.GetComponent<SpriteRenderer>().sprite
                 = EmotionalWorldSprite;
 
-            Words.text = _data.Word;
+            ChangeWord();
 
             if (EmotionalWorld.activeInHierarchy) AppearanceWorld();
         }
@@ -111,8 +133,7 @@ namespace NPC
         {
             //EmotionalWorld.SetActive(false);
             MaskSprite.SetActive(false);
-        }
-
-        
+            ChangeWord();
+        }        
     }
 }
