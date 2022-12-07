@@ -515,6 +515,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102363536}
   m_CullTransparentMesh: 1
+--- !u!114 &108403619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5882367279326994838, guid: 9a9900432317e4b5d9b13b98801677b7, type: 3}
+  m_PrefabInstance: {fileID: 6621849481548714218}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &109037219
 GameObject:
   m_ObjectHideFlags: 0
@@ -8830,6 +8841,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919883064592413401, guid: 9a9900432317e4b5d9b13b98801677b7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919883064592413401, guid: 9a9900432317e4b5d9b13b98801677b7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919883064592413401, guid: 9a9900432317e4b5d9b13b98801677b7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1968588306521788625, guid: 9a9900432317e4b5d9b13b98801677b7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8911,6 +8934,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 227964665}
     - target: {fileID: 3799646664878350574, guid: 9a9900432317e4b5d9b13b98801677b7, type: 3}
+      propertyPath: _words
+      value: 
+      objectReference: {fileID: 108403619}
+    - target: {fileID: 3799646664878350574, guid: 9a9900432317e4b5d9b13b98801677b7, type: 3}
       propertyPath: _nPCData
       value: 
       objectReference: {fileID: 11400000, guid: b4116054a98e944b58fdae982a42568c, type: 2}
@@ -8940,6 +8967,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7570545716190931470, guid: 9a9900432317e4b5d9b13b98801677b7, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570545716190931470, guid: 9a9900432317e4b5d9b13b98801677b7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570545716190931470, guid: 9a9900432317e4b5d9b13b98801677b7, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
