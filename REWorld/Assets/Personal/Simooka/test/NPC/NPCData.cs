@@ -15,6 +15,9 @@ public class NPCData : ScriptableObject
     public List<NPCState> NPCStates { get { return _npcStates; } }
 
 
+    public List<NPCWord> Words = new List<NPCWord>();
+
+
     //NPCのフラグを初期化
     //public void InitNPCFlag()
     //{
@@ -65,4 +68,19 @@ public struct NPCState
     public Sprite EmotionalWorldSprite;
     public string Word;
     public FlagData NPCFlag;
+}
+
+[System.Serializable]
+public struct NPCWord
+{
+    public string Faze;
+    public string Word;
+    public List<Term> Terms;
+}
+
+[System.Serializable]
+public struct Term
+{
+    public FlagData FlagData;
+    public bool IsCheck;
 }
