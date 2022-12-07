@@ -8,14 +8,24 @@ public class LostBoyController : NPCBase
     // ボートの取得
     [SerializeField] GameObject boat;
 
+    // 父親の取得
+    [SerializeField] GameObject father;
+
     // ボートの移動先のポジション
-    private Vector3 moveToPos = new Vector3(29, 0, 0);
+    private Vector3 moveToPos = new Vector3(0, 4.5f, 0);
     private Vector3 defaultPos;
 
-    void Start()
+    // 少年を観測したかどうか
+    public bool isFather;
+
+    public override void Start()
     {
+        base.Start();
+
         // 感情世界の削除
-        base.DisappearanceWorld();
+        //base.DisappearanceWorld();
+
+        isFather = false;
 
         // ボートの現在の位置を取得
         defaultPos = boat.transform.position;
@@ -36,11 +46,13 @@ public class LostBoyController : NPCBase
 
         // LostGirlの状態を変化させる
         SetNPCData("cry");
+
+        if (father.GetComponent<FatherController>().isFather) isFather = true;
     }
 
     public override void ChangeWorld()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public override void DisappearanceWorld()

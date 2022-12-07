@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
   m_Name: LostBoyData
   m_EditorClassIdentifier: 
-  Data:
-    Name: basic
-    EmotionalWorldSprite: {fileID: 0}
-    NPCFlag: {fileID: 11400000, guid: b7f19521cf78541c1a658f4d11e5d93a, type: 2}
-  npcStates:
+  _npcStates:
   - Name: basic
-    EmotionalWorldSprite: {fileID: 0}
+    EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
+    Word: Lost
     NPCFlag: {fileID: 11400000, guid: b7f19521cf78541c1a658f4d11e5d93a, type: 2}
-  - Name: cry
-    EmotionalWorldSprite: {fileID: 0}
+  - Name: lost
+    EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
+    Word: Cry
     NPCFlag: {fileID: 11400000, guid: 9d6d53e71398c49c0bd303038c6b8254, type: 2}
+  Words:
+  - Faze: 
+    Word: Lost
+    Terms: []

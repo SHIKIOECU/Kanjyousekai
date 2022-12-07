@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
-  m_Name: GirlData
+  m_Name: AuntData
   m_EditorClassIdentifier: 
   _npcStates:
   - Name: basic
-    EmotionalWorldSprite: {fileID: 0}
+    EmotionalWorldSprite: {fileID: 21300000, guid: 370e1bb7694a34ff38337aac58a0069c, type: 3}
     Word: 
-    NPCFlag: {fileID: 11400000, guid: 9d6d53e71398c49c0bd303038c6b8254, type: 2}
+    NPCFlag: {fileID: 11400000, guid: 3b6476813b45a429bbf59b4155c7f611, type: 2}
   - Name: happy
-    EmotionalWorldSprite: {fileID: 0}
+    EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
     Word: 
-    NPCFlag: {fileID: 11400000, guid: ddae3e7400c934c8aa17f978bc2f5587, type: 2}
+    NPCFlag: {fileID: 11400000, guid: 96b634bb3f9d04f27a89ede7015c0bdc, type: 2}
   Words:
   - Faze: 
-    Word: CRY
+    Word: Sadge
     Terms: []

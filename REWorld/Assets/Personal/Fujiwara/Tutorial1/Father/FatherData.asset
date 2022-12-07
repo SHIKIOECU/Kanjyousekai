@@ -10,18 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
-  m_Name: GirlData
+  m_Name: FatherData
   m_EditorClassIdentifier: 
   _npcStates:
   - Name: basic
-    EmotionalWorldSprite: {fileID: 0}
-    Word: 
-    NPCFlag: {fileID: 11400000, guid: 9d6d53e71398c49c0bd303038c6b8254, type: 2}
-  - Name: happy
-    EmotionalWorldSprite: {fileID: 0}
-    Word: 
-    NPCFlag: {fileID: 11400000, guid: ddae3e7400c934c8aa17f978bc2f5587, type: 2}
+    EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
+    Word: obie
+    NPCFlag: {fileID: 11400000, guid: 279180a718efd462192c11d8816f3190, type: 2}
   Words:
   - Faze: 
-    Word: CRY
+    Word: obie
     Terms: []
