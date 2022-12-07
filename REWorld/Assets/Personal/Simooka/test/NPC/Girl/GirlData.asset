@@ -17,6 +17,10 @@ MonoBehaviour:
     EmotionalWorldSprite: {fileID: 0}
     Word: SAD!!
     NPCFlag: {fileID: 11400000, guid: 236abf01742194a76adce90ad66a002c, type: 2}
+  - Name: happy
+    EmotionalWorldSprite: {fileID: 0}
+    Word: happy!
+    NPCFlag: {fileID: 11400000, guid: ddae3e7400c934c8aa17f978bc2f5587, type: 2}
   Words:
   - Faze: 
     Word: sad
