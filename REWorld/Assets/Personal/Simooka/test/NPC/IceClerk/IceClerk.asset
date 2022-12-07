@@ -15,9 +15,18 @@ MonoBehaviour:
   _npcStates:
   - Name: basic
     EmotionalWorldSprite: {fileID: 0}
-    Word: 
+    Word: ICE
     NPCFlag: {fileID: 11400000, guid: 6d30b547a82df415ea1cf8e350564128, type: 2}
   - Name: happy
     EmotionalWorldSprite: {fileID: 0}
-    Word: 
+    Word: HAPPY
     NPCFlag: {fileID: 11400000, guid: 5ecff0a7c262b45d18a8135b86589be5, type: 2}
+  Words:
+  - Faze: 
+    Word: "\u30A2\u30A4\u30B9\u3092\u8CB7\u3048\u30FC"
+    Terms: []
+  - Faze: 
+    Word: "100\u5186"
+    Terms:
+    - FlagData: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
+      IsCheck: 0
