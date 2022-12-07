@@ -11493,6 +11493,7 @@ GameObject:
   - component: {fileID: 5953202165743574482}
   - component: {fileID: 7873347057215165179}
   - component: {fileID: 2900114612923751367}
+  - component: {fileID: 9217170453033218139}
   m_Layer: 5
   m_Name: TestText (TMP)
   m_TagString: Untagged
@@ -11548,7 +11549,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "100\u5186\u30A2\u30A4\u30B9\u3001\u58F2\u3063\u3066\u308B\u3088\u2026"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 850ca101617764fb6b3c83ea30279883, type: 2}
   m_sharedMaterial: {fileID: 2178736681145508495, guid: 850ca101617764fb6b3c83ea30279883, type: 2}
@@ -11617,3 +11618,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9217170453033218139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864055355693846981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6764d5ac298d4655b6663e5d8d655fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IceClerkText: {fileID: 2900114612923751367}
+  BeforeText: "100\u5186\u30A2\u30A4\u30B9\u3001\u58F2\u3063\u3066\u308B\u3088\u2026"
+  AfterText: "\u3042\u3001\u3042\u308A\u304C\u3068\u3046!!"
+  iceClerk: {fileID: 3357659723289649123}
