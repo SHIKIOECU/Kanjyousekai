@@ -44,6 +44,14 @@ public class Interact : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //_item = collision.gameObject.GetComponent<IItem>();
+        //_NPC = collision.gameObject.GetComponent<INPC>();
+
+        if(_NPC!=null) _NPC.ChangeWorld();
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         _item = collision.gameObject.GetComponent<IItem>();

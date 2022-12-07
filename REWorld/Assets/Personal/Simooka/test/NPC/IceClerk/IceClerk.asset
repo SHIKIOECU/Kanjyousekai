@@ -23,5 +23,5 @@ MonoBehaviour:
     NPCFlag: {fileID: 11400000, guid: 5ecff0a7c262b45d18a8135b86589be5, type: 2}
   Words:
   - Faze: 
-    Word: ICE
+    Word: 
     Terms: []

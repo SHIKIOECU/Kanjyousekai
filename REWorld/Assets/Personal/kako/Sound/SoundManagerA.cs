@@ -46,7 +46,7 @@ public class SoundManagerA : MonoBehaviour
 
     private void Start()
     {
-        sounds = GetComponents<AudioSource>();
+        sounds = transform.parent.GetComponents<AudioSource>();
         //PlaySound();
     }
 
