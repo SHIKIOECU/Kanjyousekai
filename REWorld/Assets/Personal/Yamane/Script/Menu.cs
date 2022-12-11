@@ -11,6 +11,14 @@ public class Menu : MonoBehaviour
     [SerializeField]
     GameObject _menuScreen;
 
+    [Header("ステージセレクトシーン名")]
+    [SerializeField]
+    string _stageSelectName;
+
+    [Header("タイトルシーン名")]
+    [SerializeField]
+    string _titleName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +57,7 @@ public class Menu : MonoBehaviour
         _menuScreen.SetActive(false);
         _menuScreenButton.SetActive(true);
 
-        SceneManager.LoadScene("select_test");
+        SceneManager.LoadScene(_stageSelectName);
     }
 
     public void MenuTitle()
@@ -57,6 +65,6 @@ public class Menu : MonoBehaviour
         _menuScreen.SetActive(false);
         _menuScreenButton.SetActive(true);
 
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene(_titleName);
     }
 }
