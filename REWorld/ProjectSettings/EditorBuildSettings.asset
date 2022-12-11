@@ -20,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/beta2/Title.unity
     guid: 92ea119bd2ca44aa3be9e11019d57612
+  - enabled: 1
+    path: Assets/Personal/Yamane/fujiwara_tutorial2.unity
+    guid: 179204067ebc44c3d9221db5305bd56f
+  - enabled: 1
+    path: Assets/Personal/Yamane/beta2_yamane.unity
+    guid: 9c9c8291bbc0a4e7bbdfc8afc38905cd
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 91da84866a9d74a49bf38dc53d119ffc, type: 2}

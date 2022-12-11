@@ -4611,7 +4611,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7785016, y: 1}
+    m_SensorSize: {x: 1.7768116, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5666,6 +5666,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 6587853219580180720, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587853219580180720, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587853219580180720, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587853219580180720, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587853219580180722, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587853219580180722, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.65
+      objectReference: {fileID: 0}
     - target: {fileID: 6587853219883275057, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6694,7 +6718,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010885407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1971986, y: -0.5211401, z: -10}
+  m_LocalPosition: {x: -2.2056437, y: -0.5211201, z: -10}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
