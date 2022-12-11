@@ -1771,7 +1771,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7785016, y: 1}
+    m_SensorSize: {x: 1.7772021, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3041,7 +3041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887533228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.97659624, y: -0.53859, z: -10}
+  m_LocalPosition: {x: -0.97663254, y: -0.53859, z: -10}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3305,6 +3305,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40a52fca7936a4cfaa9005eb0904bec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &935305834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2927056886480971659, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+  m_PrefabInstance: {fileID: 1158367319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee8d4b0e8c384698a2b2814c2bff109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1054616021
@@ -3875,6 +3886,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2927056885006419996, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 935305834}
+    - target: {fileID: 2927056885006419996, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuStageSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927056885176908524, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 935305834}
+    - target: {fileID: 2927056885176908524, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuTitle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927056886225815272, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 935305834}
+    - target: {fileID: 2927056886225815272, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927056886414037018, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 935305834}
+    - target: {fileID: 2927056886414037018, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuRetry
+      objectReference: {fileID: 0}
     - target: {fileID: 2927056886480971655, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3962,6 +4005,14 @@ PrefabInstance:
     - target: {fileID: 2927056886480971658, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
       propertyPath: m_Name
       value: Canvas_Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927056886693078489, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 935305834}
+    - target: {fileID: 2927056886693078489, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuCancel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1cdc25e4dbbc4e53b968d943730f558, type: 3}
