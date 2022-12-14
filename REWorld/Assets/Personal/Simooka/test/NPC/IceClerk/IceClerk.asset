@@ -15,13 +15,14 @@ MonoBehaviour:
   _npcStates:
   - Name: basic
     EmotionalWorldSprite: {fileID: 21300000, guid: 1257e5af92d3d4000969aad2ecf35479, type: 3}
-    Word: 
+    Word: ICE
     NPCFlag: {fileID: 11400000, guid: 6d30b547a82df415ea1cf8e350564128, type: 2}
   - Name: happy
     EmotionalWorldSprite: {fileID: 21300000, guid: d84b5bb1e220d4f3187bc8a98a52b885, type: 3}
-    Word: 
+    Word: Happy
     NPCFlag: {fileID: 11400000, guid: 5ecff0a7c262b45d18a8135b86589be5, type: 2}
   Words:
   - Faze: 
-    Word: 
-    Terms: []
+    Word: ICEE
+  - Faze: 
+    Word: OK!!!!

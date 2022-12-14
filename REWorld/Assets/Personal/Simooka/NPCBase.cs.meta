@@ -3,7 +3,14 @@ guid: df508225d03e44881abd0eb4ba764ba0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _nPCData: {instanceID: 0}
+  - _maskSprite: {instanceID: 0}
+  - _emotionalWorld: {instanceID: 0}
+  - _nPC: {instanceID: 0}
+  - _words: {instanceID: 0}
+  - _wordData: {fileID: 11400000, guid: 6db6ec7800ee24999a497b396a23dcc0, type: 2}
+  - Animator: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 namespace NPC
 {
     public class NPCBase : MonoBehaviour, INPC
     {
         //NPCの情報
-        public NPCState _data = new NPCState();
+        private NPCState _data = new NPCState();
 
         //NPCData
         [SerializeField]
         private NPCData _nPCData;
 
         //マスクスプライト
-        [SerializeField]
         private GameObject _maskSprite;
 
         //感情世界
@@ -30,8 +30,18 @@ namespace NPC
         [SerializeField]
         private TextMeshProUGUI _words;
 
+        [Header("セリフのデータ"),SerializeField]
+        private WordData _wordData;
+
         //アニメーター
         public Animator Animator;
+
+        private int _wordIndex;
+
+        public void Awake()
+        {
+            _maskSprite = transform.GetChild(1).gameObject;
+        }
 
         public virtual void Start()
         {
@@ -75,16 +85,24 @@ namespace NPC
             }
         }
 
-        public string Word()
+        public virtual int WordTerm()
+        {
+            return 0;
+        }
+
+        public string Word(Func<int> i)
         {
             var word = "null";
-            foreach (NPCWord nPCWord in _nPCData.Words)
-            {
-                foreach (Term flag in nPCWord.Terms)
-                {
-                    if (flag.IsCheck==flag.FlagData.IsOn&&nPCWord.Terms.Count>=0) word = nPCWord.Word;
-                }
-            }
+
+            word = _nPCData.Words[i()].Word;
+
+            //foreach (NPCWord nPCWord in _nPCData.Words)
+            //{
+            //    foreach (Term flag in nPCWord.Terms)
+            //    {
+            //        if (flag.IsCheck==flag.FlagData.IsOn&&nPCWord.Terms.Count>=0) word = nPCWord.Word;
+            //    }
+            //}
 
             if (word == "null") return _nPCData.Words[0].Word;
             return word;
@@ -92,9 +110,11 @@ namespace NPC
 
         public void ChangeWord()
         {
+            Words.transform.localScale = _wordData.WordStates[0].TextBoxSize;
+            Words.fontSize = _wordData.WordStates[0].FontSize;
 
             if (EmotionalWorld.activeInHierarchy) Words.text = _data.Word;
-            else Words.text = Word();
+            else Words.text = Word(WordTerm);
         }
 
         //インターフェースの定義

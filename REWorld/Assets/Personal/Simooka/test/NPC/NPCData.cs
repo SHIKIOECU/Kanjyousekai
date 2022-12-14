@@ -75,12 +75,12 @@ public struct NPCWord
 {
     public string Faze;
     public string Word;
-    public List<Term> Terms;
+    //public List<Term> Terms;
 }
 
-[System.Serializable]
-public struct Term
-{
-    public FlagData FlagData;
-    public bool IsCheck;
-}
+//[System.Serializable]
+//public struct Term
+//{
+//    public FlagData FlagData;
+//    public bool IsCheck;
+//}
