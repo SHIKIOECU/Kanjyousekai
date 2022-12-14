@@ -5,6 +5,12 @@ using NPC;
 
 public class IceClerk : NPCBase,IItem
 {
+    public enum IceClerkState
+    {
+        STAND, SAEL, HAPPY,
+    }
+    public IceClerkState State;
+
     //アイス
     [SerializeField]
     private Ice _ice;
@@ -36,6 +42,11 @@ public class IceClerk : NPCBase,IItem
 
     // アイスの初期位置
     Vector3 basicIcePosition = new Vector3(2.2f, -2.5f, 0.1f);
+
+    public override int WordTerm()
+    {
+        return (int)State;
+    }
 
     public override void AppearanceWorld()
     {
