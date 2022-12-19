@@ -4209,7 +4209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc2afbe14bfb40c79307ffea5f2d538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemFlagList: {fileID: 0}
+  _itemFlagList: {fileID: 11400000, guid: 91c2451d9b8934bbcbbc70c9fe22be80, type: 2}
   isGet: 0
   OnKansoku: 0
   isKansoku: 0

@@ -5,17 +5,24 @@ using NPC;
 
 public class Detective : NPCBase
 {
+    public enum DetectiveState
+    {
+        SERCH, MOVE,
+        RAIN_STAND, RAIN_MOVE,
+    }
+    public DetectiveState State;
+
     //コイン
     [SerializeField]
-    private Coin coin;
+    private Coin _coin;
 
     //アイテム（コイン）フラグ
     [SerializeField]
-    private FlagData coinFlag;
+    private FlagData _coinFlag;
 
     //雨フラグ
     [SerializeField]
-    private FlagData rain;
+    private FlagData _rain;
 
     //最初の地点
     private Vector3 _startPoint;
@@ -32,7 +39,7 @@ public class Detective : NPCBase
     private Vector3 _nowPos;
     private Vector3 _toPos;
     private Vector3 _coinPos;
-    public bool isSetPos = false;
+    public bool IsSetPos = false;
     public bool moved = false;
     public float _currentTime;
 
@@ -40,7 +47,7 @@ public class Detective : NPCBase
     {
         base.Start();
         _startPoint = transform.position;
-        _coinPos = coin.gameObject.transform.position;
+        _coinPos = _coin.gameObject.transform.position;
     }
 
     private void Update()
@@ -48,31 +55,31 @@ public class Detective : NPCBase
         //動き終わっていない時
         if (!moved) Movement();
 
-        if (transform.position == _startPoint) coin.gameObject.GetComponent<BoxCollider2D>().enabled=false;
+        if (transform.position == _startPoint) _coin.gameObject.GetComponent<BoxCollider2D>().enabled=false;
     }
 
     //移動
     void Movement()
     {
-        //Debug.LogFormat("isSetPos:{0},NAME:{1}", isSetPos,INPCData.Data.Name);
+        //Debug.LogFormat("IsSetPos:{0},NAME:{1}", IsSetPos,INPCData.Data.Name);
 
 
         //位置情報の更新
-        if (INPCData.Name == "move" && !isSetPos)
+        if (State==DetectiveState.RAIN_MOVE && !IsSetPos)
         {
             _currentTime = 0;
             _nowPos = transform.position;
             _toPos = _toObject.transform.position;
-            isSetPos = true;
+            IsSetPos = true;
             Animator.SetBool("isMoving", true);
             //Debug.Log("MOVE");
         }
-        if (INPCData.Name != "move" && !isSetPos)
+        if (State==DetectiveState.MOVE && !IsSetPos)
         {
             _currentTime = 0;
             _nowPos = transform.position;
             _toPos = _startPoint;
-            isSetPos = true;
+            IsSetPos = true;
             Animator.SetBool("isMoving", true);
             //Debug.Log("STOP");
         }
@@ -85,7 +92,7 @@ public class Detective : NPCBase
             //Debug.LogFormat("nowPos:{0},topos:{1}", transform.position, _toPos);
             if (_currentTime >= 1)
             {
-                isSetPos = false;
+                IsSetPos = false;
                 moved = true;
                 Animator.SetBool("isMoving", false);
             }
@@ -93,7 +100,7 @@ public class Detective : NPCBase
         }
 
         //コインを元の場所に固定する
-        coin.gameObject.transform.position = _coinPos;
+        _coin.gameObject.transform.position = _coinPos;
     }
 
 
@@ -103,14 +110,14 @@ public class Detective : NPCBase
         base.AppearanceWorld();
 
         //コインを持っていない時
-        if (!coin.isGet)
+        if (!_coin.isGet)
         {
-            coin.gameObject.SetActive(true);
-            coin.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            _coin.gameObject.SetActive(true);
+            _coin.gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
         else
         {
-            coin.gameObject.SetActive(false);
+            _coin.gameObject.SetActive(false);
         }
     }
 
@@ -118,6 +125,6 @@ public class Detective : NPCBase
     {
         base.DisappearanceWorld();
 
-        coin.gameObject.SetActive(false);
+        _coin.gameObject.SetActive(false);
     }
 }

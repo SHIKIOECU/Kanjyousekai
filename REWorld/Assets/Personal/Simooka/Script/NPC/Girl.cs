@@ -33,7 +33,7 @@ public class Girl : NPCBase,IItem
                 SoundManagerA.Instance.ChangeBGM(true);
                 //探偵を雨宿りさせる
                 detective.SetNPCData("move");
-                detective.isSetPos = false;
+                detective.IsSetPos = false;
                 detective.moved = false;
                 detective.Animator.SetBool("isRaining", true);
                 break;
@@ -58,7 +58,7 @@ public class Girl : NPCBase,IItem
             case "basic":
                 detective.SetNPCData("basic");
                 detective.Animator.SetBool("isRaining", false);
-                detective.isSetPos = false;
+                detective.IsSetPos = false;
                 detective.moved = false;
                 SoundManagerA.Instance.ChangeBGM(false);
                 SoundManagerA.Instance.stopBGM(2);
