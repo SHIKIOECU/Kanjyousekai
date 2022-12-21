@@ -5,6 +5,12 @@ using NPC;
 
 public class DesertGirlController : NPCBase
 {
+    public enum DesertGirlState
+    {
+        STAND, FRIGHTENING, BIGFRIGHTENING, HAPPY
+    }
+    public DesertGirlState State;
+
     // Animatorの取得
     public Animator desert_girl_anim;
 
@@ -45,6 +51,11 @@ public class DesertGirlController : NPCBase
             camel.isEating = true;
             camel.isFollowing = false;
         }
+    }
+
+    public override int WordTerm()
+    {
+        return (int)State;
     }
 
     public override void AppearanceWorld()

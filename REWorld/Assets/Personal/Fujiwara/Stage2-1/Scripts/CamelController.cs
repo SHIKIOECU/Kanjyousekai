@@ -5,6 +5,12 @@ using NPC;
 
 public class CamelController : NPCBase
 {
+    public enum CamelState
+    {
+        STAND, DANCE, EAT
+    }
+    public CamelState State;
+
     // 追従するターゲット
     [SerializeField] private HawkerController followTarget;
     [SerializeField] private DesertGirlController desertGirl;
@@ -35,6 +41,11 @@ public class CamelController : NPCBase
     {
         if (isFollowing) FollowTarget();
         if (isEating) EatTarget();
+    }
+
+    public override int WordTerm()
+    {
+        return (int)State;
     }
 
     public override void AppearanceWorld()

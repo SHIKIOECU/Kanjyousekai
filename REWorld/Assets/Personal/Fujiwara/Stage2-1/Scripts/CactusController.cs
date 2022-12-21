@@ -5,6 +5,12 @@ using NPC;
 
 public class CactusController : NPCBase
 {
+    public enum CactusState
+    {
+        STAND, DANCE
+    }
+    public CactusState State;
+
     [SerializeField] HawkerController hawker;
     [SerializeField] CamelController camel;
 
@@ -22,6 +28,11 @@ public class CactusController : NPCBase
     void Update()
     {
         
+    }
+
+    public override int WordTerm()
+    {
+        return (int)State;
     }
 
     public override void AppearanceWorld()

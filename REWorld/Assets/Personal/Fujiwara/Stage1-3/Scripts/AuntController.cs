@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using NPC;
 
-public class AuntController : NPCBase
+public class AuntController : NPCBase, IItem
 {
-    // 10円の取得
+    public enum AuntState
+    {
+        SADGE, HAPPY
+    }
+    public AuntState State;
+
+    // 100円の取得
     [SerializeField] GameObject money;
 
     // 変更後のジャンプ力
@@ -13,6 +19,8 @@ public class AuntController : NPCBase
 
     // ゴミを捨てたかどうか
     public bool isAllPickUp = false;
+
+    int trashCount = 0;
 
     // Start is called before the first frame update
     public override void Start()
@@ -28,6 +36,17 @@ public class AuntController : NPCBase
         if (isAllPickUp && !money.GetComponent<Money>().isGet) money.SetActive(true);
     }
 
+    public int TrashCount()
+    {
+        this.trashCount++;
+        return trashCount;
+    }
+
+    public override int WordTerm()
+    {
+        return (int)State;
+    }
+
     public override void AppearanceWorld()
     {
         base.AppearanceWorld();
@@ -40,5 +59,15 @@ public class AuntController : NPCBase
         base.DisappearanceWorld();
 
         PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
+    }
+
+    public void ItemAction()
+    {
+        if (trashCount >= 3)
+        {
+            isAllPickUp = true;
+            SetNPCData("happy");
+        }
+        Debug.Log(trashCount);
     }
 }

@@ -26,5 +26,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Personal/Yamane/beta2_yamane.unity
     guid: 9c9c8291bbc0a4e7bbdfc8afc38905cd
+  - enabled: 1
+    path: Assets/Personal/Fujiwara/StageSelect/StageSelect.unity
+    guid: 42e03faa483cf42b6bb70cc86368e5c1
+  - enabled: 1
+    path: Assets/Personal/Fujiwara/Tutorial1/fujiwara_tutorial1.unity
+    guid: 9cc7b9fc18e08412685826917617c3ad
+  - enabled: 1
+    path: Assets/Personal/Fujiwara/Stage2-2/fujiwara_Stage2-2.unity
+    guid: 6ca64514d65b142fd93d44ece817de92
+  - enabled: 1
+    path: Assets/Personal/Fujiwara/Stage2-1/beta2_fujiwara_2-1.unity
+    guid: 6b47c7835bc0c4b59833f5be51739122
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 91da84866a9d74a49bf38dc53d119ffc, type: 2}

@@ -12,20 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
   m_Name: CamelData
   m_EditorClassIdentifier: 
-  Data:
-    Name: basic
-    EmotionalWorldSprite: {fileID: 0}
-    NPCFlag: {fileID: 0}
-  npcStates:
+  _npcStates:
   - Name: basic
     EmotionalWorldSprite: {fileID: 0}
+    Word: BASIC
     NPCFlag: {fileID: 0}
-  - Name: walk
+  - Name: dance
     EmotionalWorldSprite: {fileID: 0}
+    Word: DANCE
     NPCFlag: {fileID: 0}
-  - Name: hungry
+  - Name: eat
     EmotionalWorldSprite: {fileID: 0}
+    Word: EAT
     NPCFlag: {fileID: 0}
-  - Name: meal
-    EmotionalWorldSprite: {fileID: 0}
-    NPCFlag: {fileID: 0}
+  Words:
+  - Faze: 
+    Word: dance

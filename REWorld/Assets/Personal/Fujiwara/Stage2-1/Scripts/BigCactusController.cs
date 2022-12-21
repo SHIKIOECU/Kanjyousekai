@@ -5,6 +5,12 @@ using NPC;
 
 public class BigCactusController : NPCBase
 {
+    public enum BigCactusState
+    {
+        STAND, DANCE
+    }
+    public BigCactusState State;
+
     [SerializeField] HawkerController hawker;
     [SerializeField] CamelController camel;
     [SerializeField] DesertGirlController desertGirl;
@@ -14,15 +20,20 @@ public class BigCactusController : NPCBase
     public bool isBigCactusKansoku;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        base.DisappearanceWorld();
+        base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public override int WordTerm()
+    {
+        return (int)State;
     }
 
     public override void AppearanceWorld()
