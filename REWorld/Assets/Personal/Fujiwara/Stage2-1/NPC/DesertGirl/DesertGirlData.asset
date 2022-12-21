@@ -12,20 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
   m_Name: DesertGirlData
   m_EditorClassIdentifier: 
-  Data:
-    Name: basic
-    EmotionalWorldSprite: {fileID: 0}
-    NPCFlag: {fileID: 11400000, guid: 7bc9f886c46fd4ca6be822797b4d455a, type: 2}
-  npcStates:
+  _npcStates:
   - Name: basic
     EmotionalWorldSprite: {fileID: 0}
-    NPCFlag: {fileID: 11400000, guid: 7bc9f886c46fd4ca6be822797b4d455a, type: 2}
+    Word: BASIC
+    NPCFlag: {fileID: 0}
   - Name: frightening
     EmotionalWorldSprite: {fileID: 0}
-    NPCFlag: {fileID: 11400000, guid: 7bc9f886c46fd4ca6be822797b4d455a, type: 2}
-  - Name: bigfrightening
-    EmotionalWorldSprite: {fileID: 0}
-    NPCFlag: {fileID: 11400000, guid: a48c2d2d53af3410b81ea127d9595bdd, type: 2}
+    Word: FRIGHTENING
+    NPCFlag: {fileID: 0}
   - Name: happy
     EmotionalWorldSprite: {fileID: 0}
-    NPCFlag: {fileID: 11400000, guid: d645c68da611e4b6cb52ba0f68d5ed1d, type: 2}
+    Word: HAPPY
+    NPCFlag: {fileID: 0}
+  Words:
+  - Faze: 
+    Word: frightening

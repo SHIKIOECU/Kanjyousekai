@@ -2547,6 +2547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IceClerk
       objectReference: {fileID: 0}
+    - target: {fileID: 3357659723867805743, guid: 5662dcf23979747649f820af56c79be9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5662dcf23979747649f820af56c79be9, type: 3}
 --- !u!4 &572898202 stripped
@@ -6293,6 +6297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83c2b13bf38b46a1868669a789e4a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BGMLength: 1
   SEClips:
   - {fileID: 0}
   - {fileID: 0}

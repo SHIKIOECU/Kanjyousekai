@@ -5,6 +5,12 @@ using NPC;
 
 public class HawkerController : NPCBase
 {
+    public enum HawkerState
+    {
+        STAND, DANCE, HYPERDANCE
+    }
+    public HawkerState State;
+
     // ラクダ
     [SerializeField] private CamelController camel;
 
@@ -40,9 +46,14 @@ public class HawkerController : NPCBase
         if (moved) Move();
     }
 
+    public override int WordTerm()
+    {
+        return (int)State;
+    }
+
     //public orverride void AppearanceWorld()
     //{
-        
+
     //}
 
     //public override void ChangeWorld()

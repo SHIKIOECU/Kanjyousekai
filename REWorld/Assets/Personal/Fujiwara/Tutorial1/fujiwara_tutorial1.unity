@@ -545,16 +545,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2fa9e4d0d05d4814abfe64e77e2a11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data:
-    Name: 
-    EmotionalWorldSprite: {fileID: 0}
-    Word: 
-    NPCFlag: {fileID: 0}
   _nPCData: {fileID: 11400000, guid: 85efee80aeb8a42b19e4a29b8675b98f, type: 2}
-  _maskSprite: {fileID: 650899070}
   _emotionalWorld: {fileID: 1711194380}
   _nPC: {fileID: 192822898}
   _words: {fileID: 652981696}
+  _wordData: {fileID: 0}
   Animator: {fileID: 0}
   lostBoy: {fileID: 318597703}
   speed: 1
@@ -586,7 +581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228695618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.58, z: 1}
+  m_LocalPosition: {x: 0, y: -3.5, z: 1}
   m_LocalScale: {x: 5, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -896,16 +891,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229e75653b707443681fce38eb43aba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data:
-    Name: basic
-    EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
-    Word: Lost
-    NPCFlag: {fileID: 11400000, guid: b7f19521cf78541c1a658f4d11e5d93a, type: 2}
   _nPCData: {fileID: 11400000, guid: 856f133d3e23a4be9b2e7224d8ca7509, type: 2}
-  _maskSprite: {fileID: 587119140}
   _emotionalWorld: {fileID: 1508192260}
   _nPC: {fileID: 318597704}
   _words: {fileID: 103252613}
+  _wordData: {fileID: 11400000, guid: 6db6ec7800ee24999a497b396a23dcc0, type: 2}
   Animator: {fileID: 0}
   boat: {fileID: 693665588}
   father: {fileID: 192822896}
@@ -937,7 +927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335046013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28, y: -3.58, z: 1}
+  m_LocalPosition: {x: -0.28, y: -3.5, z: 1}
   m_LocalScale: {x: 5, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4323,8 +4313,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1399499101
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
   m_Color: {r: 0.97404873, g: 1, b: 0, a: 1}
