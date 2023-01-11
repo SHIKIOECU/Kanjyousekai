@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Interact : MonoBehaviour
 {
@@ -27,6 +29,8 @@ public class Interact : MonoBehaviour
     //ボタンが押されているか
     public bool OnGet;
 
+    [SerializeField] private Canvas _interactCanvas;
+
     private void Awake()
     {
         instance = this;
@@ -36,6 +40,7 @@ public class Interact : MonoBehaviour
     void Start()
     {
         _itemFlagList.InitFlags();
+        _interactCanvas.enabled = false;
     }
 
     // Update is called once per frame
@@ -58,10 +63,22 @@ public class Interact : MonoBehaviour
         _NPC = collision.gameObject.GetComponent<INPC>();
         Debug.Log(_NPC);
 
-        if (_item != null && OnGet && !isGet)
+        switch (collision.tag)
         {
-            _item.ItemAction();
-            isGet = true;
+            default:
+                break;
+        }
+
+        if (_item != null)
+        {
+            //ボタンを押されていない時にインタラクトキャンバスを表示
+            if (!OnGet)　_interactCanvas.enabled = true;
+            else if (!isGet)
+            {
+                _interactCanvas.enabled = false;
+                _item.ItemAction();
+                isGet = true;
+            }
         }
 
         //観測
@@ -99,4 +116,8 @@ public class Interact : MonoBehaviour
 
     }
 
+    private void ShowInteractCanvas()
+    {
+        _interactCanvas.enabled = true;
+    }
 }

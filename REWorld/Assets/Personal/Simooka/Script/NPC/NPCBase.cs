@@ -92,7 +92,7 @@ namespace NPC
 
         public string Word(Func<int> i)
         {
-            var word = "null";
+            string word;
 
             word = _nPCData.Words[i()].Word;
 
@@ -104,7 +104,7 @@ namespace NPC
             //    }
             //}
 
-            if (word == "null") return _nPCData.Words[0].Word;
+            //if (word == null) return _nPCData.Words[0].Word;
             return word;
         }
 
