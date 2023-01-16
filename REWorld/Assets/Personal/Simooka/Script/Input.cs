@@ -2,30 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Input : MonoBehaviour
 {
+    #region 変数宣言
     [SerializeField]
-    private GameObject Player;
+    private GameObject _player;
 
     //Playerの動作のスクリプト
-    private PlayerMove PM;
+    private PlayerMove _playerMove;
+
+    //メニューのアクティブ状態
+    private bool _isMenu;
+
+    #endregion
 
     private void Start()
     {
-        PM = Player.GetComponent<PlayerMove>();
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _playerMove = _player.GetComponent<PlayerMove>();
+        _isMenu = false;
     }
 
+    #region Player
     //Playerの移動
     public void OnMove(InputAction.CallbackContext context)
     {
-        PM.move = context.ReadValue<Vector2>();
+        _playerMove.move = context.ReadValue<Vector2>();
 
-        if (PM.move.x > 0)
+        if (_playerMove.move.x > 0)
         {
             PlayerAnimator.instance.SetDirection();
         }
-        else if (PM.move.x < 0)
+        else if (_playerMove.move.x < 0)
         {
             PlayerAnimator.instance.SetDirection(false);
         }
@@ -40,7 +50,7 @@ public class Input : MonoBehaviour
         if (context.phase == InputActionPhase.Canceled)
         {
             //X軸の速度を０にする
-            PM.rb2D.velocity = new Vector2(0, PM.rb2D.velocity.y);
+            _playerMove.rb2D.velocity = new Vector2(0, _playerMove.rb2D.velocity.y);
             PlayerAnimator.instance.SetMove(false);
         }
     }
@@ -49,11 +59,11 @@ public class Input : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         //Spaceが押された時に起動
-        if (context.phase == InputActionPhase.Performed && PM.jumpState == false)
+        if (context.phase == InputActionPhase.Performed && _playerMove.jumpState == false)
         {
-            PM.Jump();
+            _playerMove.Jump();
             PlayerAnimator.instance.SetJump();
-            PM.jumpState = true;
+            _playerMove.jumpState = true;
         }
     }
 
@@ -91,5 +101,52 @@ public class Input : MonoBehaviour
             Interact.instance.OnKansoku = false;
             Interact.instance.isKansoku = false;
         }
+    }
+    #endregion
+
+    #region UI
+    public void OnMenu(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            if (_isMenu)
+            {
+                Menu.Instance.MenuCancel();
+                UI_MenuButton.Instance.Init();
+            }
+            else Menu.Instance.MenuScreen();
+
+            _isMenu = !_isMenu;
+        }
+        
+    }
+
+    public void OnMenuSelect(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started&&_isMenu)
+        {
+            var x = context.ReadValue<Vector2>();
+            int value = 0;
+            if (x.y > 0) value = 1;
+            else if (x.y < 0) value = -1;
+            UI_MenuButton.Instance.ChangeSelectButton(value);
+        }
+
+    }
+
+    public void OnMenuSubmit(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            if (_isMenu) UI_MenuButton.Instance.SubmitMenu();
+
+        }
+
+    }
+    #endregion
+
+    private void Update()
+    {
+
     }
 }

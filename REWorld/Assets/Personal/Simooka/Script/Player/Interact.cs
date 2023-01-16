@@ -72,10 +72,10 @@ public class Interact : MonoBehaviour
         if (_item != null)
         {
             //ボタンを押されていない時にインタラクトキャンバスを表示
-            if (!OnGet)　_interactCanvas.enabled = true;
+            if (!OnGet) ShowInteractCanvas();
             else if (!isGet)
             {
-                _interactCanvas.enabled = false;
+                ShowInteractCanvas(false);
                 _item.ItemAction();
                 isGet = true;
             }
@@ -90,7 +90,7 @@ public class Interact : MonoBehaviour
             if (nowKansoku != null)
             {
                 nowKansoku.DisappearanceWorld();
-                PlayerAnimator.instance.SetKanjyo(false);
+                if (nowKansoku == _NPC) PlayerAnimator.instance.SetKanjyo(false);
             }
             Debug.Log(_NPC+" : "+nowKansoku);
             if (nowKansoku == _NPC)
@@ -116,8 +116,8 @@ public class Interact : MonoBehaviour
 
     }
 
-    private void ShowInteractCanvas()
+    private void ShowInteractCanvas(bool value = true)
     {
-        _interactCanvas.enabled = true;
+        _interactCanvas.enabled = value;
     }
 }
