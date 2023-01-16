@@ -10,17 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
-  m_Name: HawkerData
+  m_Name: pyragorillaDataList
   m_EditorClassIdentifier: 
   _npcStates:
   - Name: basic
     EmotionalWorldSprite: {fileID: 0}
-    Word: BASIC
-    NPCFlag: {fileID: 11400000, guid: dc330c3e83f634b47a97300e6149d8dc, type: 2}
-  - Name: isdancing
+    Word: I want yellow thing
+    NPCFlag: {fileID: 11400000, guid: a94b269fe162449dd9bfaede16358207, type: 2}
+  - Name: complain
     EmotionalWorldSprite: {fileID: 0}
-    Word: DANCE
-    NPCFlag: {fileID: 11400000, guid: 06665a1e2b44346b1b04437679d14765, type: 2}
+    Word: That's fine
+    NPCFlag: {fileID: 11400000, guid: 29f6dfb1519d241169a6ef2b8f5c88a8, type: 2}
+  - Name: happy
+    EmotionalWorldSprite: {fileID: 0}
+    Word: Thank you
+    NPCFlag: {fileID: 11400000, guid: 4f7c5404f45f544058f8507a06e78666, type: 2}
   Words:
   - Faze: 
-    Word: dance
+    Word: I want yellow thing

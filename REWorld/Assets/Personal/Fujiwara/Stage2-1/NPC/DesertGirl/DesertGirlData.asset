@@ -16,15 +16,19 @@ MonoBehaviour:
   - Name: basic
     EmotionalWorldSprite: {fileID: 0}
     Word: BASIC
-    NPCFlag: {fileID: 0}
+    NPCFlag: {fileID: 11400000, guid: 7bc9f886c46fd4ca6be822797b4d455a, type: 2}
   - Name: frightening
     EmotionalWorldSprite: {fileID: 0}
     Word: FRIGHTENING
-    NPCFlag: {fileID: 0}
+    NPCFlag: {fileID: 11400000, guid: a48c2d2d53af3410b81ea127d9595bdd, type: 2}
   - Name: happy
     EmotionalWorldSprite: {fileID: 0}
     Word: HAPPY
-    NPCFlag: {fileID: 0}
+    NPCFlag: {fileID: 11400000, guid: d645c68da611e4b6cb52ba0f68d5ed1d, type: 2}
+  - Name: dance
+    EmotionalWorldSprite: {fileID: 0}
+    Word: DANCE
+    NPCFlag: {fileID: 11400000, guid: 2c4ccf4bd2c7d4e4585aea45de147481, type: 2}
   Words:
   - Faze: 
     Word: frightening

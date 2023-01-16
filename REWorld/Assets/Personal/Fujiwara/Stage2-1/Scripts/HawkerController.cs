@@ -12,7 +12,7 @@ public class HawkerController : NPCBase
     public HawkerState State;
 
     // ラクダ
-    [SerializeField] private CamelController camel;
+    [SerializeField] private GameObject camel;
 
     // 行商人のアニメーター
     [SerializeField] private Animator hawker_anim;
@@ -25,6 +25,7 @@ public class HawkerController : NPCBase
     [SerializeField] private GameObject big_cactus;
 
     public bool onCactus, onBigCactus, moved;
+    public bool movingToCactus;
 
     float Movetime = 0;
 
@@ -34,6 +35,7 @@ public class HawkerController : NPCBase
     void Start()
     {
         Flag_Init();
+        base.Start();
     }
 
     // Update is called once per frame
@@ -51,52 +53,59 @@ public class HawkerController : NPCBase
         return (int)State;
     }
 
-    //public orverride void AppearanceWorld()
-    //{
+    public override void AppearanceWorld()
+    {
+        // 感情世界の表示
+        base.AppearanceWorld();
 
-    //}
+        if (!movingToCactus) {
+            movingToCactus = true;
+            moved = true;
+            cactus.GetComponent<CactusController>().cactus_anim.SetBool("isDancing", true);
+        }
+    }
 
     //public override void ChangeWorld()
     //{
     //    throw new System.NotImplementedException();
     //}
 
-    //public override void DisappearanceWorld()
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+    public override void DisappearanceWorld()
+    {
+        base.DisappearanceWorld();
+    }
 
     // 動かす処理
     private void Move()
     {
-        if (onCactus && !onBigCactus)
+        if (camel.GetComponent<CamelController>().ateCactus)
         {
-            //hawker_anim.SetBool("isDancing", true);
-            MoveToPlace(cactus);
-            //Debug.LogFormat("nowPos:{0}, targetPos:{1}", nowPos, cactus.transform.position);
+            MoveToPlace(camel, 2.5f);
         }
-        else if (onBigCactus) {
-            //hawker_anim.SetBool("isSuperDancing", true);
-            MoveToPlace(big_cactus);
-            //Debug.LogFormat("nowPos:{0}, targetPos:{1}", nowPos, big_cactus.transform.position);
+        else if (onBigCactus)
+        {
+            MoveToPlace(big_cactus, -2.5f);
+        }
+        else if (movingToCactus)
+        {
+            MoveToPlace(cactus, -2.5f);
         }
     }
 
     // 特定の位置に移動する処理
-    public void MoveToPlace(GameObject target_place)
+    public void MoveToPlace(GameObject target_place, float distance)
     {
         Movetime += speed * Time.deltaTime;
-        if (transform.position != new Vector3(target_place.transform.position.x - 3.5f, transform.position.y))
+        if (transform.position != new Vector3(target_place.transform.position.x + distance, transform.position.y))
         {
-            transform.position = Vector3.Lerp(nowPos, new Vector3(target_place.transform.position.x - 3.5f, transform.position.y), Movetime);
+            transform.position = Vector3.Lerp(nowPos, new Vector3(target_place.transform.position.x + distance, transform.position.y), Movetime);
         }
         else
         {
             moved = false;
             Movetime = 0;
-
-            //if (target_place == cactus) hawker_anim.SetBool("isDancing", false);
-            //else if (target_place == big_cactus) hawker_anim.SetBool("isSuperDancing", false);
+            nowPos = this.gameObject.transform.position;
+            if (movingToCactus) cactus.GetComponent<CactusController>().cactus_anim.SetBool("isDancing", false);
         }
     }
 
@@ -106,15 +115,17 @@ public class HawkerController : NPCBase
         onCactus = false;
         onBigCactus = false;
         moved = false;
+        movingToCactus = false;
+        nowPos = this.gameObject.transform.position;
     }
 
     // アニメーション関係の処理
     private void AnimationChange()
     {
         // cactusを観測したときの処理
-        if (onCactus && !onBigCactus)
+        if (movingToCactus)
         {
-            switch (cactus.GetComponent<CactusController>().isCactusKansoku)
+            switch (moved)
             {
                 case true:
                     hawker_anim.SetBool("isDancing", true);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NPC;
 
-public class CamelController : NPCBase
+public class CamelController : NPCBase, IItem
 {
     public enum CamelState
     {
@@ -19,6 +19,9 @@ public class CamelController : NPCBase
     [SerializeField] private GameObject cactus;
     [SerializeField] private GameObject big_cactus;
 
+    // フラグの取得
+    [SerializeField] FlagData smallcactus;
+
     // 移動スピード
     [SerializeField] private float speed;
 
@@ -26,6 +29,8 @@ public class CamelController : NPCBase
 
     public bool isFollowing;
     public bool isEating;
+    public bool ateCactus;
+    public bool isBig;
 
     public Vector3 nowPos;
 
@@ -70,6 +75,7 @@ public class CamelController : NPCBase
 
         isEating = false;
         isFollowing = true;
+        ateCactus = false;
     }
 
     // フラグの初期化
@@ -77,25 +83,46 @@ public class CamelController : NPCBase
     {
         isFollowing = true;
         isEating = false;
+        ateCactus = false;
     }
 
     // 行商人に追従する処理
     private void FollowTarget()
     {
-        //transform.position = new Vector2(followTarget.transform.position.x - 2.5f, transform.position.y);
-
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(followTarget.transform.position.x - 2.5f, transform.position.y), (speed * 20) * Time.deltaTime);
     }
 
     // 移動関係の処理
     private void EatTarget()
     {
-        if(!isFollowing && (followTarget.onCactus || followTarget.onBigCactus))
+        if(!isFollowing)
         {
             moveTime += speed * Time.deltaTime;
 
-            // cactusを観測したとき
-            if (followTarget.onCactus && !followTarget.onBigCactus)
+            // big_cactusを観測したとき & 少女を観測していたら
+            if (isBig)
+            {
+                if (transform.position != new Vector3(big_cactus.transform.position.x - 4, transform.position.y, 0))
+                {
+                    transform.position = Vector3.Lerp(nowPos, new Vector3(big_cactus.transform.position.x - 4, transform.position.y, 0), moveTime);
+                }
+                else
+                {
+                    isEating = false;
+                    followTarget.onBigCactus = false;
+                    //isFollowing = true;
+
+                    // 移動速度のリセット
+                    moveTime = 0;
+
+                    big_cactus.SetActive(false);
+
+                    ateCactus = true;
+                    followTarget.moved = true;
+                }
+            }
+            // cactusを食べに行くとき
+            else if (followTarget.movingToCactus)
             {
                 if (transform.position != new Vector3(cactus.transform.position.x - 2, transform.position.y, 0))
                 {
@@ -117,27 +144,16 @@ public class CamelController : NPCBase
 
                     // cactusの削除
                     cactus.SetActive(false);
-                }
-            }
-            // big_cactusを観測したとき & 少女を観測していたら
-            else if (followTarget.onBigCactus && desertGirl.moved && desertGirl.isDesertGirl)
-            {
-                if (transform.position != new Vector3(big_cactus.transform.position.x - 4, transform.position.y, 0))
-                {
-                    transform.position = Vector3.Lerp(nowPos, new Vector3(big_cactus.transform.position.x - 4, transform.position.y, 0), moveTime);
-                }
-                else
-                {
-                    isEating = false;
-                    followTarget.onBigCactus = false;
-                    //isFollowing = true;
 
-                    // 移動速度のリセット
-                    moveTime = 0;
-
-                    big_cactus.SetActive(false);
+                    ateCactus = true;
+                    followTarget.moved = true;
                 }
             }
         }
+    }
+
+    public void ItemAction()
+    {
+        if (smallcactus.IsOn) SetNPCData("happy");
     }
 }
