@@ -15,7 +15,7 @@ public class BigCactusController : NPCBase
     [SerializeField] CamelController camel;
     [SerializeField] DesertGirlController desertGirl;
 
-    [SerializeField] Animator big_cactus_anim;
+    public Animator big_cactus_anim;
 
     public bool isBigCactusKansoku;
 

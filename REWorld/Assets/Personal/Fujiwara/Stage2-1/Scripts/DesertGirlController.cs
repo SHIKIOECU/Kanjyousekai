@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NPC;
 
-public class DesertGirlController : NPCBase
+public class DesertGirlController : NPCBase, IItem
 {
     public enum DesertGirlState
     {
@@ -16,6 +16,12 @@ public class DesertGirlController : NPCBase
 
     // ラクダの取得
     [SerializeField] CamelController camel;
+
+    // 虹の取得
+    [SerializeField] GameObject rainbow;
+
+    // フラグの取得
+    [SerializeField] FlagData necklace;
 
     // ラクダの変更前の大きさ
     private Vector3 nowScale;
@@ -32,12 +38,14 @@ public class DesertGirlController : NPCBase
     public bool moved = false;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         nowPos = transform.position;
         nowScale = camel.transform.localScale;
 
-        base.DisappearanceWorld();
+        rainbow.SetActive(false);
+
+        base.Start();
 
         FlagInit();
     }
@@ -50,6 +58,12 @@ public class DesertGirlController : NPCBase
         {
             camel.isEating = true;
             camel.isFollowing = false;
+        }
+
+        if (camel.isBig && camel.ateCactus)
+        {
+            camel.transform.localScale = nowScale;
+            camel.transform.position = new Vector3(camel.transform.position.x, -1.75f, 0);
         }
     }
 
@@ -70,6 +84,7 @@ public class DesertGirlController : NPCBase
                 camel.transform.localScale = big_camel_scale;
                 camel.transform.position = new Vector3(camel.transform.position.x, 0, 0);
                 camel.isFollowing = false;
+                camel.isBig = true;
                 if (moved) camel.isEating = true; camel.nowPos = camel.transform.position;
                 break;
             case "happy":
@@ -77,10 +92,10 @@ public class DesertGirlController : NPCBase
         }
     }
 
-    public void ChangeWorld()
-    {
-        throw new System.NotImplementedException();
-    }
+    //public void ChangeWorld()
+    //{
+    //    throw new System.NotImplementedException();
+    //}
 
     public override void DisappearanceWorld()
     {
@@ -93,8 +108,8 @@ public class DesertGirlController : NPCBase
         {
             case "frightening":
                 desert_girl_anim.SetBool("isBigFrightening", false);
-                camel.transform.localScale = nowScale;
-                camel.transform.position = new Vector3(camel.transform.position.x, -1.75f, 0);
+                //camel.transform.localScale = nowScale;
+                //camel.transform.position = new Vector3(camel.transform.position.x, -1.75f, 0);
                 //camel.isFollowing = true;
                 break;
             case "happy":
@@ -124,5 +139,10 @@ public class DesertGirlController : NPCBase
             moved = true;
             moveTime = 0;
         }
+    }
+
+    public void ItemAction()
+    {
+        if (necklace.IsOn) rainbow.SetActive(true);
     }
 }

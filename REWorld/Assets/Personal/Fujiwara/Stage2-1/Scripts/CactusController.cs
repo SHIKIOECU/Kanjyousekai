@@ -14,7 +14,7 @@ public class CactusController : NPCBase
     [SerializeField] HawkerController hawker;
     [SerializeField] CamelController camel;
 
-    [SerializeField] Animator cactus_anim;
+    public Animator cactus_anim;
 
     public bool isCactusKansoku;
 

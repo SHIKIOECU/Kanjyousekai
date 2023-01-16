@@ -8,6 +8,9 @@ public class FatherController : NPCBase
     // LostBoyの取得
     [SerializeField] GameObject lostBoy;
 
+    // Canvasの取得
+    [SerializeField] GameObject canvas;
+
     // ポジション
     Vector3 nowPos = new Vector3(19.1f, 2.0f, 0.0f);
     Vector3 targetPos = new Vector3(37.0f, 2.0f, 0.0f);
@@ -31,6 +34,17 @@ public class FatherController : NPCBase
     void Update()
     {
         if (lostBoy.GetComponent<LostBoyController>().isFather) MoveToBoy();
+
+        if (lostBoy.GetComponent<LostBoyController>().isReunion)
+        {
+            canvas.SetActive(false);
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        else
+        {
+            canvas.SetActive(true);
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        }
     }
 
     void MoveToBoy()
@@ -40,7 +54,7 @@ public class FatherController : NPCBase
         transform.position = Vector3.Slerp(nowPos, targetPos, nowSpeed);
         Debug.Log("MoveToBoyが呼ばれました");
 
-        if (transform.position == targetPos) isFather = false;
+        if (transform.position == targetPos) isFather = false; lostBoy.GetComponent<LostBoyController>().isReunion = true;
     }
 
     public override void AppearanceWorld()

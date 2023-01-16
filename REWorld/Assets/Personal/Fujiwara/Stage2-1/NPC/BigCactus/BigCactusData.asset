@@ -16,11 +16,11 @@ MonoBehaviour:
   - Name: basic
     EmotionalWorldSprite: {fileID: 0}
     Word: BASIC
-    NPCFlag: {fileID: 0}
+    NPCFlag: {fileID: 11400000, guid: e3adb140bab644e2aab1160c99f3b8f0, type: 2}
   - Name: dance
     EmotionalWorldSprite: {fileID: 0}
     Word: DANCE
-    NPCFlag: {fileID: 0}
+    NPCFlag: {fileID: 11400000, guid: a9af948ba139545bc862a51b2eb2c0b7, type: 2}
   Words:
   - Faze: 
     Word: dance
