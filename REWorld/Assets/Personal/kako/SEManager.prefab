@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4884659753480424457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7958764492292056175}
+  - component: {fileID: 2998624963920322282}
+  - component: {fileID: 6163818227053667717}
+  m_Layer: 0
+  m_Name: SEManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7958764492292056175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4884659753480424457}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2998624963920322282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4884659753480424457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fdcbe2c27e14cda9dbc53d83760915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LandSEClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 12e05ee0cb56e410587cfd83b762a65f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  WalkSEClips:
+  - walkSEClips:
+    - {fileID: 8300000, guid: 84e727f7af7c346a1bb9569cd797e371, type: 3}
+    - {fileID: 8300000, guid: a95de187201a74a3e97af7125b839cc4, type: 3}
+    - {fileID: 8300000, guid: bce0dcf2afcc34027b05463572714c22, type: 3}
+    - {fileID: 8300000, guid: 2c3ef6913538e45c985ce46fae7ebfe3, type: 3}
+  - walkSEClips:
+    - {fileID: 8300000, guid: dc993a6ca4d434aacaed742f28c679c5, type: 3}
+    - {fileID: 8300000, guid: 5756d6c9a82314168a6f5480f0924ee7, type: 3}
+    - {fileID: 8300000, guid: 97715a38cee85401ab8e85ed7ce853cf, type: 3}
+  - walkSEClips:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - walkSEClips:
+    - {fileID: 8300000, guid: 422859428f1264fa99682c3d027438af, type: 3}
+    - {fileID: 8300000, guid: e89cbf7b3d1b64e6ca219935db6fb27c, type: 3}
+    - {fileID: 8300000, guid: 12e05ee0cb56e410587cfd83b762a65f, type: 3}
+  WalkSE_num: 0
+--- !u!114 &6163818227053667717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4884659753480424457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83c2b13bf38b46a1868669a789e4a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGMLength: 1
+  SEClips:
+  - {fileID: 8300000, guid: ce9d582b4e0f041b4b76d5d168cc9a47, type: 3}
+  - {fileID: 8300000, guid: 6ad2ce187866041699850f409d764b30, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 7d8e5e2be361a4bdf8641740584da4cc, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 27c8c35e3cd52491ba08d82f28d2e368, type: 3}
+  - {fileID: 8300000, guid: 1c19cb5765a664a75bf7b1d5846b0a21, type: 3}
+  - {fileID: 8300000, guid: 4e1940005432849038f43eba0ba16ad2, type: 3}
+  - {fileID: 8300000, guid: 329f82ab9301d466a9fdb41109676a0b, type: 3}
+  - {fileID: 8300000, guid: 7be274ed51de64d7aa49a91b1fc6f77c, type: 3}
+  - {fileID: 8300000, guid: 328c142658dc54e0d983e7189e28504d, type: 3}
+  - {fileID: 8300000, guid: 1faedde8339784bbe8398dd42a4539eb, type: 3}

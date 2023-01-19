@@ -30,6 +30,18 @@ public class SoundManagerA : MonoBehaviour
         Rainbow
     }
 
+    public enum BGM_List
+    {
+        Normal,
+        Sad,
+        Happy,
+        Angry,
+        option1,
+        option2,
+        option3,
+        option4
+    }
+
     public AudioClip[] SEClips = new AudioClip[13];
         
     AudioSource[] sounds;

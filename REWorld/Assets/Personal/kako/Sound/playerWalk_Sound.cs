@@ -21,6 +21,8 @@ public class playerWalk_Sound : MonoBehaviour
 
     AudioSource[] sounds;
 
+    public WalkSE_List WalkSE_num = WalkSE_List.HardFloor;
+
     private void Awake()
     {
         if (InstanceWalk == null)
@@ -49,6 +51,26 @@ public class playerWalk_Sound : MonoBehaviour
                 Debug.Log("音を入れろ");
             }
         }
+    }
+
+    public void PlaySE_Walk()
+    {
+        if (WalkSEClips[(int)WalkSE_num].walkSEClips[(int)Random.RandomRange(0, WalkSEClips[(int)WalkSE_num].walkSEClips.Length)] != null)
+        {
+            try
+            {
+                sounds[0].PlayOneShot(WalkSEClips[(int)WalkSE_num].walkSEClips[(int)Random.RandomRange(0, WalkSEClips[(int)WalkSE_num].walkSEClips.Length)]);
+            }
+            catch (System.NullReferenceException NE)
+            {
+                Debug.Log("音を入れろ");
+            }
+        }
+    }
+
+    public void WalkSE_Change(WalkSE_List SElist)
+    {
+        WalkSE_num = SElist;
     }
 
     public void PlaySE_Land(WalkSE_List SEnumber)
