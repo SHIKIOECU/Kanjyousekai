@@ -33,8 +33,8 @@ public class Girl : NPCBase,IItem
             case "basic":
                 _rain.SetFlagStatus();
                 //Todo:雨のBGMを追加
-                SoundManagerA.Instance.PlayBGM(2);
-                SoundManagerA.Instance.ChangeBGM(true);
+                SoundManagerA.Instance.PlayBGM(4);
+                SoundManagerA.Instance.ChangeBGM(1);
                 //探偵を雨宿りさせる
                 detective.SetNPCData("move");
                 detective.IsSetPos = false;
@@ -46,7 +46,9 @@ public class Girl : NPCBase,IItem
                 //虹を出現させる
                 _rainbow.SetActive(true);
                 //Todo:虹を出現させるSEを追加
+                SoundManagerA.Instance.ChangeBGM(3);
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Rainbow);
+                SoundManagerA.Instance.stopBGM(4);
                 break;
 
         }
@@ -65,12 +67,13 @@ public class Girl : NPCBase,IItem
                 detective.Animator.SetBool("isRaining", false);
                 detective.IsSetPos = false;
                 detective.moved = false;
-                SoundManagerA.Instance.ChangeBGM(false);
-                SoundManagerA.Instance.stopBGM(2);
+                SoundManagerA.Instance.ChangeBGM(0);
+                SoundManagerA.Instance.stopBGM(4);
                 break;
             //喜んでいる場合
             case "happy":
                 _rainbow.SetActive(false);
+                SoundManagerA.Instance.ChangeBGM(0);
                 break;
 
         }

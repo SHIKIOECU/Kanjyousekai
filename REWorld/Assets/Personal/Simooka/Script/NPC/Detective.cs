@@ -114,7 +114,7 @@ public class Detective : NPCBase
     public override void AppearanceWorld()
     {
         base.AppearanceWorld();
-
+        SoundManagerA.Instance.ChangeBGM(2);
         //コインを持っていない時
         if (!_coin.isGet)
         {
@@ -132,5 +132,6 @@ public class Detective : NPCBase
         base.DisappearanceWorld();
 
         _coin.gameObject.SetActive(false);
+        SoundManagerA.Instance.ChangeBGM(0);
     }
 }
