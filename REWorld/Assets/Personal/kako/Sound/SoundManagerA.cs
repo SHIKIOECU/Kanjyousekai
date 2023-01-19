@@ -121,11 +121,27 @@ public class SoundManagerA : MonoBehaviour
     {
         try
         {
-            sounds[FrontBGMN].mute = false;
             for (int i = 0; i < BGMLength; i++)
             {
-                sounds[FrontBGMN].mute = true;
+                sounds[i].mute = true;
             }
+            sounds[FrontBGMN].mute = false;
+        }
+        catch (System.IndexOutOfRangeException IE)
+        {
+            Debug.Log("曲がないよ");
+        }
+    }
+
+    public void DisChangeBGM()
+    {
+        try
+        {
+            for (int i = 0; i < BGMLength; i++)
+            {
+                sounds[i].mute = true;
+            }
+            sounds[0].mute = false;
         }
         catch (System.IndexOutOfRangeException IE)
         {
