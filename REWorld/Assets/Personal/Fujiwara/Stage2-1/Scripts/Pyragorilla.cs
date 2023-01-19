@@ -5,6 +5,12 @@ using NPC;
 
 public class Pyragorilla : NPCBase, IItem
 {
+    public enum PyragorillaState
+    {
+        BASIC, COMPLAIN, HAPPY
+    }
+    public PyragorillaState State;
+
     [SerializeField] FlagData necklace;
     [SerializeField] FlagData banana;
 
@@ -18,6 +24,11 @@ public class Pyragorilla : NPCBase, IItem
     void Update()
     {
         
+    }
+
+    public override int WordTerm()
+    {
+        return (int)State;
     }
 
     public override void AppearanceWorld()

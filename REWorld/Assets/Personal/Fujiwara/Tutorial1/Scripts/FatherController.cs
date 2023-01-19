@@ -5,6 +5,12 @@ using NPC;
 
 public class FatherController : NPCBase
 {
+    public enum FatherState
+    {
+        FLUSTERED, MOVE, SHOUT
+    }
+    public FatherState State;
+
     // LostBoyの取得
     [SerializeField] GameObject lostBoy;
 
@@ -12,8 +18,8 @@ public class FatherController : NPCBase
     [SerializeField] GameObject canvas;
 
     // ポジション
-    Vector3 nowPos = new Vector3(19.1f, 2.0f, 0.0f);
-    Vector3 targetPos = new Vector3(37.0f, 2.0f, 0.0f);
+    Vector3 nowPos = new Vector3(19.1f, 1.0f, 0.0f);
+    Vector3 targetPos = new Vector3(37.0f, 1.0f, 0.0f);
 
     // 移動スピード
     [SerializeField] float speed;
@@ -45,6 +51,11 @@ public class FatherController : NPCBase
             canvas.SetActive(true);
             this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
+    }
+
+    public override int WordTerm()
+    {
+        return (int)State;
     }
 
     void MoveToBoy()
