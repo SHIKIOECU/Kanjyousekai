@@ -5,6 +5,12 @@ using NPC;
 
 public class LostBoyController : NPCBase
 {
+    public enum LostBoyState
+    {
+        FLUSTERED, CRY, REUNION, HAPPY
+    }
+    public LostBoyState State;
+
     // ボートの取得
     [SerializeField] GameObject boat;
 
@@ -14,8 +20,11 @@ public class LostBoyController : NPCBase
     // 虹の取得
     [SerializeField] GameObject rainbow;
 
+    // 水の取得
+    [SerializeField] GameObject[] waters;
+
     // ボートの移動先のポジション
-    private Vector3 moveToPos = new Vector3(0, 4.5f, 0);
+    private Vector3 moveToPos = new Vector3(0, 3.5f, 0);
     private Vector3 defaultPos;
 
     // 少年を観測したかどうか
@@ -34,11 +43,17 @@ public class LostBoyController : NPCBase
 
         // ボートの現在の位置を取得
         defaultPos = boat.transform.position;
+        foreach (GameObject water in waters) water.SetActive(false);
     }
 
     void Update()
     {
 
+    }
+
+    public override int WordTerm()
+    {
+        return (int)State;
     }
 
     private void AllInit()
@@ -61,6 +76,7 @@ public class LostBoyController : NPCBase
             case false:
                 // boatの位置を移動させて水を出現させる
                 boat.transform.position = moveToPos;
+                foreach (GameObject water in waters) water.SetActive(true);
                 break;
         }
 
@@ -84,10 +100,13 @@ public class LostBoyController : NPCBase
         {
             case true:
                 rainbow.SetActive(false);
+                boat.transform.position = defaultPos;
+                foreach (GameObject water in waters) water.SetActive(false);
                 break;
             case false:
                 // boatの位置を元の位置に戻す
                 boat.transform.position = defaultPos;
+                foreach (GameObject water in waters) water.SetActive(false);
                 break;
         }
 
