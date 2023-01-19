@@ -17,7 +17,7 @@ public class PlayerCollison : MonoBehaviour
     {
         if (collision.CompareTag("World")&&_isWorld)
         {
-            Interact.instance.nowKansoku.DisappearanceWorld();
+            Interact.Instance.nowKansoku.DisappearanceWorld();
             _isWorld = false;
             PlayerAnimator.instance.SetKanjyo(false);
         }

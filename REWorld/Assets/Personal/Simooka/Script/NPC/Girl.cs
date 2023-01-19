@@ -17,6 +17,9 @@ public class Girl : NPCBase,IItem
     [SerializeField]
     private GameObject _rainbow;
 
+    [SerializeField]
+    private FlagData _rain;
+
     public bool _getIce;
 
 
@@ -28,6 +31,7 @@ public class Girl : NPCBase,IItem
         {
             //泣いている場合（基本）
             case "basic":
+                _rain.SetFlagStatus();
                 //Todo:雨のBGMを追加
                 SoundManagerA.Instance.PlayBGM(2);
                 SoundManagerA.Instance.ChangeBGM(true);
@@ -56,6 +60,7 @@ public class Girl : NPCBase,IItem
         {
             //泣いている場合（基本）
             case "basic":
+                _rain.SetFlagStatus(false);
                 detective.SetNPCData("basic");
                 detective.Animator.SetBool("isRaining", false);
                 detective.IsSetPos = false;

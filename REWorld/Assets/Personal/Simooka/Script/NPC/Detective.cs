@@ -53,7 +53,13 @@ public class Detective : NPCBase
     private void Update()
     {
         //動き終わっていない時
-        if (!moved) Movement();
+        if (!moved)
+        {
+            
+            if (_rain.IsOn) State = DetectiveState.RAIN_MOVE;
+            else State = DetectiveState.MOVE;
+            Movement();
+        }
 
         if (transform.position == _startPoint) _coin.gameObject.GetComponent<BoxCollider2D>().enabled=false;
     }

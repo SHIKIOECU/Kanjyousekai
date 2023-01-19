@@ -1350,7 +1350,7 @@ SpriteRenderer:
   m_Size: {x: 13.28, y: 15.93}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &276354184
@@ -4227,6 +4227,10 @@ PrefabInstance:
       propertyPath: _coin
       value: 
       objectReference: {fileID: 2027750004}
+    - target: {fileID: 1739663374789197768, guid: 79e3711a4d0fe456fb3397885e5dca00, type: 3}
+      propertyPath: _rain
+      value: 
+      objectReference: {fileID: 11400000, guid: 4495633da53a942c7988d2039bc9504c, type: 2}
     - target: {fileID: 1739663374789197768, guid: 79e3711a4d0fe456fb3397885e5dca00, type: 3}
       propertyPath: _coinFlag
       value: 
@@ -8119,6 +8123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Girl
       objectReference: {fileID: 0}
+    - target: {fileID: 6587853219883275070, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
+      propertyPath: _rain
+      value: 
+      objectReference: {fileID: 11400000, guid: 4495633da53a942c7988d2039bc9504c, type: 2}
     - target: {fileID: 6587853219883275070, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
       propertyPath: _rainbow
       value: 

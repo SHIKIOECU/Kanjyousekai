@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Input : MonoBehaviour
+public class Input_HUD : MonoBehaviour
 {
     #region 変数宣言
     [SerializeField]
@@ -25,7 +25,7 @@ public class Input : MonoBehaviour
         _isMenu = false;
     }
 
-    #region Player
+    #region Play
     //Playerの移動
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -67,44 +67,45 @@ public class Input : MonoBehaviour
         }
     }
 
+    //プレイヤーのアイテム取得
     public void OnGet(InputAction.CallbackContext context)
     {
         //ボタンを押した時
         if (context.phase == InputActionPhase.Started)
         {
             PlayerMove.instance.rb2D.WakeUp();
-            Interact.instance.OnGet = true;
+            Interact.Instance.OnGet = true;
         }
 
         //ボタンを離した時
         if (context.phase == InputActionPhase.Canceled)
         {
-            Interact.instance.OnGet = false;
+            Interact.Instance.OnGet = false;
 
             //取得していない状態にする
-            Interact.instance.isGet = false;
+            Interact.Instance.isGet = false;
         }
     }
 
+    //プレイヤーの観測
     public void OnKansoku(InputAction.CallbackContext context)
     {
         //ボタンを押した時
         if (context.phase == InputActionPhase.Started)
         {
             PlayerMove.instance.rb2D.WakeUp();
-            Interact.instance.OnKansoku = true;
+            Interact.Instance.OnKansoku = true;
         }
 
         //ボタンを離した時
         if (context.phase == InputActionPhase.Canceled)
         {
-            Interact.instance.OnKansoku = false;
-            Interact.instance.isKansoku = false;
+            Interact.Instance.OnKansoku = false;
+            Interact.Instance.isKansoku = false;
         }
     }
-    #endregion
 
-    #region UI
+    //メニュー
     public void OnMenu(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
@@ -121,6 +122,7 @@ public class Input : MonoBehaviour
         
     }
 
+    //メニュー選択
     public void OnMenuSelect(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started&&_isMenu)
@@ -134,6 +136,7 @@ public class Input : MonoBehaviour
 
     }
 
+    //メニュー決定
     public void OnMenuSubmit(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)

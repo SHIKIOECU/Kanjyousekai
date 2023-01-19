@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Interact : MonoBehaviour
+public class Interact : Singleton<Interact>
 {
-    public static Interact instance;
-
+    #region private変数
     //アイテムフラグリスト
     [SerializeField]
     private FlagList _itemFlagList;
@@ -15,6 +14,11 @@ public class Interact : MonoBehaviour
     private IItem _item;
 
     private INPC _NPC;
+
+    [SerializeField] private Canvas _interactCanvas;
+    #endregion
+
+    #region public変数
     public INPC nowKansoku;
 
     //
@@ -29,12 +33,8 @@ public class Interact : MonoBehaviour
     //ボタンが押されているか
     public bool OnGet;
 
-    [SerializeField] private Canvas _interactCanvas;
+    #endregion
 
-    private void Awake()
-    {
-        instance = this;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -69,44 +69,10 @@ public class Interact : MonoBehaviour
                 break;
         }
 
-        if (_item != null)
-        {
-            //ボタンを押されていない時にインタラクトキャンバスを表示
-            if (!OnGet) ShowInteractCanvas();
-            else if (!isGet)
-            {
-                ShowInteractCanvas(false);
-                _item.ItemAction();
-                isGet = true;
-            }
-        }
+        GetItem();
 
         //観測
-        if (_NPC != null && OnKansoku && !isKansoku)
-        {
-            isKansoku = true;
-            _NPC.AppearanceWorld();
-            PlayerAnimator.instance.SetKanjyo();
-            if (nowKansoku != null)
-            {
-                nowKansoku.DisappearanceWorld();
-                if (nowKansoku == _NPC) PlayerAnimator.instance.SetKanjyo(false);
-            }
-            Debug.Log(_NPC+" : "+nowKansoku);
-            if (nowKansoku == _NPC)
-            {
-                nowKansoku = null;
-            }
-            else
-            {
-                nowKansoku = _NPC;
-            }
-            Debug.Log(nowKansoku);
-
-
-
-
-        }
+        Kansoku();
 
     }
 
@@ -119,5 +85,67 @@ public class Interact : MonoBehaviour
     private void ShowInteractCanvas(bool value = true)
     {
         _interactCanvas.enabled = value;
+    }
+
+    //観測
+    private void Kansoku()
+    {
+        if (_NPC != null && OnKansoku && !isKansoku)
+        {
+            isKansoku = true;
+
+            //感情世界を出現させる
+            _NPC.AppearanceWorld();
+            PlayerAnimator.instance.SetKanjyo();
+
+            //出現している感情世界があるなら消す
+            if (nowKansoku != null)
+            {
+                nowKansoku.DisappearanceWorld();
+                if (nowKansoku == _NPC) PlayerAnimator.instance.SetKanjyo(false);
+            }
+            Debug.Log(_NPC + " : " + nowKansoku);
+
+            //出現している感情世界の情報を更新する
+            if (nowKansoku == _NPC)
+            {
+                nowKansoku = null;
+            }
+            else
+            {
+                nowKansoku = _NPC;
+            }
+            Debug.Log(nowKansoku);
+        }
+    }
+
+    private void GetItem()
+    {
+        if (_item != null)
+        {
+            //ボタンを押されていない時にインタラクトキャンバスを表示
+            if (!OnGet) ShowInteractCanvas();
+            else if (!isGet)
+            {
+                ShowInteractCanvas(false);
+                _item.ItemAction();
+                isGet = true;
+            }
+        }
+    }
+
+    private void ChangeInteractCanvas()
+    {
+        if (_item == null && _NPC == null)
+        {
+            ShowInteractCanvas(false);
+            return;
+        }
+
+        if (_item != null && _NPC != null)
+        {
+            ShowInteractCanvas();
+        }
+
     }
 }
