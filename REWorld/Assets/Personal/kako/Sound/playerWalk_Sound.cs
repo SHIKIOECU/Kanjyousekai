@@ -10,18 +10,22 @@ public class playerWalk_Sound : MonoBehaviour
     {
         HardFloor,
         Glass,
-        Soil,
         Rain,
         Sand,
+        Soil,
         Snow
     }
 
     public AudioClip[] LandSEClips = new AudioClip[6];
     public SEClips[] WalkSEClips;
 
+    [SerializeField] private float timeInterval;
+    private float timeElapsed;
+
     AudioSource[] sounds;
 
     public WalkSE_List WalkSE_num = WalkSE_List.HardFloor;
+    public bool walkTF = false;
 
     private void Awake()
     {
@@ -35,6 +39,31 @@ public class playerWalk_Sound : MonoBehaviour
     {
         sounds = GetComponents<AudioSource>();
         //PlaySound();
+    }
+
+    private void Update()
+    {
+        timeElapsed += Time.deltaTime;
+
+            if (timeElapsed > timeInterval)
+            {
+                PlaySE_Walk();
+                // 経過時間を元に戻す
+                timeElapsed = 0f;
+            }
+        
+    }
+
+    public void now_move(Vector2 moving)
+    {
+        if(moving.x != 0)
+        {
+            walkTF = true;
+        }
+        else
+        {
+            walkTF = false;
+        }
     }
 
     [System.Obsolete]

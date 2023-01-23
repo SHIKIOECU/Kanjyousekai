@@ -32,6 +32,7 @@ public class SoundManagerA : MonoBehaviour
 
     public enum BGM_List
     {
+        SE,
         Normal,
         Sad,
         Happy,
@@ -95,13 +96,13 @@ public class SoundManagerA : MonoBehaviour
 
     public void PlayStageBGM(int FrontBGM, int BackBGM)
     {
-        stageBGM[0] = FrontBGM;
-        stageBGM[1] = BackBGM;
+        stageBGM[1] = FrontBGM;
+        stageBGM[2] = BackBGM;
 
-        sounds[stageBGM[0]].Play();
         sounds[stageBGM[1]].Play();
+        sounds[stageBGM[2]].Play();
 
-        sounds[stageBGM[1]].mute = true;
+        sounds[stageBGM[2]].mute = true;
     }
 
     //trueの方が音消える
@@ -109,39 +110,32 @@ public class SoundManagerA : MonoBehaviour
     {
         try
         {
-            sounds[0].mute = FrontBGMTF;
-            sounds[1].mute = !(FrontBGMTF);
+            sounds[1].mute = FrontBGMTF;
+            sounds[2].mute = !(FrontBGMTF);
         }catch (System.IndexOutOfRangeException IE)
         {
             Debug.Log("曲がないよ");
         }
     }
 
-    public void ChangeBGM(int FrontBGMN)
+    public void ChangeBGM(BGM_List FrontBGMN)
     {
         try
         {
-            for (int i = 0; i < BGMLength; i++)
+            for (int i = 1; i < BGMLength + 1; i++)
             {
                 sounds[i].mute = true;
             }
-            sounds[FrontBGMN].mute = false;
-        }
-        catch (System.IndexOutOfRangeException IE)
-        {
-            Debug.Log("曲がないよ");
-        }
-    }
+            sounds[(int)FrontBGMN].mute = false;
 
-    public void DisChangeBGM()
-    {
-        try
-        {
-            for (int i = 0; i < BGMLength; i++)
+            if((int)FrontBGMN == 1)
             {
-                sounds[i].mute = true;
+                sounds[0].mute = true;
             }
-            sounds[0].mute = false;
+            else
+            {
+                sounds[0].mute = false;
+            }
         }
         catch (System.IndexOutOfRangeException IE)
         {

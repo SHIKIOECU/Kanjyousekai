@@ -63,7 +63,7 @@ public class IceClerk : NPCBase,IItem
                 //Todo:アイスを投げるSEを追加
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Throw);
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Wall);
-                SoundManagerA.Instance.ChangeBGM(1);
+                SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Sad);
                 break;
             //喜んでいる場合
             case "happy":
@@ -72,7 +72,7 @@ public class IceClerk : NPCBase,IItem
                 jumping = true;
                 _ice.gameObject.SetActive(false);
                 PlayerMove.instance.jumpPower = jumpPowerUp;
-                SoundManagerA.Instance.ChangeBGM(3);
+                SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Happy);
                 break;
 
         }
@@ -80,7 +80,7 @@ public class IceClerk : NPCBase,IItem
 
     public override void DisappearanceWorld()
     {
-        SoundManagerA.Instance.ChangeBGM(0);
+        SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Normal);
         Animator.SetBool("throwTrigger", false);
         Animator.SetBool("jumpTrigger", false);
         //アイスの動作
