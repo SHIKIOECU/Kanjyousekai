@@ -135,6 +135,7 @@ namespace NPC
             //EmotionalWorld.SetActive(true);
             MaskSprite.SetActive(true);
             ChangeWord();
+            SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Open_World);
         }
 
         public virtual void ChangeWorld()

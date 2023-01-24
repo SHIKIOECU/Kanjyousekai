@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ButtonController : MonoBehaviour
+public class ButtonController : Singleton<ButtonController>
 {
     // pageの取得
     [SerializeField] GameObject[] pages;
@@ -47,7 +47,7 @@ public class ButtonController : MonoBehaviour
                     fade.StartFade("fujiwara_tutorial1");
                     break;
                 case 1:
-                    fade.StartFade("1");
+                    fade.StartFade("FinalStage1");
                     break;
             }
             //UI_MenuButton.Instance.SubmitMenu();

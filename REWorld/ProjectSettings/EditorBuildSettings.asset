@@ -6,40 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Alpha/Scene/Alpha.unity
-    guid: fd45b8fbe1b7e4d768551afe9c5a0537
-  - enabled: 1
-    path: Assets/Alpha/Scene/select.unity
-    guid: 0f78ad830d4b145519d0f6ce9521dc83
-  - enabled: 1
-    path: Assets/beta2/1.unity
-    guid: 86f24bdc7f5a94d6da02b31382f5ecbb
-  - enabled: 1
-    path: Assets/beta2/Title.unity
-    guid: 92ea119bd2ca44aa3be9e11019d57612
-  - enabled: 1
-    path: Assets/Personal/Yamane/fujiwara_tutorial2.unity
-    guid: 179204067ebc44c3d9221db5305bd56f
-  - enabled: 1
-    path: Assets/Personal/Yamane/beta2_yamane.unity
-    guid: 9c9c8291bbc0a4e7bbdfc8afc38905cd
+    path: Assets/Personal/Fujiwara/Title/TitleScreen.unity
+    guid: 721bccc10583a451cb13463f3a394063
   - enabled: 1
     path: Assets/Personal/Fujiwara/StageSelect/StageSelect.unity
     guid: 42e03faa483cf42b6bb70cc86368e5c1
   - enabled: 1
-    path: Assets/Personal/Fujiwara/Tutorial1/fujiwara_tutorial1.unity
-    guid: 9cc7b9fc18e08412685826917617c3ad
-  - enabled: 1
-    path: Assets/Personal/Fujiwara/Stage2-2/fujiwara_Stage2-2.unity
-    guid: 6ca64514d65b142fd93d44ece817de92
-  - enabled: 1
-    path: Assets/Personal/Fujiwara/Stage2-1/beta2_fujiwara_2-1.unity
-    guid: 6b47c7835bc0c4b59833f5be51739122
-  - enabled: 1
-    path: Assets/Personal/Fujiwara/Title/TitleScreen.unity
-    guid: 721bccc10583a451cb13463f3a394063
+    path: Assets/Scenes/FinalStage1.unity
+    guid: 5a534f9eb176144eab65431885cf26f7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 91da84866a9d74a49bf38dc53d119ffc, type: 2}
