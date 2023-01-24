@@ -80,8 +80,11 @@ public class AuntController : NPCBase, IItem
         base.AppearanceWorld();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (INPCData.Name == "happy") PlayerMove.Instance.jumpPower = jumpPowerUped;
 =======
+=======
+>>>>>>> feature/Fujiwara
         switch (INPCData.Name)
         {
             case "basic":
@@ -98,6 +101,9 @@ public class AuntController : NPCBase, IItem
         }
 
         //if (INPCData.Name == "happy") PlayerMove.instance.jumpPower = jumpPowerUped;
+<<<<<<< HEAD
+>>>>>>> feature/Fujiwara
+=======
 >>>>>>> feature/Fujiwara
     }
 
@@ -110,6 +116,9 @@ public class AuntController : NPCBase, IItem
 =======
         PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
         //PlayerMove.instance.speed = playerBasicMoveSpeed;
+<<<<<<< HEAD
+>>>>>>> feature/Fujiwara
+=======
 >>>>>>> feature/Fujiwara
     }
 
