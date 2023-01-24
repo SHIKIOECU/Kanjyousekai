@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trash : MonoBehaviour, IItem
+public class Trash : InteractMessage, IItem
 {
     [SerializeField]
     private FlagData _trash;

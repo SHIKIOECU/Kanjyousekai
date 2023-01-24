@@ -71,7 +71,7 @@ public class IceClerk : NPCBase,IItem
                 Animator.SetBool("jumpTrigger", true);
                 jumping = true;
                 _ice.gameObject.SetActive(false);
-                PlayerMove.instance.jumpPower = jumpPowerUp;
+                PlayerMove.Instance.jumpPower = jumpPowerUp;
                 SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Happy);
                 break;
 
@@ -91,7 +91,7 @@ public class IceClerk : NPCBase,IItem
 
         base.DisappearanceWorld();
 
-        PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
+        PlayerMove.Instance.jumpPower = PlayerMove.Instance.basicJumpPower;
     }
 
     public void ItemAction()

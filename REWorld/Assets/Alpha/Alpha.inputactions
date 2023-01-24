@@ -268,6 +268,17 @@
                 },
                 {
                     "name": "",
+                    "id": "0d39009f-b1d2-48e0-8be9-a791c79d17fd",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8f1f2759-7e84-4efe-a936-fd22d12f5b52",
                     "path": "<Keyboard>/g",
                     "interactions": "",
@@ -290,8 +301,41 @@
                 },
                 {
                     "name": "",
+                    "id": "7576424f-6db0-4bbc-bc53-375325e04d73",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kansoku",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6b0389cd-86a8-4184-8fea-27f946e7438b",
                     "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc74a76e-c093-4c38-a343-ffecab509d53",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b4d8c3a8-7081-4df9-9a32-4f85aa3222c9",
+                    "path": "<HID::SHANWAN JC-U4013S DirectInput Mode>/button12",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

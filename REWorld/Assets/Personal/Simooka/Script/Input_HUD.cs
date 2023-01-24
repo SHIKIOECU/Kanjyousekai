@@ -13,111 +13,126 @@ public class Input_HUD : MonoBehaviour
     //Playerの動作のスクリプト
     private PlayerMove _playerMove;
 
-    //メニューのアクティブ状態
-    private bool _isMenu;
-
     #endregion
 
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerMove = _player.GetComponent<PlayerMove>();
-        _isMenu = false;
     }
 
     #region Play
     //Playerの移動
     public void OnMove(InputAction.CallbackContext context)
     {
-        _playerMove.move = context.ReadValue<Vector2>();
+            _playerMove.move = context.ReadValue<Vector2>();
 
-        if (_playerMove.move.x > 0)
-        {
-            PlayerAnimator.instance.SetDirection();
-        }
-        else if (_playerMove.move.x < 0)
-        {
-            PlayerAnimator.instance.SetDirection(false);
-        }
+            if (_playerMove.move.x > 0)
+            {
+                PlayerAnimator.instance.SetDirection();
+            }
+            else if (_playerMove.move.x < 0)
+            {
+                PlayerAnimator.instance.SetDirection(false);
+            }
 
-        //ボタンを押した時
-        if (context.phase == InputActionPhase.Started)
-        {
-            PlayerAnimator.instance.SetMove();
-        }
+            //ボタンを押した時
 
-        //ボタンを離した時
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            //X軸の速度を０にする
-            _playerMove.rb2D.velocity = new Vector2(0, _playerMove.rb2D.velocity.y);
-            PlayerAnimator.instance.SetMove(false);
-        }
+                PlayerAnimator.instance.SetMove();
+
+            //ボタンを離した時
+            if (context.phase == InputActionPhase.Canceled)
+            {
+
+                PlayerAnimator.instance.SetMove(false);
+            }
     }
 
     //Playerのジャンプ
     public void OnJump(InputAction.CallbackContext context)
     {
-        //Spaceが押された時に起動
-        if (context.phase == InputActionPhase.Performed && _playerMove.jumpState == false)
+        if (GameState.Instance.NowState == GameState.State.Play)
         {
-            _playerMove.Jump();
-            PlayerAnimator.instance.SetJump();
-            _playerMove.jumpState = true;
+            //Spaceが押された時に起動
+            if (context.phase == InputActionPhase.Performed && _playerMove.jumpState == false)
+            {
+                _playerMove.Jump();
+                PlayerAnimator.instance.SetJump();
+                _playerMove.jumpState = true;
+            }
         }
     }
 
     //プレイヤーのアイテム取得
     public void OnGet(InputAction.CallbackContext context)
     {
-        //ボタンを押した時
-        if (context.phase == InputActionPhase.Started)
+        if (GameState.Instance.NowState == GameState.State.Play)
         {
-            PlayerMove.instance.rb2D.WakeUp();
-            Interact.Instance.OnGet = true;
-        }
+            //ボタンを押した時
+            if (context.phase == InputActionPhase.Started)
+            {
+                PlayerMove.Instance.rb2D.WakeUp();
+                Interact.Instance.OnGet = true;
+            }
 
-        //ボタンを離した時
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            Interact.Instance.OnGet = false;
+            //ボタンを離した時
+            if (context.phase == InputActionPhase.Canceled)
+            {
+                Interact.Instance.OnGet = false;
 
-            //取得していない状態にする
-            Interact.Instance.isGet = false;
+                //取得していない状態にする
+                Interact.Instance.isGet = false;
+            }
         }
     }
 
     //プレイヤーの観測
     public void OnKansoku(InputAction.CallbackContext context)
     {
-        //ボタンを押した時
-        if (context.phase == InputActionPhase.Started)
+        if (GameState.Instance.NowState == GameState.State.Play)
         {
-            PlayerMove.instance.rb2D.WakeUp();
-            Interact.Instance.OnKansoku = true;
-        }
+            //ボタンを押した時
+            if (context.phase == InputActionPhase.Started)
+            {
+                PlayerMove.Instance.rb2D.WakeUp();
+                Interact.Instance.OnKansoku = true;
+            }
 
-        //ボタンを離した時
-        if (context.phase == InputActionPhase.Canceled)
-        {
-            Interact.Instance.OnKansoku = false;
-            Interact.Instance.isKansoku = false;
+            //ボタンを離した時
+            if (context.phase == InputActionPhase.Canceled)
+            {
+                Interact.Instance.OnKansoku = false;
+                Interact.Instance.isKansoku = false;
+            }
         }
     }
 
     //メニュー
     public void OnMenu(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
+        if (GameState.Instance.NowState == GameState.State.Play
+            ||GameState.Instance.NowState==GameState.State.Pause)
         {
-            if (_isMenu)
+            if (context.phase == InputActionPhase.Started)
             {
-                Menu.Instance.MenuCancel();
-                UI_MenuButton.Instance.Init();
+                switch (GameState.Instance.NowState)
+                {
+                    case GameState.State.Play:
+                        _playerMove.rb2D.simulated = false;
+                        PlayerAnimator.instance.SetMove(false);
+                        _playerMove.move = Vector2.zero;
+                        //メニューを出現させる
+                        Menu.Instance.MenuScreen();
+                        GameState.Instance.ChangeState(GameState.State.Pause);
+                        break;
+                    case GameState.State.Pause:
+                        Menu.Instance.MenuCancel();
+                        UI_MenuButton.Instance.Init();
+                        _playerMove.rb2D.simulated = true;
+                        GameState.Instance.ChangeState(GameState.State.Play);
+                        break;
+                }
             }
-            else Menu.Instance.MenuScreen();
-
-            _isMenu = !_isMenu;
         }
         
     }
@@ -125,7 +140,8 @@ public class Input_HUD : MonoBehaviour
     //メニュー選択
     public void OnMenuSelect(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started&&_isMenu)
+        if (context.phase == InputActionPhase.Started
+            && GameState.Instance.NowState==GameState.State.Pause)
         {
             var x = context.ReadValue<Vector2>();
             int value = 0;
@@ -139,9 +155,10 @@ public class Input_HUD : MonoBehaviour
     //メニュー決定
     public void OnMenuSubmit(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
+        if (context.phase == InputActionPhase.Started
+            && GameState.Instance.NowState==GameState.State.Pause)
         {
-            if (_isMenu) UI_MenuButton.Instance.SubmitMenu();
+            UI_MenuButton.Instance.SubmitMenu();
 
         }
 

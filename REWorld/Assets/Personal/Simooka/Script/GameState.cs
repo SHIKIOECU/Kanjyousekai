@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameState : MonoBehaviour
+public class GameState : Singleton<GameState>
 {
-    public static GameState instance;
     public enum State
     {
         Play,
@@ -12,17 +11,18 @@ public class GameState : MonoBehaviour
         Clear,
         Over
     }
-    public State state;
+    public State NowState;
 
-    void Awake()
-    {
-        instance = this;
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-        state = State.Play;
+
+    }
+
+    public void ChangeState(State value)
+    {
+        NowState = value;
     }
 
     

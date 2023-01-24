@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using NPC;
 
-public class Detective : NPCBase
+public class Detective : NPCBase,IItem
 {
     public enum DetectiveState
     {
         SERCH, MOVE,
         RAIN_STAND, RAIN_MOVE,
+        INSUFFICIENTMOISTURE,
+        GRATITUDE,
     }
     public DetectiveState State;
 
     //コイン
-    [SerializeField]
+    [Header("コイン"),SerializeField]
     private Coin _coin;
 
     //アイテム（コイン）フラグ
@@ -21,9 +23,18 @@ public class Detective : NPCBase
     private FlagData _coinFlag;
 
     //雨フラグ
-    [SerializeField]
+    [Header("雨"),SerializeField]
     private FlagData _rain;
 
+    [Header("水分不足")]
+    [SerializeField] private FlagData _coinFlag2;
+    [SerializeField] private FlagData _iceFlag;
+    [SerializeField] private FlagData _drinkFlag;
+
+    [Header("感謝")]
+    [SerializeField] private float _playerJumpPower;
+
+    [Header("移動関連")]
     //最初の地点
     private Vector3 _startPoint;
     //移動地点
@@ -52,6 +63,15 @@ public class Detective : NPCBase
 
     private void Update()
     {
+        if (State == DetectiveState.GRATITUDE) return;
+
+        //水分不足
+        if (_coinFlag2.IsOn && _iceFlag.IsOn)
+        {
+            State = DetectiveState.INSUFFICIENTMOISTURE;
+            return;
+        }
+
         //動き終わっていない時
         if (!moved)
         {
@@ -61,7 +81,9 @@ public class Detective : NPCBase
             Movement();
         }
 
-        if (transform.position == _startPoint) _coin.gameObject.GetComponent<BoxCollider2D>().enabled=false;
+        
+
+        //if (transform.position == _startPoint) _coin.gameObject.GetComponent<BoxCollider2D>().enabled=false;
     }
 
     //移動
@@ -94,9 +116,9 @@ public class Detective : NPCBase
         if (_nowPos != _toPos)
         {
             _currentTime += Time.deltaTime * _speed;
-            transform.position = Vector3.Lerp(_nowPos, _toPos, _currentTime);
+            transform.position = Vector3.MoveTowards(_nowPos, _toPos, _currentTime);
             //Debug.LogFormat("nowPos:{0},topos:{1}", transform.position, _toPos);
-            if (_currentTime >= 1)
+            if (transform.position.x==_toPos.x)
             {
                 IsSetPos = false;
                 moved = true;
@@ -110,7 +132,7 @@ public class Detective : NPCBase
     }
 
 
-
+    #region NPCBase
     public override void AppearanceWorld()
     {
         base.AppearanceWorld();
@@ -125,13 +147,44 @@ public class Detective : NPCBase
         {
             _coin.gameObject.SetActive(false);
         }
+
+        switch (INPCData.Name)
+        {
+            case "insufficientMoisture":
+                break;
+            case "gratitude":
+                PlayerMove.Instance.jumpPower = _playerJumpPower;
+                break;
+        }
     }
 
     public override void DisappearanceWorld()
     {
         base.DisappearanceWorld();
 
-        _coin.gameObject.SetActive(false);
+        //_coin.gameObject.SetActive(false);
         SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Normal);
+
+        switch (INPCData.Name)
+        {
+            case "gratitude":
+                PlayerMove.Instance.jumpPower = PlayerMove.Instance.basicJumpPower;
+                break;
+        }
     }
+    #endregion
+
+    #region IItem
+    public void ItemAction()
+    {
+        if (State == DetectiveState.INSUFFICIENTMOISTURE && _drinkFlag.IsOn)
+        {
+            _drinkFlag.SetFlagStatus(false);
+            SetNPCData("gratitude");
+            State = DetectiveState.GRATITUDE;
+
+            ChangeWorld();
+        }
+    }
+    #endregion
 }
