@@ -79,47 +79,34 @@ public class AuntController : NPCBase, IItem
     {
         base.AppearanceWorld();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (INPCData.Name == "happy") PlayerMove.Instance.jumpPower = jumpPowerUped;
-=======
-=======
->>>>>>> feature/Fujiwara
+
         switch (INPCData.Name)
         {
             case "basic":
-                PlayerMove.instance.jumpPower = jumpPowerDown;
+                PlayerMove.Instance.jumpPower = jumpPowerDown;
                 before_world.SetActive(true);
                 after_world.SetActive(false);
                 //PlayerMove.instance.speed = playerMoveSpeedDown;
                 break;
             case "happy":
-                PlayerMove.instance.jumpPower = jumpPowerUped;
+                PlayerMove.Instance.jumpPower = jumpPowerUped;
                 before_world.SetActive(false);
                 after_world.SetActive(true);
                 break;
         }
 
         //if (INPCData.Name == "happy") PlayerMove.instance.jumpPower = jumpPowerUped;
-<<<<<<< HEAD
->>>>>>> feature/Fujiwara
-=======
->>>>>>> feature/Fujiwara
     }
 
     public override void DisappearanceWorld()
     {
         base.DisappearanceWorld();
 
-<<<<<<< HEAD
         PlayerMove.Instance.jumpPower = PlayerMove.Instance.basicJumpPower;
-=======
-        PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
+
+        //PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
         //PlayerMove.instance.speed = playerBasicMoveSpeed;
-<<<<<<< HEAD
->>>>>>> feature/Fujiwara
-=======
->>>>>>> feature/Fujiwara
     }
 
     public void ItemAction()
