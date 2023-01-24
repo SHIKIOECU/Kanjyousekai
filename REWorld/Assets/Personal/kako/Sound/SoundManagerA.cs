@@ -148,7 +148,8 @@ public class SoundManagerA : MonoBehaviour
         try
         {
             sounds[BGMnumber].Stop();
-        }catch(System.IndexOutOfRangeException IE)
+        }
+        catch(System.IndexOutOfRangeException IE)
         {
             Debug.Log("曲がないよ");
         }
@@ -156,9 +157,11 @@ public class SoundManagerA : MonoBehaviour
 
     public void stageBGMstop()
     {
-        try { 
-            sounds[stageBGM[0]].Stop();
-            sounds[stageBGM[1]].Stop();
+        try {
+            for (int i = 1; i < BGMLength + 1; i++)
+            {
+                sounds[i].Stop();
+            }
         }
         catch (System.IndexOutOfRangeException IE)
         {

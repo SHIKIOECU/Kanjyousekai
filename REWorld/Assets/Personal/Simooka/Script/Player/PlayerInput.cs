@@ -58,5 +58,6 @@ public class PlayerInput : MonoBehaviour
         {
             jumpState = false;
         }
+
     }
 }

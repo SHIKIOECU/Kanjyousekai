@@ -28,6 +28,7 @@ public class playerWalk_Sound : MonoBehaviour
 
     public WalkSE_List WalkSE_num = WalkSE_List.HardFloor;
     public bool walkTF = false;
+    public bool jumpTF = false;
 
     private void Awake()
     {
@@ -47,7 +48,7 @@ public class playerWalk_Sound : MonoBehaviour
     {
         timeElapsed += Time.deltaTime;
         OnMove();
-        if (walkTF)
+        if (walkTF && (jumpTF == false))
         {
             if (timeElapsed > timeInterval)
             {
@@ -70,6 +71,17 @@ public class playerWalk_Sound : MonoBehaviour
         {
             walkTF = false;
         }
+
+        if (Keyboard.current.spaceKey.isPressed)
+        {
+            walkTF = false;
+            timeElapsed = -1f;
+        }
+    }
+
+    public void Jump_Now(bool JTF)
+    {
+        jumpTF = JTF;
     }
 
     [System.Obsolete]
