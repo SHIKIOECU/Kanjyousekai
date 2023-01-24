@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class playerWalk_Sound : MonoBehaviour
 {
@@ -44,19 +46,23 @@ public class playerWalk_Sound : MonoBehaviour
     private void Update()
     {
         timeElapsed += Time.deltaTime;
-
+        OnMove();
+        if (walkTF)
+        {
             if (timeElapsed > timeInterval)
             {
                 PlaySE_Walk();
                 // 経過時間を元に戻す
                 timeElapsed = 0f;
             }
+        }
         
     }
 
-    public void now_move(Vector2 moving)
+    public void OnMove()
     {
-        if(moving.x != 0)
+        if(Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed ||
+            Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed)
         {
             walkTF = true;
         }
