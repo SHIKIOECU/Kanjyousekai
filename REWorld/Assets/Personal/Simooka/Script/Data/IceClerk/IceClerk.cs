@@ -61,6 +61,7 @@ public class IceClerk : NPCBase,IItem
                 _ice.Rb2D.velocity = new Vector2(_slowSpeed, 0);
                 Animator.SetBool("throwTrigger", true);
                 //Todo:アイスを投げるSEを追加
+                SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Open_World);
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Throw);
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Wall);
                 SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Sad);
@@ -72,6 +73,7 @@ public class IceClerk : NPCBase,IItem
                 jumping = true;
                 _ice.gameObject.SetActive(false);
                 PlayerMove.Instance.jumpPower = jumpPowerUp;
+                SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Open_World);
                 SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Happy);
                 break;
 

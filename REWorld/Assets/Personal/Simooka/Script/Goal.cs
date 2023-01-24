@@ -28,6 +28,7 @@ public class Goal : MonoBehaviour
         {
             Debug.Log("ゴールに触れた");
             StageClearImage.SetActive(true);
+            SoundManagerA.Instance.stageBGMstop();
             StartCoroutine(Wait());
         }
     }
