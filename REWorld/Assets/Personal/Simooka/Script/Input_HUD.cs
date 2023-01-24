@@ -159,7 +159,7 @@ public class Input_HUD : MonoBehaviour
             && GameState.Instance.NowState==GameState.State.Pause)
         {
             UI_MenuButton.Instance.SubmitMenu();
-
+            GameState.Instance.NowState = GameState.State.Play;
         }
 
     }

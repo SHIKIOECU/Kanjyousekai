@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Input_FrontEnd : MonoBehaviour
 {
@@ -36,10 +37,8 @@ public class Input_FrontEnd : MonoBehaviour
         if (context.phase == InputActionPhase.Started)
         {
             var x = context.ReadValue<Vector2>();
-            int value = 0;
-            if (x.y > 0) value = 1;
-            else if (x.y < 0) value = -1;
-            UI_MenuButton.Instance.ChangeSelectButton(value);
+            if (x.x > 0) ButtonController.Instance.NextPage();
+            else if (x.x < 0) ButtonController.Instance.BackPage();
         }
 
     }
@@ -49,7 +48,14 @@ public class Input_FrontEnd : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            UI_MenuButton.Instance.SubmitMenu();
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "TitleScene":
+                    //todo:セレクトシーンへの遷移
+                    break;
+                //セレクトシーン
+
+            }
 
         }
 

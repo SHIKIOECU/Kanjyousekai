@@ -7,8 +7,8 @@ public class ItemManager : Singleton<ItemManager>
 {
     [SerializeField] private FlagList _itemList; //アイテムリスト
     [Header("アイテムデータ")]
-    //[SerializeField] private int _size; //アイテムデータの数
-    [SerializeField] private ItemData[] _items; //アイテムデータ
+    //[SerializeField] private int _itemSize; //アイテムデータの数
+    //[SerializeField] private ItemData[] _items; //アイテムデータ
 
     [SerializeField] private Image _itemImage;
     [SerializeField] private float _imgRange;
@@ -24,7 +24,7 @@ public class ItemManager : Singleton<ItemManager>
     // Start is called before the first frame update
     void Start()
     {
-        _items = new ItemData[_size];
+        //_items = new ItemData[_itemSize];
         _images = new Image[_size];
 
         for(int i = 0; i < _size; i++)
@@ -55,33 +55,19 @@ public class ItemManager : Singleton<ItemManager>
         //}
     }
 
-    public void AddItemCount(FlagData itemFlag,int count)
-    {
-        //for(int i = 0; i < _items.Count; i++)
-        //{
-        //    if (_items[i].Name == itemFlag.name)
-        //    {
-        //        var item = _items[i];
-        //        item.Count += count;
-        //        if (item.Count < 0) break;
-        //        _items[i] = item;
-        //        break;
-        //    }
-        //}
-    }
-
     /// <summary>
     /// itemFlagの名前と同じアイテムデータを追加する
     /// </summary>
     /// <param name="itemFlag"></param>
     public void AddItem(FlagData itemFlag)
     {
-        for(int i = 0; i < _items.Length; i++)
+        for(int i = 0; i < _images.Length; i++)
         {
-            if (_items[i].Name==null)
+            if (_images[i].GetComponentInChildren<Image>().sprite==null)
             {
-                _items[i].Name = itemFlag.name;
-                break;
+                _images[i].GetComponentInChildren<Image>().gameObject.name = itemFlag.name;
+                //_images[i].GetComponentInChildren<Image>().sprite= itemFlag.name;
+                return;
             }
         }
     }
@@ -92,12 +78,12 @@ public class ItemManager : Singleton<ItemManager>
     /// <param name="itemFlag"></param>
     public void RemoveItem(FlagData itemFlag)
     {
-        for (int i = 0; i < _items.Length; i++)
+        for (int i = 0; i < _images.Length; i++)
         {
-            if (_items[i].Name == itemFlag.name)
+            if (_images[i].GetComponentInChildren<Image>().sprite != null)
             {
-                _items[i].Name = null;
-                break;
+                _images[i].GetComponentInChildren<Image>().sprite = null;
+                return;
             }
         }
     }
