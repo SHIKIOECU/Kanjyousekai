@@ -15,7 +15,12 @@ public class Interact : Singleton<Interact>
 
     private INPC _NPC;
 
+    [SerializeField]private InteractMessage _interactMessage;
+    [SerializeField] private Vector2 _plusPos;
+
     [SerializeField] private Canvas _interactCanvas;
+    [SerializeField] private Vector2 _interactCanvasPos;
+    [SerializeField]private TextMeshProUGUI _text;
     #endregion
 
     #region public変数
@@ -33,6 +38,15 @@ public class Interact : Singleton<Interact>
     //ボタンが押されているか
     public bool OnGet;
 
+    public enum InteractState
+    {
+        NONE,
+        ITEM,
+        NPC,NPC_ITEM
+    }
+
+    public InteractState State;
+
     #endregion
 
 
@@ -41,6 +55,7 @@ public class Interact : Singleton<Interact>
     {
         _itemFlagList.InitFlags();
         _interactCanvas.enabled = false;
+        _text = _interactCanvas.transform.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -61,29 +76,31 @@ public class Interact : Singleton<Interact>
     {
         _item = collision.gameObject.GetComponent<IItem>();
         _NPC = collision.gameObject.GetComponent<INPC>();
-        Debug.Log(_NPC);
-
-        switch (collision.tag)
-        {
-            default:
-                break;
-        }
+        _interactMessage = collision.GetComponent<InteractMessage>();
+        Debug.Log(_interactMessage);
 
         GetItem();
 
         //観測
         Kansoku();
 
+        //ChangeState();
+        if (_interactMessage == null) return;
+        _interactCanvasPos =
+            collision.gameObject.GetComponent<InteractMessage>().Space + _plusPos;
+        ChangeInteractCanvas(_interactMessage.Message);
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         _item = null;
-
+        ShowInteractCanvas(false);
     }
 
     private void ShowInteractCanvas(bool value = true)
     {
+        _interactCanvas.transform.position = _interactCanvasPos;
         _interactCanvas.enabled = value;
     }
 
@@ -121,31 +138,41 @@ public class Interact : Singleton<Interact>
 
     private void GetItem()
     {
-        if (_item != null)
+        if (_item != null && !isGet&&OnGet)
         {
-            //ボタンを押されていない時にインタラクトキャンバスを表示
-            if (!OnGet) ShowInteractCanvas();
-            else if (!isGet)
-            {
                 ShowInteractCanvas(false);
                 _item.ItemAction();
                 isGet = true;
-            }
         }
     }
 
-    private void ChangeInteractCanvas()
+    private void ChangeInteractCanvas(string message)
     {
-        if (_item == null && _NPC == null)
-        {
-            ShowInteractCanvas(false);
-            return;
-        }
+        //switch (state)
+        //{
+        //    case InteractState.NONE:
+        //        _text.text = "NULL";
+        //        ShowInteractCanvas(false);
+        //        return;
+        //    case InteractState.NPC:
+        //        _text.text = "NPC";
+        //        break;
+        //    case InteractState.ITEM:
+        //        _text.text = "Item";
+        //        break;
+        //    case InteractState.NPC_ITEM:
+        //        _text.text = "All";
+        //        break;
+        //}
+        _text.text = message;
+        ShowInteractCanvas(true);
+    }
 
-        if (_item != null && _NPC != null)
-        {
-            ShowInteractCanvas();
-        }
-
+    private void ChangeState()
+    {
+        if (_NPC == null && _item == null) State = InteractState.NONE;
+        else if (_NPC == null) State = InteractState.ITEM;
+        else if (_item == null) State = InteractState.NPC;
+        else State = InteractState.NPC_ITEM;
     }
 }

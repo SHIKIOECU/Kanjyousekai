@@ -21,7 +21,14 @@ MonoBehaviour:
     EmotionalWorldSprite: {fileID: 0}
     Word: moving
     NPCFlag: {fileID: 11400000, guid: 1b9eb52ec0c9b4b40b08c84406937c32, type: 2}
+  - Name: insufficientMoisture
+    EmotionalWorldSprite: {fileID: 0}
+    Word: moving
+    NPCFlag: {fileID: 11400000, guid: 1b9eb52ec0c9b4b40b08c84406937c32, type: 2}
+  - Name: gratitude
+    EmotionalWorldSprite: {fileID: 0}
+    Word: moving
+    NPCFlag: {fileID: 11400000, guid: 1b9eb52ec0c9b4b40b08c84406937c32, type: 2}
   Words:
   - Faze: 
     Word: 
-    Terms: []

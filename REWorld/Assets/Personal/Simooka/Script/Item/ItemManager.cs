@@ -1,30 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : Singleton<ItemManager>
 {
-    public static ItemManager Instance;
-
     [SerializeField] private FlagList _itemList; //アイテムリスト
     [Header("アイテムデータ")]
-    [SerializeField] private int _size; //アイテムデータの数
+    //[SerializeField] private int _size; //アイテムデータの数
     [SerializeField] private ItemData[] _items; //アイテムデータ
 
-    //[SerializeField]private ItemData[] _items; //所持数
+    [SerializeField] private Image _itemImage;
+    [SerializeField] private float _imgRange;
+    [SerializeField] private int _size;
+    [SerializeField] private Image[] _images;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+
+    [SerializeField] private FlagData _test;
+
+
+    //[SerializeField]private ItemData[] _items; //所持数
 
     // Start is called before the first frame update
     void Start()
     {
         _items = new ItemData[_size];
-        _itemList.InitFlags();
+        _images = new Image[_size];
+
+        for(int i = 0; i < _size; i++)
+        {
+            _images[i]=Instantiate(_itemImage,_itemImage.transform.parent);
+            _images[i].transform.position += new Vector3(_imgRange*i, 0, 0);
+        }
+
+        AddItem(_test);
+        //_itemList.InitFlags();
 
         //InitItem();
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void InitItem()

@@ -21,16 +21,17 @@ public class CheckGround : MonoBehaviour
     {
         if (collision.gameObject.tag=="Ground")
         {
-            PlayerMove.instance.jumpState = false;
+            PlayerMove.Instance.jumpState = false;
             PlayerAnimator.instance.SetJump(false);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if(collision.gameObject.tag == "Ground"
+            && GameState.Instance.NowState==GameState.State.Play)
         {
-            PlayerMove.instance.jumpState = true;
+            PlayerMove.Instance.jumpState = true;
             PlayerAnimator.instance.SetJump();
         }
     }

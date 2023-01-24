@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : Singleton<PlayerMove>
 {
-    public static PlayerMove instance;
-
     //PlayerのRigidbody2D
     public Rigidbody2D rb2D;
 
@@ -29,12 +27,6 @@ public class PlayerMove : MonoBehaviour
     //private GameObject _checkGround;
 
     public Animator playerAnimator;
-
-
-    private void Awake()
-    {
-        instance = this;
-    }
 
     private void Start()
     {

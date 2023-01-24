@@ -51,14 +51,14 @@ public class AuntController : NPCBase, IItem
     {
         base.AppearanceWorld();
 
-        if (INPCData.Name == "happy") PlayerMove.instance.jumpPower = jumpPowerUped;
+        if (INPCData.Name == "happy") PlayerMove.Instance.jumpPower = jumpPowerUped;
     }
 
     public override void DisappearanceWorld()
     {
         base.DisappearanceWorld();
 
-        PlayerMove.instance.jumpPower = PlayerMove.instance.basicJumpPower;
+        PlayerMove.Instance.jumpPower = PlayerMove.Instance.basicJumpPower;
     }
 
     public void ItemAction()

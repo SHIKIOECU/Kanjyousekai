@@ -6,7 +6,7 @@ using System;
 
 namespace NPC
 {
-    public class NPCBase : MonoBehaviour, INPC
+    public class NPCBase : InteractMessage, INPC
     {
         //NPCの情報
         private NPCState _data = new NPCState();
@@ -38,13 +38,12 @@ namespace NPC
 
         private int _wordIndex;
 
-        public void Awake()
-        {
-            _maskSprite = transform.GetChild(1).gameObject;
-        }
+        
 
         public virtual void Start()
         {
+            _maskSprite = transform.GetChild(1).gameObject;
+
             //基本のNPCデータに変更
             InitNPCData();
 
