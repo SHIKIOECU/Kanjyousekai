@@ -418,7 +418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -12.619375, y: 0.85121095}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5006375685530231231
@@ -5319,7 +5319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4030917874817954901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.619375, y: 0.18685117, z: 0.05536332}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6.6435976, y: 6.6435976, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5406,8 +5406,8 @@ Transform:
   m_GameObject: {fileID: 7189831643460660148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.89, y: 2.89, z: 2.89}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7570545716190931470}
   - {fileID: 919883064592413401}
@@ -5479,7 +5479,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0126479715, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5490,7 +5490,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.63625, y: 1.0175}
+  m_Size: {x: 0.2821081, y: 1.0175}
   m_EdgeRadius: 0
 --- !u!114 &3799646664878350574
 MonoBehaviour:
@@ -5504,18 +5504,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 475ed0ee1d2a846518ca19a4ec530788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data:
-    Name: 
-    EmotionalWorldSprite: {fileID: 0}
-    Word: 
-    NPCFlag: {fileID: 0}
-  _nPCData: {fileID: 0}
-  _maskSprite: {fileID: 4030917874817954901}
+  Message: 
+  Space: {x: 0, y: 0}
+  _nPCData: {fileID: 11400000, guid: b4116054a98e944b58fdae982a42568c, type: 2}
   _emotionalWorld: {fileID: 975884781845617179}
   _nPC: {fileID: 4169161137740067910}
-  _words: {fileID: 0}
+  _words: {fileID: 5882367279326994838}
+  _wordData: {fileID: 11400000, guid: 6db6ec7800ee24999a497b396a23dcc0, type: 2}
   Animator: {fileID: 0}
+  State: 0
   money: {fileID: 0}
+  jumpPowerUped: 12
+  jumpPowerDown: 4
+  before_world: {fileID: 750787488177245664}
+  after_world: {fileID: 2749299366752665081}
+  playerMoveSpeedDown: 0
+  aunt_text: {fileID: 5882367279326994838}
+  ChallengeFlag: {fileID: 11400000, guid: 4fe6b6690396a4ce4a04545e33c7dcdb, type: 2}
+  isAllPickUp: 0
 --- !u!1 &8102766008541328707
 GameObject:
   m_ObjectHideFlags: 0

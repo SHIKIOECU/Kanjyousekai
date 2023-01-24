@@ -50,11 +50,14 @@ public class Input_FrontEnd : MonoBehaviour
         {
             switch (SceneManager.GetActiveScene().name)
             {
-                case "TitleScene":
+                case "TitleScreen":
                     //todo:セレクトシーンへの遷移
+                    SceneManager.LoadScene("StageSelect");
                     break;
-                //セレクトシーン
-
+                case "StageSelect":
+                    //セレクトシーン
+                    ButtonController.Instance.SceneMove();
+                    break;
             }
 
         }
