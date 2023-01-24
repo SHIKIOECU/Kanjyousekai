@@ -38,5 +38,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Personal/Fujiwara/Stage2-1/beta2_fujiwara_2-1.unity
     guid: 6b47c7835bc0c4b59833f5be51739122
+  - enabled: 1
+    path: Assets/Personal/Fujiwara/Title/TitleScreen.unity
+    guid: 721bccc10583a451cb13463f3a394063
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 91da84866a9d74a49bf38dc53d119ffc, type: 2}

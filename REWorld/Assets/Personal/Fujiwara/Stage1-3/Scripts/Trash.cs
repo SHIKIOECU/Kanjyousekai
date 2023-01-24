@@ -12,9 +12,12 @@ public class Trash : InteractMessage, IItem
 
     public bool isGet;
 
+    int trashcnt = 0;
+
     public void ItemAction()
     {
-        aunt.TrashCount();
+        trashcnt = aunt.TrashCount();
+        aunt.AuntChangeWord(trashcnt);
         _trash.SetFlagStatus();
         isGet = true;
         gameObject.SetActive(false);

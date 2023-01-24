@@ -21,12 +21,20 @@ public class FatherController : NPCBase
     Vector3 nowPos = new Vector3(19.1f, 1.0f, 0.0f);
     Vector3 targetPos = new Vector3(37.0f, 1.0f, 0.0f);
 
+    float distance_nowtotarget;
+
     // 移動スピード
     [SerializeField] float speed;
     float nowSpeed;
 
+    // 達成項目のフラグの取得
+    [SerializeField] FlagData challenge2flag;
+    [SerializeField] FlagData challenge3flag;
+
     // 観測されたどうか
     public bool isFather;
+
+    //static public bool challenge2flag, challenge3flag;
 
     // Start is called before the first frame update
     public override void Start()
@@ -34,6 +42,10 @@ public class FatherController : NPCBase
         base.Start();
 
         isFather = true;
+        distance_nowtotarget = Vector3.Distance(nowPos, targetPos);
+
+        challenge2flag.SetFlagStatus();
+        //challenge2flag = true;
     }
 
     // Update is called once per frame
@@ -61,11 +73,18 @@ public class FatherController : NPCBase
     void MoveToBoy()
     {
         nowSpeed += Time.deltaTime * speed;
+        float current_pos = nowSpeed / distance_nowtotarget;
 
-        transform.position = Vector3.Slerp(nowPos, targetPos, nowSpeed);
-        Debug.Log("MoveToBoyが呼ばれました");
+        transform.position = Vector3.Slerp(nowPos, targetPos, current_pos);
 
-        if (transform.position == targetPos) isFather = false; lostBoy.GetComponent<LostBoyController>().isReunion = true;
+        if (transform.position.x == targetPos.x)
+        {
+            isFather = false;
+            lostBoy.GetComponent<LostBoyController>().isReunion = true;
+
+            challenge3flag.SetFlagStatus();
+            //challenge3flag = true;
+        }
     }
 
     public override void AppearanceWorld()
