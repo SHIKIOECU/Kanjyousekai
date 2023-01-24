@@ -10,6 +10,11 @@ public class Goal : MonoBehaviour
     [SerializeField]
     GameObject StageClearImage;
 
+    [Header("タイトルに戻るまでの時間")]
+    [SerializeField]
+    float backTitleTime;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +40,7 @@ public class Goal : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(backTitleTime);
         SceneManager.LoadScene(_toSceneName);
     }
 }
