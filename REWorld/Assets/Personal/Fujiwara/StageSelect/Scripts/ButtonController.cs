@@ -41,15 +41,7 @@ public class ButtonController : Singleton<ButtonController>
 
         if (UnityEngine.Input.GetKeyUp(KeyCode.Return))
         {
-            switch (nowPage)
-            {
-                case 0:
-                    fade.StartFade("fujiwara_tutorial1");
-                    break;
-                case 1:
-                    fade.StartFade("FinalStage1");
-                    break;
-            }
+            SceneMove();
             //UI_MenuButton.Instance.SubmitMenu();
         }
 
@@ -70,6 +62,19 @@ public class ButtonController : Singleton<ButtonController>
 
         buttons[0].color = afterColor;
         buttons[1].color = basicColor;
+    }
+
+    public void SceneMove()
+    {
+        switch (nowPage)
+        {
+            case 0:
+                fade.StartFade("fujiwara_tutorial1");
+                break;
+            case 1:
+                fade.StartFade("FinalStage1");
+                break;
+        }
     }
 
     // indexは0~3
