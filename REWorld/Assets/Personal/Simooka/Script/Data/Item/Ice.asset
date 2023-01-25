@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   _name: Ice
-  _isOn: 1
-  _sprite: {fileID: 21300000, guid: 0abce281769dd46288a343a12e9faf5b, type: 3}
+  _isOn: 0
+  _sprite: {fileID: 21300000, guid: 939a06c7c7ea04c458d9a22c6d9efce6, type: 3}

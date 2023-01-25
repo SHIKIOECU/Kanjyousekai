@@ -7,7 +7,7 @@ public class Girl : NPCBase,IItem
 {
     //アイテム（アイス）フラグ
     [SerializeField]
-    private FlagData iceFlag;
+    private ItemData iceFlag;
 
     //探偵
     [SerializeField]
@@ -87,7 +87,7 @@ public class Girl : NPCBase,IItem
         if (iceFlag.IsOn)
         {
             _getIce = true;
-            iceFlag.SetFlagStatus(false);
+            iceFlag.SetItemStatus(false);
             SetNPCData("happy");
 
             ChangeWorld();

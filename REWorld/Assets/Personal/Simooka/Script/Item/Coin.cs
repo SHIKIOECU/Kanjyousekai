@@ -5,13 +5,13 @@ using UnityEngine;
 public class Coin : MonoBehaviour,IItem
 {
     [SerializeField]
-    private FlagData _coin;
+    private ItemData _coin;
 
     public bool isGet;
 
     public void ItemAction()
     {
-        _coin.SetFlagStatus();
+        _coin.SetItemStatus();
         isGet = true;
         gameObject.SetActive(false);
     }

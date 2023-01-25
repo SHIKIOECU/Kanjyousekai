@@ -12,10 +12,6 @@ public class Girl_EffectChange : MonoBehaviour
     [SerializeField]
     GameObject After_Girl;
 
-    [Header("カンジョウ世界消滅時のエフェクト")]
-    [SerializeField]
-    GameObject DisappearEffect;
-
     Girl girl;
     private bool IsIce;
 
@@ -29,7 +25,6 @@ public class Girl_EffectChange : MonoBehaviour
     {
         girl = GetComponent<Girl>();
 
-        DisappearEffect.SetActive(false);
         //kanjou = Interact.instance.isKansoku;
     }
 
@@ -40,7 +35,6 @@ public class Girl_EffectChange : MonoBehaviour
 
         if (EmotionalWorld.activeSelf == true)
         {
-            DisappearEffect.SetActive(false);
             if (IsIce == true)
             {
                 Before_Girl.SetActive(false);
@@ -54,7 +48,6 @@ public class Girl_EffectChange : MonoBehaviour
         }
         else
         {
-            DisappearEffect.SetActive(true);
             Before_Girl.SetActive(false);
             After_Girl.SetActive(false);
         }

@@ -4349,6 +4349,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2178736681145508495, guid: cc8e9eb9dd67947ae8155f0b8c0a6ecf, type: 2}
+    - target: {fileID: 1739663375478359651, guid: 79e3711a4d0fe456fb3397885e5dca00, type: 3}
+      propertyPath: _coin
+      value: 
+      objectReference: {fileID: 11400000, guid: c87d7b32c1751d74782f53eac04b615b, type: 2}
     - target: {fileID: 2010790366138676050, guid: 79e3711a4d0fe456fb3397885e5dca00, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -4381,6 +4385,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2178736681145508495, guid: cc8e9eb9dd67947ae8155f0b8c0a6ecf, type: 2}
+    - target: {fileID: 7735790925475744854, guid: 79e3711a4d0fe456fb3397885e5dca00, type: 3}
+      propertyPath: DisappearEffect
+      value: 
+      objectReference: {fileID: 7696132716007728669, guid: 475838879719e449da1d27ea5345c4d0, type: 3}
     - target: {fileID: 8861193856191557854, guid: 79e3711a4d0fe456fb3397885e5dca00, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -4811,7 +4819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemImage: {fileID: 1577653745917365337, guid: 818e3eb67dbdc584a9771da4a04d3ad1, type: 3}
   _itemsTransform: {fileID: 1975054923}
-  _imgRange: 60
+  _imgRange: 120
   _size: 5
   _images: []
   _test: {fileID: 11400000, guid: c87d7b32c1751d74782f53eac04b615b, type: 2}
@@ -6522,7 +6530,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774869, y: 1}
+    m_SensorSize: {x: 1.7780678, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8133,6 +8141,10 @@ PrefabInstance:
       propertyPath: detective
       value: 
       objectReference: {fileID: 751157438}
+    - target: {fileID: 6978591369336369320, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
+      propertyPath: DisappearEffect
+      value: 
+      objectReference: {fileID: 7696132716007728669, guid: 475838879719e449da1d27ea5345c4d0, type: 3}
     - target: {fileID: 7709229003146530838, guid: 65f0228bfe65c4dae9ca2d882fc32bfd, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 27.1
@@ -10052,7 +10064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010885407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3862677, y: -1.05166, z: -10}
+  m_LocalPosition: {x: -4.383943, y: -1.05166, z: -10}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10192,6 +10204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IceClerk
       objectReference: {fileID: 0}
+    - target: {fileID: 3357659723289649135, guid: 5662dcf23979747649f820af56c79be9, type: 3}
+      propertyPath: DisappearEffect
+      value: 
+      objectReference: {fileID: 7696132716007728669, guid: 475838879719e449da1d27ea5345c4d0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5662dcf23979747649f820af56c79be9, type: 3}
 --- !u!4 &2037426856 stripped
