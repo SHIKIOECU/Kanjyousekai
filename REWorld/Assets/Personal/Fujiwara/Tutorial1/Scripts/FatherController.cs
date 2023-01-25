@@ -17,9 +17,14 @@ public class FatherController : NPCBase
     // Canvasの取得
     [SerializeField] GameObject canvas;
 
+    // spriteの取得
+    [SerializeField] Sprite[] fatherSprites;
+
+    SpriteRenderer fatherSprite;
+
     // ポジション
-    Vector3 nowPos = new Vector3(19.1f, 1.0f, 0.0f);
-    Vector3 targetPos = new Vector3(37.0f, 1.0f, 0.0f);
+    Vector3 nowPos = new Vector3(19.1f, 1.31f, 0.0f);
+    Vector3 targetPos = new Vector3(37.0f, 1.31f, 0.0f);
 
     float distance_nowtotarget;
 
@@ -46,6 +51,9 @@ public class FatherController : NPCBase
 
         challenge2flag.SetFlagStatus();
         //challenge2flag = true;
+
+        fatherSprite = gameObject.GetComponent<SpriteRenderer>();
+        fatherSprite.sprite = fatherSprites[0];
     }
 
     // Update is called once per frame
@@ -72,30 +80,44 @@ public class FatherController : NPCBase
 
     void MoveToBoy()
     {
+        if (fatherSprite != fatherSprites[2]) fatherSprite.sprite = fatherSprites[2];
+
         nowSpeed += Time.deltaTime * speed;
         float current_pos = nowSpeed / distance_nowtotarget;
 
         transform.position = Vector3.Slerp(nowPos, targetPos, current_pos);
 
-        if (transform.position.x == targetPos.x)
+        if (transform.position.x >= targetPos.x - 0.1f)
         {
             isFather = false;
             lostBoy.GetComponent<LostBoyController>().isReunion = true;
 
             challenge3flag.SetFlagStatus();
             //challenge3flag = true;
+
+            fatherSprite.sprite = fatherSprites[0];
+
+            //gameObject.SetActive(false);
         }
     }
 
     public override void AppearanceWorld()
     {
-        base.AppearanceWorld();
+        SetNPCData("scary");
+        fatherSprite.sprite = fatherSprites[1];
+
         SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Angry);
+
+        base.AppearanceWorld();
     }
 
     public override void DisappearanceWorld()
     {
-        base.DisappearanceWorld();
+        SetNPCData("basic");
+        fatherSprite.sprite = fatherSprites[0];
+
         SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Normal);
+
+        base.DisappearanceWorld();
     }
 }
