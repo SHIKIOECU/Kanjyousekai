@@ -34,6 +34,7 @@ public class Goal : MonoBehaviour
             Debug.Log("ゴールに触れた");
             StageClearImage.SetActive(true);
             SoundManagerA.Instance.stageBGMstop();
+            SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Stage_Clear);
             StartCoroutine(Wait());
         }
     }
