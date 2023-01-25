@@ -19,6 +19,8 @@ public class Interact : Singleton<Interact>
     [SerializeField] private Vector2 _plusPos;
 
     [SerializeField] private Canvas _interactCanvas;
+    [SerializeField] private SpriteRenderer _interactFrame;
+    [SerializeField] private SpriteRenderer _interactButton;
     [SerializeField] private Vector2 _interactCanvasPos;
     [SerializeField]private TextMeshProUGUI _text;
     #endregion
@@ -55,6 +57,8 @@ public class Interact : Singleton<Interact>
     {
         _itemFlagList.InitFlags();
         _interactCanvas.enabled = false;
+        _interactFrame.enabled = false;
+        _interactButton.enabled = false;
         _text = _interactCanvas.transform.GetComponentInChildren<TextMeshProUGUI>();
     }
 
@@ -88,7 +92,7 @@ public class Interact : Singleton<Interact>
         if (_interactMessage == null) return;
         _interactCanvasPos =
             collision.gameObject.GetComponent<InteractMessage>().Space + _plusPos;
-        ChangeInteractCanvas(_interactMessage.Message);
+        ChangeInteractCanvas(_interactMessage.Message,_interactMessage.ButtonSprite);
 
     }
 
@@ -102,6 +106,8 @@ public class Interact : Singleton<Interact>
     {
         _interactCanvas.transform.position = _interactCanvasPos;
         _interactCanvas.enabled = value;
+        _interactFrame.enabled= value;
+        _interactButton.enabled= value;
     }
 
     //観測
@@ -146,25 +152,11 @@ public class Interact : Singleton<Interact>
         }
     }
 
-    private void ChangeInteractCanvas(string message)
+    private void ChangeInteractCanvas(string message,Sprite sprite)
     {
-        //switch (state)
-        //{
-        //    case InteractState.NONE:
-        //        _text.text = "NULL";
-        //        ShowInteractCanvas(false);
-        //        return;
-        //    case InteractState.NPC:
-        //        _text.text = "NPC";
-        //        break;
-        //    case InteractState.ITEM:
-        //        _text.text = "Item";
-        //        break;
-        //    case InteractState.NPC_ITEM:
-        //        _text.text = "All";
-        //        break;
-        //}
+
         _text.text = message;
+        _interactButton.sprite = sprite;
         ShowInteractCanvas(true);
     }
 
