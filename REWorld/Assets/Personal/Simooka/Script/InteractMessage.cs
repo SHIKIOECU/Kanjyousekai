@@ -5,9 +5,10 @@ using UnityEngine;
 public class InteractMessage : MonoBehaviour
 {
     #region public変数
-    [Header("インタラクト文")]
+    [Header("インタラクト情報")]
     public string Message;
-    public Vector2 Space;
+    public Sprite ButtonSprite;
+    [System.NonSerialized]public Vector2 Space;
     #endregion
 
     void Awake()
