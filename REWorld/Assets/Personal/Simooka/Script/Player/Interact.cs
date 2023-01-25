@@ -67,7 +67,7 @@ public class Interact : Singleton<Interact>
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_item);
+        //Debug.Log(_item);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -108,6 +108,8 @@ public class Interact : Singleton<Interact>
     private void ShowInteractCanvas(bool value = true)
     {
         _interactCanvas.transform.position = _interactCanvasPos;
+        _npcInteractFrame.enabled= value;
+        _itemInteractFrame.enabled= value;
         _interactCanvas.enabled = value;
         _npcInteractFrame.enabled = value;
         _npcInteractButton.enabled = value;

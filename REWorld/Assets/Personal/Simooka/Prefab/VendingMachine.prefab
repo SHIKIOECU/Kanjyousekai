@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4657413553087736427}
   - component: {fileID: 4657413553087736426}
   - component: {fileID: 286969012050139808}
+  - component: {fileID: 268553215}
   m_Layer: 0
   m_Name: VendingMachine
   m_TagString: Ground
@@ -124,8 +125,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e26cad6fd6c98948b47726b8cd39d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Message: 
-  ButtonSprite: {fileID: 0}
+  NPCMessage: 
+  NPCButtonSprite: {fileID: 0}
+  ItemMessage: "\u30B8\u30E5\u30FC\u30B9\u3092\u8CB7\u3046"
+  ItemButtonSprite: {fileID: 21300000, guid: 861ced4d74cb5974fab6f98ff7829fc0, type: 3}
   _coin: {fileID: 11400000, guid: c87d7b32c1751d74782f53eac04b615b, type: 2}
   _drink: {fileID: 11400000, guid: 0c2aa21d422524d769adb97c3aab3eb2, type: 2}
   _ice: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
+--- !u!61 &268553215
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657413553087736429}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.21}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.608, y: 2.5086124}
+    newSize: {x: 1.608, y: 2.5086124}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.53, y: 0.1}
+  m_EdgeRadius: 0
