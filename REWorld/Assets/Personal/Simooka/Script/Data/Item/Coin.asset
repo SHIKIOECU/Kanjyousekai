@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   _name: Coin
-  _isOn: 0
+  _isOn: 1
   _sprite: {fileID: 21300000, guid: 6259608efde334bafaaed4249582ffc2, type: 3}
+  Count: 1

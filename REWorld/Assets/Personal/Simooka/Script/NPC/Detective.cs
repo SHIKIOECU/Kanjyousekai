@@ -20,16 +20,15 @@ public class Detective : NPCBase,IItem
 
     //アイテム（コイン）フラグ
     [SerializeField]
-    private FlagData _coinFlag;
+    private ItemData _coinFlag;
 
     //雨フラグ
     [Header("雨"),SerializeField]
     private FlagData _rain;
 
     [Header("水分不足")]
-    [SerializeField] private FlagData _coinFlag2;
-    [SerializeField] private FlagData _iceFlag;
-    [SerializeField] private FlagData _drinkFlag;
+    [SerializeField] private ItemData _iceFlag;
+    [SerializeField] private ItemData _drinkFlag;
 
     [Header("感謝")]
     [SerializeField] private float _playerJumpPower;
@@ -66,7 +65,7 @@ public class Detective : NPCBase,IItem
         if (State == DetectiveState.GRATITUDE) return;
 
         //水分不足
-        if (_coinFlag2.IsOn && _iceFlag.IsOn)
+        if ((_coinFlag.IsOn && _iceFlag.IsOn)||_drinkFlag.IsOn)
         {
             State = DetectiveState.INSUFFICIENTMOISTURE;
             return;
@@ -75,8 +74,11 @@ public class Detective : NPCBase,IItem
         //動き終わっていない時
         if (!moved)
         {
-            
-            if (_rain.IsOn) State = DetectiveState.RAIN_MOVE;
+
+            if (_rain.IsOn)
+            {
+                State = DetectiveState.RAIN_MOVE;
+            }
             else State = DetectiveState.MOVE;
             Movement();
         }
@@ -179,7 +181,7 @@ public class Detective : NPCBase,IItem
     {
         if (State == DetectiveState.INSUFFICIENTMOISTURE && _drinkFlag.IsOn)
         {
-            _drinkFlag.SetFlagStatus(false);
+            _drinkFlag.SetItemStatus(false);
             SetNPCData("gratitude");
             State = DetectiveState.GRATITUDE;
 

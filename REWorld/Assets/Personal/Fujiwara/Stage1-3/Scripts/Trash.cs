@@ -5,7 +5,7 @@ using UnityEngine;
 public class Trash : InteractMessage, IItem
 {
     [SerializeField]
-    private FlagData _trash;
+    private ItemData _trash;
 
     [SerializeField]
     AuntController aunt;
@@ -18,7 +18,7 @@ public class Trash : InteractMessage, IItem
     {
         trashcnt = aunt.TrashCount();
         aunt.AuntChangeWord(trashcnt);
-        _trash.SetFlagStatus();
+        _trash.SetItemStatus();
         isGet = true;
         gameObject.SetActive(false);
     }

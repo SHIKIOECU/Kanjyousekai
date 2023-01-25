@@ -18,11 +18,16 @@ public class Interact : Singleton<Interact>
     [SerializeField]private InteractMessage _interactMessage;
     [SerializeField] private Vector2 _plusPos;
 
+    
+
     [SerializeField] private Canvas _interactCanvas;
-    [SerializeField] private SpriteRenderer _interactFrame;
-    [SerializeField] private SpriteRenderer _interactButton;
+    [SerializeField] private SpriteRenderer _npcInteractFrame;
+    [SerializeField] private SpriteRenderer _npcInteractButton;
+    [SerializeField]private TextMeshProUGUI _npcText;
+    [SerializeField] private SpriteRenderer _itemInteractFrame;
+    [SerializeField] private SpriteRenderer _itemInteractButton;
+    [SerializeField] private TextMeshProUGUI _itemText;
     [SerializeField] private Vector2 _interactCanvasPos;
-    [SerializeField]private TextMeshProUGUI _text;
     #endregion
 
     #region public変数
@@ -57,15 +62,16 @@ public class Interact : Singleton<Interact>
     {
         _itemFlagList.InitFlags();
         _interactCanvas.enabled = false;
-        _interactFrame.enabled = false;
-        _interactButton.enabled = false;
-        _text = _interactCanvas.transform.GetComponentInChildren<TextMeshProUGUI>();
+        _npcInteractFrame.enabled = false;
+        _npcInteractButton.enabled = false;
+        _itemInteractFrame.enabled = false;
+        _itemInteractButton.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(_item);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -92,7 +98,8 @@ public class Interact : Singleton<Interact>
         if (_interactMessage == null) return;
         _interactCanvasPos =
             collision.gameObject.GetComponent<InteractMessage>().Space + _plusPos;
-        ChangeInteractCanvas(_interactMessage.Message,_interactMessage.ButtonSprite);
+        ChangeInteractCanvas(_npcText,_npcInteractButton,_interactMessage.NPCMessage,_interactMessage.NPCButtonSprite);
+        ChangeInteractCanvas(_itemText, _itemInteractButton, _interactMessage.ItemMessage, _interactMessage.ItemButtonSprite);
 
     }
 
@@ -106,8 +113,10 @@ public class Interact : Singleton<Interact>
     {
         _interactCanvas.transform.position = _interactCanvasPos;
         _interactCanvas.enabled = value;
-        _interactFrame.enabled= value;
-        _interactButton.enabled= value;
+        _npcInteractFrame.enabled = value;
+        _npcInteractButton.enabled = value;
+        _itemInteractFrame.enabled = value;
+        _itemInteractButton.enabled = value;
     }
 
     //観測
@@ -152,11 +161,11 @@ public class Interact : Singleton<Interact>
         }
     }
 
-    private void ChangeInteractCanvas(string message,Sprite sprite)
+    private void ChangeInteractCanvas(TextMeshProUGUI text,SpriteRenderer spriteRenderer,string message,Sprite sprite)
     {
 
-        _text.text = message;
-        _interactButton.sprite = sprite;
+        text.text = message;
+        spriteRenderer.sprite = sprite;
         ShowInteractCanvas(true);
     }
 

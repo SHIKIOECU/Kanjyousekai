@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efe6a664ab4c2d34fb11370d2c2dbc20, type: 3}
-  m_Name: Drink
+  m_Name: Trash
   m_EditorClassIdentifier: 
-  _name: Drink
+  _name: Trash
   _isOn: 0
-  _sprite: {fileID: 21300000, guid: 7587e17552d8b4134b4785975c80b819, type: 3}
-  Count: 0
+  _sprite: {fileID: 21300000, guid: a24c402c7f838465685a1270477f3214, type: 3}
+  Count: -3

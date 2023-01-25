@@ -5,13 +5,13 @@ using UnityEngine;
 public class Money : MonoBehaviour, IItem
 {
     [SerializeField]
-    private FlagData _money;
+    private ItemData _money;
 
     public bool isGet;
 
     public void ItemAction()
     {
-        _money.SetFlagStatus();
+        _money.SetItemStatus();
         isGet = true;
         gameObject.SetActive(false);
     }

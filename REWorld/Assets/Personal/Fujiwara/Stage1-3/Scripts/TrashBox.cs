@@ -13,6 +13,8 @@ public class TrashBox : MonoBehaviour, IItem
     // Auntの取得
     [SerializeField] AuntController aunt;
 
+    [SerializeField] private ItemData _trash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,10 @@ public class TrashBox : MonoBehaviour, IItem
     {
         if (CheckTrashFlagData()) {
             aunt.isAllPickUp = true;
+            for(int i = 0;i<trashCount;i++)
+            {
+                _trash.SetItemStatus(false);
+            }
             aunt.SetNPCData("happy");
         }
     }

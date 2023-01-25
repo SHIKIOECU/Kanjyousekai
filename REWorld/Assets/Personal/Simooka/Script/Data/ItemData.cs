@@ -16,9 +16,17 @@ public class ItemData : ScriptableObject
     private Sprite _sprite;
     public Sprite Sprite { get { return _sprite; } }
 
+    public int Count;
+
+    private void Awake()
+    {
+        InitItem();
+    }
+
     public void InitItem()
     {
         _isOn = false;
+        Count= 0;
     }
 
     public void SetItemStatus(bool value = true)
@@ -27,13 +35,15 @@ public class ItemData : ScriptableObject
         if (value)
         {
             ItemManager.Instance.AddItem(this);
-            Debug.Log(value);
+            Count++;
         }
         else
         {
             ItemManager.Instance.RemoveItem(this);
-            Debug.Log(this);
+            Count--;
         }
+
+        if(Count>0) _isOn= true;
     }
 
 }

@@ -7,8 +7,8 @@ public class ItemManager : Singleton<ItemManager>
 {
     //[SerializeField] private FlagList _itemList; //アイテムリスト
     [Header("アイテムデータ")]
-/*    //[SerializeField] private int _itemSize; //アイテムデータの数
-    [SerializeField] private ItemData[] _items; //アイテムデータ*/
+    //[SerializeField] private int _itemSize; //アイテムデータの数
+    [SerializeField] private List<ItemData> _items = new List<ItemData>(); //アイテムデータ
 
     [SerializeField] private Image _itemImage;
     [SerializeField] private Transform _itemsTransform;
@@ -20,18 +20,24 @@ public class ItemManager : Singleton<ItemManager>
     [SerializeField] private ItemData _test;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        //_items = new ItemData[_itemSize];
-        //_images = new Image[_size];
+        for (int x = 0; x < _items.Count; x++)
+        {
+            _items[x].InitItem();
+        }
 
-        for(int i = 0; i < _size; i++)
+        for (int i = 0; i < _size; i++)
         {
             var I = Instantiate(_itemImage, _itemsTransform);
             I.transform.position += new Vector3(_imgRange * i, 0, 0);
             _images.Add(I);
         }
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
 
         //_itemList.InitFlags();
 

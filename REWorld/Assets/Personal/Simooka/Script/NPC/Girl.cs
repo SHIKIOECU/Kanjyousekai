@@ -44,6 +44,9 @@ public class Girl : NPCBase,IItem
                 break;
             //喜んでいる場合
             case "happy":
+                _rain.SetFlagStatus(false);
+                detective.IsSetPos = false;
+                detective.moved = false;
                 //虹を出現させる
                 _rainbow.SetActive(true);
                 //Todo:虹を出現させるSEを追加

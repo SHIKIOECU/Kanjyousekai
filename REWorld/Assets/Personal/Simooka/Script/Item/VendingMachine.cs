@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class VendingMachine : InteractMessage,IItem
 {
-    [SerializeField] private FlagData _coin;
-    [SerializeField] private FlagData _drink;
+    [SerializeField] private ItemData _coin;
+    [SerializeField] private ItemData _drink;
+    [SerializeField] private ItemData _ice;
 
     #region IItem
 
     public void ItemAction()
     {
-        if (_coin.IsOn)
+        if (_coin.IsOn&&_ice.IsOn)
         {
-            _coin.SetFlagStatus(false);
-            _drink.SetFlagStatus();
+            _coin.SetItemStatus(false);
+            _drink.SetItemStatus();
         }
     }
     #endregion

@@ -97,7 +97,7 @@ public class IceClerk : NPCBase,IItem
     public void ItemAction()
     {
         //Coinを参照してフラグを切り替える
-        if (coin.IsOn)
+        if (coin.IsOn&&INPCData.Name!="happy")
         {
             coin.SetItemStatus(false);
             _iceFlag.SetItemStatus();

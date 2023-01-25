@@ -6,8 +6,10 @@ public class InteractMessage : MonoBehaviour
 {
     #region public変数
     [Header("インタラクト情報")]
-    public string Message;
-    public Sprite ButtonSprite;
+    public string NPCMessage;
+    public Sprite NPCButtonSprite;
+    public string ItemMessage;
+    public Sprite ItemButtonSprite;
     [System.NonSerialized]public Vector2 Space;
     #endregion
 
@@ -18,6 +20,6 @@ public class InteractMessage : MonoBehaviour
 
     public void ChangeInteractMessage(string word)
     {
-        Message = word;
+        //Message = word;
     }
 }
