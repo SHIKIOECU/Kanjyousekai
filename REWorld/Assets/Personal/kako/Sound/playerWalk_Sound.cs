@@ -48,7 +48,7 @@ public class playerWalk_Sound : MonoBehaviour
     {
         timeElapsed += Time.deltaTime;
         OnMove();
-        if (walkTF && (jumpTF == false))
+        if (walkTF)
         {
             if (timeElapsed > timeInterval)
             {
