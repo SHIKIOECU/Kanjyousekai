@@ -72,7 +72,6 @@ public class IceClerk : NPCBase,IItem
                 jumping = true;
                 _ice.gameObject.SetActive(false);
                 PlayerMove.Instance.jumpPower = jumpPowerUp;
-                SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Open_World);
                 SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Happy);
                 break;
 

@@ -90,10 +90,12 @@ public class FatherController : NPCBase
     public override void AppearanceWorld()
     {
         base.AppearanceWorld();
+        SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Angry);
     }
 
     public override void DisappearanceWorld()
     {
         base.DisappearanceWorld();
+        SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Normal);
     }
 }

@@ -154,6 +154,7 @@ namespace NPC
             //EmotionalWorld.SetActive(false);
             MaskSprite.SetActive(false);
             ChangeWord();
+            SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Close_World);
         }        
     }
 }
