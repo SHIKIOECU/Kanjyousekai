@@ -19,6 +19,11 @@ public class Menu : Singleton<Menu>
     [SerializeField]
     string _titleName;
 
+    private void Awake()
+    {
+        _menuScreen.SetActive(true);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

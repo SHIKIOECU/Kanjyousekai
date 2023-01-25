@@ -7,9 +7,6 @@ using TMPro;
 public class Interact : Singleton<Interact>
 {
     #region private変数
-    //アイテムフラグリスト
-    [SerializeField]
-    private FlagList _itemFlagList;
 
     private IItem _item;
 
@@ -60,7 +57,6 @@ public class Interact : Singleton<Interact>
     // Start is called before the first frame update
     void Start()
     {
-        _itemFlagList.InitFlags();
         ShowInteractCanvas(false);
     }
 
