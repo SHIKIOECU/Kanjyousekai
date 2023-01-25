@@ -74,6 +74,7 @@ MonoBehaviour:
   timeInterval: 0.5
   WalkSE_num: 0
   walkTF: 0
+  jumpTF: 1
 --- !u!114 &6163818227053667717
 MonoBehaviour:
   m_ObjectHideFlags: 0
