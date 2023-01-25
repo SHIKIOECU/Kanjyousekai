@@ -42,7 +42,7 @@ public class TitleManager : MonoBehaviour
         }
     }
 
-    void QuitGame()
+    public void QuitGame()
     {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了
