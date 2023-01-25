@@ -5,35 +5,34 @@ using UnityEngine.UI;
 
 public class ItemManager : Singleton<ItemManager>
 {
-    [SerializeField] private FlagList _itemList; //アイテムリスト
+    //[SerializeField] private FlagList _itemList; //アイテムリスト
     [Header("アイテムデータ")]
-    //[SerializeField] private int _itemSize; //アイテムデータの数
-    //[SerializeField] private ItemData[] _items; //アイテムデータ
+/*    //[SerializeField] private int _itemSize; //アイテムデータの数
+    [SerializeField] private ItemData[] _items; //アイテムデータ*/
 
     [SerializeField] private Image _itemImage;
+    [SerializeField] private Transform _itemsTransform;
     [SerializeField] private float _imgRange;
     [SerializeField] private int _size;
-    [SerializeField] private Image[] _images;
+    [SerializeField] private List<Image> _images=new List<Image>();
 
 
-    [SerializeField] private FlagData _test;
+    [SerializeField] private ItemData _test;
 
-
-    //[SerializeField]private ItemData[] _items; //所持数
 
     // Start is called before the first frame update
     void Start()
     {
         //_items = new ItemData[_itemSize];
-        _images = new Image[_size];
+        //_images = new Image[_size];
 
         for(int i = 0; i < _size; i++)
         {
-            _images[i]=Instantiate(_itemImage,_itemImage.transform.parent);
-            _images[i].transform.position += new Vector3(_imgRange*i, 0, 0);
+            var I = Instantiate(_itemImage, _itemsTransform);
+            I.transform.position += new Vector3(_imgRange * i, 0, 0);
+            _images.Add(I);
         }
 
-        AddItem(_test);
         //_itemList.InitFlags();
 
         //InitItem();
@@ -41,10 +40,10 @@ public class ItemManager : Singleton<ItemManager>
 
     private void Update()
     {
-        
+
     }
 
-    private void InitItem()
+/*    private void InitItem()
     {
         for (int i = 0; i < _itemList.Flags.Count; i++)
         {
@@ -53,46 +52,25 @@ public class ItemManager : Singleton<ItemManager>
             data.Count = 0;
             //_items[i].Add(data);
         }
-    }
+    }*/
 
-<<<<<<< HEAD
-=======
-    public void AddItemCount(FlagData itemFlag,int count)
-    {
-        for(int i = 0; i < _items[i].Count; i++)
-        {
-            if (_items[i].Name == itemFlag.name)
-            {
-                var item = _items[i];
-                item.Count += count;
-                if (item.Count < 0) break;
-                _items[i] = item;
-                break;
-            }
-        }
-    }
-
->>>>>>> feature/UI/YamaneKuta
     /// <summary>
     /// itemFlagの名前と同じアイテムデータを追加する
     /// </summary>
-    /// <param name="itemFlag"></param>
-    public void AddItem(FlagData itemFlag)
+    /// <param name="item"></param>
+    public void AddItem(ItemData item)
     {
-        for(int i = 0; i < _images.Length; i++)
+        for(int i = 0; i < _images.Count; i++)
         {
-            if (_images[i].GetComponentInChildren<Image>().sprite==null)
+            if (_images[i].transform.GetChild(0).GetComponent<Image>().sprite==null)
             {
-<<<<<<< HEAD
-                _images[i].GetComponentInChildren<Image>().gameObject.name = itemFlag.name;
-                //_images[i].GetComponentInChildren<Image>().sprite= itemFlag.name;
-                return;
-=======
-                _items[i].Name = itemFlag.name;
-                _images[i].sprite = _items[i].Sprite;
+                _images[i].GetComponentInChildren<Image>().gameObject.name = item.Name;
+                //_images[i].transform.GetChild(0).GetComponent<Image>().sprite= itemFlag.name;
+                //_items[i].Name = itemFlag.name;
+                _images[i].transform.GetChild(0).GetComponent<Image>().sprite = item.Sprite;
+                _images[i].transform.GetChild(0).GetComponent<Image>().color=new Color(1,1,1,1);
 
-                break;
->>>>>>> feature/UI/YamaneKuta
+                return;
             }
         }
     }
@@ -100,31 +78,20 @@ public class ItemManager : Singleton<ItemManager>
     /// <summary>
     /// itemFlagの名前と同じアイテムデータを除去する
     /// </summary>
-    /// <param name="itemFlag"></param>
-    public void RemoveItem(FlagData itemFlag)
+    /// <param name="item"></param>
+    public void RemoveItem(ItemData item)
     {
-        for (int i = 0; i < _images.Length; i++)
+        for (int i = 0; i < _images.Count; i++)
         {
-            if (_images[i].GetComponentInChildren<Image>().sprite != null)
+            if (_images[i].transform.GetChild(0).GetComponent<Image>().sprite != null
+                && _images[i].GetComponentInChildren<Image>().gameObject.name == item.Name)
             {
-<<<<<<< HEAD
-                _images[i].GetComponentInChildren<Image>().sprite = null;
-                return;
-=======
-                _items[i].Name = null;
-                _images[i].sprite = null;
+                _images[i].GetComponentInChildren<Image>().gameObject.name = "NONE";
+                _images[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
+                _images[i].transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 0);
 
-                break;
->>>>>>> feature/UI/YamaneKuta
+                return;
             }
         }
     }
-}
-
-[System.Serializable]
-public struct ItemData
-{
-    public string Name;
-    public int Count;
-    public Sprite Sprite;
 }

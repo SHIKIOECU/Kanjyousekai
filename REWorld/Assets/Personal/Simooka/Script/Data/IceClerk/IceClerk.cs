@@ -23,7 +23,7 @@ public class IceClerk : NPCBase,IItem
 
     //アイテムフラグ（アイス）
     [SerializeField]
-    private FlagData _iceFlag;
+    private ItemData _iceFlag;
 
     //投げる速度
     [SerializeField]
@@ -31,7 +31,7 @@ public class IceClerk : NPCBase,IItem
 
     //アイテムフラグ（コイン）
     [SerializeField]
-    private FlagData coin;
+    private ItemData coin;
 
     //ジャンプできるようになったかどうか
     public bool jumping = false;
@@ -100,8 +100,8 @@ public class IceClerk : NPCBase,IItem
         //Coinを参照してフラグを切り替える
         if (coin.IsOn)
         {
-            coin.SetFlagStatus(false);
-            _iceFlag.SetFlagStatus();
+            coin.SetItemStatus(false);
+            _iceFlag.SetItemStatus();
 
             SetNPCData("happy");
 

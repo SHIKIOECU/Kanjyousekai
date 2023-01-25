@@ -151,7 +151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1880745303201055189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1286790854194758537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -344,9 +344,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7355056207789562529}
-  m_Layer: 6
+  - component: {fileID: 2037426861}
+  m_Layer: 0
   m_Name: TargetObject
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -359,13 +360,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764227517555414362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.349, y: -0.115, z: 0}
+  m_LocalPosition: {x: 0.44, y: -0.105, z: 0}
   m_LocalScale: {x: 0.05208333, y: 0.05208333, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3357659724623026950}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2037426861
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764227517555414362}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.021396097}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.058573715}
+  m_EdgeRadius: 0
 --- !u!1 &2084032813732760547
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2130734505241833042
 RectTransform:
   m_ObjectHideFlags: 0
@@ -434,8 +461,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 850ca101617764fb6b3c83ea30279883, type: 2}
-  m_sharedMaterial: {fileID: 2178736681145508495, guid: 850ca101617764fb6b3c83ea30279883, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -719,7 +746,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3357659723289649127}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.46, y: -2.5, z: 0}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 1
@@ -833,13 +860,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b01f42bf1124b579ff3445436adf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Message: 
-  Space: {x: 0, y: 0}
+  Message: "G\u3092\u62BC\u3057\u3066\u306D\uFF01\uFF01"
+  ButtonSprite: {fileID: 0}
   _nPCData: {fileID: 11400000, guid: 85d796fc3207145d6a1d7491f0aea4fa, type: 2}
   _emotionalWorld: {fileID: 3357659724623026951}
   _nPC: {fileID: 0}
   _words: {fileID: 1186211358099325264}
-  _wordData: {fileID: 0}
+  _wordData: {fileID: 11400000, guid: 6db6ec7800ee24999a497b396a23dcc0, type: 2}
   Animator: {fileID: 0}
   State: 0
   _ice: {fileID: 3357659724031626394}
@@ -847,7 +874,7 @@ MonoBehaviour:
   _iceScr: {fileID: 3357659724031626395}
   _iceFlag: {fileID: 11400000, guid: 230986764582c489b9ff448ddbd3f4ce, type: 2}
   _slowSpeed: 10
-  coin: {fileID: 11400000, guid: 83836e15784ce432d917aa7d5cfc151b, type: 2}
+  coin: {fileID: 11400000, guid: c87d7b32c1751d74782f53eac04b615b, type: 2}
   jumping: 0
   jumpPowerUp: 12
 --- !u!95 &3357659723289649124
@@ -5930,10 +5957,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3357659724031626392}
-  bigIce1: {fileID: 0}
+  bigIce1: {fileID: 21300000, guid: 8b4935bc94f4b47688b4c5fb48e7278b, type: 3}
   bigIce2: {fileID: 21300000, guid: f7379e0a003ac406498f4bcc14487f70, type: 3}
-  timeToMelt: 0
-  speed: 0
+  timeToMelt: 3
+  speed: 0.0005
   fallSpeed: 0
   countDown: 0
   isMelt: 0
@@ -5976,72 +6003,70 @@ PolygonCollider2D:
       - {x: 1.225, y: 0.099999994}
       - {x: 1.2149999, y: 0.14}
       - {x: 1.2049999, y: 0.16499999}
-      - {x: 1.175, y: 0.22999999}
+      - {x: 1.1712116, y: 0.19590601}
       - {x: 1.13, y: 0.29}
-      - {x: 1.0649999, y: 0.355}
+      - {x: 1.0953059, y: 0.32469413}
       - {x: 1.04, y: 0.375}
       - {x: 1, y: 0.39499998}
-      - {x: 0.96, y: 0.41}
+      - {x: 0.96, y: 0.4024235}
       - {x: 0.90999997, y: 0.42499998}
-      - {x: 0.885, y: 0.42999998}
-      - {x: 0.84499997, y: 0.435}
-      - {x: 0.72999996, y: 0.435}
-      - {x: 0.69, y: 0.42999998}
-      - {x: 0.645, y: 0.42}
-      - {x: 0.615, y: 0.41}
-      - {x: 0.58, y: 0.39499998}
+      - {x: 0.9077295, y: 0.41484708}
+      - {x: 0.86015296, y: 0.4160589}
+      - {x: 0.82849365, y: 0.41227067}
+      - {x: 0.7506114, y: 0.41105887}
+      - {x: 0.6942468, y: 0.39348242}
+      - {x: 0.645306, y: 0.3796942}
+      - {x: 0.595153, y: 0.33817658}
       - {x: 0.55, y: 0.38}
-      - {x: 0.53499997, y: 0.385}
-      - {x: 0.5390741, y: 0.38174072}
-      - {x: 0.5480371, y: 0.37011102}
-      - {x: 0.42133373, y: 0.3598889}
-      - {x: 0.34180793, y: 0.34935665}
-      - {x: 0.39714852, y: 0.35488895}
-      - {x: 0.30737075, y: 0.34407416}
-      - {x: 0.24166699, y: 0.32744446}
-      - {x: 0.16096322, y: 0.30581483}
-      - {x: 0.017926093, y: 0.28418517}
-      - {x: -0.051148053, y: 0.26255554}
-      - {x: -0.15196285, y: 0.24918517}
-      - {x: -0.20777768, y: 0.2275555}
-      - {x: -0.2884814, y: 0.21174072}
-      - {x: -0.3602222, y: 0.18674067}
-      - {x: -0.45674056, y: 0.17092596}
-      - {x: -0.64812946, y: 0.12598604}
-      - {x: -0.7309313, y: 0.10287708}
-      - {x: -0.83162963, y: 0.074296236}
-      - {x: -0.91962284, y: 0.05025724}
-      - {x: -1.0233703, y: 0.030925848}
-      - {x: -1.0791851, y: 0.020925844}
-      - {x: -1.1242962, y: 0.005925847}
-      - {x: -1.1527777, y: -0.012444417}
-      - {x: -1.1104443, y: -0.028259221}
-      - {x: -1.0988146, y: -0.037444416}
-      - {x: -1.0738146, y: -0.034185193}
-      - {x: -1.0733702, y: -0.041740652}
-      - {x: -1.0233703, y: -0.045925844}
-      - {x: -0.98918504, y: -0.055925973}
-      - {x: -0.9109259, y: -0.06592585}
-      - {x: -0.87174064, y: -0.07592585}
-      - {x: -0.7909258, y: -0.09674065}
-      - {x: -0.76837033, y: -0.10674065}
-      - {x: -0.70755553, y: -0.11674078}
-      - {x: -0.5659258, y: -0.14674066}
-      - {x: -0.42499998, y: -0.18092585}
-      - {x: -0.32348144, y: -0.20755556}
-      - {x: -0.15579185, y: -0.25383916}
-      - {x: -0.03902513, y: -0.28180555}
-      - {x: 0.007444497, y: -0.28592587}
-      - {x: 0.05396306, y: -0.29755548}
-      - {x: 0.112111166, y: -0.315}
-      - {x: 0.19303712, y: -0.32755572}
-      - {x: 0.29303712, y: -0.35255572}
-      - {x: 0.36629647, y: -0.37418532}
-      - {x: 0.4530371, y: -0.38255543}
-      - {x: 0.5072223, y: -0.38092595}
-      - {x: 0.51314825, y: -0.39755544}
-      - {x: 0.5316297, y: -0.3975554}
-      - {x: 0.5374444, y: -0.39174062}
+      - {x: 0.5236351, y: 0.33954126}
+      - {x: 0.525153, y: 0.38227066}
+      - {x: 0.45878837, y: 0.3709059}
+      - {x: 0.18095213, y: 0.3208088}
+      - {x: 0.11665784, y: 0.30375496}
+      - {x: 0.051211752, y: 0.2946942}
+      - {x: 0.02121175, y: 0.28590602}
+      - {x: -0.006364744, y: 0.28848243}
+      - {x: -0.09955269, y: 0.26454127}
+      - {x: -0.16607031, y: 0.24696477}
+      - {x: -0.21228206, y: 0.22938839}
+      - {x: -0.24091733, y: 0.22696477}
+      - {x: -0.3359174, y: 0.19817665}
+      - {x: -0.4616819, y: 0.16923541}
+      - {x: -0.57365805, y: 0.14787081}
+      - {x: -0.70275223, y: 0.1152943}
+      - {x: -0.83230495, y: 0.07498856}
+      - {x: -0.9791054, y: 0.050600156}
+      - {x: -0.9803491, y: 0.053927656}
+      - {x: -1.0728554, y: 0.025710735}
+      - {x: -0.9767583, y: 0.04714457}
+      - {x: -1.0305421, y: 0.022119004}
+      - {x: -1.0774727, y: -0.00846295}
+      - {x: -1.0221686, y: -0.037825145}
+      - {x: -0.9585293, y: -0.05643383}
+      - {x: -0.7609946, y: -0.103574395}
+      - {x: -0.7018961, y: -0.116126016}
+      - {x: -0.9558721, y: -0.06379947}
+      - {x: -1.0003247, y: -0.094650745}
+      - {x: -0.98645824, y: -0.057609394}
+      - {x: -1.0167831, y: -0.09321691}
+      - {x: -0.850514, y: -0.13662927}
+      - {x: -0.7062158, y: -0.17430511}
+      - {x: -0.6063724, y: -0.20037386}
+      - {x: -0.94, y: -0.095}
+      - {x: -0.895, y: -0.105}
+      - {x: -0.82, y: -0.12}
+      - {x: -0.78, y: -0.13}
+      - {x: -0.7151458, y: -0.14492707}
+      - {x: -0.59499997, y: -0.17}
+      - {x: -0.42499998, y: -0.21}
+      - {x: -0.37, y: -0.225}
+      - {x: -0.010000002, y: -0.315}
+      - {x: 0.099999994, y: -0.345}
+      - {x: 0.19999999, y: -0.37}
+      - {x: 0.25, y: -0.38}
+      - {x: 0.35999998, y: -0.39999998}
+      - {x: 0.42, y: -0.41}
+      - {x: 0.45499998, y: -0.415}
       - {x: 0.52, y: -0.415}
       - {x: 0.53499997, y: -0.405}
       - {x: 0.55, y: -0.37}
@@ -11286,6 +11311,14 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 36
       objectReference: {fileID: 0}
+    - target: {fileID: 6577370572345901438, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6577370572345901438, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
 --- !u!224 &197873308265907079 stripped
@@ -11450,6 +11483,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fukidasi
       objectReference: {fileID: 0}
+    - target: {fileID: 4330710196300543473, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6577370572345901438, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
       propertyPath: m_text
       value: 
@@ -11461,6 +11498,14 @@ PrefabInstance:
     - target: {fileID: 6577370572345901438, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
       propertyPath: m_fontSizeBase
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6577370572345901438, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6577370572345901438, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
@@ -11607,6 +11652,14 @@ PrefabInstance:
     - target: {fileID: 6577370572345901438, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
       propertyPath: m_fontSizeBase
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6577370572345901438, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6577370572345901438, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a3fa8936ed249f8a369b663ecc1c7d, type: 3}
