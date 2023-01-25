@@ -16,6 +16,10 @@ public class EffectChange : MonoBehaviour
     [SerializeField]
     GameObject After_IceClerk;
 
+    [Header("カンジョウ世界消滅時のエフェクト")]
+    [SerializeField]
+    GameObject DisappearEffect;
+
     IceClerk iceClerk;
 
     //private bool kanjou;
@@ -28,6 +32,7 @@ public class EffectChange : MonoBehaviour
     {
         iceClerk = GetComponent<IceClerk>();
 
+        DisappearEffect.SetActive(false);
         //kanjou = Interact.instance.isKansoku;
     }
 
@@ -36,6 +41,7 @@ public class EffectChange : MonoBehaviour
     {
         if (EmotionalWorld.activeSelf == true)
         {
+            DisappearEffect.SetActive(false);
             if (iceClerk.INPCData.Name == "happy")
             {
                 Before_IceClerk.SetActive(false);
@@ -49,6 +55,7 @@ public class EffectChange : MonoBehaviour
         }
         else
         {
+            DisappearEffect.SetActive(true);
             Before_IceClerk.SetActive(false);
             After_IceClerk.SetActive(false);
         }

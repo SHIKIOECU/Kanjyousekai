@@ -12,6 +12,10 @@ public class Detective_EffectChange : MonoBehaviour
     [SerializeField]
     GameObject After_Detective;
 
+    [Header("カンジョウ世界消滅時のエフェクト")]
+    [SerializeField]
+    GameObject DisappearEffect;
+
     Detective detective;
     private bool IsMove;
 
@@ -25,6 +29,7 @@ public class Detective_EffectChange : MonoBehaviour
     {
         detective = GetComponent<Detective>();
 
+        DisappearEffect.SetActive(false);
         //kanjou = Interact.instance.isKansoku;
     }
 
@@ -35,6 +40,7 @@ public class Detective_EffectChange : MonoBehaviour
 
         if (EmotionalWorld.activeSelf == true)
         {
+            DisappearEffect.SetActive(false);
             if (detective.INPCData.Name == "basic" && IsMove == true)
             {
                 Before_Detective.SetActive(true);
@@ -48,6 +54,7 @@ public class Detective_EffectChange : MonoBehaviour
         }
         else
         {
+            DisappearEffect.SetActive(true);
             Before_Detective.SetActive(false);
             After_Detective.SetActive(false);
         }
