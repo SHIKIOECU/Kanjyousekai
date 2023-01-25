@@ -5112,7 +5112,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774869, y: 1}
+    m_SensorSize: {x: 1.7794118, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7852,7 +7852,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010885407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3862677, y: -1.05166, z: -10}
+  m_LocalPosition: {x: -4.378573, y: -1.05166, z: -10}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8344,6 +8344,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1385612121615966285, guid: 406b7cc4688c24a449d87b0dd5ec3cd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038688766408309042, guid: 406b7cc4688c24a449d87b0dd5ec3cd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038688766476753024, guid: 406b7cc4688c24a449d87b0dd5ec3cd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038688766936025534, guid: 406b7cc4688c24a449d87b0dd5ec3cd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038688767031371838, guid: 406b7cc4688c24a449d87b0dd5ec3cd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038688767330838981, guid: 406b7cc4688c24a449d87b0dd5ec3cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4038688767446991938, guid: 406b7cc4688c24a449d87b0dd5ec3cd7, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -8430,6 +8454,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4038688767446991942, guid: 406b7cc4688c24a449d87b0dd5ec3cd7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038688767881559709, guid: 406b7cc4688c24a449d87b0dd5ec3cd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919255186164406242, guid: 406b7cc4688c24a449d87b0dd5ec3cd7, type: 3}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
