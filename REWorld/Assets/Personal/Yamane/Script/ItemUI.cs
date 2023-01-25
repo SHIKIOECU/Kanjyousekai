@@ -19,23 +19,25 @@ public class ItemUI : MonoBehaviour
     private bool isCoinGet;
     private bool isIceGet;
 
+    [SerializeField]
+    private List<string> ItemList;
+
     // Start is called before the first frame update
     void Start()
     {
         _coinUI.SetActive(false);
         _iceUI.SetActive(false);
+
+        isCoinGet = _coin.IsOn;
+        isIceGet = _ice.IsOn;
     }
 
     // Update is called once per frame
     void Update()
     {
-        isCoinGet = _coin.IsOn;
-        isIceGet = _ice.IsOn;
-
         if(isCoinGet == true)
         {
             _coinUI.SetActive(true);
-            _iceUI.SetActive(false);
         }
         else if(isIceGet == true)
         {
@@ -47,5 +49,7 @@ public class ItemUI : MonoBehaviour
             _coinUI.SetActive(false);
             _iceUI.SetActive(false);
         }
+
+
     }
 }

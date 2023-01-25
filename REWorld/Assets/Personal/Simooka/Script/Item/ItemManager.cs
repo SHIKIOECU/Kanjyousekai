@@ -46,28 +46,28 @@ public class ItemManager : Singleton<ItemManager>
 
     private void InitItem()
     {
-        //for (int i = 0; i < _itemList.Flags.Count; i++)
-        //{
-        //    var data = new ItemData();
-        //    data.Name = _itemList.Flags[i].name;
-        //    //data.Count = 0;
-        //    _items.Add(data);
-        //}
+        for (int i = 0; i < _itemList.Flags.Count; i++)
+        {
+            var data = new ItemData();
+            data.Name = _itemList.Flags[i].name;
+            data.Count = 0;
+            //_items[i].Add(data);
+        }
     }
 
     public void AddItemCount(FlagData itemFlag,int count)
     {
-        //for(int i = 0; i < _items.Count; i++)
-        //{
-        //    if (_items[i].Name == itemFlag.name)
-        //    {
-        //        var item = _items[i];
-        //        item.Count += count;
-        //        if (item.Count < 0) break;
-        //        _items[i] = item;
-        //        break;
-        //    }
-        //}
+        for(int i = 0; i < _items[i].Count; i++)
+        {
+            if (_items[i].Name == itemFlag.name)
+            {
+                var item = _items[i];
+                item.Count += count;
+                if (item.Count < 0) break;
+                _items[i] = item;
+                break;
+            }
+        }
     }
 
     /// <summary>
@@ -81,6 +81,8 @@ public class ItemManager : Singleton<ItemManager>
             if (_items[i].Name==null)
             {
                 _items[i].Name = itemFlag.name;
+                _images[i].sprite = _items[i].Sprite;
+
                 break;
             }
         }
@@ -97,6 +99,8 @@ public class ItemManager : Singleton<ItemManager>
             if (_items[i].Name == itemFlag.name)
             {
                 _items[i].Name = null;
+                _images[i].sprite = null;
+
                 break;
             }
         }
@@ -107,6 +111,6 @@ public class ItemManager : Singleton<ItemManager>
 public struct ItemData
 {
     public string Name;
-    //public int Count;
+    public int Count;
     public Sprite Sprite;
 }
