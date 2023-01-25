@@ -29,8 +29,6 @@ public class AuntController : NPCBase, IItem
     // 変更後の移動速度
     [SerializeField] float playerMoveSpeedDown;
 
-    [SerializeField] TextMeshProUGUI aunt_text;
-
     // 達成項目のフラグの取得
     [SerializeField] FlagData ChallengeFlag;
 
@@ -56,7 +54,8 @@ public class AuntController : NPCBase, IItem
     void Update()
     {
         if (isAllPickUp && !money.GetComponent<Money>().isGet) money.SetActive(true);
-        if (trashCount >= 3) aunt_text.text = "全部拾ってくれてありがとう";
+        if (trashCount >= 3) Words.text = "全部拾ってくれてありがとう";
+        Words.fontSize = 2;
     }
 
     public int TrashCount()
@@ -67,7 +66,7 @@ public class AuntController : NPCBase, IItem
 
     public void AuntChangeWord(int remaining_num)
     {
-        aunt_text.text = "あと" + (3-remaining_num).ToString() + "個拾って";
+        Words.text = "あと" + (3-remaining_num).ToString() + "個拾って";
     }
 
     public override int WordTerm()

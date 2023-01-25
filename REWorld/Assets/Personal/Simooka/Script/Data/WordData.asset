@@ -15,4 +15,4 @@ MonoBehaviour:
   WordStates:
   - Name: Normal
     TextBoxSize: {x: 1, y: 1}
-    FontSize: 16
+    FontSize: 2

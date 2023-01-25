@@ -61,11 +61,7 @@ public class Interact : Singleton<Interact>
     void Start()
     {
         _itemFlagList.InitFlags();
-        _interactCanvas.enabled = false;
-        _npcInteractFrame.enabled = false;
-        _npcInteractButton.enabled = false;
-        _itemInteractFrame.enabled = false;
-        _itemInteractButton.enabled = false;
+        ShowInteractCanvas(false);
     }
 
     // Update is called once per frame

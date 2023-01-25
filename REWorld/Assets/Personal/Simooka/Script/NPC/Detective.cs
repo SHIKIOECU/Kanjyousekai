@@ -81,6 +81,7 @@ public class Detective : NPCBase,IItem
             }
             else State = DetectiveState.MOVE;
             Movement();
+            Space = transform.position;
         }
 
         
