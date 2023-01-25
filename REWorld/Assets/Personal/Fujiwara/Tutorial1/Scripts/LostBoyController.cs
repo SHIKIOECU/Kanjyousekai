@@ -23,8 +23,16 @@ public class LostBoyController : NPCBase
     // 水の取得
     [SerializeField] GameObject[] waters;
 
+    // spriteの取得
+    //Sprite lostboySprite;
+    [SerializeField] Sprite fatherSprite_jump;
+    [SerializeField] Sprite[] lostboySprites;
+
+    SpriteRenderer lostboySprite;
+    SpriteRenderer fatherSprite;
+
     // ボートの移動先のポジション
-    private Vector3 moveToPos = new Vector3(0, 3.5f, 0);
+    private Vector3 moveToPos = new Vector3(0, 3.13f, 0);
     private Vector3 defaultPos;
 
     // 少年を観測したかどうか
@@ -44,6 +52,11 @@ public class LostBoyController : NPCBase
         // ボートの現在の位置を取得
         defaultPos = boat.transform.position;
         foreach (GameObject water in waters) water.SetActive(false);
+
+        lostboySprite = gameObject.GetComponent<SpriteRenderer>();
+        lostboySprite.sprite = lostboySprites[0];
+
+        fatherSprite = father.gameObject.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -65,18 +78,22 @@ public class LostBoyController : NPCBase
 
     public override void AppearanceWorld()
     {
-        // 感情世界の表示
-        base.AppearanceWorld();
-
         switch (isReunion)
         {
             case true:
+                SetNPCData("power");
+                lostboySprite.sprite = lostboySprites[4];
+                //fatherSprite.sprite = fatherSprite_jump;
+
                 rainbow.SetActive(true);
                 SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Happy);
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Rainbow);
                 SoundManagerA.Instance.stopBGM(5);
                 break;
             case false:
+                SetNPCData("lost");
+                lostboySprite.sprite = lostboySprites[1];
+
                 // boatの位置を移動させて水を出現させる
                 boat.transform.position = moveToPos;
                 foreach (GameObject water in waters) water.SetActive(true);
@@ -86,10 +103,10 @@ public class LostBoyController : NPCBase
                 break;
         }
 
-        // LostGirlの状態を変化させる
-        SetNPCData("cry");
-
         if (father.GetComponent<FatherController>().isFather) isFather = true;
+
+        // 感情世界の表示
+        base.AppearanceWorld();
     }
 
     public override void ChangeWorld()
@@ -99,18 +116,23 @@ public class LostBoyController : NPCBase
 
     public override void DisappearanceWorld()
     {
-        // 感情世界の削除
-        base.DisappearanceWorld();
-
         switch (isReunion)
         {
             case true:
+                SetNPCData("reunion");
+                lostboySprite.sprite = lostboySprites[3];
+
                 rainbow.SetActive(false);
                 boat.transform.position = defaultPos;
                 foreach (GameObject water in waters) water.SetActive(false);
                 SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Normal);
+
+                father.SetActive(false);
                 break;
             case false:
+                SetNPCData("basic");
+                lostboySprite.sprite = lostboySprites[0];
+
                 // boatの位置を元の位置に戻す
                 boat.transform.position = defaultPos;
                 foreach (GameObject water in waters) water.SetActive(false);
@@ -120,7 +142,7 @@ public class LostBoyController : NPCBase
                 break;
         }
 
-        // LostGirlの状態を変化させる
-        SetNPCData("basic");
+        // 感情世界の削除
+        base.DisappearanceWorld();
     }
 }
