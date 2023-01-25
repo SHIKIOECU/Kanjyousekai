@@ -46,6 +46,7 @@ public class SoundManagerA : MonoBehaviour
     public AudioClip[] SEClips = new AudioClip[13];
         
     AudioSource[] sounds;
+    AudioSource[] mysounds;
 
     private int[] stageBGM = new int[2];
 
@@ -60,6 +61,7 @@ public class SoundManagerA : MonoBehaviour
     private void Start()
     {
         sounds = transform.parent.GetComponents<AudioSource>();
+        mysounds = GetComponents<AudioSource>();
         //PlaySound();
     }
 
@@ -81,6 +83,11 @@ public class SoundManagerA : MonoBehaviour
     public void PlaySE(AudioClip SEnumber)
     {
         sounds[0].PlayOneShot(SEnumber);
+    }
+
+    public void PlaySE2(AudioClip SEnumber)
+    {
+        mysounds[0].PlayOneShot(SEnumber);
     }
 
     public void PlayBGM(int BGMnumber)

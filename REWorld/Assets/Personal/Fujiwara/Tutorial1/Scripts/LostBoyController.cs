@@ -72,11 +72,17 @@ public class LostBoyController : NPCBase
         {
             case true:
                 rainbow.SetActive(true);
+                SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Happy);
+                SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Rainbow);
+                SoundManagerA.Instance.stopBGM(5);
                 break;
             case false:
                 // boatの位置を移動させて水を出現させる
                 boat.transform.position = moveToPos;
                 foreach (GameObject water in waters) water.SetActive(true);
+                SoundManagerA.Instance.PlayBGM(5);
+                SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Sad);
+                playerWalk_Sound.InstanceWalk.WalkSE_Change(playerWalk_Sound.WalkSE_List.Rain);
                 break;
         }
 
@@ -102,11 +108,15 @@ public class LostBoyController : NPCBase
                 rainbow.SetActive(false);
                 boat.transform.position = defaultPos;
                 foreach (GameObject water in waters) water.SetActive(false);
+                SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Normal);
                 break;
             case false:
                 // boatの位置を元の位置に戻す
                 boat.transform.position = defaultPos;
                 foreach (GameObject water in waters) water.SetActive(false);
+                SoundManagerA.Instance.stopBGM(5);
+                SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Normal);
+                playerWalk_Sound.InstanceWalk.WalkSE_Change(playerWalk_Sound.WalkSE_List.HardFloor);
                 break;
         }
 
