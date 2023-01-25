@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class ButtonController : Singleton<ButtonController>
 {
@@ -30,6 +31,7 @@ public class ButtonController : Singleton<ButtonController>
     // Update is called once per frame
     void Update()
     {
+        /*
         if (UnityEngine.Input.GetKeyUp(KeyCode.A) || UnityEngine.Input.GetKeyUp(KeyCode.LeftArrow))
         {
             if (nowPage != 0) BackPage();
@@ -49,6 +51,7 @@ public class ButtonController : Singleton<ButtonController>
         {
             SceneManager.LoadScene("TitleScreen");
         }
+        */
     }
 
     // 初期化
@@ -106,12 +109,14 @@ public class ButtonController : Singleton<ButtonController>
 
     public void NextPage()
     {
+        if (nowPage == 1) return;
         nowPage++;       
         PageChange(nowPage);
     }
 
     public void BackPage()
     {
+        if (nowPage == 0) return;
         nowPage--;
         PageChange(nowPage);
     }

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Input_FrontEnd : MonoBehaviour
 {
     #region 変数宣言
-
+    [Tooltip("タイトルシーンのみ必要"), SerializeField] TitleManager _titleManager;
     #endregion
 
     private void Start()
@@ -34,6 +34,7 @@ public class Input_FrontEnd : MonoBehaviour
     //メニュー選択
     public void OnMenuSelect(InputAction.CallbackContext context)
     {
+        Debug.Log("select");
         if (context.phase == InputActionPhase.Started)
         {
             var x = context.ReadValue<Vector2>();
@@ -43,26 +44,43 @@ public class Input_FrontEnd : MonoBehaviour
 
     }
 
-    //メニュー決定
-    public void OnMenuSubmit(InputAction.CallbackContext context)
+    //ステージセレクトからタイトルへ
+    public void OnSelectToStage(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
         {
-            switch (SceneManager.GetActiveScene().name)
-            {
-                case "TitleScreen":
-                    //todo:セレクトシーンへの遷移
-                    SceneManager.LoadScene("StageSelect");
-                    break;
-                case "StageSelect":
-                    //セレクトシーン
-                    ButtonController.Instance.SceneMove();
-                    break;
-            }
-
+            ButtonController.Instance.SceneMove();
         }
 
     }
+
+    //タイトルからステージセレクトへ
+    public void OnTitleToSelect(InputAction.CallbackContext context)
+    {
+        Debug.Log("push");
+        if (context.phase == InputActionPhase.Started)
+        {
+            Debug.Log("start");
+            _titleManager.StartFade();
+        }
+    }
+
+    public void OnSelectToTitle(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            SceneManager.LoadScene("TitleScreen");
+        }
+    }
+
+    public void OnQuitGame(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            _titleManager.QuitGame();
+        }
+    }
+
     #endregion
 
     private void Update()
