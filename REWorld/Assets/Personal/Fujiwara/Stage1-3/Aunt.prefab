@@ -124,6 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41278614ea2c480a858f484270124d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPCMessage: 
+  NPCButtonSprite: {fileID: 0}
+  ItemMessage: "\u62FE\u3046"
+  ItemButtonSprite: {fileID: 0}
   _money: {fileID: 11400000, guid: c87d7b32c1751d74782f53eac04b615b, type: 2}
   isGet: 0
 --- !u!1 &750787488177245664
@@ -5631,8 +5635,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 475ed0ee1d2a846518ca19a4ec530788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Message: 
-  ButtonSprite: {fileID: 0}
+  NPCMessage: 
+  NPCButtonSprite: {fileID: 0}
+  ItemMessage: 
+  ItemButtonSprite: {fileID: 0}
   _nPCData: {fileID: 11400000, guid: b4116054a98e944b58fdae982a42568c, type: 2}
   _emotionalWorld: {fileID: 975884781845617179}
   _nPC: {fileID: 4169161137740067910}
@@ -5646,7 +5652,6 @@ MonoBehaviour:
   before_world: {fileID: 750787488177245664}
   after_world: {fileID: 2749299366752665081}
   playerMoveSpeedDown: 0
-  aunt_text: {fileID: 5882367279326994838}
   ChallengeFlag: {fileID: 11400000, guid: 4fe6b6690396a4ce4a04545e33c7dcdb, type: 2}
   isAllPickUp: 0
 --- !u!1 &8102766008541328707

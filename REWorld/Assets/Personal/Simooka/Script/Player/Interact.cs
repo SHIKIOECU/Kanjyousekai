@@ -42,28 +42,16 @@ public class Interact : Singleton<Interact>
     //ボタンが押されているか
     public bool OnGet;
 
-    public enum InteractState
-    {
-        NONE,
-        ITEM,
-        NPC,NPC_ITEM
-    }
-
-    public InteractState State;
-
     #endregion
 
-
-    // Start is called before the first frame update
     void Start()
     {
         ShowInteractCanvas(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //Debug.Log(_item);
+        Debug.Log(_item);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -81,17 +69,17 @@ public class Interact : Singleton<Interact>
         _interactMessage = collision.GetComponent<InteractMessage>();
         Debug.Log(_interactMessage);
 
-        GetItem();
-
-        //観測
-        Kansoku();
-
         //ChangeState();
         if (_interactMessage == null) return;
         _interactCanvasPos =
             collision.gameObject.GetComponent<InteractMessage>().Space + _plusPos;
         ChangeInteractCanvas(_npcText,_npcInteractButton,_interactMessage.NPCMessage,_interactMessage.NPCButtonSprite);
         ChangeInteractCanvas(_itemText, _itemInteractButton, _interactMessage.ItemMessage, _interactMessage.ItemButtonSprite);
+
+        GetItem();
+
+        //観測
+        Kansoku();
 
     }
 
@@ -155,19 +143,11 @@ public class Interact : Singleton<Interact>
         }
     }
 
+    //インタラクトの内容を変更
     private void ChangeInteractCanvas(TextMeshProUGUI text,SpriteRenderer spriteRenderer,string message,Sprite sprite)
     {
-
         text.text = message;
         spriteRenderer.sprite = sprite;
         ShowInteractCanvas(true);
-    }
-
-    private void ChangeState()
-    {
-        if (_NPC == null && _item == null) State = InteractState.NONE;
-        else if (_NPC == null) State = InteractState.ITEM;
-        else if (_item == null) State = InteractState.NPC;
-        else State = InteractState.NPC_ITEM;
     }
 }
