@@ -322,12 +322,56 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "left",
-                    "id": "23d3f48b-b5ee-4fff-9847-780822b54f7a",
-                    "path": "<Keyboard>/a",
+                    "name": "WASD",
+                    "id": "4d145ac8-37fd-4575-a647-be022fafc7a0",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "",
+                    "action": "MenuSelect",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "56cdcc73-628e-4bbd-b1a6-61e1f6c4d868",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "up",
+                    "id": "73c09872-9cd4-4978-bdbe-ba93385179fa",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "db10ea5f-63a1-48f7-b6e3-a95721a53bce",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "e6b720af-3310-4e24-8ad5-d21b97cf92f8",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "MenuSelect",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -361,6 +405,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "MenuSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "24e87d9f-555c-4a2b-a34e-929251890111",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "MenuSelect",
                     "isComposite": false,
                     "isPartOfComposite": true
