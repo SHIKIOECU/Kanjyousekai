@@ -4616,6 +4616,7 @@ GameObject:
   - component: {fileID: 1164731401}
   - component: {fileID: 1164731400}
   - component: {fileID: 1164731399}
+  - component: {fileID: 1164731403}
   m_Layer: 0
   m_Name: Gool (1)
   m_TagString: Untagged
@@ -4635,7 +4636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31a11635f5d14e1795ce1b9fbcc9a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toSceneName: TitleScreen
+  _toSceneName: StageSelect
   StageClearImage: {fileID: 1621195244}
   backTitleTime: 3
 --- !u!61 &1164731400
@@ -4731,6 +4732,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1164731403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164731398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eda5a116fc8844d8b04aa86236292ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  challengeflag: {fileID: 11400000, guid: 133b64f034c514e15987d34e1c9c6fc5, type: 2}
 --- !u!114 &1176206507
 MonoBehaviour:
   m_ObjectHideFlags: 0

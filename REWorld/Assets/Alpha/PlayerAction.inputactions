@@ -1,5 +1,5 @@
 {
-    "name": "Alpha",
+    "name": "PlayerAction",
     "maps": [
         {
             "name": "Player",
@@ -312,8 +312,8 @@
                 },
                 {
                     "name": "WASD",
-                    "id": "5efde5b6-f9dc-45ca-a50f-3f294f390fcd",
-                    "path": "2DVector",
+                    "id": "05d30e56-2ecb-43a5-9db4-b64879b8a6a2",
+                    "path": "Dpad",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -322,45 +322,45 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "a4d9b277-295f-4c8a-ab2f-1c978464668c",
-                    "path": "<Keyboard>/w",
+                    "name": "left",
+                    "id": "23d3f48b-b5ee-4fff-9847-780822b54f7a",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "MenuSelect",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "up",
-                    "id": "dc1c52e7-0667-49b9-b4c8-68974801e325",
-                    "path": "<Keyboard>/upArrow",
+                    "name": "left",
+                    "id": "e46dd2a1-5a68-4cb9-9136-e3ddc1e8357b",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "MenuSelect",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
-                    "id": "7c31484c-1acb-4dec-94e9-89913c359a96",
-                    "path": "<Keyboard>/s",
+                    "name": "right",
+                    "id": "c27cf3de-98a2-4638-8e64-c36bbb8f61a5",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "MenuSelect",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
-                    "id": "87b493c2-801f-469d-903e-55433e81a3f0",
-                    "path": "<Keyboard>/downArrow",
+                    "name": "right",
+                    "id": "98b17834-d728-41ae-bb1c-5c6e49febf91",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "MenuSelect",
                     "isComposite": false,
                     "isPartOfComposite": true
