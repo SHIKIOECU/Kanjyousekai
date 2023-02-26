@@ -71,7 +71,7 @@ public class SoundManagerA : MonoBehaviour
         {
             try
             {
-                sounds[0].PlayOneShot(SEClips[(int)SEnumber]);
+                mysounds[0].PlayOneShot(SEClips[(int)SEnumber]);
             }
             catch (System.NullReferenceException NE)
             {
@@ -135,14 +135,14 @@ public class SoundManagerA : MonoBehaviour
             }
             sounds[(int)FrontBGMN].mute = false;
 
-            if((int)FrontBGMN == 1)
+            /*if((int)FrontBGMN == 1)
             {
                 sounds[0].mute = true;
             }
             else
             {
                 sounds[0].mute = false;
-            }
+            }*/
         }
         catch (System.IndexOutOfRangeException IE)
         {
