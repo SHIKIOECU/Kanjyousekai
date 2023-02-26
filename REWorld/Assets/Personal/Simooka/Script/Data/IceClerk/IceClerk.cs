@@ -7,7 +7,7 @@ public class IceClerk : NPCBase,IItem
 {
     public enum IceClerkState
     {
-        STAND, SAEL, HAPPY,
+        STAND,HAPPY,
     }
     public IceClerkState State;
 
@@ -60,7 +60,7 @@ public class IceClerk : NPCBase,IItem
                 _ice.gameObject.SetActive(true);
                 _ice.Rb2D.velocity = new Vector2(_slowSpeed, 0);
                 Animator.SetBool("throwTrigger", true);
-                //Todo:アイスを投げるSEを追加
+                //アイスを投げるSEを追加
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Throw);
                 SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Ice_Wall);
                 SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Sad);
@@ -101,6 +101,7 @@ public class IceClerk : NPCBase,IItem
         {
             coin.SetItemStatus(false);
             _iceFlag.SetItemStatus();
+            State = IceClerkState.HAPPY;
 
             SetNPCData("happy");
 

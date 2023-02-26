@@ -36,9 +36,6 @@ namespace NPC
         //アニメーター
         public Animator Animator;
 
-        private int _wordIndex;
-
-        
 
         public virtual void Start()
         {
@@ -95,15 +92,6 @@ namespace NPC
 
             word = _nPCData.Words[i()].Word;
 
-            //foreach (NPCWord nPCWord in _nPCData.Words)
-            //{
-            //    foreach (Term flag in nPCWord.Terms)
-            //    {
-            //        if (flag.IsCheck==flag.FlagData.IsOn&&nPCWord.Terms.Count>=0) word = nPCWord.Word;
-            //    }
-            //}
-
-            //if (word == null) return _nPCData.Words[0].Word;
             return word;
         }
 
@@ -116,6 +104,7 @@ namespace NPC
             else Words.text = Word(WordTerm);
         }
 
+        #region INPC
         //インターフェースの定義
         public NPCState INPCData => _data;
 
@@ -155,6 +144,7 @@ namespace NPC
             MaskSprite.SetActive(false);
             ChangeWord();
             SoundManagerA.Instance.PlaySE(SoundManagerA.SE_List.Close_World);
-        }        
+        }
+        #endregion
     }
 }

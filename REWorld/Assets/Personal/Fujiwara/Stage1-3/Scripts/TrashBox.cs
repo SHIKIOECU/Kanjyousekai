@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashBox : MonoBehaviour, IItem
+public class TrashBox : InteractMessage, IItem
 {
     // trashの数
     int trashCount;

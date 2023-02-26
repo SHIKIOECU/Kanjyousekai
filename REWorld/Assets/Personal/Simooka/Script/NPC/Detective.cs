@@ -78,8 +78,13 @@ public class Detective : NPCBase,IItem
             if (_rain.IsOn)
             {
                 State = DetectiveState.RAIN_MOVE;
+                ChangeWord();
             }
-            else State = DetectiveState.MOVE;
+            else
+            {
+                State = DetectiveState.MOVE;
+                ChangeWord();
+            }
             Movement();
             Space = transform.position;
         }

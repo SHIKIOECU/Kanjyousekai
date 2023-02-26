@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Money : MonoBehaviour, IItem
+public class Money : InteractMessage, IItem
 {
     [SerializeField]
     private ItemData _money;

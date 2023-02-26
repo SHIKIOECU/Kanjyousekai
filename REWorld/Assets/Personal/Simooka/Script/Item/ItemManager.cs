@@ -12,12 +12,9 @@ public class ItemManager : Singleton<ItemManager>
 
     [SerializeField] private Image _itemImage;
     [SerializeField] private Transform _itemsTransform;
-    [SerializeField] private float _imgRange;
     [SerializeField] private int _size;
     [SerializeField] private List<Image> _images=new List<Image>();
 
-
-    [SerializeField] private ItemData _test;
 
 
     private void Awake()
@@ -26,39 +23,22 @@ public class ItemManager : Singleton<ItemManager>
         {
             _items[x].InitItem();
         }
-
-        for (int i = 0; i < _size; i++)
-        {
-            var I = Instantiate(_itemImage, _itemsTransform);
-            I.transform.position += new Vector3(_imgRange * i, 0, 0);
-            _images.Add(I);
-        }
     }
     // Start is called before the first frame update
     void Start()
     {
-        
-
-        //_itemList.InitFlags();
-
-        //InitItem();
+        for (int i = 0; i < _size; i++)
+        {
+            var I = Instantiate(_itemImage, _itemsTransform);
+            I.rectTransform.anchoredPosition += new Vector2(_itemImage.rectTransform.sizeDelta.x*2 * i, 0);
+            _images.Add(I);
+        }
     }
 
     private void Update()
     {
 
     }
-
-/*    private void InitItem()
-    {
-        for (int i = 0; i < _itemList.Flags.Count; i++)
-        {
-            var data = new ItemData();
-            data.Name = _itemList.Flags[i].name;
-            data.Count = 0;
-            //_items[i].Add(data);
-        }
-    }*/
 
     /// <summary>
     /// itemFlagの名前と同じアイテムデータを追加する
