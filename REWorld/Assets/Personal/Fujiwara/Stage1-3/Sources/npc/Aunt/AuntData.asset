@@ -15,13 +15,14 @@ MonoBehaviour:
   _npcStates:
   - Name: basic
     EmotionalWorldSprite: {fileID: 21300000, guid: 370e1bb7694a34ff38337aac58a0069c, type: 3}
-    Word: 
+    Word: "3\u3064\u306E\u7F36\u3092\u62FE\u3063\u3066\u304A\u304F\u308C\u2026"
     NPCFlag: {fileID: 11400000, guid: 3b6476813b45a429bbf59b4155c7f611, type: 2}
   - Name: happy
     EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
-    Word: 
+    Word: "\u5168\u90E8\u62FE\u3063\u3066\u304F\u308C\u3066\u3042\u308A\u304C\u3068\u3046"
     NPCFlag: {fileID: 11400000, guid: 96b634bb3f9d04f27a89ede7015c0bdc, type: 2}
   Words:
-  - Faze: 
-    Word: Sadge
-    Terms: []
+  - Faze: basic
+    Word: "3\u3064\u306E\u7F36\u3092\u62FE\u3063\u3066\u304A\u304F\u308C\u2026"
+  - Faze: happy
+    Word: "\u5168\u90E8\u62FE\u3063\u3066\u304F\u308C\u3066\u3042\u308A\u304C\u3068\u3046"

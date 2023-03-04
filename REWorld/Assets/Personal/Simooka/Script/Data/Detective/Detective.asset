@@ -15,7 +15,7 @@ MonoBehaviour:
   _npcStates:
   - Name: basic
     EmotionalWorldSprite: {fileID: 0}
-    Word: coin
+    Word: "\u304A\u91D1\u3092\u8FD4\u305B\u3001\u9B54\u7269\u3081\uFF01"
     NPCFlag: {fileID: 11400000, guid: 19a1c24f85c334898a3c9e46cd4909f9, type: 2}
   - Name: move
     EmotionalWorldSprite: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
     NPCFlag: {fileID: 11400000, guid: 1b9eb52ec0c9b4b40b08c84406937c32, type: 2}
   Words:
   - Faze: SERCH
-    Word: "\u9B54\u7269\u306F\u3069\u3053\u3060\uFF1F"
+    Word: "\u65E9\u304F\u898B\u3064\u3051\u306A\u304D\u3083\u2026"
   - Faze: MOVE
     Word: "\u9B54\u7269\u304C\u6D88\u3048\u308B\u524D\u306B\uFF01\uFF01"
   - Faze: RAIN_STAND
