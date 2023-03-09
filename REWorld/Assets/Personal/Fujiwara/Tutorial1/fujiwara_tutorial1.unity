@@ -2945,9 +2945,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 034a157379de04066bfc5c16d2c105aa, type: 2}
     - target: {fileID: 1573369216848795628, guid: 78c3ae6187c0e30409c4d35b5cc507a1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573369216848795628, guid: 78c3ae6187c0e30409c4d35b5cc507a1, type: 3}
       propertyPath: m_MoveAction
       value: 
-      objectReference: {fileID: -8291578553228737634, guid: 989b475debab9404682ebb7bae6bb5b0, type: 3}
+      objectReference: {fileID: -3996496771213292887, guid: 989b475debab9404682ebb7bae6bb5b0, type: 3}
     - target: {fileID: 1573369216848795628, guid: 78c3ae6187c0e30409c4d35b5cc507a1, type: 3}
       propertyPath: m_PointAction
       value: 
@@ -2955,11 +2959,11 @@ PrefabInstance:
     - target: {fileID: 1573369216848795628, guid: 78c3ae6187c0e30409c4d35b5cc507a1, type: 3}
       propertyPath: m_CancelAction
       value: 
-      objectReference: {fileID: -1164151220987594613, guid: 989b475debab9404682ebb7bae6bb5b0, type: 3}
+      objectReference: {fileID: -4561906141706102401, guid: 989b475debab9404682ebb7bae6bb5b0, type: 3}
     - target: {fileID: 1573369216848795628, guid: 78c3ae6187c0e30409c4d35b5cc507a1, type: 3}
       propertyPath: m_SubmitAction
       value: 
-      objectReference: {fileID: -2664592929104075893, guid: 989b475debab9404682ebb7bae6bb5b0, type: 3}
+      objectReference: {fileID: 6036582415481359334, guid: 989b475debab9404682ebb7bae6bb5b0, type: 3}
     - target: {fileID: 1573369216848795628, guid: 78c3ae6187c0e30409c4d35b5cc507a1, type: 3}
       propertyPath: m_LeftClickAction
       value: 
@@ -3911,7 +3915,19 @@ MonoBehaviour:
     m_ActionId: 884f1c20-1137-4679-ad64-681b76d1871e
     m_ActionName: Player/MenuSelect[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1068687107}
+        m_TargetAssemblyTypeName: Input_HUD, Assembly-CSharp
+        m_MethodName: OnMenuSubmit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6f50f1a1-5364-4b77-9cf8-320f7920abfc
     m_ActionName: Player/MenuSub[/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
