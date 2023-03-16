@@ -32,6 +32,7 @@ public class UI_MenuButton : Singleton<UI_MenuButton>
         //_nowNum = Mathf.Clamp(_nowNum, 0, _buttons.Length - 1);
         if (_nowNum < 0) _nowNum = 0;
         else if (_nowNum >= _buttons.Length) _nowNum = _buttons.Length - 1;
+        Debug.Log(_buttons.Length);
         _buttons[_nowNum].Select();
     }
 

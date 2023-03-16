@@ -312,17 +312,6 @@
                 },
                 {
                     "name": "WASD",
-                    "id": "05d30e56-2ecb-43a5-9db4-b64879b8a6a2",
-                    "path": "Dpad",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MenuSelect",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "WASD",
                     "id": "4d145ac8-37fd-4575-a647-be022fafc7a0",
                     "path": "2DVector",
                     "interactions": "",

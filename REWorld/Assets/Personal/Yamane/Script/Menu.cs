@@ -54,6 +54,7 @@ public class Menu : Singleton<Menu>
         _menuScreen.SetActive(false);
         _menuScreenButton.SetActive(true);
 
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
