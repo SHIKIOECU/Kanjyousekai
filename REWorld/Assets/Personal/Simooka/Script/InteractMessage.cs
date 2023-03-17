@@ -10,7 +10,7 @@ public class InteractMessage : MonoBehaviour
     public Sprite NPCButtonSprite;
     public string ItemMessage;
     public Sprite ItemButtonSprite;
-    [System.NonSerialized]public Vector2 Space;
+    [HideInInspector]public Vector2 Space;
     #endregion
 
     void Awake()

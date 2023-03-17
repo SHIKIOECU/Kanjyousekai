@@ -9,39 +9,32 @@ public class IceClerk : NPCBase,IItem
     {
         STAND,HAPPY,
     }
-    public IceClerkState State;
+    [Header("現在の状態")] public IceClerkState State;
 
-    //アイス
-    [SerializeField]
-    private Ice _ice;
+    [Header("アイス")]
+    [SerializeField] private Ice _ice;
 
-    // アイスのオブジェクト
-    [SerializeField] private GameObject _iceObj;
+    [SerializeField,Tooltip("アイスのオブジェクト")] private GameObject _iceObj;
 
-    // BigIceAnimeの取得
-    [SerializeField] bigIceAnime _iceScr;
+    //BigIceAnimeの取得
+    [SerializeField, Tooltip("アイスのアニメーション")] private bigIceAnime _iceScr;
 
-    //アイテムフラグ（アイス）
-    [SerializeField]
-    private ItemData _iceFlag;
+    [SerializeField, Tooltip("フラグ")] private ItemData _iceFlag;
 
-    //投げる速度
-    [SerializeField]
-    private float _slowSpeed;
+    [Tooltip("アイスの初期位置")] private Vector3 _basicIcePosition = new Vector3(2.2f, -2.5f, 0.1f);
 
-    //アイテムフラグ（コイン）
-    [SerializeField]
-    private ItemData coin;
+    [Header("コイン")]
+    [SerializeField, Tooltip("フラグ")] private ItemData _coin;
+
+    [Header("挙動")]
+    [SerializeField, Tooltip("アイスを投げる速度")] private float _slowSpeed;
 
     //ジャンプできるようになったかどうか
     public bool jumping = false;
 
-    //上昇したジャンプ力
-    [SerializeField]
-    private float jumpPowerUp;
+    [SerializeField,Tooltip("喜んでいる時のジャンプ力")] private float _jumpPowerUp;
 
-    // アイスの初期位置
-    Vector3 basicIcePosition = new Vector3(2.2f, -2.5f, 0.1f);
+    
 
     public override int WordTerm()
     {
@@ -71,7 +64,7 @@ public class IceClerk : NPCBase,IItem
                 Animator.SetBool("jumpTrigger", true);
                 jumping = true;
                 _ice.gameObject.SetActive(false);
-                PlayerMove.Instance.jumpPower = jumpPowerUp;
+                PlayerMove.Instance.jumpPower = _jumpPowerUp;
                 SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Happy);
                 break;
 
@@ -84,7 +77,7 @@ public class IceClerk : NPCBase,IItem
         Animator.SetBool("throwTrigger", false);
         Animator.SetBool("jumpTrigger", false);
         //アイスの動作
-        _iceObj.transform.position = basicIcePosition;
+        _iceObj.transform.position = _basicIcePosition;
         _iceScr.fallSpeed = 0.0f;
         _iceScr.isMelt = false;
         _iceScr.countDown = _iceScr.timeToMelt;
@@ -97,9 +90,9 @@ public class IceClerk : NPCBase,IItem
     public void ItemAction()
     {
         //Coinを参照してフラグを切り替える
-        if (coin.IsOn&&INPCData.Name!="happy")
+        if (_coin.IsOn&&INPCData.Name!="happy")
         {
-            coin.SetItemStatus(false);
+            _coin.SetItemStatus(false);
             _iceFlag.SetItemStatus();
             State = IceClerkState.HAPPY;
 

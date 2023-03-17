@@ -17,8 +17,9 @@ public class ItemManager : Singleton<ItemManager>
 
 
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         for (int x = 0; x < _items.Count; x++)
         {
             _items[x].InitItem();

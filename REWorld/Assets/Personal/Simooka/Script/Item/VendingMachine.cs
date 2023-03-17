@@ -12,7 +12,7 @@ public class VendingMachine : InteractMessage,IItem
 
     public void ItemAction()
     {
-        if (_coin.IsOn&&_ice.IsOn)
+        if (_coin.IsOn)
         {
             _coin.SetItemStatus(false);
             _drink.SetItemStatus();
