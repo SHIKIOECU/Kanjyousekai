@@ -122,7 +122,9 @@ public class Input_HUD : MonoBehaviour
                         PlayerAnimator.instance.SetMove(false);
                         _playerMove.move = Vector2.zero;
                         //メニューを出現させる
+                        Debug.Log(Menu.Instance,Menu.Instance);
                         Menu.Instance.MenuScreen();
+                        Debug.Log("MENUFAZE2:OK");
                         GameState.Instance.ChangeState(GameState.State.Pause);
                         break;
                     case GameState.State.Pause:

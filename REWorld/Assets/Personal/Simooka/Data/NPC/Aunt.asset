@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
-  m_Name: GirlData
+  m_Name: Aunt
   m_EditorClassIdentifier: 
-  _npcStates:
+  _normalWords:
+  - Faze: SADGE
+    Word: "\u30B4\u30DF\u304C\u591A\u3044\u306D\u3047..."
+  - Faze: HAPPY
+    Word: "\u3042\u308A\u304C\u3068\u3046\uFF01"
+  _observationalWorld:
   - Name: basic
     EmotionalWorldSprite: {fileID: 0}
-    Word: 
-    NPCFlag: {fileID: 11400000, guid: 9d6d53e71398c49c0bd303038c6b8254, type: 2}
+    Word: "\u30B4\u3001\u30B4\u30DF\u304C\u3041..."
   - Name: happy
     EmotionalWorldSprite: {fileID: 0}
-    Word: 
-    NPCFlag: {fileID: 11400000, guid: ddae3e7400c934c8aa17f978bc2f5587, type: 2}
-  Words:
-  - Faze: 
-    Word: 
-    Terms: []
+    Word: "\u3042\u308A\u304C\u3068\u306D\u301C"

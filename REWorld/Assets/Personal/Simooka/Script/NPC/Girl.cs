@@ -37,16 +37,12 @@ public class Girl : NPCBase,IItem
                 SoundManagerA.Instance.ChangeBGM(SoundManagerA.BGM_List.Sad);
                 playerWalk_Sound.InstanceWalk.WalkSE_Change(playerWalk_Sound.WalkSE_List.Rain);
                 //探偵を雨宿りさせる
-                detective.SetNPCData("move");
-                detective.IsSetPos = false;
-                detective.moved = false;
-                detective.Animator.SetBool("isRaining", true);
+                detective.SetMovement(true);
                 break;
             //喜んでいる場合
             case "happy":
                 _rain.SetFlagStatus(false);
-                detective.IsSetPos = false;
-                detective.moved = false;
+                detective.SetMovement();
                 //虹を出現させる
                 _rainbow.SetActive(true);
                 //Todo:虹を出現させるSEを追加

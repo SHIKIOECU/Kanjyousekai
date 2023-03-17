@@ -12,7 +12,7 @@ namespace NPC
         private NPCState _data = new NPCState();
 
         //NPCData
-        [SerializeField]
+        [Header("NPCのデータ"),SerializeField]
         private NPCData _nPCData;
 
         //マスクスプライト
@@ -33,7 +33,7 @@ namespace NPC
         [Header("セリフのデータ"),SerializeField]
         private WordData _wordData;
 
-        //アニメーター
+        [Header("アニメーター"),HideInInspector]
         public Animator Animator;
 
 
@@ -55,17 +55,21 @@ namespace NPC
         //NPCのフラグを初期化
         public void InitNPCData()
         {
-            foreach (NPCState npc in _nPCData.NPCStates)
-            {
-                npc.NPCFlag.InitFlag();
-            }
+            //foreach (NPCState npc in _nPCData.ObservationalWorld)
+            //{
+            //    npc.NPCFlag.InitFlag();
+            //}
             SetNPCData("basic");
         }
 
-        //NPCの状態を変更する
+        /// <summary>
+        /// NPCの状態を変更する
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
         public void SetNPCData(string name, bool value = true)
         {
-            foreach (NPCState npc in _nPCData.NPCStates)
+            foreach (NPCState npc in _nPCData.ObservationalWorld)
             {
                 if (npc.Name == name)
                 {
@@ -75,9 +79,10 @@ namespace NPC
                         //_data.NPCFlag.SetFlagStatus(false);
                         _data = npc;
                     }
-                    npc.NPCFlag.SetFlagStatus(value);
+                    //npc.NPCFlag.SetFlagStatus(value);
                     return;
                 }
+                Debug.LogErrorFormat("{0}に{1}は存在しません", _nPCData.name,name);
             }
         }
 
@@ -90,7 +95,7 @@ namespace NPC
         {
             string word;
 
-            word = _nPCData.Words[i()].Word;
+            word = _nPCData.NormalWords[i()].Word;
 
             return word;
         }

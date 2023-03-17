@@ -5,53 +5,50 @@ using NPC;
 
 public class Detective : NPCBase,IItem
 {
+    //探偵の状態
     public enum DetectiveState
     {
-        SERCH, MOVE,
-        RAIN_STAND, RAIN_MOVE,
-        INSUFFICIENTMOISTURE,
-        GRATITUDE,
+        SEARCH,                  //自販機の下を探す
+        MOVE,                   //移動
+        RAIN_STAND,             //雨やどり
+        RAIN_MOVE,              //降雨時の移動
+        INSUFFICIENTMOISTURE,   //水分不足
+        GRATITUDE,              //感謝
     }
-    public DetectiveState State;
+    [Header("現在の状態")]public DetectiveState State;
 
-    //コイン
-    [Header("コイン"),SerializeField]
-    private Coin _coin;
+    [Header("コイン")]
+    [SerializeField, Tooltip("関連するコイン")] private Coin _coin;
+    [SerializeField,Tooltip("フラグデータ")] private ItemData _coinFlag;
 
-    //アイテム（コイン）フラグ
-    [SerializeField]
-    private ItemData _coinFlag;
-
-    //雨フラグ
-    [Header("雨"),SerializeField]
-    private FlagData _rain;
+    [Header("雨"), SerializeField,Tooltip("フラグデータ")] private FlagData _rain;
 
     [Header("水分不足")]
-    [SerializeField] private ItemData _iceFlag;
-    [SerializeField] private ItemData _drinkFlag;
+    [SerializeField, Tooltip("フラグデータ")] private ItemData _iceFlag;
+    [SerializeField, Tooltip("フラグデータ")] private ItemData _drinkFlag;
 
     [Header("感謝")]
-    [SerializeField] private float _playerJumpPower;
+    [SerializeField, Tooltip("上昇したプレイヤーのジャンプ力")] private float _playerJumpPower;
 
-    [Header("移動関連")]
+    [Header("移動")]
+    [SerializeField, Tooltip("移動速度")] private float _speed = 0.1f;
     //最初の地点
     private Vector3 _startPoint;
-    //移動地点
-    [SerializeField]
-    private GameObject _toObject;
+    [SerializeField, Tooltip("目的地")] private GameObject _toObject;
 
-    //NPCの移動速度
-    [SerializeField]
-    private float _speed = 0.1f;
 
     //移動に必要な情報
-    //位置、情報、位置情報のセットしたかどうか、動き終わったかどうか、移動時間
-    private Vector3 _nowPos;
-    private Vector3 _toPos;
-    private Vector3 _coinPos;
-    public bool IsSetPos = false;
-    public bool moved = false;
-    public float _currentTime;
+    private Vector3 _nowPos;        //現在の位置
+    private Vector3 _toPos;         //目的地の位置
+    private Vector3 _coinPos;       //コインの位置
+    [HideInInspector] public bool IsSetPos = false;
+    [HideInInspector] public bool moved = false;
+    [HideInInspector]public float _currentTime;
+
+    public override int WordTerm()
+    {
+        return (int)State;
+    }
 
     public override void Start()
     {
@@ -62,29 +59,19 @@ public class Detective : NPCBase,IItem
 
     private void Update()
     {
-        if (State == DetectiveState.GRATITUDE) return;
-
-        //水分不足
-        if ((_coinFlag.IsOn && _iceFlag.IsOn)||_drinkFlag.IsOn)
+        if (State == DetectiveState.GRATITUDE)
         {
-            State = DetectiveState.INSUFFICIENTMOISTURE;
+            ChangeWord();
             return;
         }
+
+      
 
         //動き終わっていない時
         if (!moved)
         {
-
-            if (_rain.IsOn)
-            {
-                State = DetectiveState.RAIN_MOVE;
-                ChangeWord();
-            }
-            else
-            {
-                State = DetectiveState.MOVE;
-                ChangeWord();
-            }
+            State = _rain.IsOn ? DetectiveState.RAIN_MOVE : DetectiveState.MOVE;
+            ChangeWord();
             Movement();
             Space = transform.position;
         }
@@ -101,23 +88,16 @@ public class Detective : NPCBase,IItem
 
 
         //位置情報の更新
-        if (State==DetectiveState.RAIN_MOVE && !IsSetPos)
+        if (!IsSetPos)
         {
             _currentTime = 0;
             _nowPos = transform.position;
-            _toPos = _toObject.transform.position;
+            _toPos = _rain.IsOn ? _toObject.transform.position : _startPoint;
+            State = _rain.IsOn ? DetectiveState.RAIN_MOVE : DetectiveState.MOVE;
             IsSetPos = true;
             Animator.SetBool("isMoving", true);
-            //Debug.Log("MOVE");
-        }
-        if (State==DetectiveState.MOVE && !IsSetPos)
-        {
-            _currentTime = 0;
-            _nowPos = transform.position;
-            _toPos = _startPoint;
-            IsSetPos = true;
-            Animator.SetBool("isMoving", true);
-            //Debug.Log("STOP");
+            SetNPCData("move");
+            ChangeWord();
         }
 
         //位置情報を使い動かせる
@@ -131,12 +111,36 @@ public class Detective : NPCBase,IItem
                 IsSetPos = false;
                 moved = true;
                 Animator.SetBool("isMoving", false);
+                State = _rain.IsOn ? DetectiveState.RAIN_STAND : DetectiveState.SEARCH;
+
+                //水分不足
+                if (_coin.isGet&&State==DetectiveState.SEARCH)
+                {
+                    State = DetectiveState.INSUFFICIENTMOISTURE;
+                    SetNPCData("insufficientMoisture");
+                    ChangeWord();
+                    return;
+                }
+
+                var NPCData = _rain.IsOn ? "move" : "basic";
+                SetNPCData(NPCData);
+                ChangeWord();
+
+
             }
             //Debug.Log("FIN");
         }
 
         //コインを元の場所に固定する
         _coin.gameObject.transform.position = _coinPos;
+    }
+
+    public void SetMovement(bool rain=false)
+    {
+        //if (rain) State = DetectiveState.RAIN_MOVE;
+        IsSetPos = false;
+        moved = false;
+        Animator.SetBool("isRaining", rain);
     }
 
 

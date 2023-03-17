@@ -19,28 +19,32 @@ public class Menu : Singleton<Menu>
     [SerializeField]
     string _titleName;
 
-    private void Awake()
+    public override void Awake()
     {
-        _menuScreen.SetActive(true);
+        base.Awake();
+        //_menuScreen.SetActive(true);
+        _menuScreen.SetActive(false);
+        _menuScreenButton.SetActive(true);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _menuScreen.SetActive(false);
-        _menuScreenButton.SetActive(true);
+        //_menuScreen.SetActive(false);
+        //_menuScreenButton.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void MenuScreen()
     {
         _menuScreen.SetActive(true);
         _menuScreenButton.SetActive(false);
+        Debug.Log(_menuScreen.activeInHierarchy);
     }
 
     public void MenuCancel()
@@ -54,7 +58,6 @@ public class Menu : Singleton<Menu>
         _menuScreen.SetActive(false);
         _menuScreenButton.SetActive(true);
 
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

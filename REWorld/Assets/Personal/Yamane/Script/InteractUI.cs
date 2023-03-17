@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractUI : MonoBehaviour
 {
     [SerializeField]
-    FlagData _flagData;
+    ItemData _itemData;
 
     [SerializeField]
     SpriteRenderer sp;
@@ -21,7 +21,7 @@ public class InteractUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGet = _flagData.IsOn;
+        isGet = _itemData.IsOn;
 
         if(isGet == true)
         {
