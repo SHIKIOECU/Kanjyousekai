@@ -72,10 +72,10 @@ public class ButtonController : Singleton<ButtonController>
         switch (nowPage)
         {
             case 0:
-                fade.StartFade("fujiwara_tutorial1");
+                fade.StartFade("Stage1");
                 break;
             case 1:
-                fade.StartFade("FinalStage1");
+                fade.StartFade("Stage2");
                 break;
         }
     }

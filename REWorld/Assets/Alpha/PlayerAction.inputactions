@@ -422,6 +422,17 @@
                 },
                 {
                     "name": "",
+                    "id": "512ad04f-79fe-4274-a4af-9bd883592c34",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuSub",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "781aa437-ed79-45a5-832b-cf06b4bed4fa",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",

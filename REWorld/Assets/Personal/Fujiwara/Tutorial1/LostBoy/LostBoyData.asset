@@ -12,27 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65945d24e82b849d1bbe89e796e91eb5, type: 3}
   m_Name: LostBoyData
   m_EditorClassIdentifier: 
-  _npcStates:
+  _normalWords:
+  - Faze: BASIC
+    Word: "\u3071\u3071\u3041\uFF01\uFF01"
+  _observationalWorld:
   - Name: basic
     EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
-    Word: "\u3042!\u3048...\u304A\u5916\u3060\u3051\u3069"
-    NPCFlag: {fileID: 11400000, guid: b7f19521cf78541c1a658f4d11e5d93a, type: 2}
+    Word: "\u3042\uFF01\u3048...\u304A\u5916\u3060\u3051\u3069"
   - Name: lost
     EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
-    Word: "\u3069\u3053\u306A\u306E\u30D1\u30D1\u3041!"
-    NPCFlag: {fileID: 11400000, guid: 9d6d53e71398c49c0bd303038c6b8254, type: 2}
+    Word: "\u3069\u3053\u306A\u306E\u3071\u3071\u3041\uFF01"
   - Name: lock
     EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
-    Word: "\u3046\u3045...\u3072\u3063\u3050...\u3047\u3046"
-    NPCFlag: {fileID: 11400000, guid: 27cdb0dc7f18d4a769626b2cd86717cb, type: 2}
+    Word: "\u3046\u3045\u2026\u3072\u3063\u3050...\u3047\u3046"
   - Name: reunion
     EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
-    Word: "\u30E0\u30B9\u30B3...\u3000\u30D1\u30D1!"
-    NPCFlag: {fileID: 11400000, guid: e73ddf15beafa4bc689153a4f2ca72bc, type: 2}
+    Word: "\u30E0\u30B9\u30B3...\u3000\u3000\u30D1\u30D1\uFF01"
   - Name: power
     EmotionalWorldSprite: {fileID: 21300000, guid: 7bb8803ee21bd4022bf4f25dd5b84262, type: 3}
-    Word: "\u4FFA\u305F\u3061\u306F\u3000\u3075\u305F\u308A\u3067\u3072\u3068\u3064!"
-    NPCFlag: {fileID: 11400000, guid: 180418dafba9e4bddb6086ed84d3ea95, type: 2}
-  Words:
-  - Faze: 
-    Word: "\u3042!\u3048...\u304A\u5916\u3060\u3051\u3069"
+    Word: "\u4FFA\u305F\u3061\u306F\u3000\u4E8C\u4EBA\u3067\u4E00\u3064"
